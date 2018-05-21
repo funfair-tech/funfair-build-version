@@ -140,7 +140,7 @@ namespace BuildVersion
             string refs = File.ReadAllText(".git/HEAD")
                 .Trim();
 
-            //Console.WriteLine($"Build Prefix: {refs}");
+            Console.WriteLine($"Branch from Git head: {refs}");
 
             const string prefix = "ref: refs/heads/";
 
@@ -149,6 +149,7 @@ namespace BuildVersion
 
         private static string ExtractBranchFromTeamCityBranchSpec(string branch)
         {
+            Console.WriteLine($"Branch from Teamcity: {branch}");
             string branchRef = branch.Trim();
 
             const string branchRefPrefix = "refs/heads/";
