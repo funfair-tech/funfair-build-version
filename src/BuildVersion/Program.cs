@@ -16,7 +16,7 @@ namespace BuildVersion
         private const string RELEASE_PREFIX = "release/";
         private const string HOTFIX_PREFIX = "hotfix/";
 
-        public static int Main()
+        public static int Main(params string[] args)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace BuildVersion
                 List<string> branches = FindBranches();
 
                 string currentBranch = FindCurrentBranch();
-                int buildNumber = FindBuildNumber();
+                int buildNumber = FindBuildNumber(args.FirstOrDefault());
                 Console.WriteLine($">>>>>> Current branch: {currentBranch}");
                 Console.WriteLine($">>>>>> Current Build number: {buildNumber}");
 
@@ -157,8 +157,12 @@ namespace BuildVersion
             return branchRef;
         }
 
-        private static int FindBuildNumber()
+        private static int FindBuildNumber(string buildNumberFromCommandLine)
         {
+            if (!string.IsNullOrWhiteSpace(buildNumberFromCommandLine))
+                if (int.TryParse(buildNumberFromCommandLine, out int build) && build >= 0)
+                    return build;
+
             string buildNumber = Environment.GetEnvironmentVariable(@"BUILD_NUMBER");
             if (!string.IsNullOrWhiteSpace(buildNumber))
                 if (int.TryParse(buildNumber, out int build) && build >= 0)
