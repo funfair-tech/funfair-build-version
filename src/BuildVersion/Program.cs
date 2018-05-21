@@ -73,7 +73,7 @@ namespace BuildVersion
         {
             string usedSuffix = BuildPreReleaseSuffix(currentBranch);
 
-            Console.WriteLine("Build Pre-Release Suffix: {usedSuffix}");
+            Console.WriteLine($"Build Pre-Release Suffix: {usedSuffix}");
 
             Version version = new Version(latest.Version.Major, latest.Version.Minor, latest.Version.Build + 1, buildNumber);
 
