@@ -129,10 +129,17 @@ namespace BuildVersion
         private static string FindCurrentBranch()
         {
             string branch = Environment.GetEnvironmentVariable(@"GIT_BRANCH");
-            if (!string.IsNullOrWhiteSpace(branch)) return branch.Trim();
+
+            if (!string.IsNullOrWhiteSpace(branch))
+            {
+                Console.WriteLine($"GIT_BRANCH: {branch}");
+                return branch.Trim();
+            }
 
             string refs = File.ReadAllText(".git/HEAD")
                 .Trim();
+
+            Console.WriteLine($"Build Prefix: {refs}");
 
             const string prefix = "ref: refs/heads/";
 
