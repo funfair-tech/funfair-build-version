@@ -130,20 +130,31 @@ namespace BuildVersion
         {
             string branch = Environment.GetEnvironmentVariable(@"GIT_BRANCH");
 
-            if (!string.IsNullOrWhiteSpace(branch))
-            {
-                Console.WriteLine($"GIT_BRANCH: {branch}");
-                return branch.Trim();
-            }
+            if (!string.IsNullOrWhiteSpace(branch)) return ExtractBranchFromTeamCityBranchSpec(branch);
 
+            return ExtractBranchFromGitHead();
+        }
+
+        private static string ExtractBranchFromGitHead()
+        {
             string refs = File.ReadAllText(".git/HEAD")
                 .Trim();
 
-            Console.WriteLine($"Build Prefix: {refs}");
+            //Console.WriteLine($"Build Prefix: {refs}");
 
             const string prefix = "ref: refs/heads/";
 
             return refs.Substring(prefix.Length);
+        }
+
+        private static string ExtractBranchFromTeamCityBranchSpec(string branch)
+        {
+            string branchRef = branch.Trim();
+
+            const string branchRefPrefix = "refs/heads/";
+            if (branchRef.StartsWith(branchRefPrefix, StringComparison.OrdinalIgnoreCase)) branchRef = branchRef.Substring(branchRefPrefix.Length);
+
+            return branchRef;
         }
 
         private static int FindBuildNumber()
