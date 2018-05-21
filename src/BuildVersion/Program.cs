@@ -160,13 +160,17 @@ namespace BuildVersion
         private static int FindBuildNumber(string buildNumberFromCommandLine)
         {
             if (!string.IsNullOrWhiteSpace(buildNumberFromCommandLine))
-                if (int.TryParse(buildNumberFromCommandLine, out int build) && build >= 0)
-                    return build;
+            {
+                Console.WriteLine($"Build number from command line: {buildNumberFromCommandLine}");
+                if (int.TryParse(buildNumberFromCommandLine, out int build) && build >= 0) return build;
+            }
 
             string buildNumber = Environment.GetEnvironmentVariable(@"BUILD_NUMBER");
             if (!string.IsNullOrWhiteSpace(buildNumber))
-                if (int.TryParse(buildNumber, out int build) && build >= 0)
-                    return build;
+            {
+                Console.WriteLine($"Build number from TeamCity: {buildNumberFromCommandLine}");
+                if (int.TryParse(buildNumber, out int build) && build >= 0) return build;
+            }
 
             return 0;
         }
