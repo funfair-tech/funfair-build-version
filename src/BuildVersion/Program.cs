@@ -82,6 +82,12 @@ namespace BuildVersion
 
             if (string.IsNullOrWhiteSpace(usedSuffix)) usedSuffix = "prerelease";
 
+            const int maxSuffixLength = 20;
+            if (usedSuffix.Length > maxSuffixLength)
+            {
+                usedSuffix = usedSuffix.Substring(0, maxSuffixLength);
+            }
+
             Console.WriteLine("Build Pre-Release Suffix: {usedSuffix}");
 
             Version version = new Version(latest.Version.Major, latest.Version.Minor, latest.Version.Build + 1, buildNumber);
@@ -93,6 +99,7 @@ namespace BuildVersion
         {
             Console.WriteLine($"Version: {version}");
             Console.WriteLine($"##teamcity[buildNumber '{version}']");
+            Console.WriteLine($"##teamcity[setParameter name='system.build.version' value='{version}']");
         }
 
         private static NuGetVersion ExtractVersion(string branch, int buildNumber)
