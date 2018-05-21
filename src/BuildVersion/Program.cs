@@ -71,6 +71,17 @@ namespace BuildVersion
 
         private static NuGetVersion BuildPreReleaseVersion(NuGetVersion latest, string currentBranch, int buildNumber)
         {
+            string usedSuffix = BuildPreReleaseSuffix(currentBranch);
+
+            Console.WriteLine("Build Pre-Release Suffix: {usedSuffix}");
+
+            Version version = new Version(latest.Version.Major, latest.Version.Minor, latest.Version.Build + 1, buildNumber);
+
+            return new NuGetVersion(version, usedSuffix);
+        }
+
+        private static string BuildPreReleaseSuffix(string currentBranch)
+        {
             StringBuilder suffix = new StringBuilder(currentBranch);
             foreach (char ch in currentBranch.Where(c => !char.IsLetterOrDigit(c))
                 .Distinct()) suffix.Replace(ch, '-');
@@ -83,16 +94,9 @@ namespace BuildVersion
             if (string.IsNullOrWhiteSpace(usedSuffix)) usedSuffix = "prerelease";
 
             const int maxSuffixLength = 20;
-            if (usedSuffix.Length > maxSuffixLength)
-            {
-                usedSuffix = usedSuffix.Substring(0, maxSuffixLength);
-            }
+            if (usedSuffix.Length > maxSuffixLength) usedSuffix = usedSuffix.Substring(0, maxSuffixLength);
 
-            Console.WriteLine("Build Pre-Release Suffix: {usedSuffix}");
-
-            Version version = new Version(latest.Version.Major, latest.Version.Minor, latest.Version.Build + 1, buildNumber);
-
-            return new NuGetVersion(version, usedSuffix);
+            return usedSuffix;
         }
 
         private static void ApplyVersion(NuGetVersion version)
