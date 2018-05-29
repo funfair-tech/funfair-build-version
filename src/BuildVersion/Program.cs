@@ -22,7 +22,6 @@ namespace BuildVersion
             {
                 Console.WriteLine($"{typeof(Program).Namespace} {ExecutableVersionInformation.ProgramVersion()}");
 
-                List<string> branches = FindBranches();
 
                 string currentBranch = FindCurrentBranch();
                 int buildNumber = FindBuildNumber(args.FirstOrDefault());
@@ -42,6 +41,7 @@ namespace BuildVersion
                     return SUCCESS;
                 }
 
+                List<string> branches = FindBranches();
                 NuGetVersion latest = new NuGetVersion("0.0.0.0");
                 foreach (string branch in branches)
                 {
@@ -187,12 +187,15 @@ namespace BuildVersion
 
         private static List<string> FindBranches()
         {
+            FetchLatest();
+
+            Console.WriteLine("Enumerating branches...");
             List<string> branches = new List<string>();
             ProcessStartInfo psi = new ProcessStartInfo("git.exe", "branch --remote") {RedirectStandardOutput = true, CreateNoWindow = true};
 
             using (Process p = Process.Start(psi))
             {
-                if (p == null) throw new Exception($"ERROR: Could not execute git");
+                if (p == null) throw new Exception($"ERROR: Could not execute {psi.FileName} {psi.Arguments}");
 
                 StreamReader s = p.StandardOutput;
                 while (!s.EndOfStream)
@@ -207,6 +210,17 @@ namespace BuildVersion
             }
 
             return branches;
+        }
+
+        private static void FetchLatest()
+        {
+            Console.WriteLine("Fetching latest list of branches...");
+            ProcessStartInfo psi = new ProcessStartInfo("git.exe", "fetch") {CreateNoWindow = true};
+            using (Process p = Process.Start(psi))
+            {
+                if (p == null) throw new Exception($"ERROR: Could not execute {psi.FileName} {psi.Arguments}");
+                p.WaitForExit();
+            }
         }
 
         private static string ExtractBranch(string line)
