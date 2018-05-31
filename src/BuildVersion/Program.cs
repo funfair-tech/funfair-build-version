@@ -186,8 +186,6 @@ namespace BuildVersion
 
         private static List<string> FindBranches()
         {
-            FetchLatest();
-
             Console.WriteLine("Enumerating branches...");
             List<string> branches = new List<string>();
             ProcessStartInfo psi = new ProcessStartInfo("git.exe", "branch --remote") {RedirectStandardOutput = true, CreateNoWindow = true};
@@ -209,20 +207,6 @@ namespace BuildVersion
             }
 
             return branches;
-        }
-
-        private static void FetchLatest()
-        {
-            Console.WriteLine("Fetching latest list of branches...");
-            ProcessStartInfo psi = new ProcessStartInfo("git.exe", "fetch origin -v") {RedirectStandardOutput = true, CreateNoWindow = true};
-            using (Process p = Process.Start(psi))
-            {
-                if (p == null) throw new Exception($"ERROR: Could not execute {psi.FileName} {psi.Arguments}");
-
-                StreamReader s = p.StandardOutput;
-                while (!s.EndOfStream) Console.WriteLine(p.StandardOutput.ReadLine());
-                p.WaitForExit();
-            }
         }
 
         private static string ExtractBranch(string line)
