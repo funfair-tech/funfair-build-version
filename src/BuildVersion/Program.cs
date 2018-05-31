@@ -215,10 +215,15 @@ namespace BuildVersion
         private static void FetchLatest()
         {
             Console.WriteLine("Fetching latest list of branches...");
-            ProcessStartInfo psi = new ProcessStartInfo("git.exe", "fetch") {CreateNoWindow = true};
+            ProcessStartInfo psi = new ProcessStartInfo("git.exe", "fetch origin -v") {CreateNoWindow = true};
             using (Process p = Process.Start(psi))
             {
                 if (p == null) throw new Exception($"ERROR: Could not execute {psi.FileName} {psi.Arguments}");
+                StreamReader s = p.StandardOutput;
+                while (!s.EndOfStream)
+                {
+                    Console.WriteLine(p.StandardOutput.ReadLine());
+                }
                 p.WaitForExit();
             }
         }
