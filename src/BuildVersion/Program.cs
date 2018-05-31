@@ -22,7 +22,6 @@ namespace BuildVersion
             {
                 Console.WriteLine($"{typeof(Program).Namespace} {ExecutableVersionInformation.ProgramVersion()}");
 
-
                 string currentBranch = FindCurrentBranch();
                 int buildNumber = FindBuildNumber(args.FirstOrDefault());
                 Console.WriteLine($">>>>>> Current branch: {currentBranch}");
@@ -215,15 +214,13 @@ namespace BuildVersion
         private static void FetchLatest()
         {
             Console.WriteLine("Fetching latest list of branches...");
-            ProcessStartInfo psi = new ProcessStartInfo("git.exe", "fetch origin -v") {CreateNoWindow = true};
+            ProcessStartInfo psi = new ProcessStartInfo("git.exe", "fetch origin -v") {RedirectStandardOutput = true, CreateNoWindow = true};
             using (Process p = Process.Start(psi))
             {
                 if (p == null) throw new Exception($"ERROR: Could not execute {psi.FileName} {psi.Arguments}");
+
                 StreamReader s = p.StandardOutput;
-                while (!s.EndOfStream)
-                {
-                    Console.WriteLine(p.StandardOutput.ReadLine());
-                }
+                while (!s.EndOfStream) Console.WriteLine(p.StandardOutput.ReadLine());
                 p.WaitForExit();
             }
         }
