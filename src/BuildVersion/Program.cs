@@ -134,7 +134,7 @@ namespace BuildVersion
 
         private static NuGetVersion ExtractVersionFromPrefix(string branch, int buildNumber, string prefix)
         {
-            if (branch.StartsWith(prefix))
+            if (branch.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
             {
                 string version = branch.Substring(prefix.Length);
 
@@ -274,7 +274,7 @@ namespace BuildVersion
 
             const string originPrefix = "origin/";
 
-            if (branch.StartsWith(originPrefix))
+            if (branch.StartsWith(originPrefix, StringComparison.OrdinalIgnoreCase))
             {
                 return branch.Substring(originPrefix.Length);
             }
