@@ -1,0 +1,4 @@
+[ver:1,total:660]
+src/BuildVersion/BuildVersion.csproj:300,1530723600:240,1530727200:60,m
+src/BuildVersion/Program.cs:240,1530723600:240,m
+src/CodeAnalysis.ruleset:120,1530723600:120,r
