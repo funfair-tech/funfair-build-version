@@ -60,6 +60,10 @@
         <Rule Id="CA1819" Action="Hidden"/>
 
         <Rule Id="CA1821" Action="Warning"/>
+
+        <!-- Do not use Enumerable methods on indexable collections.  Use the collection directly -->
+        <Rule Id="CA1826" Action="Hidden"/>
+
         <Rule Id="CA1900" Action="Warning"/>
         <Rule Id="CA1901" Action="Warning"/>
         <Rule Id="CA2002" Action="Warning"/>
