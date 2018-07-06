@@ -240,7 +240,7 @@ namespace BuildVersion
             {
                 if (p == null)
                 {
-                    throw new Exception($"ERROR: Could not execute {psi.FileName} {psi.Arguments}");
+                    throw new FileNotFoundException($"ERROR: Could not execute {psi.FileName} {psi.Arguments}");
                 }
 
                 StreamReader s = p.StandardOutput;
