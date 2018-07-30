@@ -3,6 +3,11 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp2.0</TargetFramework>
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+        <WarningsAsErrors/>
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+        <LangVersion>latest</LangVersion>
+        <Features>strict</Features>
     </PropertyGroup>
     <PropertyGroup>
         <CodeAnalysisRuleSet>$(SolutionDir)\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
