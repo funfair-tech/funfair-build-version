@@ -15,3 +15,9 @@ indent_size=2
 
 [{*.sol}]
 indent_brace_style=K&R
+
+[{*.csproj}]
+indent_size=2
+
+[{*.xml}]
+indent_size=2
