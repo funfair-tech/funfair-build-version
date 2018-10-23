@@ -16,7 +16,7 @@ namespace BuildVersion
         private const string RELEASE_PREFIX = @"release/";
         private const string HOTFIX_PREFIX = @"hotfix/";
 
-        private const string PULL_REQUEST_PREFIX = @"/refs/pull/";
+        private const string PULL_REQUEST_PREFIX = @"refs/pull/";
         private const string PULL_REQUEST_SUFFIX = @"/head";
 
         public static int Main(params string[] args)
