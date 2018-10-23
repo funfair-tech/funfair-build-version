@@ -117,6 +117,9 @@ namespace BuildVersion
                 usedSuffix = usedSuffix.Substring(startIndex: 0, maxSuffixLength);
             }
 
+            // Ensure that the name doesn't end with a -
+            usedSuffix = usedSuffix.TrimEnd(trimChar: '-');
+
             return usedSuffix;
         }
 
@@ -134,19 +137,21 @@ namespace BuildVersion
 
         private static NuGetVersion ExtractVersionFromPrefix(string branch, int buildNumber, string prefix)
         {
-            if (branch.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+            if (!branch.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
             {
-                string version = branch.Substring(prefix.Length);
-
-                if (NuGetVersion.TryParse(version, out NuGetVersion baseLine))
-                {
-                    Version dv = new Version(revision: buildNumber, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
-
-                    return new NuGetVersion(dv);
-                }
+                return null;
             }
 
-            return null;
+            string version = branch.Substring(prefix.Length);
+
+            if (!NuGetVersion.TryParse(version, out NuGetVersion baseLine))
+            {
+                return null;
+            }
+
+            Version dv = new Version(revision: buildNumber, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
+
+            return new NuGetVersion(dv);
         }
 
         private static string FindCurrentBranch()
