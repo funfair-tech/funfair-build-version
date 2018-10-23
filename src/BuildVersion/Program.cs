@@ -16,6 +16,9 @@ namespace BuildVersion
         private const string RELEASE_PREFIX = "release/";
         private const string HOTFIX_PREFIX = "hotfix/";
 
+        private const string PULL_REQUEST_PREFIX = "refs/pull/";
+        private const string PULL_REQUEST_SUFFIX = "/head";
+
         public static int Main(params string[] args)
         {
             try
@@ -92,12 +95,21 @@ namespace BuildVersion
 
         private static string BuildPreReleaseSuffix(string currentBranch)
         {
+            if (currentBranch.StartsWith(PULL_REQUEST_PREFIX, StringComparison.Ordinal) && currentBranch.EndsWith(PULL_REQUEST_SUFFIX, StringComparison.Ordinal))
+            {
+                currentBranch = currentBranch.Substring(PULL_REQUEST_PREFIX.Length);
+                currentBranch = currentBranch.Substring(startIndex: 0, currentBranch.Length - PULL_REQUEST_SUFFIX.Length);
+                currentBranch = @"pull-request-" + currentBranch;
+            }
+
             StringBuilder suffix = new StringBuilder(currentBranch);
 
-            foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c))
+            const char replacmentChar = '-';
+
+            foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c) && c != replacmentChar)
                 .Distinct())
             {
-                suffix.Replace(ch, newChar: '-');
+                suffix.Replace(ch, newChar: replacmentChar);
             }
 
             suffix.Replace(oldValue: "--", newValue: "-");
