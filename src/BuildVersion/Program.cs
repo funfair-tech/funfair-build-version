@@ -13,11 +13,11 @@ namespace BuildVersion
         private const int SUCCESS = 0;
         private const int ERROR = 1;
 
-        private const string RELEASE_PREFIX = "release/";
-        private const string HOTFIX_PREFIX = "hotfix/";
+        private const string RELEASE_PREFIX = @"release/";
+        private const string HOTFIX_PREFIX = @"hotfix/";
 
-        private const string PULL_REQUEST_PREFIX = "refs/pull/";
-        private const string PULL_REQUEST_SUFFIX = "/head";
+        private const string PULL_REQUEST_PREFIX = @"refs/pull/";
+        private const string PULL_REQUEST_SUFFIX = @"/head";
 
         public static int Main(params string[] args)
         {
@@ -47,7 +47,7 @@ namespace BuildVersion
                 }
 
                 List<string> branches = FindBranches();
-                NuGetVersion latest = new NuGetVersion(version: "0.0.0.0");
+                NuGetVersion latest = new NuGetVersion(version: @"0.0.0.0");
 
                 foreach (string branch in branches)
                 {
@@ -109,7 +109,7 @@ namespace BuildVersion
             foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c) && c != replacmentChar)
                 .Distinct())
             {
-                suffix.Replace(ch, newChar: replacmentChar);
+                suffix.Replace(ch, replacmentChar);
             }
 
             suffix.Replace(oldValue: "--", newValue: "-");
@@ -119,7 +119,7 @@ namespace BuildVersion
 
             if (string.IsNullOrWhiteSpace(usedSuffix))
             {
-                usedSuffix = "prerelease";
+                usedSuffix = @"prerelease";
             }
 
             const int maxSuffixLength = 20;
