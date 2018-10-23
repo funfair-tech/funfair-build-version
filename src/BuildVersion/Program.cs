@@ -16,7 +16,7 @@ namespace BuildVersion
         private const string RELEASE_PREFIX = @"release/";
         private const string HOTFIX_PREFIX = @"hotfix/";
 
-        private const string PULL_REQUEST_PREFIX = @"refs/pull/";
+        private const string PULL_REQUEST_PREFIX = @"/refs/pull/";
         private const string PULL_REQUEST_SUFFIX = @"/head";
 
         public static int Main(params string[] args)
@@ -95,10 +95,15 @@ namespace BuildVersion
 
         private static string BuildPreReleaseSuffix(string currentBranch)
         {
-            if (currentBranch.StartsWith(PULL_REQUEST_PREFIX, StringComparison.Ordinal) && currentBranch.EndsWith(PULL_REQUEST_SUFFIX, StringComparison.Ordinal))
+            if (currentBranch.StartsWith(PULL_REQUEST_PREFIX, StringComparison.Ordinal))
             {
                 currentBranch = currentBranch.Substring(PULL_REQUEST_PREFIX.Length);
-                currentBranch = currentBranch.Substring(startIndex: 0, currentBranch.Length - PULL_REQUEST_SUFFIX.Length);
+
+                if (currentBranch.EndsWith(PULL_REQUEST_SUFFIX, StringComparison.Ordinal))
+                {
+                    currentBranch = currentBranch.Substring(startIndex: 0, currentBranch.Length - PULL_REQUEST_SUFFIX.Length);
+                }
+
                 currentBranch = @"pull-request-" + currentBranch;
             }
 
