@@ -21,13 +21,17 @@
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
 <!-- Note that you can just click these after submission and it will remember the tick for you -->
 
-- [ ] Docs change / refactoring / dependency upgrade
+- [ ] Docs change
+- [ ] Refactoring
+- [ ] Dpendency upgrade
+- [ ] Additional Unit Tests\Integration Tests
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
-- [ ] Requires deployment configuration changes as specified below and in CHANGELOG.md
 
 ### Deployment Configuration Changes
+
+- [ ] Requires deployment configuration changes as specified below and in CHANGELOG.md
 
 <!--- Insert Deployment configuration changes here -->
 
