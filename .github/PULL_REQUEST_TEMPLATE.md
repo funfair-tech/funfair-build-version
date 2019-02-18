@@ -23,7 +23,7 @@
 
 - [ ] Docs change
 - [ ] Refactoring
-- [ ] Dpendency upgrade
+- [ ] Dependency upgrade
 - [ ] Additional Unit Tests\Integration Tests
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
@@ -40,8 +40,10 @@
 <!--- Go over all the following points, and put an `x` in all the boxes once they are true. -->
 <!-- Note that you can just click these after submission and it will remember the tick for you -->
 
-- [ ] There are no Resharper errors anywhere in the solution.
-- [ ] I have run a code cleanup on any files I have modified to make sure they are in the correct format.
+- [ ] There are no Resharper\static code analysis errors anywhere in the solution.
+- [ ] I have run a code clean-up on any files I have modified to make sure they are in the correct format.
 - [ ] I have added tests to cover my changes.
+- [ ] All new/modified code has sufficient logging to be able to diagnose what is wrong.
 - [ ] All new and existing tests passed.
+- [ ] All new/modified public interfaces/classes have are documented with xmldoc comments.
 - [ ] Unreleased section of CHANGELOG.md has been updated with details of this PR
