@@ -1,3 +1,6 @@
+# Editor configuration, see http://editorconfig.org
+root = true
+
 [*]
 charset=utf-8
 end_of_line=crlf
@@ -21,3 +24,10 @@ indent_size=2
 
 [{*.xml}]
 indent_size=2
+
+[*.sql]
+indent_size=2
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
