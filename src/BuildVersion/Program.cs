@@ -32,7 +32,7 @@ namespace BuildVersion
 
                 if (IsReleaseBranch(currentBranch))
                 {
-                    NuGetVersion version = ExtractVersion(currentBranch, buildNumber);
+                    NuGetVersion? version = ExtractVersion(currentBranch, buildNumber);
 
                     if (version == null)
                     {
@@ -55,7 +55,7 @@ namespace BuildVersion
 
                     if (IsReleaseBranch(branch))
                     {
-                        NuGetVersion version = ExtractVersion(branch, buildNumber);
+                        NuGetVersion? version = ExtractVersion(branch, buildNumber);
 
                         if (version != null)
                         {
@@ -147,12 +147,12 @@ namespace BuildVersion
             Console.WriteLine($"##teamcity[setParameter name='system.build.version' value='{version}']");
         }
 
-        private static NuGetVersion ExtractVersion(string branch, int buildNumber)
+        private static NuGetVersion? ExtractVersion(string branch, int buildNumber)
         {
             return ExtractVersionFromPrefix(branch, buildNumber, RELEASE_PREFIX) ?? ExtractVersionFromPrefix(branch, buildNumber, HOTFIX_PREFIX);
         }
 
-        private static NuGetVersion ExtractVersionFromPrefix(string branch, int buildNumber, string prefix)
+        private static NuGetVersion? ExtractVersionFromPrefix(string branch, int buildNumber, string prefix)
         {
             if (!branch.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
             {
@@ -161,7 +161,7 @@ namespace BuildVersion
 
             string version = branch.Substring(prefix.Length);
 
-            if (!NuGetVersion.TryParse(version, out NuGetVersion baseLine))
+            if (!NuGetVersion.TryParse(version, out NuGetVersion? baseLine))
             {
                 return null;
             }
@@ -173,7 +173,7 @@ namespace BuildVersion
 
         private static string FindCurrentBranch()
         {
-            string branch = Environment.GetEnvironmentVariable(variable: @"GIT_BRANCH");
+            string? branch = Environment.GetEnvironmentVariable(variable: @"GIT_BRANCH");
 
             if (!string.IsNullOrWhiteSpace(branch))
             {
@@ -222,7 +222,7 @@ namespace BuildVersion
                 }
             }
 
-            string buildNumber = Environment.GetEnvironmentVariable(variable: @"BUILD_NUMBER");
+            string? buildNumber = Environment.GetEnvironmentVariable(variable: @"BUILD_NUMBER");
 
             if (!string.IsNullOrWhiteSpace(buildNumber))
             {
@@ -269,9 +269,9 @@ namespace BuildVersion
 
                 while (!s.EndOfStream)
                 {
-                    string line = p.StandardOutput.ReadLine();
+                    string? line = p.StandardOutput.ReadLine();
 
-                    string branch = ExtractBranch(line);
+                    string? branch = ExtractBranch(line);
 
                     if (!string.IsNullOrWhiteSpace(branch))
                     {
@@ -285,8 +285,13 @@ namespace BuildVersion
             return branches;
         }
 
-        private static string ExtractBranch(string line)
+        private static string? ExtractBranch(string? line)
         {
+            if (string.IsNullOrWhiteSpace(line))
+            {
+                return null;
+            }
+
             string branch = line.Trim();
 
             if (line.StartsWith(value: "origin/HEAD ", StringComparison.OrdinalIgnoreCase))
