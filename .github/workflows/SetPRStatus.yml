@@ -1,0 +1,12 @@
+on: pull_request
+name: Pull Request Status Checks
+jobs:
+  pRStatusGiphy:
+    name: PR Status Giphy
+    runs-on: ubuntu-latest
+    steps:
+    - name: PR Status Giphy
+      uses: jzweifel/pr-status-giphy-action@master
+      env:
+        GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
