@@ -165,16 +165,18 @@
     <Rule Id="SA1609" Action="Warning" />
   </Rules>
     <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
-        <Rule Id="S125" Action="None"/> <!-- Commented out code -->
+        <Rule Id="S125" Action="None"/>
+        <!-- Commented out code -->
         <Rule Id="S1075" Action="None"/>
         <Rule Id="S1066" Action="None"/>
         <Rule Id="S1118" Action="None"/>
-        <Rule Id="S1135" Action="Info"/> <!-- TODO' -->
+        <Rule Id="S1135" Action="Info"/>
+        <!-- TODO' -->
         <Rule Id="S1168" Action="None"/>
-		<Rule Id="S1450" Action="None"/>
-		<Rule Id="S1764" Action="None"/>
-		<Rule Id="S1854" Action="None"/>
-		<Rule Id="S2326" Action="None"/>
+        <Rule Id="S1450" Action="None"/>
+        <Rule Id="S1764" Action="None"/>
+        <Rule Id="S1854" Action="None"/>
+        <Rule Id="S2326" Action="None"/>
         <Rule Id="S2344" Action="Error"/>
         <Rule Id="S2365" Action="None"/>
         <Rule Id="S2368" Action="None"/>
@@ -183,10 +185,11 @@
         <Rule Id="S3442" Action="None"/>
         <Rule Id="S3459" Action="None"/>
         <Rule Id="S3925" Action="None"/>
-		<Rule Id="S3963" Action="None"/>
-		<Rule Id="S4035" Action="None"/>
-		<Rule Id="S4070" Action="None"/>
-		<Rule Id="S4275" Action="None"/>
+        <Rule Id="S3963" Action="None"/>
+        <Rule Id="S4035" Action="None"/>
+        <Rule Id="S4136" Action="None"/>
+        <Rule Id="S4070" Action="None"/>
+        <Rule Id="S4275" Action="None"/>
         <Rule Id="S4457" Action="None"/>
     </Rules>
 </RuleSet>
