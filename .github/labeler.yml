@@ -3,11 +3,14 @@
     - src/**/*.csproj
 
 "SQL":
-    - db/*
+    - db/**/*
     - tools/**/*.sql
 
 "unit-tests":
-    - src/*.tests.*/*
+    - src/*.Tests.*/**/*
+    - src/*.Tests.Integration.*/**/*
+    - src/*.Tests/**/*
+    - src/*.Tests.Integration/**/*
 
 ".NET update": 
     - src/global.json
@@ -19,11 +22,10 @@
     - src/CodeAnalysis.ruleset
 
 "Migration Script": 
-    - tools/MigrationScripts/*
+    - tools/MigrationScripts/**/*
 
 "Legal Text":
-    - tools/LegalText/*
-
+    - tools/LegalText/**/*
 
 "Change Log":
     - CHANGELOG.md
