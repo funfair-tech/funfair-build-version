@@ -193,7 +193,14 @@
         <Rule Id="S4457" Action="None"/>
     </Rules>
     <Rules AnalyzerId="FunFair.CodeAnalysis" RuleNamespace="FunFair.CodeAnalysis">
+        <Rule Id="FFS0001" Action="Error"/>
+        <Rule Id="FFS0002" Action="Error"/>
+        <Rule Id="FFS0003" Action="Error"/>
+        <Rule Id="FFS0004" Action="Error"/>
+        <Rule Id="FFS0005" Action="Error"/>
+        <Rule Id="FFS0006" Action="Error"/>
+        <Rule Id="FFS0007" Action="Error"/>
         <!-- Use of non-whitelisted #pragma warning -->
-        <Rule Id="FFS0008" Action="None"/>
+        <Rule Id="FFS0008" Action="Error"/>
     </Rules>
 </RuleSet>
