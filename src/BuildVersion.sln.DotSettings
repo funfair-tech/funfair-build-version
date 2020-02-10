@@ -324,5 +324,19 @@
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Ethereum/@EntryIndexedValue">True</s:Boolean>
         <s:Boolean x:Key="/Default/UserDictionary/Words/=Trulioo/@EntryIndexedValue">True</s:Boolean>
         <s:Boolean x:Key="/Default/UserDictionary/Words/=Yoti/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Blockchain/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Mainnet/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Novichok/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Rinkeby/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Kovan/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Bracknell/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Ropsten/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Morden/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Goerli/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Maxmind/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=Changelly/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=testnet/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=nonces/@EntryIndexedValue">True</s:Boolean>
+        <s:Boolean x:Key="/Default/UserDictionary/Words/=nonce/@EntryIndexedValue">True</s:Boolean>
 </wpf:ResourceDictionary>
 	
