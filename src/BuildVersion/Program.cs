@@ -257,7 +257,7 @@ namespace BuildVersion
         {
             Console.WriteLine(value: "Enumerating branches...");
             List<string> branches = new List<string>();
-            ProcessStartInfo psi = new ProcessStartInfo(fileName: "git.exe", arguments: "branch --remote") {RedirectStandardOutput = true, CreateNoWindow = true};
+            ProcessStartInfo psi = new ProcessStartInfo(fileName: "git", arguments: "branch --remote") {RedirectStandardOutput = true, CreateNoWindow = true};
 
             using (Process p = Process.Start(psi))
             {
