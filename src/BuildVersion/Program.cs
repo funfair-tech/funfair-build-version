@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
+using LibGit2Sharp;
 using NuGet.Versioning;
+using Version = System.Version;
 
 namespace BuildVersion
 {
@@ -25,54 +25,40 @@ namespace BuildVersion
             {
                 Console.WriteLine($"{typeof(Program).Namespace} {ExecutableVersionInformation.ProgramVersion()}");
 
-                string currentBranch = FindCurrentBranch();
-                int buildNumber = FindBuildNumber(args.FirstOrDefault());
-                Console.WriteLine($">>>>>> Current branch: {currentBranch}");
-                Console.WriteLine($">>>>>> Current Build number: {buildNumber}");
+                string workDir = Environment.CurrentDirectory;
 
-                if (IsReleaseBranch(currentBranch))
+                using (Repository repo = OpenRepository(workDir))
                 {
-                    NuGetVersion? version = ExtractVersion(currentBranch, buildNumber);
+                    string currentBranch = FindCurrentBranch(repo);
+                    int buildNumber = FindBuildNumber(args.FirstOrDefault());
+                    Console.WriteLine($">>>>>> Current branch: {currentBranch}");
+                    Console.WriteLine($">>>>>> Current Build number: {buildNumber}");
 
-                    if (version == null)
+                    if (IsReleaseBranch(currentBranch))
                     {
-                        Console.WriteLine($"Could not determine version number for {currentBranch}");
+                        NuGetVersion? version = ExtractVersion(currentBranch, buildNumber);
 
-                        return ERROR;
+                        if (version == null)
+                        {
+                            Console.WriteLine($"Could not determine version number for {currentBranch}");
+
+                            return ERROR;
+                        }
+
+                        ApplyVersion(version);
+
+                        return SUCCESS;
                     }
 
-                    ApplyVersion(version);
+                    NuGetVersion latest = DetermineLatestReleaseFromPreviousReleaseBranches(repo, buildNumber);
+
+                    Console.WriteLine($"Latest Release Version: {latest}");
+
+                    NuGetVersion newVersion = BuildPreReleaseVersion(latest, currentBranch, buildNumber);
+                    ApplyVersion(newVersion);
 
                     return SUCCESS;
                 }
-
-                List<string> branches = FindBranches();
-                NuGetVersion latest = new NuGetVersion(version: @"0.0.0.0");
-
-                foreach (string branch in branches)
-                {
-                    Console.WriteLine($" * => {branch}");
-
-                    if (IsReleaseBranch(branch))
-                    {
-                        NuGetVersion? version = ExtractVersion(branch, buildNumber);
-
-                        if (version != null)
-                        {
-                            if (latest < version)
-                            {
-                                latest = version;
-                            }
-                        }
-                    }
-                }
-
-                Console.WriteLine($"Latest Release Version: {latest}");
-
-                NuGetVersion newVersion = BuildPreReleaseVersion(latest, currentBranch, buildNumber);
-                ApplyVersion(newVersion);
-
-                return SUCCESS;
             }
             catch (Exception exception)
             {
@@ -80,6 +66,39 @@ namespace BuildVersion
 
                 return ERROR;
             }
+        }
+
+        private static NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(Repository repo, int buildNumber)
+        {
+            List<string> branches = FindBranches(repo);
+            NuGetVersion latest = new NuGetVersion(version: @"0.0.0.0");
+
+            foreach (string branch in branches)
+            {
+                Console.WriteLine($" * => {branch}");
+
+                if (IsReleaseBranch(branch))
+                {
+                    NuGetVersion? version = ExtractVersion(branch, buildNumber);
+
+                    if (version != null)
+                    {
+                        if (latest < version)
+                        {
+                            latest = version;
+                        }
+                    }
+                }
+            }
+
+            return latest;
+        }
+
+        private static Repository OpenRepository(string workDir)
+        {
+            string found = Repository.Discover(workDir);
+
+            return new Repository(found);
         }
 
         private static NuGetVersion BuildPreReleaseVersion(NuGetVersion latest, string currentBranch, int buildNumber)
@@ -109,12 +128,12 @@ namespace BuildVersion
 
             StringBuilder suffix = new StringBuilder(currentBranch);
 
-            const char replacmentChar = '-';
+            const char replacementChar = '-';
 
-            foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c) && c != replacmentChar)
+            foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c) && c != replacementChar)
                                              .Distinct())
             {
-                suffix.Replace(ch, replacmentChar);
+                suffix.Replace(ch, replacementChar);
             }
 
             suffix.Replace(oldValue: "--", newValue: "-");
@@ -172,7 +191,7 @@ namespace BuildVersion
             return new NuGetVersion(dv);
         }
 
-        private static string FindCurrentBranch()
+        private static string FindCurrentBranch(Repository repo)
         {
             string? branch = Environment.GetEnvironmentVariable(variable: @"GIT_BRANCH");
 
@@ -181,19 +200,12 @@ namespace BuildVersion
                 return ExtractBranchFromTeamCityBranchSpec(branch);
             }
 
-            return ExtractBranchFromGitHead();
+            return ExtractBranchFromGitHead(repo);
         }
 
-        private static string ExtractBranchFromGitHead()
+        private static string ExtractBranchFromGitHead(Repository repository)
         {
-            string refs = File.ReadAllText(path: ".git/HEAD")
-                              .Trim();
-
-            Console.WriteLine($"Branch from Git head: {refs}");
-
-            const string prefix = "ref: refs/heads/";
-
-            return refs.Substring(prefix.Length);
+            return repository.Head.FriendlyName;
         }
 
         private static string ExtractBranchFromTeamCityBranchSpec(string branch)
@@ -253,53 +265,16 @@ namespace BuildVersion
             return false;
         }
 
-        private static List<string> FindBranches()
+        private static List<string> FindBranches(Repository repository)
         {
             Console.WriteLine(value: "Enumerating branches...");
-            List<string> branches = new List<string>();
-            ProcessStartInfo psi = new ProcessStartInfo(fileName: "git.exe", arguments: "branch --remote") {RedirectStandardOutput = true, CreateNoWindow = true};
 
-            using (Process p = Process.Start(psi))
-            {
-                if (p == null)
-                {
-                    throw new FileNotFoundException($"ERROR: Could not execute {psi.FileName} {psi.Arguments}");
-                }
-
-                StreamReader s = p.StandardOutput;
-
-                while (!s.EndOfStream)
-                {
-                    string? line = p.StandardOutput.ReadLine();
-
-                    string? branch = ExtractBranch(line);
-
-                    if (!string.IsNullOrWhiteSpace(branch))
-                    {
-                        branches.Add(branch);
-                    }
-                }
-
-                p.WaitForExit();
-            }
-
-            return branches;
+            return repository.Branches.Select(selector: b => ExtractBranch(b.FriendlyName))
+                             .ToList();
         }
 
-        private static string? ExtractBranch(string? line)
+        private static string ExtractBranch(string branch)
         {
-            if (string.IsNullOrWhiteSpace(line))
-            {
-                return null;
-            }
-
-            string branch = line.Trim();
-
-            if (line.StartsWith(value: "origin/HEAD ", StringComparison.OrdinalIgnoreCase))
-            {
-                return null;
-            }
-
             const string originPrefix = "origin/";
 
             if (branch.StartsWith(originPrefix, StringComparison.OrdinalIgnoreCase))
