@@ -112,7 +112,7 @@ namespace BuildVersion
             const char replacmentChar = '-';
 
             foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c) && c != replacmentChar)
-                .Distinct())
+                                             .Distinct())
             {
                 suffix.Replace(ch, replacmentChar);
             }
@@ -120,7 +120,7 @@ namespace BuildVersion
             suffix.Replace(oldValue: "--", newValue: "-");
 
             string usedSuffix = suffix.ToString()
-                .ToLowerInvariant();
+                                      .ToLowerInvariant();
 
             if (string.IsNullOrWhiteSpace(usedSuffix))
             {
@@ -145,6 +145,7 @@ namespace BuildVersion
             Console.WriteLine($"Version: {version}");
             Console.WriteLine($"##teamcity[buildNumber '{version}']");
             Console.WriteLine($"##teamcity[setParameter name='system.build.version' value='{version}']");
+            Console.WriteLine($"::set-env name=BUILD_VERSION::{version}");
         }
 
         private static NuGetVersion? ExtractVersion(string branch, int buildNumber)
@@ -186,7 +187,7 @@ namespace BuildVersion
         private static string ExtractBranchFromGitHead()
         {
             string refs = File.ReadAllText(path: ".git/HEAD")
-                .Trim();
+                              .Trim();
 
             Console.WriteLine($"Branch from Git head: {refs}");
 
