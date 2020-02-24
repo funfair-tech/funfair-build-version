@@ -197,7 +197,14 @@ namespace BuildVersion
 
             if (!string.IsNullOrWhiteSpace(branch))
             {
-                return ExtractBranchFromTeamCityBranchSpec(branch);
+                return ExtractBranchFromBranchSpec(branch);
+            }
+
+            branch = Environment.GetEnvironmentVariable(variable: @"GITHUB_REF");
+
+            if (!string.IsNullOrWhiteSpace(branch))
+            {
+                return ExtractBranchFromBranchSpec(branch);
             }
 
             return ExtractBranchFromGitHead(repo);
@@ -208,9 +215,9 @@ namespace BuildVersion
             return repository.Head.FriendlyName;
         }
 
-        private static string ExtractBranchFromTeamCityBranchSpec(string branch)
+        private static string ExtractBranchFromBranchSpec(string branch)
         {
-            Console.WriteLine($"Branch from Teamcity: {branch}");
+            Console.WriteLine($"Branch from CI: {branch}");
             string branchRef = branch.Trim();
 
             const string branchRefPrefix = "refs/heads/";
