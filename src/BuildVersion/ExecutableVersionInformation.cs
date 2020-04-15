@@ -13,6 +13,7 @@ namespace BuildVersion
         private static string CommonVersion(Type type)
         {
             FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(type.Assembly.Location);
+
             return fileVersionInfo.ProductVersion;
         }
     }
