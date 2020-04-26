@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildVersion", "BuildVersion\BuildVersion.csproj", "{F6B5298E-CEC4-41F1-BFAB-9169AF94CEF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion", "FunFair.BuildVersion\FunFair.BuildVersion.csproj", "{F6B5298E-CEC4-41F1-BFAB-9169AF94CEF4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{B3B55186-1E47-4F04-AC81-46780C151646}"
 ProjectSection(SolutionItems) = preProject

@@ -6,7 +6,7 @@ using LibGit2Sharp;
 using NuGet.Versioning;
 using Version = System.Version;
 
-namespace BuildVersion
+namespace FunFair.BuildVersion
 {
     internal static class Program
     {

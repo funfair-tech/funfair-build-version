@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace BuildVersion
+namespace FunFair.BuildVersion
 {
     internal static class ExecutableVersionInformation
     {
