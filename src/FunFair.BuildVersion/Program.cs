@@ -36,7 +36,7 @@ namespace FunFair.BuildVersion
 
                     if (IsReleaseBranch(currentBranch))
                     {
-                        NuGetVersion? version = ExtractVersion(currentBranch, buildNumber);
+                        NuGetVersion? version = ExtractVersion(branch: currentBranch, buildNumber: buildNumber);
 
                         if (version == null)
                         {
@@ -50,11 +50,11 @@ namespace FunFair.BuildVersion
                         return SUCCESS;
                     }
 
-                    NuGetVersion latest = DetermineLatestReleaseFromPreviousReleaseBranches(repo, buildNumber);
+                    NuGetVersion latest = DetermineLatestReleaseFromPreviousReleaseBranches(repo: repo, buildNumber: buildNumber);
 
                     Console.WriteLine($"Latest Release Version: {latest}");
 
-                    NuGetVersion newVersion = BuildPreReleaseVersion(latest, currentBranch, buildNumber);
+                    NuGetVersion newVersion = BuildPreReleaseVersion(latest: latest, currentBranch: currentBranch, buildNumber: buildNumber);
                     ApplyVersion(newVersion);
 
                     return SUCCESS;
@@ -79,7 +79,7 @@ namespace FunFair.BuildVersion
 
                 if (IsReleaseBranch(branch))
                 {
-                    NuGetVersion? version = ExtractVersion(branch, buildNumber);
+                    NuGetVersion? version = ExtractVersion(branch: branch, buildNumber: buildNumber);
 
                     if (version != null)
                     {
@@ -107,18 +107,18 @@ namespace FunFair.BuildVersion
 
             Console.WriteLine($"Build Pre-Release Suffix: {usedSuffix}");
 
-            Version version = new Version(latest.Version.Major, latest.Version.Minor, latest.Version.Build + 1, buildNumber);
+            Version version = new Version(major: latest.Version.Major, minor: latest.Version.Minor, latest.Version.Build + 1, revision: buildNumber);
 
-            return new NuGetVersion(version, usedSuffix);
+            return new NuGetVersion(version: version, releaseLabel: usedSuffix);
         }
 
         private static string BuildPreReleaseSuffix(string currentBranch)
         {
-            if (currentBranch.StartsWith(PULL_REQUEST_PREFIX, StringComparison.Ordinal))
+            if (currentBranch.StartsWith(value: PULL_REQUEST_PREFIX, comparisonType: StringComparison.Ordinal))
             {
                 currentBranch = currentBranch.Substring(PULL_REQUEST_PREFIX.Length);
 
-                if (currentBranch.EndsWith(PULL_REQUEST_SUFFIX, StringComparison.Ordinal))
+                if (currentBranch.EndsWith(value: PULL_REQUEST_SUFFIX, comparisonType: StringComparison.Ordinal))
                 {
                     currentBranch = currentBranch.Substring(startIndex: 0, currentBranch.Length - PULL_REQUEST_SUFFIX.Length);
                 }
@@ -133,7 +133,7 @@ namespace FunFair.BuildVersion
             foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c) && c != replacementChar)
                                              .Distinct())
             {
-                suffix.Replace(ch, replacementChar);
+                suffix.Replace(oldChar: ch, newChar: replacementChar);
             }
 
             suffix.Replace(oldValue: "--", newValue: "-");
@@ -150,7 +150,7 @@ namespace FunFair.BuildVersion
 
             if (usedSuffix.Length > maxSuffixLength)
             {
-                usedSuffix = usedSuffix.Substring(startIndex: 0, maxSuffixLength);
+                usedSuffix = usedSuffix.Substring(startIndex: 0, length: maxSuffixLength);
             }
 
             // Ensure that the name doesn't end with a -
@@ -169,19 +169,20 @@ namespace FunFair.BuildVersion
 
         private static NuGetVersion? ExtractVersion(string branch, int buildNumber)
         {
-            return ExtractVersionFromPrefix(branch, buildNumber, RELEASE_PREFIX) ?? ExtractVersionFromPrefix(branch, buildNumber, HOTFIX_PREFIX);
+            return ExtractVersionFromPrefix(branch: branch, buildNumber: buildNumber, prefix: RELEASE_PREFIX) ??
+                   ExtractVersionFromPrefix(branch: branch, buildNumber: buildNumber, prefix: HOTFIX_PREFIX);
         }
 
         private static NuGetVersion? ExtractVersionFromPrefix(string branch, int buildNumber, string prefix)
         {
-            if (!branch.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+            if (!branch.StartsWith(value: prefix, comparisonType: StringComparison.OrdinalIgnoreCase))
             {
                 return null;
             }
 
             string version = branch.Substring(prefix.Length);
 
-            if (!NuGetVersion.TryParse(version, out NuGetVersion? baseLine))
+            if (!NuGetVersion.TryParse(value: version, out NuGetVersion? baseLine))
             {
                 return null;
             }
@@ -222,7 +223,7 @@ namespace FunFair.BuildVersion
 
             const string branchRefPrefix = "refs/heads/";
 
-            if (branchRef.StartsWith(branchRefPrefix, StringComparison.OrdinalIgnoreCase))
+            if (branchRef.StartsWith(value: branchRefPrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
             {
                 branchRef = branchRef.Substring(branchRefPrefix.Length);
             }
@@ -236,7 +237,7 @@ namespace FunFair.BuildVersion
             {
                 Console.WriteLine($"Build number from command line: {buildNumberFromCommandLine}");
 
-                if (int.TryParse(buildNumberFromCommandLine, out int build) && build >= 0)
+                if (int.TryParse(s: buildNumberFromCommandLine, out int build) && build >= 0)
                 {
                     return build;
                 }
@@ -248,7 +249,7 @@ namespace FunFair.BuildVersion
             {
                 Console.WriteLine($"Build number from TeamCity: {buildNumberFromCommandLine}");
 
-                if (int.TryParse(buildNumber, out int build) && build >= 0)
+                if (int.TryParse(s: buildNumber, out int build) && build >= 0)
                 {
                     return build;
                 }
@@ -259,12 +260,12 @@ namespace FunFair.BuildVersion
 
         private static bool IsReleaseBranch(string branchName)
         {
-            if (branchName.StartsWith(RELEASE_PREFIX, StringComparison.OrdinalIgnoreCase))
+            if (branchName.StartsWith(value: RELEASE_PREFIX, comparisonType: StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
 
-            if (branchName.StartsWith(HOTFIX_PREFIX, StringComparison.OrdinalIgnoreCase))
+            if (branchName.StartsWith(value: HOTFIX_PREFIX, comparisonType: StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
@@ -284,7 +285,7 @@ namespace FunFair.BuildVersion
         {
             const string originPrefix = "origin/";
 
-            if (branch.StartsWith(originPrefix, StringComparison.OrdinalIgnoreCase))
+            if (branch.StartsWith(value: originPrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
             {
                 return branch.Substring(originPrefix.Length);
             }
