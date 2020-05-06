@@ -10,11 +10,14 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- Replaced PR number in pre-release with Branch name where it can be found.
 
 <!-- 
 Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
 -->
+## [1.9.0] 2020-05-06
+### Changed
+- Replaced PR number in pre-release with Branch name where it can be found.
+
 ## [1.8.0] 2020-04-26
 ### Changed
 - Switched from being a nuget tool to being a dotnet tool
