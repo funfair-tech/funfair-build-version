@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using LibGit2Sharp;
@@ -112,7 +113,7 @@ namespace FunFair.BuildVersion
             return new NuGetVersion(version, usedSuffix);
         }
 
-        private static string BuildPreReleaseSuffix(string currentBranch)
+        private static bool ExtractPullRequestId(string currentBranch, out long pullRequestId)
         {
             if (currentBranch.StartsWith(PULL_REQUEST_PREFIX, StringComparison.Ordinal))
             {
@@ -123,7 +124,19 @@ namespace FunFair.BuildVersion
                     currentBranch = currentBranch.Substring(startIndex: 0, currentBranch.Length - PULL_REQUEST_SUFFIX.Length);
                 }
 
-                currentBranch = @"pull-request-" + currentBranch;
+                return long.TryParse(currentBranch, out pullRequestId);
+            }
+
+            pullRequestId = default;
+
+            return false;
+        }
+
+        private static string BuildPreReleaseSuffix(string currentBranch)
+        {
+            if (ExtractPullRequestId(currentBranch, out long pullRequestId))
+            {
+                currentBranch = @"pull-request-" + pullRequestId.ToString(CultureInfo.InvariantCulture);
             }
 
             StringBuilder suffix = new StringBuilder(currentBranch);
@@ -192,6 +205,32 @@ namespace FunFair.BuildVersion
         }
 
         private static string FindCurrentBranch(Repository repo)
+        {
+            string branch = FindConfiguredBranch(repo);
+            var sha = repo.Head.Tip.Sha;
+            Console.WriteLine($"Head SHA: {sha}");
+
+            if (!ExtractPullRequestId(branch, out long pullRequestId))
+            {
+                return branch;
+            }
+
+            Console.WriteLine($"Pull Request: {pullRequestId}");
+
+            foreach (var candidateBranch in repo.Branches)
+            {
+                if (candidateBranch.FriendlyName != branch && candidateBranch.Tip.Sha == sha)
+                {
+                    Console.WriteLine($"Found Branch for PR {pullRequestId} : candidateBranch.FriendlyName");
+
+                    return candidateBranch.FriendlyName;
+                }
+            }
+
+            return branch;
+        }
+
+        private static string FindConfiguredBranch(Repository repo)
         {
             string? branch = Environment.GetEnvironmentVariable(variable: @"GIT_BRANCH");
 
