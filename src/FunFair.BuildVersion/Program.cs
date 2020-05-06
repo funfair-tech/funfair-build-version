@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using LibGit2Sharp;
@@ -13,12 +14,6 @@ namespace FunFair.BuildVersion
         private const int SUCCESS = 0;
         private const int ERROR = 1;
 
-        private const string RELEASE_PREFIX = @"release/";
-        private const string HOTFIX_PREFIX = @"hotfix/";
-
-        private const string PULL_REQUEST_PREFIX = @"refs/pull/";
-        private const string PULL_REQUEST_SUFFIX = @"/head";
-
         public static int Main(params string[] args)
         {
             try
@@ -29,12 +24,12 @@ namespace FunFair.BuildVersion
 
                 using (Repository repo = OpenRepository(workDir))
                 {
-                    string currentBranch = FindCurrentBranch(repo);
+                    string currentBranch = BranchDiscovery.FindCurrentBranch(repo);
                     int buildNumber = FindBuildNumber(args.FirstOrDefault());
                     Console.WriteLine($">>>>>> Current branch: {currentBranch}");
                     Console.WriteLine($">>>>>> Current Build number: {buildNumber}");
 
-                    if (IsReleaseBranch(currentBranch))
+                    if (BranchClassification.IsReleaseBranch(currentBranch))
                     {
                         NuGetVersion? version = ExtractVersion(branch: currentBranch, buildNumber: buildNumber);
 
@@ -77,7 +72,7 @@ namespace FunFair.BuildVersion
             {
                 Console.WriteLine($" * => {branch}");
 
-                if (IsReleaseBranch(branch))
+                if (BranchClassification.IsReleaseBranch(branch))
                 {
                     NuGetVersion? version = ExtractVersion(branch: branch, buildNumber: buildNumber);
 
@@ -114,16 +109,9 @@ namespace FunFair.BuildVersion
 
         private static string BuildPreReleaseSuffix(string currentBranch)
         {
-            if (currentBranch.StartsWith(value: PULL_REQUEST_PREFIX, comparisonType: StringComparison.Ordinal))
+            if (PullRequest.ExtractPullRequestId(currentBranch: currentBranch, out long pullRequestId))
             {
-                currentBranch = currentBranch.Substring(PULL_REQUEST_PREFIX.Length);
-
-                if (currentBranch.EndsWith(value: PULL_REQUEST_SUFFIX, comparisonType: StringComparison.Ordinal))
-                {
-                    currentBranch = currentBranch.Substring(startIndex: 0, currentBranch.Length - PULL_REQUEST_SUFFIX.Length);
-                }
-
-                currentBranch = @"pull-request-" + currentBranch;
+                currentBranch = @"pull-request-" + pullRequestId.ToString(CultureInfo.InvariantCulture);
             }
 
             StringBuilder suffix = new StringBuilder(currentBranch);
@@ -169,8 +157,8 @@ namespace FunFair.BuildVersion
 
         private static NuGetVersion? ExtractVersion(string branch, int buildNumber)
         {
-            return ExtractVersionFromPrefix(branch: branch, buildNumber: buildNumber, prefix: RELEASE_PREFIX) ??
-                   ExtractVersionFromPrefix(branch: branch, buildNumber: buildNumber, prefix: HOTFIX_PREFIX);
+            return ExtractVersionFromPrefix(branch: branch, buildNumber: buildNumber, prefix: BranchClassification.ReleasePrefix) ??
+                   ExtractVersionFromPrefix(branch: branch, buildNumber: buildNumber, prefix: BranchClassification.HotfixPrefix);
         }
 
         private static NuGetVersion? ExtractVersionFromPrefix(string branch, int buildNumber, string prefix)
@@ -190,45 +178,6 @@ namespace FunFair.BuildVersion
             Version dv = new Version(revision: buildNumber, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
 
             return new NuGetVersion(dv);
-        }
-
-        private static string FindCurrentBranch(Repository repo)
-        {
-            string? branch = Environment.GetEnvironmentVariable(variable: @"GIT_BRANCH");
-
-            if (!string.IsNullOrWhiteSpace(branch))
-            {
-                return ExtractBranchFromBranchSpec(branch);
-            }
-
-            branch = Environment.GetEnvironmentVariable(variable: @"GITHUB_REF");
-
-            if (!string.IsNullOrWhiteSpace(branch))
-            {
-                return ExtractBranchFromBranchSpec(branch);
-            }
-
-            return ExtractBranchFromGitHead(repo);
-        }
-
-        private static string ExtractBranchFromGitHead(Repository repository)
-        {
-            return repository.Head.FriendlyName;
-        }
-
-        private static string ExtractBranchFromBranchSpec(string branch)
-        {
-            Console.WriteLine($"Branch from CI: {branch}");
-            string branchRef = branch.Trim();
-
-            const string branchRefPrefix = "refs/heads/";
-
-            if (branchRef.StartsWith(value: branchRefPrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
-            {
-                branchRef = branchRef.Substring(branchRefPrefix.Length);
-            }
-
-            return branchRef;
         }
 
         private static int FindBuildNumber(string buildNumberFromCommandLine)
@@ -256,21 +205,6 @@ namespace FunFair.BuildVersion
             }
 
             return 0;
-        }
-
-        private static bool IsReleaseBranch(string branchName)
-        {
-            if (branchName.StartsWith(value: RELEASE_PREFIX, comparisonType: StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
-
-            if (branchName.StartsWith(value: HOTFIX_PREFIX, comparisonType: StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
-
-            return false;
         }
 
         private static List<string> FindBranches(Repository repository)
