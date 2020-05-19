@@ -152,7 +152,7 @@ namespace FunFair.BuildVersion
             }
 
             // Ensure that the name doesn't end with a -
-            usedSuffix = usedSuffix.TrimEnd(trimChar: '-');
+            usedSuffix = usedSuffix.Trim(trimChar: '-');
 
             return usedSuffix;
         }
