@@ -142,7 +142,7 @@ namespace FunFair.BuildVersion
                 usedSuffix = @"prerelease";
             }
 
-            const int maxSuffixLength = 20;
+            const int maxSuffixLength = 15;
 
             if (usedSuffix.Length > maxSuffixLength)
             {
