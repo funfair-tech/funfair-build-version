@@ -121,7 +121,7 @@ namespace FunFair.BuildVersion
 
             if (pos != -1)
             {
-                suffix = suffix.Remove(startIndex: 0, length: pos);
+                suffix = suffix.Remove(startIndex: 0, pos + 1);
             }
 
             const char replacementChar = '-';
@@ -135,6 +135,7 @@ namespace FunFair.BuildVersion
             suffix.Replace(oldValue: "--", newValue: "-");
 
             string usedSuffix = suffix.ToString()
+                                      .TrimStart('-')
                                       .ToLowerInvariant();
 
             if (string.IsNullOrWhiteSpace(usedSuffix))
