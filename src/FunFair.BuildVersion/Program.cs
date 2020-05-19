@@ -116,6 +116,14 @@ namespace FunFair.BuildVersion
 
             StringBuilder suffix = new StringBuilder(currentBranch);
 
+            int pos = suffix.ToString()
+                            .IndexOf('/');
+
+            if (pos != -1)
+            {
+                suffix = suffix.Remove(startIndex: 0, length: pos);
+            }
+
             const char replacementChar = '-';
 
             foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c) && c != replacementChar)
