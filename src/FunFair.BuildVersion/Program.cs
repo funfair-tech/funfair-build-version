@@ -135,13 +135,14 @@ namespace FunFair.BuildVersion
             suffix.Replace(oldValue: "--", newValue: "-");
 
             string usedSuffix = suffix.ToString()
-                                      .TrimStart('-')
                                       .ToLowerInvariant();
 
             if (string.IsNullOrWhiteSpace(usedSuffix))
             {
                 usedSuffix = @"prerelease";
             }
+
+            usedSuffix = usedSuffix.TrimStart('-');
 
             const int maxSuffixLength = 15;
 
