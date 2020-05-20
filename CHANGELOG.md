@@ -14,10 +14,13 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 <!-- 
 Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
 -->
+## [1.9.2] 2020-05-20
+### Changed
+- Removed '-feature' prefix from feature branches so can get more content in the name.
+
 ## [1.9.1] 2020-05-19
 ### Changed
 - FF-2386 - Update all the .NET components to .NET Core 3.1.202
-- Removed '-feature' prefix from feature branches so can get more content in the name.
 
 ## [1.9.0] 2020-05-06
 ### Changed
