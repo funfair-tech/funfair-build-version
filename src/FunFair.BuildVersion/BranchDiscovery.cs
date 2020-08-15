@@ -1,5 +1,4 @@
 ﻿using System;
-using LibGit2Sharp;
 
 namespace FunFair.BuildVersion
 {

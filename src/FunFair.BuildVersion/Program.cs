@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using LibGit2Sharp;
-using NuGet.Versioning;
-using Version = System.Version;
 
 namespace FunFair.BuildVersion
 {
