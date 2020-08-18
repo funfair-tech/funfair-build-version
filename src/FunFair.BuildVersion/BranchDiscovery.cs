@@ -8,7 +8,7 @@ namespace FunFair.BuildVersion
         public static string FindCurrentBranch(Repository repo)
         {
             string branch = FindConfiguredBranch(repo);
-            var sha = repo.Head.Tip.Sha;
+            string? sha = repo.Head.Tip.Sha;
             Console.WriteLine($"Head SHA: {sha}");
 
             if (!PullRequest.ExtractPullRequestId(currentBranch: branch, out long pullRequestId))
