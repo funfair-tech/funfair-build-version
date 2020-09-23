@@ -190,7 +190,7 @@ namespace FunFair.BuildVersion
             return new NuGetVersion(dv);
         }
 
-        private static int FindBuildNumber(string buildNumberFromCommandLine)
+        private static int FindBuildNumber(string? buildNumberFromCommandLine)
         {
             if (!string.IsNullOrWhiteSpace(buildNumberFromCommandLine))
             {
