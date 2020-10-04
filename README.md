@@ -2,8 +2,8 @@
 
 Simpler/faster git specific version builder
 
-## Current Version
+## Changelog
 
-0.1.0
+View [changelog](CHANGELOG.md)
 
-
+[CHANGELOG]: ./CHANGELOG.md
