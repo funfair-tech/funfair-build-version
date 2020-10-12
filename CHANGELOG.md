@@ -9,6 +9,7 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 ## [Unreleased]
 ### Added
 ### Fixed
+- PR's on a release or hotfix branch should not be labeled as a release.
 ### Changed
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.14.0.22654
 - FF-1429 - Updated FunFair.CodeAnalysis to 1.14.0.468

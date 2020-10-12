@@ -22,7 +22,12 @@ namespace FunFair.BuildVersion
             {
                 if (candidateBranch.FriendlyName != branch && candidateBranch.Tip.Sha == sha)
                 {
-                    Console.WriteLine($"Found Branch for PR {pullRequestId} : candidateBranch.FriendlyName");
+                    Console.WriteLine($"Found Branch for PR {pullRequestId} : {candidateBranch.FriendlyName}");
+
+                    if (BranchClassification.IsReleaseBranch(candidateBranch.FriendlyName))
+                    {
+                        return "pre-" + candidateBranch.FriendlyName;
+                    }
 
                     return candidateBranch.FriendlyName;
                 }
