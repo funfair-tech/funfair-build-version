@@ -17,6 +17,10 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 <!--
 Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
 -->
+## [1.15.0] 2020-10-12
+### Changed
+- FF-2930 - Updated to .net core 3.1.403
+
 ## [1.14.0] 2020-10-12
 ### Fixed
 - PR's on a release or hotfix branch should not be labeled as a release.
