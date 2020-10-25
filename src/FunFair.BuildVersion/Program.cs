@@ -180,7 +180,7 @@ namespace FunFair.BuildVersion
 
             if (!string.IsNullOrEmpty(env))
             {
-                File.AppendAllLines(path: env, new[] {$"::set-env name=BUILD_VERSION::{version}"});
+                File.AppendAllLines(path: env, new[] {$"BUILD_VERSION={version}"}, encoding: Encoding.UTF8);
             }
         }
 
