@@ -169,6 +169,8 @@ namespace FunFair.BuildVersion
         {
             string? env = Environment.GetEnvironmentVariable("GITHUB_ENV");
 
+            Console.WriteLine($"Github: {env ?? string.Empty}");
+
             if (!string.IsNullOrEmpty(env))
             {
                 File.AppendAllLines(path: env, new[] {$"::set-env name=BUILD_VERSION::{version}"});
@@ -178,6 +180,8 @@ namespace FunFair.BuildVersion
         private static void ApplyTeamCityVersion(NuGetVersion version)
         {
             string? env = Environment.GetEnvironmentVariable("TEAMCITY_VERSION");
+
+            Console.WriteLine($"TeamCity: {env ?? string.Empty}");
 
             if (!string.IsNullOrWhiteSpace(env))
             {
