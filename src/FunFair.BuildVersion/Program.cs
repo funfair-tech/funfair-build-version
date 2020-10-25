@@ -30,6 +30,13 @@ namespace FunFair.BuildVersion
                     Console.WriteLine($">>>>>> Current branch: {currentBranch}");
                     Console.WriteLine($">>>>>> Current Build number: {buildNumber}");
 
+                    if (buildNumber < 0)
+                    {
+                        Console.WriteLine("ERROR: Build number must be positive");
+
+                        return ERROR;
+                    }
+
                     if (BranchClassification.IsReleaseBranch(currentBranch))
                     {
                         NuGetVersion? version = ExtractVersion(branch: currentBranch, buildNumber: buildNumber);
