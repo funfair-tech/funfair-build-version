@@ -21,7 +21,7 @@
     <Company>FunFair</Company>
     <Authors>$(Company)</Authors>
     <Description>Build versioning tool.</Description>
-    <PackageLicenseUrl>https://github.com/funfair-tech/funfair-build-version/blob/master/LICENSE</PackageLicenseUrl>
+    <License>https://github.com/funfair-tech/funfair-build-version/blob/master/LICENSE</License>
   </PropertyGroup>
   <PropertyGroup>
     <AnalysisLevel>latest</AnalysisLevel>
