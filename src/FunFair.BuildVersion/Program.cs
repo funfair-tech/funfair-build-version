@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using LibGit2Sharp;
@@ -160,9 +161,29 @@ namespace FunFair.BuildVersion
         private static void ApplyVersion(NuGetVersion version)
         {
             Console.WriteLine($"Version: {version}");
-            Console.WriteLine($"##teamcity[buildNumber '{version}']");
-            Console.WriteLine($"##teamcity[setParameter name='system.build.version' value='{version}']");
-            Console.WriteLine($"::set-env name=BUILD_VERSION::{version}");
+            ApplyTeamCityVersion(version);
+            ApplyGithubActionsVersion(version);
+        }
+
+        private static void ApplyGithubActionsVersion(NuGetVersion version)
+        {
+            string? env = Environment.GetEnvironmentVariable("GITHUB_ENV");
+
+            if (!string.IsNullOrEmpty(env))
+            {
+                File.AppendAllLines(path: env, new[] {$"::set-env name=BUILD_VERSION::{version}"});
+            }
+        }
+
+        private static void ApplyTeamCityVersion(NuGetVersion version)
+        {
+            string? env = Environment.GetEnvironmentVariable("TEAMCITY_VERSION");
+
+            if (!string.IsNullOrWhiteSpace(env))
+            {
+                Console.WriteLine($"##teamcity[buildNumber '{version}']");
+                Console.WriteLine($"##teamcity[setParameter name='system.build.version' value='{version}']");
+            }
         }
 
         private static NuGetVersion? ExtractVersion(string branch, int buildNumber)
