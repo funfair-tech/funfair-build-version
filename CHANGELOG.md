@@ -11,18 +11,21 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- FF-1429 - Updated Microsoft.Extensions to 5.0.0
-- FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 16.8.55
-- FF-1429 - Updated FunFair.CodeAnalysis to 1.15.0.542
-- FF-1429 - Updated Microsoft.CodeAnalysis.FxCopAnalyzers to 3.3.1
-- FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 16.8.51
-- Converted to .NET 5.0
 ### Removed
 ### Deployment Changes
 
 <!--
 Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
 -->
+## [2.0.0] 2020-11-20
+### Changed
+- FF-1429 - Updated Microsoft.Extensions to 5.0.0
+- FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 16.8.55
+- FF-1429 - Updated FunFair.CodeAnalysis to 1.15.0.542
+- FF-1429 - Updated Microsoft.CodeAnalysis.FxCopAnalyzers to 3.3.1
+- FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 16.8.51
+- Converted to .NET 5.0
+
 ## [1.16.0] 2020-10-25
 ### Changed
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 16.8.50
