@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
     <WarningsAsErrors />
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
@@ -37,12 +37,11 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="NuGet.Versioning" Version="5.7.0" />
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AsyncFixer" Version="1.3.0" PrivateAssets="All" />
     <PackageReference Include="FunFair.CodeAnalysis" Version="1.15.0.542" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1" PrivateAssets="All" Condition="$(BundledNETCoreAppTargetFrameworkVersion) != '5.0'" />
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="16.8.55" PrivateAssets="All" />
     <PackageReference Include="Roslynator.Analyzers" Version="3.0.0" PrivateAssets="All" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="8.14.0.22654" PrivateAssets="All" />
