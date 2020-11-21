@@ -18,7 +18,7 @@ namespace FunFair.BuildVersion
 
             Console.WriteLine($"Pull Request: {pullRequestId}");
 
-            foreach (var candidateBranch in repo.Branches)
+            foreach (Branch candidateBranch in repo.Branches)
             {
                 if (candidateBranch.FriendlyName != branch && candidateBranch.Tip.Sha == sha)
                 {
