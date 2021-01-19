@@ -16,6 +16,7 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.16.0.25740
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.0.0.619
 - FF-1429 - Updated AsyncFixer to 1.4.0
+- FF-1429 - Updated AsyncFixer to 1.4.1
 ### Removed
 ### Deployment Changes
 
