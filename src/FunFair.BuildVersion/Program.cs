@@ -67,7 +67,7 @@ namespace FunFair.BuildVersion
         private static NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(Repository repo, int buildNumber)
         {
             List<string> branches = FindBranches(repo);
-            NuGetVersion latest = new NuGetVersion(version: @"0.0.0.0");
+            NuGetVersion latest = new(version: @"0.0.0.0");
 
             foreach (string branch in branches)
             {
@@ -103,7 +103,7 @@ namespace FunFair.BuildVersion
 
             Console.WriteLine($"Build Pre-Release Suffix: {usedSuffix}");
 
-            Version version = new Version(major: latest.Version.Major, minor: latest.Version.Minor, latest.Version.Build + 1, revision: buildNumber);
+            Version version = new(major: latest.Version.Major, minor: latest.Version.Minor, latest.Version.Build + 1, revision: buildNumber);
 
             return new NuGetVersion(version: version, releaseLabel: usedSuffix);
         }
@@ -115,7 +115,7 @@ namespace FunFair.BuildVersion
                 currentBranch = @"pull-request-" + pullRequestId.ToString(CultureInfo.InvariantCulture);
             }
 
-            StringBuilder suffix = new StringBuilder(currentBranch);
+            StringBuilder suffix = new(currentBranch);
 
             int pos = suffix.ToString()
                             .IndexOf('/');
@@ -206,7 +206,7 @@ namespace FunFair.BuildVersion
                 return null;
             }
 
-            Version dv = new Version(revision: buildNumber, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
+            Version dv = new(revision: buildNumber, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
 
             return new NuGetVersion(dv);
         }
