@@ -96,7 +96,7 @@ namespace FunFair.BuildVersion.Detection
         {
             if (this._branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId))
             {
-                currentBranch = @"pull-request-" + pullRequestId.ToString(CultureInfo.InvariantCulture);
+                currentBranch = @"pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture);
             }
 
             StringBuilder suffix = new(currentBranch);

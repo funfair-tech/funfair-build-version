@@ -81,6 +81,52 @@ namespace FunFair.BuildVersion.Detection.Tests
             this.ReceivedFindBranch();
         }
 
+        [Theory]
+        [InlineData("refs/pulls/42/head", 42, "pr-42")]
+        [InlineData("refs/pulls/474/head", 474, "pr-474")]
+        public void WhenCurrentlyOnAPullRequestWithNoReleaseBranchesBranch(string branchName, int pullRequestId, string expectedPreReleaseSuffix)
+        {
+            this.MockFindCurrentBranch(branchName);
+            this.MockIsRelease(branchName: "release/1.0.0", version: "1.0.0.0");
+
+            this.MockIsPullRequest(branchName: branchName, id: pullRequestId);
+
+            NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(27));
+
+            Assert.Equal("0.0.1.27-" + expectedPreReleaseSuffix, version.ToString());
+
+            this.ReceivedFindCurrentBranch();
+            this.ReceivedIsRelease(branchName);
+            this.ReceivedFindBranch();
+        }
+
+        [Theory]
+        [InlineData("refs/pulls/42/head", 42, "pr-42")]
+        [InlineData("refs/pulls/714/head", 714, "pr-714")]
+        public void WhenCurrentlyOnAPullRequestWithReleaseBranchesBranch(string branchName, int pullRequestId, string expectedPreReleaseSuffix)
+        {
+            this.MockFindCurrentBranch(branchName);
+
+            IReadOnlyList<string> branches = new[] {"release/1.0.0", "release/1.1.0", "release/3.4.5"};
+            this.MockFindBranches(branches);
+            this.MockIsRelease(branchName: "release/1.0.0", version: "1.0.0.0");
+            this.MockIsRelease(branchName: "release/1.1.0", version: "1.1.0.0");
+            this.MockIsRelease(branchName: "release/3.4.5", version: "3.4.5.0");
+
+            this.MockIsPullRequest(branchName: branchName, id: pullRequestId);
+
+            NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(27));
+
+            Assert.Equal("3.4.6.27-" + expectedPreReleaseSuffix, version.ToString());
+
+            this.ReceivedFindCurrentBranch();
+            this.ReceivedIsRelease(branchName);
+            this.ReceivedIsRelease("release/1.0.0");
+            this.ReceivedIsRelease("release/1.1.0");
+            this.ReceivedIsRelease("release/3.4.5");
+            this.ReceivedFindBranch();
+        }
+
         private void MockFindBranches(IReadOnlyList<string> branches)
         {
             this._branchDiscovery.FindBranches()
@@ -126,6 +172,17 @@ namespace FunFair.BuildVersion.Detection.Tests
         {
             this._branchDiscovery.FindCurrentBranch()
                 .Returns(branchName);
+        }
+
+        private void MockIsPullRequest(string branchName, long id)
+        {
+            this._branchClassification.IsPullRequest(currentBranch: branchName, out Arg.Any<long>())
+                .Returns(x =>
+                         {
+                             x[1] = id;
+
+                             return true;
+                         });
         }
     }
 }
