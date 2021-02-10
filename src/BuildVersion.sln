@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Publishers", "FunFair.BuildVersion.Publishers\FunFair.BuildVersion.Publishers.csproj", "{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Publishers.Tests", "FunFair.BuildVersion.Publishers.Tests\FunFair.BuildVersion.Publishers.Tests.csproj", "{56B162B2-C2B1-479F-AC75-4CB1AED403C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B162B2-C2B1-479F-AC75-4CB1AED403C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B162B2-C2B1-479F-AC75-4CB1AED403C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B162B2-C2B1-479F-AC75-4CB1AED403C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B162B2-C2B1-479F-AC75-4CB1AED403C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
