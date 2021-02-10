@@ -24,9 +24,10 @@ namespace FunFair.BuildVersion.Detection.Tests
         [InlineData("release/1.2.3.4")]
         [InlineData("hotfix")]
         [InlineData("hotfix/not-a-version")]
+        [InlineData("refs/pull/77/head")]
         public void ShouldNotBeConsideredRelease(string branchName)
         {
-            bool isRelease = this._branchClassifcation.IsReleaseBranch(branchName: branchName, out NuGetVersion? version);
+            bool isRelease = this._branchClassifcation.IsRelease(branchName: branchName, out NuGetVersion? version);
             Assert.False(condition: isRelease, userMessage: "Branch should not be considered a release branch");
             Assert.Null(version);
         }
@@ -37,10 +38,39 @@ namespace FunFair.BuildVersion.Detection.Tests
         [InlineData("release/1.0.1", "1.0.1.0")]
         public void ShouldBeConsideredRelease(string branchName, string expectedVersionString)
         {
-            bool isRelease = this._branchClassifcation.IsReleaseBranch(branchName: branchName, out NuGetVersion? version);
+            bool isRelease = this._branchClassifcation.IsRelease(branchName: branchName, out NuGetVersion? version);
             Assert.True(condition: isRelease, userMessage: "Branch should not be considered a release branch");
             Assert.NotNull(version);
             Assert.Equal(expected: expectedVersionString, version!.ToString());
+        }
+
+        [Theory]
+        [InlineData("refs/pull/77/head", 77)]
+        public void ShouldBeConsideredAPullRequest(string branchName, long expectedPullRequestId)
+        {
+            bool isRelease = this._branchClassifcation.IsPullRequest(currentBranch: branchName, out long pullRequestId);
+            Assert.True(condition: isRelease, userMessage: "Branch should not be considered a pull request branch");
+            Assert.Equal(expected: expectedPullRequestId, actual: pullRequestId);
+        }
+
+        [Theory]
+        [InlineData("master")]
+        [InlineData("feature/update-branch")]
+        [InlineData("depends/update-components")]
+        [InlineData("release")]
+        [InlineData("release/monkey")]
+        [InlineData("release/1.2.3-example")]
+        [InlineData("release/1.2.3.4")]
+        [InlineData("hotfix")]
+        [InlineData("hotfix/not-a-version")]
+        [InlineData("release/1")]
+        [InlineData("release/1.0")]
+        [InlineData("release/1.0.1")]
+        public void ShoulNotBeConsideredAPullRequest(string branchName)
+        {
+            bool isRelease = this._branchClassifcation.IsPullRequest(currentBranch: branchName, out long pullRequestId);
+            Assert.False(condition: isRelease, userMessage: "Branch should not be considered a pull request branch");
+            Assert.Equal(expected: 0, actual: pullRequestId);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace FunFair.BuildVersion.Interfaces
         /// <param name="branchName">The branch to check</param>
         /// <param name="version">The version that was found, if the branch is a release branch.</param>
         /// <returns>true, if the branch is a release branch; otherwise, false.</returns>
-        bool IsReleaseBranch(string branchName, [NotNullWhen(true)] out NuGetVersion? version);
+        bool IsRelease(string branchName, [NotNullWhen(true)] out NuGetVersion? version);
 
         /// <summary>
         ///     Attempts to get the Pull request ID from the current branch name.

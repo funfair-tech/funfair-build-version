@@ -40,7 +40,7 @@ namespace FunFair.BuildVersion.Detection
                 {
                     this._logger.LogInformation($"Found Branch for PR {pullRequestId} : {candidateBranch.FriendlyName}");
 
-                    if (this._branchClassification.IsReleaseBranch(branchName: candidateBranch.FriendlyName, out NuGetVersion? _))
+                    if (this._branchClassification.IsRelease(branchName: candidateBranch.FriendlyName, out NuGetVersion? _))
                     {
                         return "pre-" + candidateBranch.FriendlyName;
                     }

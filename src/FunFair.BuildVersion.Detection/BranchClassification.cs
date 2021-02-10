@@ -17,7 +17,7 @@ namespace FunFair.BuildVersion.Detection
         private const string PULL_REQUEST_SUFFIX = @"/head";
 
         /// <inheritdoc />
-        public bool IsReleaseBranch(string branchName, [NotNullWhen(true)] out NuGetVersion? version)
+        public bool IsRelease(string branchName, [NotNullWhen(true)] out NuGetVersion? version)
         {
             version = Extract(prefix: RELEASE_PREFIX, branch: branchName) ?? Extract(prefix: HOTFIX_PREFIX, branch: branchName);
 

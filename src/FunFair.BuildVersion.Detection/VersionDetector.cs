@@ -38,7 +38,7 @@ namespace FunFair.BuildVersion.Detection
             this._logger.LogInformation($">>>>>> Current branch: {currentBranch}");
             this._logger.LogInformation($">>>>>> Current Build number: {buildNumber}");
 
-            if (this._branchClassification.IsReleaseBranch(branchName: currentBranch, out NuGetVersion? branchVersion))
+            if (this._branchClassification.IsRelease(branchName: currentBranch, out NuGetVersion? branchVersion))
             {
                 return branchVersion;
             }
@@ -59,7 +59,7 @@ namespace FunFair.BuildVersion.Detection
             {
                 this._logger.LogDebug($" * => {branch}");
 
-                if (this._branchClassification.IsReleaseBranch(branchName: branch, out NuGetVersion? version))
+                if (this._branchClassification.IsRelease(branchName: branch, out NuGetVersion? version))
                 {
                     if (version != null)
                     {
