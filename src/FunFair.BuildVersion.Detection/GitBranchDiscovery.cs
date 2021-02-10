@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FunFair.BuildVersion.Detection.Extensions;
 using FunFair.BuildVersion.Interfaces;
 using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
@@ -8,19 +9,32 @@ using NuGet.Versioning;
 
 namespace FunFair.BuildVersion.Detection
 {
+    /// <summary>
+    ///     Branch discovery using Git as the repo.
+    /// </summary>
     public sealed class GitBranchDiscovery : IBranchDiscovery
     {
         private readonly IBranchClassification _branchClassification;
+        private readonly IEnumerable<IExternalBranchLocator> _externalBranchLocators;
         private readonly ILogger<GitBranchDiscovery> _logger;
         private readonly Repository _repository;
 
-        public GitBranchDiscovery(Repository repository, IBranchClassification branchClassification, ILogger<GitBranchDiscovery> logger)
+        /// <summary>
+        ///     Constructor.
+        /// </summary>
+        /// <param name="repository">The Git Repository to search.</param>
+        /// <param name="branchClassification">Branch classification.</param>
+        /// <param name="externalBranchLocators">Branch location.</param>
+        /// <param name="logger">Logging.</param>
+        public GitBranchDiscovery(Repository repository, IBranchClassification branchClassification, IEnumerable<IExternalBranchLocator> externalBranchLocators, ILogger<GitBranchDiscovery> logger)
         {
             this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
             this._branchClassification = branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
+            this._externalBranchLocators = externalBranchLocators ?? throw new ArgumentNullException(nameof(externalBranchLocators));
             this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        /// <inheritdoc />
         public string FindCurrentBranch()
         {
             string branch = this.FindConfiguredBranch();
@@ -52,19 +66,24 @@ namespace FunFair.BuildVersion.Detection
             return branch;
         }
 
+        /// <inheritdoc />
         public IReadOnlyList<string> FindBranches()
         {
-            return this._repository.Branches.Select(selector: b => ExtractBranch(b.FriendlyName))
+            return this._repository.Branches.Select(selector: b => this.ExtractBranch(b.FriendlyName))
                        .ToArray();
         }
 
-        private static string ExtractBranch(string branch)
+        private string ExtractBranch(string branch)
         {
-            const string originPrefix = "origin/";
+            IReadOnlyList<string> remotes = this._repository.Network.Remotes.Select(r => r.Name + "/")
+                                                .ToArray();
 
-            if (branch.StartsWith(value: originPrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
+            foreach (var remote in remotes)
             {
-                return branch.Substring(originPrefix.Length);
+                if (branch.StartsWith(value: remote, comparisonType: StringComparison.OrdinalIgnoreCase))
+                {
+                    return branch.Substring(remote.Length);
+                }
             }
 
             return branch;
@@ -72,36 +91,14 @@ namespace FunFair.BuildVersion.Detection
 
         private string FindConfiguredBranch()
         {
-            string? branch = Environment.GetEnvironmentVariable(variable: @"GIT_BRANCH");
-
-            if (!string.IsNullOrWhiteSpace(branch))
-            {
-                return ExtractBranchFromBranchSpec(branch);
-            }
-
-            branch = Environment.GetEnvironmentVariable(variable: @"GITHUB_REF");
-
-            if (!string.IsNullOrWhiteSpace(branch))
-            {
-                return ExtractBranchFromBranchSpec(branch);
-            }
-
-            return this.ExtractBranchFromGitHead();
+            return this.FindConfiguredBranchUsingExternalLocators() ?? this.ExtractBranchFromGitHead();
         }
 
-        private static string ExtractBranchFromBranchSpec(string branch)
+        private string? FindConfiguredBranchUsingExternalLocators()
         {
-            Console.WriteLine($"Branch from CI: {branch}");
-            string branchRef = branch.Trim();
-
-            const string branchRefPrefix = "refs/heads/";
-
-            if (branchRef.StartsWith(value: branchRefPrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
-            {
-                branchRef = branchRef.Substring(branchRefPrefix.Length);
-            }
-
-            return branchRef;
+            return this._externalBranchLocators.Select(locator => locator.CurrentBranch)
+                       .RemoveNulls()
+                       .FirstOrDefault();
         }
 
         private string ExtractBranchFromGitHead()

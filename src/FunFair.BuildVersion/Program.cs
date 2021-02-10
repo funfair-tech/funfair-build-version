@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FunFair.BuildVersion.Detection;
+using FunFair.BuildVersion.Detection.ExternalBranchLocators;
 using FunFair.BuildVersion.Interfaces;
 using FunFair.BuildVersion.Publishers;
 using FunFair.BuildVersion.Services;
@@ -86,6 +87,9 @@ namespace FunFair.BuildVersion
             services.AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>();
             services.AddSingleton<IVersionPublisher, TeamCityVersionPublisher>();
             services.AddSingleton<IVersionDetector, VersionDetector>();
+
+            services.AddSingleton<IExternalBranchLocator, GitHubRefEnvironmentVariableBranchLocator>();
+            services.AddSingleton<IExternalBranchLocator, GitBranchEnvironmentVariableBranchLocator>();
 
             IServiceProviderFactory<IServiceCollection> spf = new DefaultServiceProviderFactory();
 
