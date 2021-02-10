@@ -1,13 +1,15 @@
 ﻿using System;
+using FunFair.BuildVersion.Interfaces;
 
-namespace FunFair.BuildVersion
+namespace FunFair.BuildVersion.Detection
 {
-    internal static class BranchClassification
+    public sealed class BranchClassification : IBranchClassification
     {
         public const string ReleasePrefix = @"release/";
         public const string HotfixPrefix = @"hotfix/";
 
-        public static bool IsReleaseBranch(string branchName)
+        /// <inheritdoc />
+        public bool IsReleaseBranch(string branchName)
         {
             if (branchName.StartsWith(value: ReleasePrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
             {

@@ -1,27 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-    <WarningsAsErrors />
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <TreatSpecificWarningsAsErrors/>
+    <NoWarn>1591</NoWarn>
+    <WarningsAsErrors/>
     <LangVersion>latest</LangVersion>
     <Features>strict;flow-analysis</Features>
-    <TreatSpecificWarningsAsErrors />
-    <NoWarn>1591</NoWarn>
     <Nullable>enable</Nullable>
     <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
-    <IsPackable>true</IsPackable>
-    <ToolCommandName>buildversion</ToolCommandName>
-    <PackAsTool>true</PackAsTool>
+    <IsPackable>false</IsPackable>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <NeutralLanguage>en</NeutralLanguage>
     <Company>FunFair</Company>
     <Authors>$(Company)</Authors>
-    <Description>Build versioning tool.</Description>
-    <License>https://github.com/funfair-tech/funfair-build-version/blob/master/LICENSE</License>
+    <Description>Build versioning.</Description>
   </PropertyGroup>
   <PropertyGroup>
     <AnalysisLevel>latest</AnalysisLevel>
@@ -32,11 +29,8 @@
     <CodeAnalysisRuleSet>$(SolutionDir)\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0"/>
+    <PackageReference Include="LibGit2Sharp" Version="0.26.2"/>
     <PackageReference Include="NuGet.Versioning" Version="5.8.1"/>
   </ItemGroup>
   <ItemGroup>
@@ -49,7 +43,10 @@
     <PackageReference Include="ToStringWithoutOverrideAnalyzer" Version="0.6.0" PrivateAssets="All"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FunFair.BuildVersion.Detection\FunFair.BuildVersion.Detection.csproj"/>
-    <ProjectReference Include="..\FunFair.BuildVersion.Publishers\FunFair.BuildVersion.Publishers.csproj"/>
+    <ProjectReference Include="..\FunFair.BuildVersion.Interfaces\FunFair.BuildVersion.Interfaces.csproj"/>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VersionPublishers"/>
+  </ItemGroup>
+
 </Project>

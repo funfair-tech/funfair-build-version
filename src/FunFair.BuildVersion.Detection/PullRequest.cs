@@ -1,13 +1,18 @@
 ﻿using System;
+using FunFair.BuildVersion.Interfaces;
 
-namespace FunFair.BuildVersion
+namespace FunFair.BuildVersion.Detection
 {
-    internal static class PullRequest
+    /// <summary>
+    ///     Pull Request detection.
+    /// </summary>
+    public sealed class PullRequest : IPullRequest
     {
         private const string PULL_REQUEST_PREFIX = @"refs/pull/";
         private const string PULL_REQUEST_SUFFIX = @"/head";
 
-        public static bool ExtractPullRequestId(string currentBranch, out long pullRequestId)
+        /// <inheritdoc />
+        public bool ExtractPullRequestId(string currentBranch, out long pullRequestId)
         {
             if (currentBranch.StartsWith(value: PULL_REQUEST_PREFIX, comparisonType: StringComparison.Ordinal))
             {

@@ -8,7 +8,13 @@ ProjectSection(SolutionItems) = preProject
 	CodeAnalysis.ruleset = CodeAnalysis.ruleset
 EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Tests", "FunFair.BuildVersion.Tests\FunFair.BuildVersion.Tests.csproj", "{D378DE88-1ACE-4B08-AF4F-C375DFED9CEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Detection.Tests", "FunFair.BuildVersion.Detection.Tests\FunFair.BuildVersion.Detection.Tests.csproj", "{D378DE88-1ACE-4B08-AF4F-C375DFED9CEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Detection", "FunFair.BuildVersion.Detection\FunFair.BuildVersion.Detection.csproj", "{7A6CF2B1-73C1-497B-9F96-8F32A92829E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Interfaces", "FunFair.BuildVersion.Interfaces\FunFair.BuildVersion.Interfaces.csproj", "{02DC689F-594E-4FAE-8FBE-CEC017B5CCDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Publishers", "FunFair.BuildVersion.Publishers\FunFair.BuildVersion.Publishers.csproj", "{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +30,17 @@ Global
 		{D378DE88-1ACE-4B08-AF4F-C375DFED9CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D378DE88-1ACE-4B08-AF4F-C375DFED9CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D378DE88-1ACE-4B08-AF4F-C375DFED9CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A6CF2B1-73C1-497B-9F96-8F32A92829E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6CF2B1-73C1-497B-9F96-8F32A92829E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A6CF2B1-73C1-497B-9F96-8F32A92829E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A6CF2B1-73C1-497B-9F96-8F32A92829E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02DC689F-594E-4FAE-8FBE-CEC017B5CCDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DC689F-594E-4FAE-8FBE-CEC017B5CCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DC689F-594E-4FAE-8FBE-CEC017B5CCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DC689F-594E-4FAE-8FBE-CEC017B5CCDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60C0DA4-E1A6-4193-BE0A-1E155CE2365E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
