@@ -1,27 +1,43 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using FunFair.BuildVersion.Interfaces;
+using NuGet.Versioning;
 
 namespace FunFair.BuildVersion.Detection
 {
+    /// <summary>
+    ///     Branch Classification
+    /// </summary>
     public sealed class BranchClassification : IBranchClassification
     {
-        public const string ReleasePrefix = @"release/";
-        public const string HotfixPrefix = @"hotfix/";
+        private const string RELEASE_PREFIX = @"release/";
+        private const string HOTFIX_PREFIX = @"hotfix/";
 
         /// <inheritdoc />
-        public bool IsReleaseBranch(string branchName)
+        public bool IsReleaseBranch(string branchName, [NotNullWhen(true)] out NuGetVersion? version)
         {
-            if (branchName.StartsWith(value: ReleasePrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
+            version = Extract(prefix: RELEASE_PREFIX, branch: branchName) ?? Extract(prefix: HOTFIX_PREFIX, branch: branchName);
+
+            return version != null;
+        }
+
+        private static NuGetVersion? Extract(string prefix, string branch)
+        {
+            if (!branch.StartsWith(value: prefix, comparisonType: StringComparison.OrdinalIgnoreCase))
             {
-                return true;
+                return null;
             }
 
-            if (branchName.StartsWith(value: HotfixPrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
+            string version = branch.Substring(prefix.Length);
+
+            if (!NuGetVersion.TryParse(value: version, out NuGetVersion? baseLine))
             {
-                return true;
+                return null;
             }
 
-            return false;
+            Version dv = new(revision: 0, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
+
+            return new NuGetVersion(dv);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using FunFair.BuildVersion.Interfaces;
 using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
+using NuGet.Versioning;
 
 namespace FunFair.BuildVersion.Detection
 {
@@ -41,7 +42,7 @@ namespace FunFair.BuildVersion.Detection
                 {
                     this._logger.LogInformation($"Found Branch for PR {pullRequestId} : {candidateBranch.FriendlyName}");
 
-                    if (this._branchClassification.IsReleaseBranch(candidateBranch.FriendlyName))
+                    if (this._branchClassification.IsReleaseBranch(branchName: candidateBranch.FriendlyName, out NuGetVersion? _))
                     {
                         return "pre-" + candidateBranch.FriendlyName;
                     }
@@ -55,10 +56,8 @@ namespace FunFair.BuildVersion.Detection
 
         public IReadOnlyList<string> FindBranches()
         {
-            this._logger.LogInformation("Enumerating branches...");
-
             return this._repository.Branches.Select(selector: b => ExtractBranch(b.FriendlyName))
-                       .ToList();
+                       .ToArray();
         }
 
         private static string ExtractBranch(string branch)

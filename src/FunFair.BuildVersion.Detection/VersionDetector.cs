@@ -41,15 +41,8 @@ namespace FunFair.BuildVersion.Detection
             this._logger.LogInformation($">>>>>> Current branch: {currentBranch}");
             this._logger.LogInformation($">>>>>> Current Build number: {buildNumber}");
 
-            if (this._branchClassification.IsReleaseBranch(currentBranch))
+            if (this._branchClassification.IsReleaseBranch(branchName: currentBranch, out NuGetVersion? branchVersion))
             {
-                NuGetVersion? branchVersion = ExtractVersion(branch: currentBranch, buildNumber: buildNumber);
-
-                if (branchVersion == null)
-                {
-                    this._logger.LogError($"Could not determine version number for {currentBranch}");
-                }
-
                 return branchVersion;
             }
 
@@ -69,10 +62,8 @@ namespace FunFair.BuildVersion.Detection
             {
                 this._logger.LogDebug($" * => {branch}");
 
-                if (this._branchClassification.IsReleaseBranch(branch))
+                if (this._branchClassification.IsReleaseBranch(branchName: branch, out NuGetVersion? version))
                 {
-                    NuGetVersion? version = ExtractVersion(branch: branch, buildNumber: buildNumber);
-
                     if (version != null)
                     {
                         if (latest < version)
@@ -83,30 +74,7 @@ namespace FunFair.BuildVersion.Detection
                 }
             }
 
-            return latest;
-        }
-
-        private static NuGetVersion? ExtractVersion(string branch, int buildNumber)
-        {
-            return ExtractVersionFromPrefix(branch: branch, buildNumber: buildNumber, prefix: BranchClassification.ReleasePrefix) ??
-                   ExtractVersionFromPrefix(branch: branch, buildNumber: buildNumber, prefix: BranchClassification.HotfixPrefix);
-        }
-
-        private static NuGetVersion? ExtractVersionFromPrefix(string branch, int buildNumber, string prefix)
-        {
-            if (!branch.StartsWith(value: prefix, comparisonType: StringComparison.OrdinalIgnoreCase))
-            {
-                return null;
-            }
-
-            string version = branch.Substring(prefix.Length);
-
-            if (!NuGetVersion.TryParse(value: version, out NuGetVersion? baseLine))
-            {
-                return null;
-            }
-
-            Version dv = new(revision: buildNumber, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
+            Version dv = new(revision: buildNumber, build: latest.Version.Build, minor: latest.Version.Minor, major: latest.Version.Major);
 
             return new NuGetVersion(dv);
         }
