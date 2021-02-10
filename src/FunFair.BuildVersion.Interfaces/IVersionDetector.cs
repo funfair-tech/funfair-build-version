@@ -11,7 +11,7 @@ namespace FunFair.BuildVersion.Interfaces
         ///     Finds the version for the current branch.
         /// </summary>
         /// <param name="buildNumber">The current build number.</param>
-        /// <returns>The version number if it could be detected; otherwise, null.</returns>
-        NuGetVersion? FindVersion(int buildNumber);
+        /// <returns>The version number.</returns>
+        NuGetVersion FindVersion(int buildNumber);
     }
 }

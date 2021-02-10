@@ -43,12 +43,7 @@ namespace FunFair.BuildVersion
                 IDiagnosticLogger logging = serviceProvider.GetRequiredService<IDiagnosticLogger>();
                 IVersionDetector versionDetector = serviceProvider.GetRequiredService<IVersionDetector>();
 
-                NuGetVersion? version = versionDetector.FindVersion(buildNumber);
-
-                if (version == null)
-                {
-                    return ERROR;
-                }
+                NuGetVersion version = versionDetector.FindVersion(buildNumber);
 
                 ApplyVersion(version: version, serviceProvider: serviceProvider);
 

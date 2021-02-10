@@ -32,7 +32,7 @@ namespace FunFair.BuildVersion.Detection
         }
 
         /// <inheritdoc />
-        public NuGetVersion? FindVersion(int buildNumber)
+        public NuGetVersion FindVersion(int buildNumber)
         {
             string currentBranch = this._branchDiscovery.FindCurrentBranch();
             this._logger.LogInformation($">>>>>> Current branch: {currentBranch}");
@@ -40,7 +40,7 @@ namespace FunFair.BuildVersion.Detection
 
             if (this._branchClassification.IsRelease(branchName: currentBranch, out NuGetVersion? branchVersion))
             {
-                return branchVersion;
+                return AddBuildNumberToVersion(version: branchVersion, buildNumber: buildNumber);
             }
 
             NuGetVersion latest = this.DetermineLatestReleaseFromPreviousReleaseBranches(buildNumber: buildNumber);
@@ -53,7 +53,7 @@ namespace FunFair.BuildVersion.Detection
         private NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(int buildNumber)
         {
             IReadOnlyList<string> branches = this._branchDiscovery.FindBranches();
-            NuGetVersion latest = new(version: @"0.0.0.0");
+            NuGetVersion latest = new(version: new Version(major: 0, minor: 0, build: 0, revision: 0));
 
             foreach (string branch in branches)
             {
@@ -71,7 +71,12 @@ namespace FunFair.BuildVersion.Detection
                 }
             }
 
-            Version dv = new(revision: buildNumber, build: latest.Version.Build, minor: latest.Version.Minor, major: latest.Version.Major);
+            return AddBuildNumberToVersion(version: latest, buildNumber: buildNumber);
+        }
+
+        private static NuGetVersion AddBuildNumberToVersion(NuGetVersion version, int buildNumber)
+        {
+            Version dv = new(revision: buildNumber, build: version.Version.Build, minor: version.Version.Minor, major: version.Version.Major);
 
             return new NuGetVersion(dv);
         }
