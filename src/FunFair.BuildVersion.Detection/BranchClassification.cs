@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using FunFair.BuildVersion.Interfaces;
 using NuGet.Versioning;
@@ -16,10 +17,14 @@ namespace FunFair.BuildVersion.Detection
 
         private readonly string _releaseBranch;
 
-        public BranchClassification()
+        /// <summary>
+        ///     Branch Classification.
+        /// </summary>
+        /// <param name="branchSettings">Branch settings.</param>
+        public BranchClassification(IBranchSettings branchSettings)
         {
-            this._releaseBranch = @"release/";
-            this._hotfixBranch = @"hotfix/";
+            this._releaseBranch = BuildBranch(branchSettings: branchSettings, branch: @"release");
+            this._hotfixBranch = BuildBranch(branchSettings: branchSettings, branch: @"hotfix");
         }
 
         /// <inheritdoc />
@@ -48,6 +53,34 @@ namespace FunFair.BuildVersion.Detection
             pullRequestId = default;
 
             return false;
+        }
+
+        private static string BuildBranch(IBranchSettings branchSettings, string branch)
+        {
+            return string.Join(separator: "/", BuildFragments(branchSettings: branchSettings, branch: branch));
+        }
+
+        private static IEnumerable<string> BuildFragments(IBranchSettings branchSettings, string branch)
+        {
+            yield return BuildReleaseBranchWithSuffix(branchSettings: branchSettings, branch: branch);
+
+            if (!string.IsNullOrWhiteSpace(branchSettings.Package))
+            {
+                yield return branchSettings.Package;
+            }
+
+            // deliberately end with a trailing /
+            yield return string.Empty;
+        }
+
+        private static string BuildReleaseBranchWithSuffix(IBranchSettings branchSettings, string branch)
+        {
+            if (string.IsNullOrWhiteSpace(branchSettings.ReleaseSuffix))
+            {
+                return branch;
+            }
+
+            return string.Concat(str0: branch, str1: "-", str2: branchSettings.ReleaseSuffix);
         }
 
         private static NuGetVersion? Extract(string prefix, string branch)

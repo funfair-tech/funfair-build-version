@@ -19,6 +19,11 @@ namespace FunFair.BuildVersion.Services
         public DiagnosticLogger(bool warningsAsErrors)
         {
             this._warningsAsErrors = warningsAsErrors;
+
+            if (this._warningsAsErrors)
+            {
+                this.LogInformation("** Running with Warnings as Errors");
+            }
         }
 
         /// <inheritdoc />
