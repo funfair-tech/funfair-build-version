@@ -35,9 +35,33 @@ namespace FunFair.BuildVersion.Detection
                 return null;
             }
 
+            if (!string.IsNullOrWhiteSpace(baseLine.Release))
+            {
+                return null;
+            }
+
+            if (IsVersionSameAsBranchName(baseLine: baseLine, version: version))
+            {
+                // can't have 4 parts of a version ion the branch
+                return null;
+            }
+
+            return ConvertVersion(baseLine);
+        }
+
+        private static NuGetVersion ConvertVersion(NuGetVersion baseLine)
+        {
             Version dv = new(revision: 0, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
 
             return new NuGetVersion(dv);
+        }
+
+        private static bool IsVersionSameAsBranchName(NuGetVersion baseLine, string version)
+        {
+            Version revision = new(revision: baseLine.Version.Revision, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
+            bool sameAsBranchName = revision.ToString() == version;
+
+            return sameAsBranchName;
         }
     }
 }
