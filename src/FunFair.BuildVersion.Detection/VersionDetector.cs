@@ -117,12 +117,16 @@ namespace FunFair.BuildVersion.Detection
                 suffix.Replace(oldChar: ch, newChar: replacementChar);
             }
 
-            suffix.Replace(oldValue: "--", newValue: "-");
+            while (suffix.ToString()
+                         .Contains("--"))
+            {
+                suffix.Replace(oldValue: "--", newValue: "-");
+            }
 
             string usedSuffix = suffix.ToString()
                                       .ToLowerInvariant();
 
-            if (string.IsNullOrWhiteSpace(usedSuffix))
+            if (string.IsNullOrWhiteSpace(usedSuffix) || usedSuffix == "-")
             {
                 usedSuffix = @"prerelease";
             }

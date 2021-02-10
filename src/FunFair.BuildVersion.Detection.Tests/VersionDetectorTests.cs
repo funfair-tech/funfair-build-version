@@ -42,6 +42,8 @@ namespace FunFair.BuildVersion.Detection.Tests
         [Theory]
         [InlineData("master", "master")]
         [InlineData("feature/improve-performance", "improve-perform")]
+        [InlineData("feature/test/_/_/_/_/test", "test-test")]
+        [InlineData("feature/_/_/_/_", "prerelease")]
         public void WhenCurrentlyOnAPreReleaseWithNoReleaseBranchesBranch(string branchName, string expectedPreReleaseSuffix)
         {
             this.MockFindCurrentBranch(branchName);
@@ -59,6 +61,8 @@ namespace FunFair.BuildVersion.Detection.Tests
         [Theory]
         [InlineData("master", "master")]
         [InlineData("feature/improve-performance", "improve-perform")]
+        [InlineData("feature/test/_/_/_/_/test", "test-test")]
+        [InlineData("feature/_/_/_/_", "prerelease")]
         public void WhenCurrentlyOnAPreReleaseWithReleaseBranchesBranch(string branchName, string expectedPreReleaseSuffix)
         {
             this.MockFindCurrentBranch(branchName);
