@@ -5,7 +5,7 @@ using Xunit;
 
 namespace FunFair.BuildVersion.Detection.Tests
 {
-    public sealed class SimpleBranchClassificationTests : TestBase
+    public sealed class BranchClassificationTests : TestBase
     {
         [Theory]
         [InlineData("", "", "master")]
