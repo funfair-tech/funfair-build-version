@@ -17,20 +17,17 @@ namespace FunFair.BuildVersion.Detection
         private readonly IBranchClassification _branchClassification;
         private readonly IBranchDiscovery _branchDiscovery;
         private readonly ILogger<VersionDetector> _logger;
-        private readonly IPullRequest _pullRequest;
 
         /// <summary>
         ///     Constructor.
         /// </summary>
-        /// <param name="branchDiscovery"></param>
-        /// <param name="branchClassification"></param>
-        /// <param name="pullRequest"></param>
-        /// <param name="logger"></param>
-        public VersionDetector(IBranchDiscovery branchDiscovery, IBranchClassification branchClassification, IPullRequest pullRequest, ILogger<VersionDetector> logger)
+        /// <param name="branchDiscovery">Branch discovery</param>
+        /// <param name="branchClassification">Branch classification</param>
+        /// <param name="logger">Logging</param>
+        public VersionDetector(IBranchDiscovery branchDiscovery, IBranchClassification branchClassification, ILogger<VersionDetector> logger)
         {
             this._branchDiscovery = branchDiscovery ?? throw new ArgumentNullException(nameof(branchDiscovery));
             this._branchClassification = branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
-            this._pullRequest = pullRequest ?? throw new ArgumentNullException(nameof(pullRequest));
             this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -50,7 +47,7 @@ namespace FunFair.BuildVersion.Detection
 
             this._logger.LogInformation($"Latest Release Version: {latest}");
 
-            return this.BuildPreReleaseVersion(pullRequest: this._pullRequest, latest: latest, currentBranch: currentBranch, buildNumber: buildNumber);
+            return this.BuildPreReleaseVersion(latest: latest, currentBranch: currentBranch, buildNumber: buildNumber);
         }
 
         private NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(int buildNumber)
@@ -79,9 +76,9 @@ namespace FunFair.BuildVersion.Detection
             return new NuGetVersion(dv);
         }
 
-        private NuGetVersion BuildPreReleaseVersion(IPullRequest pullRequest, NuGetVersion latest, string currentBranch, int buildNumber)
+        private NuGetVersion BuildPreReleaseVersion(NuGetVersion latest, string currentBranch, int buildNumber)
         {
-            string usedSuffix = BuildPreReleaseSuffix(pullRequest: pullRequest, currentBranch: currentBranch);
+            string usedSuffix = this.BuildPreReleaseSuffix(currentBranch: currentBranch);
 
             this._logger.LogInformation($"Build Pre-Release Suffix: {usedSuffix}");
 
@@ -90,9 +87,9 @@ namespace FunFair.BuildVersion.Detection
             return new NuGetVersion(version: version, releaseLabel: usedSuffix);
         }
 
-        private static string BuildPreReleaseSuffix(IPullRequest pullRequest, string currentBranch)
+        private string BuildPreReleaseSuffix(string currentBranch)
         {
-            if (pullRequest.ExtractPullRequestId(currentBranch: currentBranch, out long pullRequestId))
+            if (this._branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId))
             {
                 currentBranch = @"pull-request-" + pullRequestId.ToString(CultureInfo.InvariantCulture);
             }

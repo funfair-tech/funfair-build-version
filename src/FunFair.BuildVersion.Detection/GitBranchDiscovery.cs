@@ -12,14 +12,12 @@ namespace FunFair.BuildVersion.Detection
     {
         private readonly IBranchClassification _branchClassification;
         private readonly ILogger<GitBranchDiscovery> _logger;
-        private readonly IPullRequest _pullRequest;
         private readonly Repository _repository;
 
-        public GitBranchDiscovery(Repository repository, IBranchClassification branchClassification, IPullRequest pullRequest, ILogger<GitBranchDiscovery> logger)
+        public GitBranchDiscovery(Repository repository, IBranchClassification branchClassification, ILogger<GitBranchDiscovery> logger)
         {
             this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
             this._branchClassification = branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
-            this._pullRequest = pullRequest ?? throw new ArgumentNullException(nameof(pullRequest));
             this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -29,7 +27,7 @@ namespace FunFair.BuildVersion.Detection
             string? sha = this._repository.Head.Tip.Sha;
             this._logger.LogInformation($"Head SHA: {sha}");
 
-            if (!this._pullRequest.ExtractPullRequestId(currentBranch: branch, out long pullRequestId))
+            if (!this._branchClassification.IsPullRequest(currentBranch: branch, out long pullRequestId))
             {
                 return branch;
             }

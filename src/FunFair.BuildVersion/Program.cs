@@ -83,7 +83,6 @@ namespace FunFair.BuildVersion
             services.AddSingleton(repo);
             services.AddSingleton<IBranchDiscovery, GitBranchDiscovery>();
             services.AddSingleton<IBranchClassification, BranchClassification>();
-            services.AddSingleton<IPullRequest, PullRequest>();
             services.AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>();
             services.AddSingleton<IVersionPublisher, TeamCityVersionPublisher>();
             services.AddSingleton<IVersionDetector, VersionDetector>();
