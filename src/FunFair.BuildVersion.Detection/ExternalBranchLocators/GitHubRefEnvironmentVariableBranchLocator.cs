@@ -1,4 +1,6 @@
-﻿namespace FunFair.BuildVersion.Detection.ExternalBranchLocators
+﻿using Microsoft.Extensions.Logging;
+
+namespace FunFair.BuildVersion.Detection.ExternalBranchLocators
 {
     /// <summary>
     ///     Branch detector using the 'GITHUB_REF' environment variable.
@@ -8,8 +10,9 @@
         /// <summary>
         ///     Constructor.
         /// </summary>
-        public GitHubRefEnvironmentVariableBranchLocator()
-            : base(@"GITHUB_REF")
+        /// <param name="logger">Logging.</param>
+        public GitHubRefEnvironmentVariableBranchLocator(ILogger<GitHubRefEnvironmentVariableBranchLocator> logger)
+            : base(environmentVariable: @"GITHUB_REF", logger: logger)
         {
         }
     }

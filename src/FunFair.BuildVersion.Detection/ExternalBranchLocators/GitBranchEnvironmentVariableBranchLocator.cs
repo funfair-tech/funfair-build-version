@@ -1,4 +1,6 @@
-﻿namespace FunFair.BuildVersion.Detection.ExternalBranchLocators
+﻿using Microsoft.Extensions.Logging;
+
+namespace FunFair.BuildVersion.Detection.ExternalBranchLocators
 {
     /// <summary>
     ///     Branch detector using the 'GIT_BRANCH' environment variable.
@@ -8,8 +10,9 @@
         /// <summary>
         ///     Constructor.
         /// </summary>
-        public GitBranchEnvironmentVariableBranchLocator()
-            : base(@"GIT_BRANCH")
+        /// <param name="logger">Logging.</param>
+        public GitBranchEnvironmentVariableBranchLocator(ILogger<GitBranchEnvironmentVariableBranchLocator> logger)
+            : base(environmentVariable: @"GIT_BRANCH", logger: logger)
         {
         }
     }
