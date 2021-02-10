@@ -37,7 +37,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="NuGet.Versioning" Version="5.8.0" />
+    <PackageReference Include="NuGet.Versioning" Version="5.8.1"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AsyncFixer" Version="1.5.1" PrivateAssets="All" />
