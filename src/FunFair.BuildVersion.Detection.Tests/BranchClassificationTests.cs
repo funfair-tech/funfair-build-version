@@ -39,7 +39,7 @@ namespace FunFair.BuildVersion.Detection.Tests
         public void ShouldBeConsideredRelease(string branchName, string expectedVersionString)
         {
             bool isRelease = this._branchClassifcation.IsRelease(branchName: branchName, out NuGetVersion? version);
-            Assert.True(condition: isRelease, userMessage: "Branch should not be considered a release branch");
+            Assert.True(condition: isRelease, userMessage: "Branch should be considered a release branch");
             Assert.NotNull(version);
             Assert.Equal(expected: expectedVersionString, version!.ToString());
         }
@@ -66,7 +66,7 @@ namespace FunFair.BuildVersion.Detection.Tests
         [InlineData("release/1")]
         [InlineData("release/1.0")]
         [InlineData("release/1.0.1")]
-        public void ShoulNotBeConsideredAPullRequest(string branchName)
+        public void ShouldNotBeConsideredAPullRequest(string branchName)
         {
             bool isRelease = this._branchClassifcation.IsPullRequest(currentBranch: branchName, out long pullRequestId);
             Assert.False(condition: isRelease, userMessage: "Branch should not be considered a pull request branch");
