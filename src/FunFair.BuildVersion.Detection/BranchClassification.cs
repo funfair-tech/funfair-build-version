@@ -57,7 +57,8 @@ namespace FunFair.BuildVersion.Detection
 
         private static string BuildBranch(IBranchSettings branchSettings, string branch)
         {
-            return string.Join(separator: "/", BuildFragments(branchSettings: branchSettings, branch: branch));
+            return string.Join(separator: "/", BuildFragments(branchSettings: branchSettings, branch: branch))
+                         .ToLowerInvariant();
         }
 
         private static IEnumerable<string> BuildFragments(IBranchSettings branchSettings, string branch)
