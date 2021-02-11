@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using FunFair.BuildVersion.Interfaces;
 using Microsoft.Extensions.Logging;
 using NuGet.Versioning;
@@ -61,12 +58,9 @@ namespace FunFair.BuildVersion.Detection
 
                 if (this._branchClassification.IsRelease(branchName: branch, out NuGetVersion? version))
                 {
-                    if (version != null)
+                    if (latest < version)
                     {
-                        if (latest < version)
-                        {
-                            latest = version;
-                        }
+                        latest = version;
                     }
                 }
             }
@@ -94,56 +88,12 @@ namespace FunFair.BuildVersion.Detection
 
         private string BuildPreReleaseSuffix(string currentBranch)
         {
-            if (this._branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId))
-            {
-                currentBranch = @"pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture);
-            }
-
-            StringBuilder suffix = new(currentBranch);
-
-            int pos = suffix.ToString()
-                            .IndexOf('/');
-
-            if (pos != -1)
-            {
-                suffix = suffix.Remove(startIndex: 0, pos + 1);
-            }
-
-            const char replacementChar = '-';
-
-            foreach (char ch in currentBranch.Where(predicate: c => !char.IsLetterOrDigit(c) && c != replacementChar)
-                                             .Distinct())
-            {
-                suffix.Replace(oldChar: ch, newChar: replacementChar);
-            }
-
-            while (suffix.ToString()
-                         .Contains("--"))
-            {
-                suffix.Replace(oldValue: "--", newValue: "-");
-            }
-
-            string usedSuffix = suffix.ToString()
-                                      .ToLowerInvariant();
-
-            if (string.IsNullOrWhiteSpace(usedSuffix) || usedSuffix == "-")
-            {
-                usedSuffix = @"prerelease";
-            }
-
-            usedSuffix = usedSuffix.TrimStart('-');
-
-            const int maxSuffixLength = 15;
-
-            if (usedSuffix.Length > maxSuffixLength)
-            {
-                usedSuffix = usedSuffix.Substring(startIndex: 0, length: maxSuffixLength);
-            }
-
-            // Ensure that the name doesn't end with a -
-            usedSuffix = usedSuffix.Trim(trimChar: '-');
-
-            return usedSuffix;
+            return currentBranch.NormalizeSourceBranchName(this._branchClassification)
+                                .RemoveFirstFolderInBranchName()
+                                .ReplaceInvalidCharacters()
+                                .RemoveDoubleHyphens()
+                                .EnsureNotBlank()
+                                .EnsureNotTooLong();
         }
     }
 }
