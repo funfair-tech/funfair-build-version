@@ -82,6 +82,10 @@
    color: "ffff00"
    description: "Pull request needs a QA Signoff before it can be merged"
 
+ - name: "!!! WAITING FOR ETHEREUM PR"
+   color: "ffff00"
+   description: "Pull request needs a server ethereum pull request to be merged at the same time"
+
  - name: "dependencies"
    color: "0366d6"
    description: "Updates to dependencies"
@@ -102,9 +106,25 @@
    color: "96f7d2"
    description: "Changes in FunFair.BuildVersion project"
 
- - name: "FunFair.BuildVersion.Tests"
+ - name: "FunFair.BuildVersion.Detection"
+   color: "96f7d2"
+   description: "Changes in FunFair.BuildVersion.Detection project"
+
+ - name: "FunFair.BuildVersion.Detection.Tests"
    color: "0e8a16"
-   description: "Changes in FunFair.BuildVersion.Tests project"
+   description: "Changes in FunFair.BuildVersion.Detection.Tests project"
+
+ - name: "FunFair.BuildVersion.Interfaces"
+   color: "96f7d2"
+   description: "Changes in FunFair.BuildVersion.Interfaces project"
+
+ - name: "FunFair.BuildVersion.Publishers"
+   color: "96f7d2"
+   description: "Changes in FunFair.BuildVersion.Publishers project"
+
+ - name: "FunFair.BuildVersion.Publishers.Tests"
+   color: "0e8a16"
+   description: "Changes in FunFair.BuildVersion.Publishers.Tests project"
 
  - name: "prepublish"
    color: "96f7d2"
