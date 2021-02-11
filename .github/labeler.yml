@@ -1,17 +1,17 @@
 "C#":
- - src/**/*.cs
- - src/**/*.csproj
+ - ./**/*.cs
+ - ./**/*.csproj
 
 "Powershell":
- - src/**/*.ps1
- - src/**/*.psm1
+ - ./**/*.ps1
+ - ./**/*.psm1
 
 "SQL":
  - db/**/*
- - tools/**/*.sql
+ - ./**/*.sql
 
 "Solidity":
- - src/**/*.sol
+ - ./**/*.sol
 
 "unit-tests":
  - src/*.Tests.*/**/*
@@ -49,8 +49,20 @@
 "FunFair.BuildVersion":
  - src/FunFair.BuildVersion/**/*
 
-"FunFair.BuildVersion.Tests":
- - src/FunFair.BuildVersion.Tests/**/*
+"FunFair.BuildVersion.Detection":
+ - src/FunFair.BuildVersion.Detection/**/*
+
+"FunFair.BuildVersion.Detection.Tests":
+ - src/FunFair.BuildVersion.Detection.Tests/**/*
+
+"FunFair.BuildVersion.Interfaces":
+ - src/FunFair.BuildVersion.Interfaces/**/*
+
+"FunFair.BuildVersion.Publishers":
+ - src/FunFair.BuildVersion.Publishers/**/*
+
+"FunFair.BuildVersion.Publishers.Tests":
+ - src/FunFair.BuildVersion.Publishers.Tests/**/*
 
 "prepublish":
  - src/prepublish/**/*
