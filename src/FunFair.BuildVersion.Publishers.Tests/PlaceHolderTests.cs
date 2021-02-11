@@ -1,7 +1,7 @@
 ﻿using FunFair.Test.Common;
 using Xunit;
 
-namespace FunFair.BuildVersion.Tests
+namespace FunFair.BuildVersion.Publishers.Tests
 {
     public sealed class PlaceHolderTests : TestBase
     {

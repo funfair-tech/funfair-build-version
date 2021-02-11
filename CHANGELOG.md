@@ -9,6 +9,7 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 
 ## [Unreleased]
 ### Added
+- FF-3332 - Support alternative branch based versioning strategies
 ### Fixed
 ### Changed
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.15.0.24505
