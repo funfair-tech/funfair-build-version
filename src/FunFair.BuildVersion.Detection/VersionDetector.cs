@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using FunFair.BuildVersion.Detection.Extensions;
 using FunFair.BuildVersion.Interfaces;
 using Microsoft.Extensions.Logging;
 using NuGet.Versioning;
@@ -11,6 +13,7 @@ namespace FunFair.BuildVersion.Detection
     /// </summary>
     public sealed class VersionDetector : IVersionDetector
     {
+        private static readonly NuGetVersion InitialVersion = new(version: new Version(major: 0, minor: 0, build: 0, revision: 0));
         private readonly IBranchClassification _branchClassification;
         private readonly IBranchDiscovery _branchDiscovery;
         private readonly ILogger<VersionDetector> _logger;
@@ -49,23 +52,20 @@ namespace FunFair.BuildVersion.Detection
 
         private NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(int buildNumber)
         {
-            IReadOnlyList<string> branches = this._branchDiscovery.FindBranches();
-            NuGetVersion latest = new(version: new Version(major: 0, minor: 0, build: 0, revision: 0));
-
-            foreach (string branch in branches)
+            NuGetVersion? GetReleaseVersion(string branch)
             {
                 this._logger.LogDebug($" * => {branch}");
 
-                if (this._branchClassification.IsRelease(branchName: branch, out NuGetVersion? version))
-                {
-                    if (latest < version)
-                    {
-                        latest = version;
-                    }
-                }
+                return this._branchClassification.IsRelease(branchName: branch, out NuGetVersion? version) ? version : null;
             }
 
-            return AddBuildNumberToVersion(version: latest, buildNumber: buildNumber);
+            IReadOnlyList<string> branches = this._branchDiscovery.FindBranches();
+
+            NuGetVersion? latestVersion = branches.Select(GetReleaseVersion)
+                                                  .RemoveNulls()
+                                                  .Max();
+
+            return AddBuildNumberToVersion(latestVersion ?? InitialVersion, buildNumber: buildNumber);
         }
 
         private static NuGetVersion AddBuildNumberToVersion(NuGetVersion version, int buildNumber)
