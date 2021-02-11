@@ -38,12 +38,27 @@ namespace FunFair.BuildVersion.Detection.Tests
         [InlineData("", "", "release/1", "1.0.0.0")]
         [InlineData("", "", "release/1.0", "1.0.0.0")]
         [InlineData("", "", "release/1.0.1", "1.0.1.0")]
+        [InlineData("", "banana", "release/banana/2", "2.0.0.0")]
+        [InlineData("", "banana", "release/banana/3.7", "3.7.0.0")]
+        [InlineData("", "banana", "release/banana/4.2.1", "4.2.1.0")]
         [InlineData("test", "", "release-test/1", "1.0.0.0")]
         [InlineData("test", "", "release-test/1.0", "1.0.0.0")]
         [InlineData("test", "", "release-test/1.0.1", "1.0.1.0")]
         [InlineData("test", "banana", "release-test/banana/2", "2.0.0.0")]
         [InlineData("test", "banana", "release-test/banana/3.7", "3.7.0.0")]
         [InlineData("test", "banana", "release-test/banana/4.2.1", "4.2.1.0")]
+        [InlineData("", "", "hotfix/1", "1.0.0.0")]
+        [InlineData("", "", "hotfix/1.0", "1.0.0.0")]
+        [InlineData("", "", "hotfix/1.0.1", "1.0.1.0")]
+        [InlineData("", "banana", "hotfix/banana/2", "2.0.0.0")]
+        [InlineData("", "banana", "hotfix/banana/3.7", "3.7.0.0")]
+        [InlineData("", "banana", "hotfix/banana/4.2.1", "4.2.1.0")]
+        [InlineData("test", "", "hotfix-test/1", "1.0.0.0")]
+        [InlineData("test", "", "hotfix-test/1.0", "1.0.0.0")]
+        [InlineData("test", "", "hotfix-test/1.0.1", "1.0.1.0")]
+        [InlineData("test", "banana", "hotfix-test/banana/2", "2.0.0.0")]
+        [InlineData("test", "banana", "hotfix-test/banana/3.7", "3.7.0.0")]
+        [InlineData("test", "banana", "hotfix-test/banana/4.2.1", "4.2.1.0")]
         public void ShouldBeConsideredRelease(string suffix, string package, string branchName, string expectedVersionString)
         {
             IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
@@ -56,6 +71,10 @@ namespace FunFair.BuildVersion.Detection.Tests
 
         [Theory]
         [InlineData("", "", "refs/pull/77/head", 77)]
+        [InlineData("", "", "refs/pull/312/head", 312)]
+        [InlineData("test", "", "refs/pull/77/head", 77)]
+        [InlineData("", "banana", "refs/pull/77/head", 77)]
+        [InlineData("test", "banana", "refs/pull/77/head", 77)]
         public void ShouldBeConsideredAPullRequest(string suffix, string package, string branchName, long expectedPullRequestId)
         {
             IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
