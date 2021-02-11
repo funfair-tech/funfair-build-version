@@ -2,7 +2,7 @@
 
 Simpler/faster git specific version builder
 
-## Changelog
+## Release Notes/Changelog
 
 View [changelog](CHANGELOG.md)
 
