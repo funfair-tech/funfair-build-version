@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using CommandLine;
 
 namespace FunFair.BuildVersion
@@ -7,12 +8,14 @@ namespace FunFair.BuildVersion
     ///     Options
     /// </summary>
     [DebuggerDisplay("Build {BuildNumber}, Release: {ReleaseSuffix} Package: {Package}")]
+    [SuppressMessage(category: "ReSharper", checkId: "ClassNeverInstantiated.Global", Justification = "Created internally by command line parser")]
     public sealed record Options
     {
         /// <summary>
         ///     Whether warnings should be errors.
         /// </summary>
         [Option(shortName: 'x', longName: "WarningsAsErrors", Required = false, HelpText = "Whether warnings should be errors", Default = false)]
+        [SuppressMessage(category: "ReSharper", checkId: "UnusedAutoPropertyAccessor.Global", Justification = "Used by command line parser")]
         public bool WarningsAsErrors { get; init; }
 
         /// <summary>
