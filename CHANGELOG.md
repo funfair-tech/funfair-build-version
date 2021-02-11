@@ -9,8 +9,17 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 
 ## [Unreleased]
 ### Added
-- FF-3332 - Support alternative branch based versioning strategies
 ### Fixed
+### Changed
+### Removed
+### Deployment Changes
+
+<!--
+Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
+-->
+## [3.0.0] - 2021-02-11
+### Added
+- FF-3332 - Support alternative branch based versioning strategies
 ### Changed
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.15.0.24505
 - FF-1429 - Updated Microsoft.Extensions to 5.0.1
@@ -23,12 +32,7 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 - FF-1429 - Updated Roslynator.Analyzers to 3.1.0
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.18.0.27296
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.1.0.658
-### Removed
-### Deployment Changes
 
-<!--
-Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
--->
 ## [2.0.0] 2020-11-20
 ### Changed
 - FF-1429 - Updated Microsoft.Extensions to 5.0.0
