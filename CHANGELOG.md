@@ -12,6 +12,7 @@ Please ADD ALL Changes to the UNRELASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - FF-1429 - Updated TeamCity.VSTest.TestAdapter to 1.0.25
+- FF-1429 - Updated coverlet to 3.0.3
 ### Removed
 ### Deployment Changes
 
