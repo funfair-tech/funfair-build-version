@@ -6,6 +6,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{B3B551
 ProjectSection(SolutionItems) = preProject
 	global.json = global.json
 	CodeAnalysis.ruleset = CodeAnalysis.ruleset
+	..\CHANGELOG.md = ..\CHANGELOG.md
+	..\README.md = ..\README.md
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunFair.BuildVersion.Detection.Tests", "FunFair.BuildVersion.Detection.Tests\FunFair.BuildVersion.Detection.Tests.csproj", "{D378DE88-1ACE-4B08-AF4F-C375DFED9CEA}"
