@@ -71,6 +71,17 @@ namespace FunFair.BuildVersion
             catch (Exception exception)
             {
                 Console.WriteLine($"ERROR: {exception.Message}");
+                Console.WriteLine($"ERROR: {exception.GetType().FullName}");
+                Console.WriteLine($"ERROR: {exception.StackTrace}");
+
+                Exception? inner = exception.InnerException;
+
+                if (inner != null)
+                {
+                    Console.WriteLine($"ERROR: {inner.Message}");
+                    Console.WriteLine($"ERROR: {inner.GetType().FullName}");
+                    Console.WriteLine($"ERROR: {inner.StackTrace}");
+                }
 
                 return ERROR;
             }
