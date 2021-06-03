@@ -33,12 +33,12 @@
     <CodeAnalysisRuleSet>$(SolutionDir)\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.8.0" />
-    <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
-    <PackageReference Include="LibGit2Sharp.NativeBinaries" Version="2.0.306" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="NuGet.Versioning" Version="5.9.1" />
+    <PackageReference Include="CommandLineParser" Version="2.8.0"/>
+    <PackageReference Include="LibGit2Sharp" Version="0.27.0-preview-0096"/>
+    <PackageReference Include="LibGit2Sharp.NativeBinaries" Version="2.0.312"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0"/>
+    <PackageReference Include="NuGet.Versioning" Version="5.9.1"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AsyncFixer" Version="1.5.1" PrivateAssets="All" />
