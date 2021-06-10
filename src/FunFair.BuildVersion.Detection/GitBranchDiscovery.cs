@@ -26,7 +26,10 @@ namespace FunFair.BuildVersion.Detection
         /// <param name="branchClassification">Branch classification.</param>
         /// <param name="externalBranchLocators">Branch location.</param>
         /// <param name="logger">Logging.</param>
-        public GitBranchDiscovery(Repository repository, IBranchClassification branchClassification, IEnumerable<IExternalBranchLocator> externalBranchLocators, ILogger<GitBranchDiscovery> logger)
+        public GitBranchDiscovery(Repository repository,
+                                  IBranchClassification branchClassification,
+                                  IEnumerable<IExternalBranchLocator> externalBranchLocators,
+                                  ILogger<GitBranchDiscovery> logger)
         {
             this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
             this._branchClassification = branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
