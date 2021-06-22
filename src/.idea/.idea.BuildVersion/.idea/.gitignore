@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/modules.xml
+/.idea.BuildVersion.iml
+# Datasource local storage ignored files
+/../../../../../../../:\Work\funfair-build-version\src\.idea\.idea.BuildVersion\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
