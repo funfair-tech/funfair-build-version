@@ -19,11 +19,12 @@
     </PropertyGroup>
     <PropertyGroup>
         <NeutralLanguage>en</NeutralLanguage>
-        <Company>FunFair</Company>
-        <Authors>$(Company)</Authors>
         <Description>Build versioning tool.</Description>
         <License>https://github.com/funfair-tech/funfair-build-version/blob/master/LICENSE</License>
+        <PackageTags>FunFair BuildVersion, Version number generator, GitVersion, dotnet tool, tool</PackageTags>
+        <RepositoryUrl>https://github.com/funfair-tech/funfair-build-version</RepositoryUrl>
     </PropertyGroup>
+    <Import Project="$(SolutionDir)FunFair.props"/>
     <PropertyGroup>
         <AnalysisLevel>latest</AnalysisLevel>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
