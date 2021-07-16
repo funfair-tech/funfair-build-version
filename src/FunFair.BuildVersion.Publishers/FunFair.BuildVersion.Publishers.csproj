@@ -5,14 +5,14 @@
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <TreatSpecificWarningsAsErrors />
-        <NoWarn/>
+        <NoWarn />
         <WarningsAsErrors />
         <LangVersion>latest</LangVersion>
         <Features>strict;flow-analysis</Features>
         <Nullable>enable</Nullable>
         <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
         <IsPackable>false</IsPackable>
-      <IsPublishable>false</IsPublishable>
+        <IsPublishable>false</IsPublishable>
         <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
     </PropertyGroup>
     <PropertyGroup>
