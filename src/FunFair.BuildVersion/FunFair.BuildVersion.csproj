@@ -9,11 +9,11 @@
         <LangVersion>latest</LangVersion>
         <Features>strict;flow-analysis</Features>
         <TreatSpecificWarningsAsErrors />
-        <NoWarn/>
+        <NoWarn />
         <Nullable>enable</Nullable>
         <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
         <IsPackable>true</IsPackable>
-      <IsPublishable>true</IsPublishable>
+        <IsPublishable>true</IsPublishable>
         <ToolCommandName>buildversion</ToolCommandName>
         <PackAsTool>true</PackAsTool>
         <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
