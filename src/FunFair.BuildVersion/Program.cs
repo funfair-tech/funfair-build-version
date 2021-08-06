@@ -120,7 +120,7 @@ namespace FunFair.BuildVersion
 
             IEnumerable<IVersionPublisher> publishers = serviceProvider.GetServices<IVersionPublisher>();
 
-            foreach (var publisher in publishers)
+            foreach (IVersionPublisher publisher in publishers)
             {
                 publisher.Publish(version);
             }

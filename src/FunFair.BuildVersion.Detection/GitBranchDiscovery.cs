@@ -26,10 +26,7 @@ namespace FunFair.BuildVersion.Detection
         /// <param name="branchClassification">Branch classification.</param>
         /// <param name="externalBranchLocators">Branch location.</param>
         /// <param name="logger">Logging.</param>
-        public GitBranchDiscovery(Repository repository,
-                                  IBranchClassification branchClassification,
-                                  IEnumerable<IExternalBranchLocator> externalBranchLocators,
-                                  ILogger<GitBranchDiscovery> logger)
+        public GitBranchDiscovery(Repository repository, IBranchClassification branchClassification, IEnumerable<IExternalBranchLocator> externalBranchLocators, ILogger<GitBranchDiscovery> logger)
         {
             this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
             this._branchClassification = branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
@@ -81,7 +78,7 @@ namespace FunFair.BuildVersion.Detection
             IReadOnlyList<string> remotes = this._repository.Network.Remotes.Select(r => r.Name + "/")
                                                 .ToArray();
 
-            foreach (var remote in remotes)
+            foreach (string remote in remotes)
             {
                 if (branch.StartsWith(value: remote, comparisonType: StringComparison.OrdinalIgnoreCase))
                 {
