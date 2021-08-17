@@ -20,7 +20,9 @@ namespace FunFair.BuildVersion.Detection.Tests
             this._branchDiscovery = Substitute.For<IBranchDiscovery>();
             this._branchClassification = Substitute.For<IBranchClassification>();
 
-            this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery, branchClassification: this._branchClassification, Substitute.For<ILogger<VersionDetector>>());
+            this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery,
+                                                        branchClassification: this._branchClassification,
+                                                        Substitute.For<ILogger<VersionDetector>>());
         }
 
         [Fact]
