@@ -7,15 +7,19 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 -->
 
 ## [Unreleased]
-
 ### Added
-
 ### Fixed
-
-- Pre-release tags that start with a number should strip all the leading digits so compatible with nuget.
-
 ### Changed
+### Removed
+### Deployment Changes
 
+<!--
+Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
+-->
+## [3.2.0] - 2021-08-17
+### Fixed
+- Pre-release tags that start with a number should strip all the leading digits so compatible with nuget.
+### Changed
 - FF-1429 - Updated Microsoft.Extensions to 5.0.2
 - FF-1429 - Updated TeamCity.VSTest.TestAdapter to 1.0.26
 - FF-1429 - Updated coverlet to 3.1.0
@@ -25,12 +29,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated Microsoft.NET.Test.Sdk to 16.11.0
 - FF-1429 - Updated NuGet to 5.11.0
 - FF-1429 - Updated Roslynator.Analyzers to 3.2.2
-### Removed
-### Deployment Changes
 
-<!--
-Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
--->
 ## [3.1.0] - 2021-06-03
 ### Fixed
 - Support Ubuntu 20.04 with pre-release version of LibGit2Sharp
