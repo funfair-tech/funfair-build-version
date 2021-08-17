@@ -6,26 +6,20 @@ All notable changes to this project will be documented in this file.
 Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 -->
 
-
 ## [Unreleased]
+
 ### Added
+
 ### Fixed
+
+- Pre-release tags that start with a number should strip all the leading digits so compatible with nuget.
+
 ### Changed
-- FF-1429 - Updated SonarAnalyzer.CSharp to 8.24.0.32949
-- FF-1429 - Updated Roslynator.Analyzers to 3.2.0
-- FF-1429 - Updated NuGet to 5.10.0
-- FF-1429 - Updated SonarAnalyzer.CSharp to 8.25.0.33663
-- FF-1429 - Updated FunFair.Test.Common to 5.4.0.1031
-- FF-1429 - Updated FunFair.CodeAnalysis to 5.2.1.809
-- FF-1429 - Updated SonarAnalyzer.CSharp to 8.26.0.34506
-- FF-1429 - Updated FunFair.CodeAnalysis to 5.2.3.837
+
 - FF-1429 - Updated Microsoft.Extensions to 5.0.2
 - FF-1429 - Updated TeamCity.VSTest.TestAdapter to 1.0.26
-- FF-1429 - Updated FunFair.CodeAnalysis to 5.2.4.854
 - FF-1429 - Updated coverlet to 3.1.0
-- FF-1429 - Updated FunFair.Test.Common to 5.5.0.1192
 - FF-1429 - Updated FunFair.Test.Common to 5.5.0.1195
-- FF-1429 - Updated FunFair.CodeAnalysis to 5.2.5.870
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.3.0.879
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.27.0.35380
 - FF-1429 - Updated Microsoft.NET.Test.Sdk to 16.11.0

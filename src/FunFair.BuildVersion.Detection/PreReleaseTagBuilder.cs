@@ -58,6 +58,21 @@ namespace FunFair.BuildVersion.Detection
             return suffix;
         }
 
+        public static StringBuilder RemoveLeadingDigits(this StringBuilder suffix)
+        {
+            while (suffix.Length != 0)
+            {
+                if (!char.IsDigit(suffix[0]))
+                {
+                    break;
+                }
+
+                suffix = suffix.Remove(startIndex: 0, length: 1);
+            }
+
+            return suffix;
+        }
+
         public static string EnsureNotBlank(this StringBuilder suffix)
         {
             string usedSuffix = suffix.ToString()

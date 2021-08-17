@@ -20,9 +20,7 @@ namespace FunFair.BuildVersion.Detection.Tests
             this._branchDiscovery = Substitute.For<IBranchDiscovery>();
             this._branchClassification = Substitute.For<IBranchClassification>();
 
-            this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery,
-                                                        branchClassification: this._branchClassification,
-                                                        Substitute.For<ILogger<VersionDetector>>());
+            this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery, branchClassification: this._branchClassification, Substitute.For<ILogger<VersionDetector>>());
         }
 
         [Fact]
@@ -65,6 +63,8 @@ namespace FunFair.BuildVersion.Detection.Tests
         [InlineData("feature/improve-performance", "improve-perform")]
         [InlineData("feature/test/_/_/_/_/test", "test-test")]
         [InlineData("feature/_/_/_/_", "prerelease")]
+        [InlineData("feature/27-things", "things")]
+        [InlineData("broken/5d2041d62c09b6ff0d0f3f95b7f939b32bb20252/cleanup/ff-2244/FunFair.Test.sln", "d2041d62c09b6ff")]
         public void WhenCurrentlyOnAPreReleaseWithReleaseBranchesBranch(string branchName, string expectedPreReleaseSuffix)
         {
             this.MockFindCurrentBranch(branchName);

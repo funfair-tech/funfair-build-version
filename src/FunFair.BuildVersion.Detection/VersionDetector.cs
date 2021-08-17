@@ -92,6 +92,7 @@ namespace FunFair.BuildVersion.Detection
                                 .RemoveFirstFolderInBranchName()
                                 .ReplaceInvalidCharacters()
                                 .RemoveDoubleHyphens()
+                                .RemoveLeadingDigits()
                                 .EnsureNotBlank()
                                 .EnsureNotTooLong();
         }
