@@ -81,12 +81,11 @@ namespace FunFair.BuildVersion.Detection
             IReadOnlyList<string> remotes = this._repository.Network.Remotes.Select(r => r.Name + "/")
                                                 .ToArray();
 
-            foreach (string remote in remotes)
+            string? remote = remotes.FirstOrDefault(remote => branch.StartsWith(value: remote, comparisonType: StringComparison.OrdinalIgnoreCase));
+
+            if (remote != null)
             {
-                if (branch.StartsWith(value: remote, comparisonType: StringComparison.OrdinalIgnoreCase))
-                {
-                    return branch.Substring(remote.Length);
-                }
+                return branch.Substring(remote.Length);
             }
 
             return branch;
