@@ -23,9 +23,6 @@
         <CodeAnalysisRuleSet>$(SolutionDir)\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\FunFair.BuildVersion.Publishers\FunFair.BuildVersion.Publishers.csproj" />
-    </ItemGroup>
-    <ItemGroup>
         <PackageReference Include="FunFair.Test.Common" Version="5.6.3.1339" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
         <PackageReference Include="NSubstitute" Version="4.2.2" />
