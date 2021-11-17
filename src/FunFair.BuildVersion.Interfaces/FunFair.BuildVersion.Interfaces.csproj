@@ -30,7 +30,7 @@
         <CodeAnalysisRuleSet>$(SolutionDir)\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="NuGet.Versioning" Version="5.11.0" />
+        <PackageReference Include="NuGet.Versioning" Version="6.0.0"/>
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="AsyncFixer" Version="1.5.1" PrivateAssets="All" />
