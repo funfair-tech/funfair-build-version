@@ -26,7 +26,7 @@ namespace FunFair.BuildVersion.Services
         }
 
         /// <inheritdoc />
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
         {
             this._diagnosticLogger.Log(logLevel: logLevel, eventId: eventId, state: state, exception: exception, formatter: formatter);
         }
