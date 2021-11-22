@@ -10,6 +10,14 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
+### Removed
+### Deployment Changes
+
+<!--
+Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
+-->
+## [3.3.0] - 2021-11-22
+### Changed
 - FF-1429 - Updated Microsoft.NET.Test.Sdk to 17.0.0
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.0.64
 - FF-1429 - Updated to Dotnet SDK 5.0.403
@@ -20,11 +28,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-3856 - Updated to DotNet 6.0 with DotNet 5.0 fallback
 ### Removed
 - Unused dependencies
-### Deployment Changes
 
-<!--
-Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
--->
 ## [3.2.0] - 2021-08-17
 ### Fixed
 - Pre-release tags that start with a number should strip all the leading digits so compatible with nuget.
