@@ -3,16 +3,19 @@
         <OutputType>Library</OutputType>
         <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-        <WarningsAsErrors />
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <LangVersion>latest</LangVersion>
-        <Features>strict;flow-analysis</Features>
-        <TreatSpecificWarningsAsErrors />
-        <NoWarn></NoWarn>
-        <Nullable>enable</Nullable>
-        <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
-        <IsPackable>false</IsPackable>
-        <IsPublishable>false</IsPublishable>
+      <WarningsAsErrors/>
+      <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+      <LangVersion>latest</LangVersion>
+      <Features>strict;flow-analysis</Features>
+      <TreatSpecificWarningsAsErrors/>
+      <NoWarn></NoWarn>
+      <Nullable>enable</Nullable>
+      <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+      <IsPackable>false</IsPackable>
+      <IsPublishable>false</IsPublishable>
+      <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
+      <TieredCompilation>true</TieredCompilation>
+      <ImplicitUsings>disable</ImplicitUsings>
     </PropertyGroup>
     <PropertyGroup>
         <AnalysisLevel>latest</AnalysisLevel>

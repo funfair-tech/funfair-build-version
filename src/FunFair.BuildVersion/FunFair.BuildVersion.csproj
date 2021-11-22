@@ -7,16 +7,21 @@
         <WarningsAsErrors />
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <LangVersion>latest</LangVersion>
-        <Features>strict;flow-analysis</Features>
-        <TreatSpecificWarningsAsErrors />
-        <NoWarn />
-        <Nullable>enable</Nullable>
-        <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
-        <IsPackable>true</IsPackable>
-        <IsPublishable>true</IsPublishable>
-        <ToolCommandName>buildversion</ToolCommandName>
-        <PackAsTool>true</PackAsTool>
-        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
+      <Features>strict;flow-analysis</Features>
+      <TreatSpecificWarningsAsErrors/>
+      <NoWarn/>
+      <Nullable>enable</Nullable>
+      <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+      <IsPackable>true</IsPackable>
+      <IsPublishable>true</IsPublishable>
+      <ToolCommandName>buildversion</ToolCommandName>
+      <PackAsTool>true</PackAsTool>
+      <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
+      <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
+      <EnablePackageValidation>true</EnablePackageValidation>
+      <TieredCompilation>true</TieredCompilation>
+      <ValidateExecutableReferencesMatchSelfContained>true</ValidateExecutableReferencesMatchSelfContained>
+      <ImplicitUsings>disable</ImplicitUsings>
     </PropertyGroup>
     <PropertyGroup>
         <NeutralLanguage>en</NeutralLanguage>
