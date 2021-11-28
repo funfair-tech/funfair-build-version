@@ -31,7 +31,7 @@ namespace FunFair.BuildVersion.Detection.Tests
 
         private static BranchClassification Configure(string suffix, string package)
         {
-            return new(new BranchSettings(releaseSuffix: suffix, package: package));
+            return new BranchClassification(new BranchSettings(releaseSuffix: suffix, package: package));
         }
 
         [Theory]
