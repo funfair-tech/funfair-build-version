@@ -74,7 +74,7 @@ namespace FunFair.BuildVersion.Detection
         {
             Version dv = new(revision: buildNumber, build: version.Version.Build, minor: version.Version.Minor, major: version.Version.Major);
 
-            return new NuGetVersion(dv);
+            return new(dv);
         }
 
         private NuGetVersion BuildPreReleaseVersion(NuGetVersion latest, string currentBranch, int buildNumber)
@@ -85,7 +85,7 @@ namespace FunFair.BuildVersion.Detection
 
             Version version = new(major: latest.Version.Major, minor: latest.Version.Minor, latest.Version.Build + 1, revision: buildNumber);
 
-            return new NuGetVersion(version: version, releaseLabel: usedSuffix);
+            return new(version: version, releaseLabel: usedSuffix);
         }
 
         private string BuildPreReleaseSuffix(string currentBranch)

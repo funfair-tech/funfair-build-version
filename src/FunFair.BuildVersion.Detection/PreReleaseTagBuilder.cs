@@ -16,10 +16,10 @@ namespace FunFair.BuildVersion.Detection
         {
             if (branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId))
             {
-                return new StringBuilder(@"pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture));
+                return new(@"pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture));
             }
 
-            return new StringBuilder(currentBranch.ToLowerInvariant());
+            return new(currentBranch.ToLowerInvariant());
         }
 
         public static StringBuilder ReplaceInvalidCharacters(this StringBuilder suffix)
