@@ -116,7 +116,7 @@ namespace FunFair.BuildVersion.Detection
         {
             Version dv = new(revision: 0, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
 
-            return new NuGetVersion(dv);
+            return new(dv);
         }
 
         private static bool IsVersionSameAsBranchName(NuGetVersion baseLine, string version)

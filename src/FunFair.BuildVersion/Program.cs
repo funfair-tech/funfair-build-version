@@ -132,7 +132,7 @@ namespace FunFair.BuildVersion
         {
             string found = Repository.Discover(workDir);
 
-            return new Repository(found);
+            return new(found);
         }
 
         private static int FindBuildNumber(int buildNumberFromCommandLine)
