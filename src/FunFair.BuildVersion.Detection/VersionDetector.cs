@@ -56,7 +56,9 @@ namespace FunFair.BuildVersion.Detection
             {
                 this._logger.LogDebug($" * => {branch}");
 
-                return this._branchClassification.IsRelease(branchName: branch, out NuGetVersion? version) ? version : null;
+                return this._branchClassification.IsRelease(branchName: branch, out NuGetVersion? version)
+                    ? version
+                    : null;
             }
 
             IReadOnlyList<string> branches = this._branchDiscovery.FindBranches();

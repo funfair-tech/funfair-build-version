@@ -17,7 +17,11 @@ namespace FunFair.BuildVersion.Publishers
 
             if (!string.IsNullOrEmpty(env))
             {
-                File.AppendAllLines(path: env, new[] { $"BUILD_VERSION={version}" });
+                File.AppendAllLines(path: env,
+                                    new[]
+                                    {
+                                        $"BUILD_VERSION={version}"
+                                    });
             }
         }
     }
