@@ -20,7 +20,9 @@ public sealed class VersionDetectorTests : TestBase
         this._branchDiscovery = Substitute.For<IBranchDiscovery>();
         this._branchClassification = Substitute.For<IBranchClassification>();
 
-        this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery, branchClassification: this._branchClassification, Substitute.For<ILogger<VersionDetector>>());
+        this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery,
+                                                    branchClassification: this._branchClassification,
+                                                    Substitute.For<ILogger<VersionDetector>>());
     }
 
     [Fact]
@@ -69,7 +71,12 @@ public sealed class VersionDetectorTests : TestBase
     {
         this.MockFindCurrentBranch(branchName);
 
-        IReadOnlyList<string> branches = new[] { "release/1.0.0", "release/1.1.0", "release/3.4.5" };
+        IReadOnlyList<string> branches = new[]
+                                         {
+                                             "release/1.0.0",
+                                             "release/1.1.0",
+                                             "release/3.4.5"
+                                         };
         this.MockFindBranches(branches);
         this.MockIsRelease(branchName: "release/1.0.0", version: "1.0.0.0");
         this.MockIsRelease(branchName: "release/1.1.0", version: "1.1.0.0");
@@ -113,7 +120,12 @@ public sealed class VersionDetectorTests : TestBase
     {
         this.MockFindCurrentBranch(branchName);
 
-        IReadOnlyList<string> branches = new[] { "release/1.0.0", "release/1.1.0", "release/3.4.5" };
+        IReadOnlyList<string> branches = new[]
+                                         {
+                                             "release/1.0.0",
+                                             "release/1.1.0",
+                                             "release/3.4.5"
+                                         };
         this.MockFindBranches(branches);
         this.MockIsRelease(branchName: "release/1.0.0", version: "1.0.0.0");
         this.MockIsRelease(branchName: "release/1.1.0", version: "1.1.0.0");
