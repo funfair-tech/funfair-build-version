@@ -11,6 +11,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - FF-1429 - Updated TeamCity.VSTest.TestAdapter to 1.0.30
+- FF-1429 - Updated FunFair.Test.Common to 5.7.2.1514
 ### Removed
 ### Deployment Changes
 
