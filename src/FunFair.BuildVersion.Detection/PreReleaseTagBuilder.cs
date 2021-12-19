@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using FunFair.BuildVersion.Interfaces;
@@ -50,7 +51,7 @@ internal static class PreReleaseTagBuilder
     public static StringBuilder RemoveDoubleHyphens(this StringBuilder suffix)
     {
         while (suffix.ToString()
-                     .Contains(DOUBLE_INVALID_REPLACEMENT_CHAR))
+                     .Contains(value: DOUBLE_INVALID_REPLACEMENT_CHAR, comparisonType: StringComparison.Ordinal))
         {
             suffix = suffix.Replace(oldValue: DOUBLE_INVALID_REPLACEMENT_CHAR, newValue: INVALID_CHAR_STRING_REPLACEMENT);
         }

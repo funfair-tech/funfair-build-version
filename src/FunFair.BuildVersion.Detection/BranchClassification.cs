@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using FunFair.BuildVersion.Interfaces;
 using NuGet.Versioning;
 
@@ -47,7 +48,7 @@ public sealed class BranchClassification : IBranchClassification
                 currentBranch = currentBranch.Substring(startIndex: 0, currentBranch.Length - PULL_REQUEST_SUFFIX.Length);
             }
 
-            return long.TryParse(s: currentBranch, result: out pullRequestId);
+            return long.TryParse(s: currentBranch, style: NumberStyles.Integer, provider: CultureInfo.InvariantCulture, result: out pullRequestId);
         }
 
         pullRequestId = default;

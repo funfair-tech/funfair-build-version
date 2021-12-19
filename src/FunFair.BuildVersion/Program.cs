@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using CommandLine;
 using FunFair.BuildVersion.Detection;
 using FunFair.BuildVersion.Detection.ExternalBranchLocators;
@@ -150,7 +151,7 @@ internal static class Program
         {
             Console.WriteLine($"Build number from TeamCity: {buildNumber}");
 
-            if (int.TryParse(s: buildNumber, out int build) && build >= 0)
+            if (int.TryParse(s: buildNumber, style: NumberStyles.Integer, provider: CultureInfo.InvariantCulture, out int build) && build >= 0)
             {
                 return build;
             }
