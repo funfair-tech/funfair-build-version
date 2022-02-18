@@ -53,6 +53,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.695
 - FF-1429 - Updated NuGet to 6.1.0
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.1.46
+- FF-1429 - Updated FunFair.Test.Common to 5.9.2.1676
 ### Removed
 ### Deployment Changes
 
