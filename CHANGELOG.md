@@ -86,6 +86,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.8.2.1317
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.702
 - FF-1429 - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.5
+- FF-1429 - Updated SonarAnalyzer.CSharp to 8.39.0.47922
 ### Removed
 ### Deployment Changes
 
