@@ -84,6 +84,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-3881 - Updated DotNet SDK to 6.0.300
 - FF-1429 - Updated NuGet to 6.2.0
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.8.2.1317
+- FF-1429 - Updated Meziantou.Analyzer to 1.0.702
 ### Removed
 ### Deployment Changes
 
