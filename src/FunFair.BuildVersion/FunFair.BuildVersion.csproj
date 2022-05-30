@@ -1,64 +1,64 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-    <EnablePackageValidation>true</EnablePackageValidation>
-    <Features>strict;flow-analysis</Features>
-    <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
-    <IsPackable>true</IsPackable>
-    <IsPublishable>true</IsPublishable>
-    <LangVersion>latest</LangVersion>
-    <NoWarn />
-    <Nullable>enable</Nullable>
-    <OutputType>Exe</OutputType>
-    <PackAsTool>true</PackAsTool>
-    <RunAOTCompilation>true</RunAOTCompilation>
-    <RuntimeIdentifiers>win-x64;win10-x64;win81-x64;osx.10.12-x64;linux-x64;debian.9-x64</RuntimeIdentifiers>
-    <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
-    <TieredCompilation>true</TieredCompilation>
-    <ToolCommandName>buildversion</ToolCommandName>
-    <TreatSpecificWarningsAsErrors />
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <ValidateExecutableReferencesMatchSelfContained>true</ValidateExecutableReferencesMatchSelfContained>
-    <WarningsAsErrors />
-  </PropertyGroup>
-  <PropertyGroup>
-    <Description>Build versioning tool.</Description>
-    <License>https://github.com/funfair-tech/funfair-build-version/blob/master/LICENSE</License>
-    <NeutralLanguage>en</NeutralLanguage>
-    <PackageTags>FunFair BuildVersion, Version number generator, GitVersion, dotnet tool, tool</PackageTags>
-    <RepositoryUrl>https://github.com/funfair-tech/funfair-build-version</RepositoryUrl>
-  </PropertyGroup>
-  <Import Project="$(SolutionDir)FunFair.props" />
-  <PropertyGroup>
-    <AnalysisLevel>latest</AnalysisLevel>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-    <CodeAnalysisRuleSet>$(SolutionDir)\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-  </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FunFair.BuildVersion.Detection\FunFair.BuildVersion.Detection.csproj" />
-    <ProjectReference Include="..\FunFair.BuildVersion.Publishers\FunFair.BuildVersion.Publishers.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="AsyncFixer" Version="1.6.0" PrivateAssets="All" />
-    <PackageReference Include="codecracker.CSharp" Version="1.1.0" PrivateAssets="All" />
-    <PackageReference Include="FunFair.CodeAnalysis" Version="5.8.2.1317" PrivateAssets="All" />
-    <PackageReference Include="Meziantou.Analyzer" Version="1.0.702" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.2.32" PrivateAssets="All" />
-    <PackageReference Include="Nullable.Extended.Analyzer" Version="1.10.4539" PrivateAssets="All" />
-    <PackageReference Include="Roslynator.Analyzers" Version="4.1.0" PrivateAssets="All" />
-    <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.2" PrivateAssets="All" />
-    <PackageReference Include="SmartAnalyzers.CSharpExtensions.Annotations" Version="4.2.5" PrivateAssets="All" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.39.0.47922" PrivateAssets="All" />
-    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
-    <PackageReference Include="ToStringWithoutOverrideAnalyzer" Version="0.6.0" PrivateAssets="All" />
-  </ItemGroup>
+    <PropertyGroup>
+        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <Features>strict;flow-analysis</Features>
+        <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+        <IsPackable>true</IsPackable>
+        <IsPublishable>true</IsPublishable>
+        <LangVersion>latest</LangVersion>
+        <NoWarn />
+        <Nullable>enable</Nullable>
+        <OutputType>Exe</OutputType>
+        <PackAsTool>true</PackAsTool>
+        <RunAOTCompilation>true</RunAOTCompilation>
+        <RuntimeIdentifiers>win-x64;win10-x64;win81-x64;osx.10.12-x64;linux-x64;debian.9-x64</RuntimeIdentifiers>
+        <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+        <TieredCompilation>true</TieredCompilation>
+        <ToolCommandName>buildversion</ToolCommandName>
+        <TreatSpecificWarningsAsErrors />
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+        <ValidateExecutableReferencesMatchSelfContained>true</ValidateExecutableReferencesMatchSelfContained>
+        <WarningsAsErrors />
+    </PropertyGroup>
+    <PropertyGroup>
+        <Description>Build versioning tool.</Description>
+        <License>https://github.com/funfair-tech/funfair-build-version/blob/master/LICENSE</License>
+        <NeutralLanguage>en</NeutralLanguage>
+        <PackageTags>FunFair BuildVersion, Version number generator, GitVersion, dotnet tool, tool</PackageTags>
+        <RepositoryUrl>https://github.com/funfair-tech/funfair-build-version</RepositoryUrl>
+    </PropertyGroup>
+    <Import Project="$(SolutionDir)FunFair.props" />
+    <PropertyGroup>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+        <CodeAnalysisRuleSet>$(SolutionDir)\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\FunFair.BuildVersion.Detection\FunFair.BuildVersion.Detection.csproj" />
+        <ProjectReference Include="..\FunFair.BuildVersion.Publishers\FunFair.BuildVersion.Publishers.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="CommandLineParser" Version="2.9.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AsyncFixer" Version="1.6.0" PrivateAssets="All" />
+        <PackageReference Include="codecracker.CSharp" Version="1.1.0" PrivateAssets="All" />
+        <PackageReference Include="FunFair.CodeAnalysis" Version="5.8.2.1317" PrivateAssets="All" />
+        <PackageReference Include="Meziantou.Analyzer" Version="1.0.702" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.2.32" PrivateAssets="All" />
+        <PackageReference Include="Nullable.Extended.Analyzer" Version="1.10.4539" PrivateAssets="All" />
+        <PackageReference Include="Roslynator.Analyzers" Version="4.1.1" PrivateAssets="All" />
+        <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.2" PrivateAssets="All" />
+        <PackageReference Include="SmartAnalyzers.CSharpExtensions.Annotations" Version="4.2.5" PrivateAssets="All" />
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.39.0.47922" PrivateAssets="All" />
+        <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
+        <PackageReference Include="ToStringWithoutOverrideAnalyzer" Version="0.6.0" PrivateAssets="All" />
+    </ItemGroup>
 </Project>
