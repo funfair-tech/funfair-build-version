@@ -90,6 +90,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated FunFair.Test.Common to 5.9.5.1833
 - FF-1429 - Updated Roslynator.Analyzers to 4.1.1
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.40.0.48530
+- FF-1429 - Updated SecurityCodeScan.VS2019 to 5.6.3
 ### Removed
 ### Deployment Changes
 
