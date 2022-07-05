@@ -19,11 +19,6 @@ public sealed class DiagnosticLogger : IDiagnosticLogger
     public DiagnosticLogger(bool warningsAsErrors)
     {
         this._warningsAsErrors = warningsAsErrors;
-
-        if (this._warningsAsErrors)
-        {
-            this.LogInformation("** Running with Warnings as Errors");
-        }
     }
 
     /// <inheritdoc />
@@ -37,8 +32,7 @@ public sealed class DiagnosticLogger : IDiagnosticLogger
     {
         if (this.IsWarningAsError(logLevel))
         {
-            // ReSharper disable once TailRecursiveCall - this is not tail recursive despite what R# thinks
-            this.Log(logLevel: LogLevel.Error, eventId: eventId, state: state, exception: exception, formatter: formatter);
+            this.OutputErrorMessage(eventId: eventId, state: state, exception: exception, formatter: formatter);
 
             return;
         }
@@ -63,6 +57,11 @@ public sealed class DiagnosticLogger : IDiagnosticLogger
     public IDisposable BeginScope<TState>(TState state)
     {
         return new DisposableScope();
+    }
+
+    private void OutputErrorMessage<TState>(in EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
+    {
+        this.Log(logLevel: LogLevel.Error, eventId: eventId, state: state, exception: exception, formatter: formatter);
     }
 
     private void OutputMessageWithStatus<TState>(LogLevel logLevel, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
