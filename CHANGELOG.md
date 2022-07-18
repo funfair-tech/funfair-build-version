@@ -15,6 +15,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-3881 - Updated DotNet SDK to 6.0.302
 - FF-1429 - Updated FunFair.Test.Common to 6.0.1.1951
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.705
+- FF-1429 - Updated SonarAnalyzer.CSharp to 8.42.0.51121
 ### Removed
 ### Deployment Changes
 
