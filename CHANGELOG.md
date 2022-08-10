@@ -27,6 +27,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated NuGet to 6.3.0
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.8.5.1436
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.3.44
+- FF-1429 - Updated Microsoft.NET.Test.Sdk to 17.3.0
 ### Removed
 ### Deployment Changes
 
