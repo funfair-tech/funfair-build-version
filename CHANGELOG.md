@@ -15,7 +15,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-3881 - Updated DotNet SDK to 6.0.302
 - FF-1429 - Updated FunFair.Test.Common to 6.0.1.1951
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.42.0.51121
-- FF-1429 - Updated Meziantou.Analyzer to 1.0.708
 - FF-1429 - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.6
 - FF-1429 - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.7
 - FF-1429 - Updated xunit.analyzers to 1.0.0
@@ -43,6 +42,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated SecurityCodeScan.VS2019 to 5.6.7
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.9.0.1493
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.723
+- FF-1429 - Updated Meziantou.Analyzer to 1.0.725
 ### Removed
 ### Deployment Changes
 
