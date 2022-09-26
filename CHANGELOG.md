@@ -11,6 +11,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.732
+- FF-1429 - Updated Microsoft.NET.Test.Sdk to 17.3.2
 ### Removed
 ### Deployment Changes
 
