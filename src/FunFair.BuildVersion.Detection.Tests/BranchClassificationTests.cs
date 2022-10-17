@@ -66,7 +66,7 @@ public sealed class BranchClassificationTests : TestBase
         bool isRelease = branchClassification.IsRelease(branchName: branchName, out NuGetVersion? version);
         Assert.True(condition: isRelease, userMessage: "Branch should be considered a release branch");
         Assert.NotNull(version);
-        Assert.Equal(expected: expectedVersionString, version!.ToString());
+        Assert.Equal(expected: expectedVersionString, version.ToString());
     }
 
     [Theory]
