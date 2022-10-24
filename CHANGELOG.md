@@ -14,10 +14,10 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated Microsoft.Extensions to 6.0.1
 - FF-1429 - Updated NuGet to 6.3.1
   FF-1429 - Updated xunit to 2.4.2
-- FF-1429 - Updated FunFair.Test.Common to 6.0.4.1998
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.47.0.55603
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.3.48
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.740
+- FF-1429 - Updated FunFair.Test.Common to 6.0.5.2217
 ### Removed
 ### Deployment Changes
 
