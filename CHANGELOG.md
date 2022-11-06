@@ -14,7 +14,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated Microsoft.Extensions to 6.0.1
 - FF-1429 - Updated NuGet to 6.3.1
   FF-1429 - Updated xunit to 2.4.2
-- FF-1429 - Updated SonarAnalyzer.CSharp to 8.47.0.55603
 - FF-1429 - Updated FunFair.Test.Common to 6.0.5.2217
 - FF-1429 - Updated coverlet to 3.2.0
 - FF-1429 - Updated AsyncFixer to 1.6.0
@@ -27,6 +26,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated Roslynator.Analyzers to 4.1.2
 - FF-1429 - Updated SecurityCodeScan.VS2019 to 5.6.7
 - FF-1429 - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.7
+- FF-1429 - Updated SonarAnalyzer.CSharp to 8.47.0.55603
 ### Removed
 ### Deployment Changes
 
