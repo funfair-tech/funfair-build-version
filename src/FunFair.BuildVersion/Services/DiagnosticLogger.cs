@@ -82,7 +82,7 @@ public sealed class DiagnosticLogger : IDiagnosticLogger
             output = Console.Error.WriteLine;
         }
 
-        string status = logLevel.ToString()
+        string status = logLevel.GetName()
                                 .ToUpperInvariant();
 
         output($"{status}: {msg}");
