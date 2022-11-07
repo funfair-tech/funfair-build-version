@@ -25,7 +25,7 @@ internal static class Program
 
         foreach (Error error in errors)
         {
-            Console.WriteLine($" * {error.Tag}");
+            Console.WriteLine($" * {error.Tag.GetName()}");
         }
 
         return ERROR;

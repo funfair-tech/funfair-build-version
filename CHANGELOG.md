@@ -17,7 +17,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated FunFair.Test.Common to 6.0.5.2217
 - FF-1429 - Updated coverlet to 3.2.0
 - FF-1429 - Updated AsyncFixer to 1.6.0
-- FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 0.0.2.3
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.9.0.1493
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.745
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.3.48
@@ -27,6 +26,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated SecurityCodeScan.VS2019 to 5.6.7
 - FF-1429 - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.7
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.47.0.55603
+- FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 0.0.4.6
 ### Removed
 ### Deployment Changes
 
