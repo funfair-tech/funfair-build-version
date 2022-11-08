@@ -10,6 +10,14 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
+### Removed
+### Deployment Changes
+
+<!--
+Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
+-->
+## [6.2.0] - 2022-11-08
+### Changed
 - FF-1429 - Updated NuGet to 6.3.1
   FF-1429 - Updated xunit to 2.4.2
 - FF-1429 - Updated coverlet to 3.2.0
@@ -28,12 +36,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-3881 - Updated DotNet SDK to 7.0.100
 - FF-1429 - Updated Microsoft.Extensions to 7.0.0
 - FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 0.0.7.9
-### Removed
-### Deployment Changes
 
-<!--
-Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
--->
 ## [6.1.0] - 2022-09-20
 ### Changed
 - FF-1429 - Updated FunFair.Test.Common to 6.0.0.1932
