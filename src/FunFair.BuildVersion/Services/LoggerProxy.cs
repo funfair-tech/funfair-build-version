@@ -16,8 +16,7 @@ public sealed class LoggerProxy<TLogClass> : ILogger<TLogClass>
     ///     Constructor.
     /// </summary>
     /// <param name="logger">Logger.</param>
-    public LoggerProxy(
-        [SuppressMessage(category: "FunFair.CodeAnalysis", checkId: "FFS0024: Logger parameters should be ILogger<T>", Justification = "Not created through DI")] ILogger logger)
+    public LoggerProxy([SuppressMessage(category: "FunFair.CodeAnalysis", checkId: "FFS0024: Logger parameters should be ILogger<T>", Justification = "Not created through DI")] ILogger logger)
     {
         this._diagnosticLogger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
@@ -35,7 +34,8 @@ public sealed class LoggerProxy<TLogClass> : ILogger<TLogClass>
     }
 
     /// <inheritdoc />
-    public IDisposable BeginScope<TState>(TState state)
+    public IDisposable? BeginScope<TState>(TState state)
+        where TState : notnull
     {
         return this._diagnosticLogger.BeginScope(state);
     }
