@@ -11,6 +11,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 0.0.8.10
+- FF-1429 - Updated Meziantou.Analyzer to 1.0.746
 ### Removed
 ### Deployment Changes
 
