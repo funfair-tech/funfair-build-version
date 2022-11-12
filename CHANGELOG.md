@@ -11,12 +11,12 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 0.0.8.10
-- FF-1429 - Updated Meziantou.Analyzer to 1.0.746
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.4.27
 - FF-1429 - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.30
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.48.0.56517
 - FF-1429 - Updated FunFair.Test.Common to 6.0.8.2334
 - FF-1429 - Updated NuGet to 6.4.0
+- FF-1429 - Updated Meziantou.Analyzer to 1.0.747
 ### Removed
 ### Deployment Changes
 
