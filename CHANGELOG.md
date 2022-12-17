@@ -17,10 +17,10 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated xunit.analyzers to 1.1.0
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.50.0.58025
 - FF-3881 - Updated DotNet SDK to 7.0.101
-- FF-1429 - Updated FunFair.Test.Common to 6.0.11.2429
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.757
 - FF-1429 - Updated Microsoft.NET.Test.Sdk to 17.4.1
 - FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 1.0.2.14
+- FF-1429 - Updated FunFair.Test.Common to 6.0.12.2443
 ### Removed
 ### Deployment Changes
 
