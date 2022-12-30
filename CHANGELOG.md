@@ -20,7 +20,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated Microsoft.NET.Test.Sdk to 17.4.1
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.51.0.59060
 - FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 1.0.4.16
-- FF-1429 - Updated FunFair.Test.Common to 6.0.13.2464
+- FF-1429 - Updated FunFair.Test.Common to 6.0.14.2474
 ### Removed
 ### Deployment Changes
 
