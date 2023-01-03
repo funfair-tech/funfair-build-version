@@ -10,7 +10,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.4.27
 - FF-1429 - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.30
 - FF-1429 - Updated NuGet to 6.4.0
 - FF-1429 - Updated Roslynator.Analyzers to 4.2.0
@@ -21,6 +20,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 1.0.4.16
 - FF-1429 - Updated FunFair.Test.Common to 6.0.14.2474
 - FF-1429 - Updated Meziantou.Analyzer to 1.0.758
+- FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.4.33
 ### Removed
 ### Deployment Changes
 
