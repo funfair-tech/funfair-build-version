@@ -19,8 +19,8 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.32
 - FF-3881 - Updated DotNet SDK to 7.0.102
 - FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 1.0.5.17
-- FF-1429 - Updated Meziantou.Analyzer to 2.0.9
 - FF-1429 - Updated FunFair.Test.Common to 6.0.17.2561
+- FF-1429 - Updated Meziantou.Analyzer to 2.0.10
 ### Removed
 ### Deployment Changes
 
