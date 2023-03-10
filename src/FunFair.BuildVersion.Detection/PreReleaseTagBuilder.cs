@@ -38,7 +38,7 @@ internal static class PreReleaseTagBuilder
     public static StringBuilder RemoveFirstFolderInBranchName(this StringBuilder suffix)
     {
         int pos = suffix.ToString()
-                        .IndexOf('/');
+                        .IndexOf(value: '/', comparisonType: StringComparison.Ordinal);
 
         if (pos != -1)
         {
