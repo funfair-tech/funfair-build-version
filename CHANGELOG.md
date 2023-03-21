@@ -28,6 +28,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.0.7.19
 - Dependencies - Updated Meziantou.Analyzer to 2.0.22
 - Dependencies - Updated SonarAnalyzer.CSharp to 8.54.0.64047
+- Dependencies - Updated FunFair.Test.Common to 6.0.26.2754
 ### Removed
 ### Deployment Changes
 
