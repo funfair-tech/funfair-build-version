@@ -13,8 +13,10 @@
     <IsPackable>true</IsPackable>
     <IsPublishable>true</IsPublishable>
     <IsTrimmable>true</IsTrimmable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <LangVersion>latest</LangVersion>
-    <NoWarn />
+    <NoWarn/>
     <Nullable>enable</Nullable>
     <OutputType>Exe</OutputType>
     <PackAsTool>true</PackAsTool>
