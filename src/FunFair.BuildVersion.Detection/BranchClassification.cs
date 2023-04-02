@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -7,9 +7,6 @@ using NuGet.Versioning;
 
 namespace FunFair.BuildVersion.Detection;
 
-/// <summary>
-///     Branch Classification
-/// </summary>
 public sealed class BranchClassification : IBranchClassification
 {
     private const string PULL_REQUEST_PREFIX = @"refs/pull/";
@@ -18,17 +15,12 @@ public sealed class BranchClassification : IBranchClassification
 
     private readonly string _releaseBranch;
 
-    /// <summary>
-    ///     Branch Classification.
-    /// </summary>
-    /// <param name="branchSettings">Branch settings.</param>
     public BranchClassification(IBranchSettings branchSettings)
     {
         this._releaseBranch = BuildBranch(branchSettings: branchSettings, branch: @"release");
         this._hotfixBranch = BuildBranch(branchSettings: branchSettings, branch: @"hotfix");
     }
 
-    /// <inheritdoc />
     public bool IsRelease(string branchName, [NotNullWhen(true)] out NuGetVersion? version)
     {
         version = Extract(prefix: this._releaseBranch, branch: branchName) ?? Extract(prefix: this._hotfixBranch, branch: branchName);
@@ -36,7 +28,6 @@ public sealed class BranchClassification : IBranchClassification
         return version != null;
     }
 
-    /// <inheritdoc />
     public bool IsPullRequest(string currentBranch, out long pullRequestId)
     {
         if (currentBranch.StartsWith(value: PULL_REQUEST_PREFIX, comparisonType: StringComparison.Ordinal))

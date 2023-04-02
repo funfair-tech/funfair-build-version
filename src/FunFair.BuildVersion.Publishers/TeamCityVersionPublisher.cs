@@ -1,15 +1,11 @@
-﻿using System;
+using System;
 using FunFair.BuildVersion.Interfaces;
 using NuGet.Versioning;
 
 namespace FunFair.BuildVersion.Publishers;
 
-/// <summary>
-///     Publishes the version so it is suitable for integrations with TeamCity.
-/// </summary>
 public sealed class TeamCityVersionPublisher : IVersionPublisher
 {
-    /// <inheritdoc />
     public void Publish(NuGetVersion version)
     {
         string? env = Environment.GetEnvironmentVariable("TEAMCITY_VERSION");

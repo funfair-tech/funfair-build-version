@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using FunFair.BuildVersion.Detection.Extensions;
@@ -8,9 +8,6 @@ using NuGet.Versioning;
 
 namespace FunFair.BuildVersion.Detection;
 
-/// <summary>
-///     Version Detection.
-/// </summary>
 public sealed class VersionDetector : IVersionDetector
 {
     private static readonly NuGetVersion InitialVersion = new(version: new Version(major: 0, minor: 0, build: 0, revision: 0));
@@ -18,12 +15,6 @@ public sealed class VersionDetector : IVersionDetector
     private readonly IBranchDiscovery _branchDiscovery;
     private readonly ILogger<VersionDetector> _logger;
 
-    /// <summary>
-    ///     Constructor.
-    /// </summary>
-    /// <param name="branchDiscovery">Branch discovery</param>
-    /// <param name="branchClassification">Branch classification</param>
-    /// <param name="logger">Logging</param>
     public VersionDetector(IBranchDiscovery branchDiscovery, IBranchClassification branchClassification, ILogger<VersionDetector> logger)
     {
         this._branchDiscovery = branchDiscovery ?? throw new ArgumentNullException(nameof(branchDiscovery));
@@ -31,7 +22,6 @@ public sealed class VersionDetector : IVersionDetector
         this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
-    /// <inheritdoc />
     public NuGetVersion FindVersion(int buildNumber)
     {
         string currentBranch = this._branchDiscovery.FindCurrentBranch();

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using FunFair.BuildVersion.Detection.Extensions;
@@ -9,9 +9,6 @@ using NuGet.Versioning;
 
 namespace FunFair.BuildVersion.Detection;
 
-/// <summary>
-///     Branch discovery using Git as the repo.
-/// </summary>
 public sealed class GitBranchDiscovery : IBranchDiscovery
 {
     private readonly IBranchClassification _branchClassification;
@@ -19,13 +16,6 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
     private readonly ILogger<GitBranchDiscovery> _logger;
     private readonly Repository _repository;
 
-    /// <summary>
-    ///     Constructor.
-    /// </summary>
-    /// <param name="repository">The Git Repository to search.</param>
-    /// <param name="branchClassification">Branch classification.</param>
-    /// <param name="externalBranchLocators">Branch location.</param>
-    /// <param name="logger">Logging.</param>
     public GitBranchDiscovery(Repository repository,
                               IBranchClassification branchClassification,
                               IEnumerable<IExternalBranchLocator> externalBranchLocators,
@@ -37,7 +27,6 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
         this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
-    /// <inheritdoc />
     public string FindCurrentBranch()
     {
         string branch = this.FindConfiguredBranch();
@@ -69,7 +58,6 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
         return branch;
     }
 
-    /// <inheritdoc />
     public IReadOnlyList<string> FindBranches()
     {
         return this._repository.Branches.Select(selector: b => this.ExtractBranch(b.FriendlyName))
