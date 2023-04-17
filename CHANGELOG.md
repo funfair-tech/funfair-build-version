@@ -24,7 +24,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - FF-1429 - Updated NSubstitute to 5.0.0
 - FF-1429 - Updated FunFair.Test.Common to 6.0.21.2653
 - FF-3881 - Updated DotNet SDK to 7.0.200
-- SDK - Updated DotNet SDK to 7.0.202
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.0.7.19
 - Dependencies - Updated FunFair.Test.Common to 6.0.26.2754
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.5.0
@@ -32,6 +31,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SonarAnalyzer.CSharp to 8.55.0.65544
 - Dependencies - Updated LibGit2Sharp to 0.27.0
 - Dependencies - Updated Meziantou.Analyzer to 2.0.33
+- SDK - Updated DotNet SDK to 7.0.203
 ### Removed
 ### Deployment Changes
 
