@@ -30,8 +30,8 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NuGet to 6.5.0
 - Dependencies - Updated SonarAnalyzer.CSharp to 8.55.0.65544
 - Dependencies - Updated LibGit2Sharp to 0.27.0
-- Dependencies - Updated Meziantou.Analyzer to 2.0.33
 - SDK - Updated DotNet SDK to 7.0.203
+- Dependencies - Updated Meziantou.Analyzer to 2.0.34
 ### Removed
 ### Deployment Changes
 
