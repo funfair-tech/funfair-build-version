@@ -56,26 +56,21 @@ runs:
       restore-keys: |
         ${{runner.os}}-nuget-
 
-  - if: ${{inputs.NUGET_ADDITIONAL_RESTORE_FEED == ''}}
-    name: "Dotnet: Restore packages (No Alt Feed)"
+  - name: "Dotnet: Define Nuget Sources (Standard)"
     working-directory: ${{github.workspace}}/src
     shell: bash
-    run: dotnet restore -nodeReuse:False
-    env:
-      DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
-      DOTNET_INSTALL_DIR: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
-      DOTNET_MULTILEVEL_LOOKUP: "false"
-      DOTNET_NOLOGO: "true"
-      DOTNET_PRINT_TELEMETRY_MESSAGE: "false"
-      DOTNET_ReadyToRun: "0"
-      DOTNET_TC_QuickJitForLoops: "1"
-      DOTNET_TieredPGO: "1"
+    run: echo "NUGET_SOURCES=--source https://api.nuget.org/v3/index.json" >> "$GITHUB_ENV"
 
   - if: ${{inputs.NUGET_ADDITIONAL_RESTORE_FEED != ''}}
-    name: "Dotnet: Restore packages (With Alt Feed)"
+    name: "Dotnet: Define Nuget Sources (Additional Feed)"
     working-directory: ${{github.workspace}}/src
     shell: bash
-    run: dotnet restore -nodeReuse:False --source "${{inputs.NUGET_ADDITIONAL_RESTORE_FEED}}"
+    run: echo "NUGET_SOURCES=${{env.NUGET_SOURCES}} --source ${{inputs.NUGET_ADDITIONAL_RESTORE_FEED}}" >> "$GITHUB_ENV"
+
+  - name: "Dotnet: Restore packages"
+    working-directory: ${{github.workspace}}/src
+    shell: bash
+    run: dotnet restore -nodeReuse:False ${{env.NUGET_SOURCES}}
     env:
       DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
       DOTNET_INSTALL_DIR: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
@@ -89,7 +84,7 @@ runs:
   - name: "Dotnet: Build"
     working-directory: ${{github.workspace}}/src
     shell: bash
-    run: dotnet build --no-restore --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" -nodeReuse:False
+    run: dotnet build --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" -nodeReuse:False ${{env.NUGET_SOURCES}}
     env:
       ReleaseNotes: ${{inputs.RELEASE_NOTES}}
       DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
@@ -105,7 +100,7 @@ runs:
   - name: "Dotnet: Test"
     working-directory: ${{github.workspace}}/src
     shell: bash
-    run: dotnet test --no-build --no-restore -noConsoleLogger --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" --filter FullyQualifiedName\!~Integration --logger:"trx;LogFilePrefix=testResults" --results-directory ../test-results -nodeReuse:False
+    run: dotnet test --no-build -noConsoleLogger --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" --filter FullyQualifiedName\!~Integration --logger:"trx;LogFilePrefix=testResults" --results-directory ../test-results -nodeReuse:False ${{env.NUGET_SOURCES}}
     env:
       ReleaseNotes: ${{inputs.RELEASE_NOTES}}
       DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
@@ -168,7 +163,7 @@ runs:
     name: "Dotnet: Pack tool"
     working-directory: ${{github.workspace}}/src
     shell: bash
-    run: dotnet pack --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" --no-restore -nodeReuse:False
+    run: dotnet pack --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" --no-restore -nodeReuse:False ${{env.NUGET_SOURCES}}
     env:
       ReleaseNotes: ${{inputs.RELEASE_NOTES}}
       DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
