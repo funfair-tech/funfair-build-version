@@ -67,6 +67,18 @@ runs:
     shell: bash
     run: echo "NUGET_SOURCES=${{env.NUGET_SOURCES}} --source ${{inputs.NUGET_ADDITIONAL_RESTORE_FEED}}" >> "$GITHUB_ENV"
 
+  - if: ${{env.Release == 'false'}}
+    name: "Dotnet: Define Master build settings"
+    working-directory: ${{github.workspace}}/src
+    shell: bash
+    run: echo "DOTNET_RELEASE_DEFINES=/p:IsProduction=false" >> "$GITHUB_ENV"
+
+  - if: ${{env.Release == 'false'}}
+    name: "Dotnet: Define Release build settings"
+    working-directory: ${{github.workspace}}/src
+    shell: bash
+    run: echo "DOTNET_RELEASE_DEFINES=/p:IsProduction=True" >> "$GITHUB_ENV"
+
   - name: "Dotnet: Restore packages"
     working-directory: ${{github.workspace}}/src
     shell: bash
@@ -84,7 +96,7 @@ runs:
   - name: "Dotnet: Build"
     working-directory: ${{github.workspace}}/src
     shell: bash
-    run: dotnet build --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" -nodeReuse:False ${{env.NUGET_SOURCES}}
+    run: dotnet build --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" -nodeReuse:False ${{env.NUGET_SOURCES}} ${{env.DOTNET_RELEASE_DEFINES}}
     env:
       ReleaseNotes: ${{inputs.RELEASE_NOTES}}
       DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
@@ -100,7 +112,7 @@ runs:
   - name: "Dotnet: Test"
     working-directory: ${{github.workspace}}/src
     shell: bash
-    run: dotnet test --no-build -noConsoleLogger --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" --filter FullyQualifiedName\!~Integration --logger:"trx;LogFilePrefix=testResults" --results-directory ../test-results -nodeReuse:False ${{env.NUGET_SOURCES}}
+    run: dotnet test --no-build --no-restore -noConsoleLogger --configuration Release "/p:Version=${{inputs.BUILD_VERSION}}" --filter FullyQualifiedName\!~Integration --logger:"trx;LogFilePrefix=testResults" --results-directory ../test-results -nodeReuse:False
     env:
       ReleaseNotes: ${{inputs.RELEASE_NOTES}}
       DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
