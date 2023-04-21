@@ -29,9 +29,9 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NuGet to 6.5.0
 - Dependencies - Updated LibGit2Sharp to 0.27.0
 - SDK - Updated DotNet SDK to 7.0.203
-- Dependencies - Updated Meziantou.Analyzer to 2.0.34
 - Dependencies - Updated FunFair.Test.Common to 6.0.29.1
 - Dependencies - Updated SonarAnalyzer.CSharp to 8.56.0.67649
+- Dependencies - Updated Meziantou.Analyzer to 2.0.35
 ### Removed
 ### Deployment Changes
 
