@@ -10,28 +10,30 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- FF-1429 - Updated NuGet to 6.4.0
-- FF-1429 - Updated Roslynator.Analyzers to 4.2.0
-- FF-1429 - Updated xunit.analyzers to 1.1.0
-- FF-1429 - Updated Microsoft.NET.Test.Sdk to 17.4.1
-- FF-1429 - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.32
-- FF-1429 - Updated Credfeto.Enumeration.Source.Generation to 1.0.5.17
-- FF-1429 - Updated NSubstitute.Analyzers.CSharp to 1.0.16
-- FF-1429 - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.8
-- FF-1429 - Updated Meziantou.Analyzer to 2.0.14
-- FF-1429 - Updated SonarAnalyzer.CSharp to 8.52.0.60960
-- FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.5.22
-- FF-1429 - Updated NSubstitute to 5.0.0
-- FF-1429 - Updated FunFair.Test.Common to 6.0.21.2653
-- FF-3881 - Updated DotNet SDK to 7.0.200
+- Dependencies - Updated NuGet to 6.4.0
+- Dependencies - Updated Roslynator.Analyzers to 4.2.0
+- Dependencies - Updated xunit.analyzers to 1.1.0
+- Dependencies - Updated Microsoft.NET.Test.Sdk to 17.4.1
+- Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.32
+- Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.0.5.17
+- Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.16
+- Dependencies - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.8
+- Dependencies - Updated Meziantou.Analyzer to 2.0.14
+- Dependencies - Updated SonarAnalyzer.CSharp to 8.52.0.60960
+- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.5.22
+- Dependencies - Updated NSubstitute to 5.0.0
+- Dependencies - Updated FunFair.Test.Common to 6.0.21.2653
+- SDK - Updated DotNet SDK to 7.0.200
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.0.7.19
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.5.0
 - Dependencies - Updated NuGet to 6.5.0
-- Dependencies - Updated LibGit2Sharp to 0.27.0
 - SDK - Updated DotNet SDK to 7.0.203
 - Dependencies - Updated FunFair.Test.Common to 6.0.29.1
 - Dependencies - Updated SonarAnalyzer.CSharp to 8.56.0.67649
 - Dependencies - Updated Meziantou.Analyzer to 2.0.36
+- Dependencies - Updated SonarAnalyzer.CSharp to 8.55.0.65544
+- Dependencies - Updated Meziantou.Analyzer to 2.0.32
+- Dependencies - Updated LibGit2Sharp to 0.27.2
 ### Removed
 ### Deployment Changes
 
