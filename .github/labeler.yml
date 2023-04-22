@@ -34,15 +34,15 @@
  - any: [ '.github/workflows/*.yml' ]
 "FunFair.BuildVersion":
  - any: [ 'src/FunFair.BuildVersion/**/*' ]
-"FunFair.BuildVersion.Detection":
+"Detection":
  - any: [ 'src/FunFair.BuildVersion.Detection/**/*' ]
-"FunFair.BuildVersion.Detection.Tests":
+"Detection.Tests":
  - any: [ 'src/FunFair.BuildVersion.Detection.Tests/**/*' ]
-"FunFair.BuildVersion.Interfaces":
+"Interfaces":
  - any: [ 'src/FunFair.BuildVersion.Interfaces/**/*' ]
-"FunFair.BuildVersion.Publishers":
+"Publishers":
  - any: [ 'src/FunFair.BuildVersion.Publishers/**/*' ]
-"FunFair.BuildVersion.Publishers.Tests":
+"Publishers.Tests":
  - any: [ 'src/FunFair.BuildVersion.Publishers.Tests/**/*' ]
 "prepublish":
  - any: [ 'src/prepublish/**/*' ]
