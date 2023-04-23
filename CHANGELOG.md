@@ -15,7 +15,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.analyzers to 1.1.0
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.4.1
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.32
-- Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.0.5.17
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.16
 - Dependencies - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.8
 - Dependencies - Updated Meziantou.Analyzer to 2.0.14
@@ -24,7 +23,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NSubstitute to 5.0.0
 - Dependencies - Updated FunFair.Test.Common to 6.0.21.2653
 - SDK - Updated DotNet SDK to 7.0.200
-- Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.0.7.19
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.5.0
 - Dependencies - Updated NuGet to 6.5.0
 - SDK - Updated DotNet SDK to 7.0.203
@@ -34,6 +32,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SonarAnalyzer.CSharp to 8.55.0.65544
 - Dependencies - Updated Meziantou.Analyzer to 2.0.32
 - Dependencies - Updated LibGit2Sharp to 0.27.2
+- Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.0.9.588
 ### Removed
 ### Deployment Changes
 
