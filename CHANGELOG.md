@@ -11,7 +11,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - Dependencies - Updated NuGet to 6.4.0
-- Dependencies - Updated Roslynator.Analyzers to 4.2.0
 - Dependencies - Updated xunit.analyzers to 1.1.0
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.4.1
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.32
@@ -32,6 +31,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated LibGit2Sharp to 0.27.2
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.0.9.588
 - Dependencies - Updated FunFair.Test.Common to 6.0.30.633
+- Dependencies - Updated Roslynator.Analyzers to 4.3.0
 ### Removed
 ### Deployment Changes
 
