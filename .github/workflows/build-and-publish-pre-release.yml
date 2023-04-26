@@ -22,6 +22,7 @@ concurrency:
 
 permissions:
   contents: write
+  security-events: write
 
 jobs:
   build-pre-release:
