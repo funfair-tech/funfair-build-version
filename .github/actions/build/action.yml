@@ -63,6 +63,9 @@ inputs:
   GITHUB_TOKEN:
     description: 'Github Token'
     required: true
+  REPO_VISIBILITY:
+    description: 'Visibility of the repo'
+    required: true
   CREATE_RELEASE:
     description: 'Whether to create a release in github'
     required: true
