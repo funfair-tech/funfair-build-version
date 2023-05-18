@@ -16,7 +16,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.32
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.16
 - Dependencies - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.8
-- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.5.22
 - Dependencies - Updated NSubstitute to 5.0.0
 - SDK - Updated DotNet SDK to 7.0.200
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.5.0
@@ -30,6 +29,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Meziantou.Analyzer to 2.0.50
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.0.18
 - Dependencies - .NET 8 Preview 3
+- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.6.40
 ### Removed
 ### Deployment Changes
 
