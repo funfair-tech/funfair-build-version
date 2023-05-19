@@ -22,12 +22,12 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Roslynator.Analyzers to 4.3.0
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.0.0.68202
 - Dependencies - Updated FunFair.Test.Common to 6.1.0.8
-- Dependencies - Updated Meziantou.Analyzer to 2.0.50
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.0.18
 - Dependencies - .NET 8 Preview 3
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.6.40
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.6.0
 - Dependencies - Updated NuGet to 6.6.0
+- Dependencies - Updated Meziantou.Analyzer to 2.0.52
 ### Removed
 ### Deployment Changes
 

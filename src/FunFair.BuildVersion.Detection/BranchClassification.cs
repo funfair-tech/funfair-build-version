@@ -49,7 +49,7 @@ public sealed class BranchClassification : IBranchClassification
 
     private static string BuildBranch(IBranchSettings branchSettings, string branch)
     {
-        return string.Join(separator: "/", BuildFragments(branchSettings: branchSettings, branch: branch))
+        return string.Join(separator: '/', BuildFragments(branchSettings: branchSettings, branch: branch))
                      .ToLowerInvariant();
     }
 
