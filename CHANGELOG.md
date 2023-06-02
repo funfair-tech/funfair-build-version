@@ -10,6 +10,14 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
+### Removed
+### Deployment Changes
+
+<!--
+Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
+-->
+## [6.2.1] - 2023-06-02
+### Changed
 - Dependencies - Updated xunit.analyzers to 1.1.0
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.2.32
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.16
@@ -29,12 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.2.0.71021
 - Dependencies - Updated FunFair.Test.Common to 6.1.1.49
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.6.1
-### Removed
-### Deployment Changes
 
-<!--
-Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
--->
 ## [6.2.0] - 2022-11-08
 ### Changed
 - FF-1429 - Updated NuGet to 6.3.1
