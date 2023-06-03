@@ -79,7 +79,7 @@ internal static class Program
 
             Exception? inner = exception.InnerException;
 
-            if (inner != null)
+            if (inner is not null)
             {
                 Console.WriteLine($"ERROR: {inner.Message}");
                 Console.WriteLine($"ERROR: {inner.GetType().FullName}");

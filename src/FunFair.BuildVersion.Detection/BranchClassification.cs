@@ -25,7 +25,7 @@ public sealed class BranchClassification : IBranchClassification
     {
         version = Extract(prefix: this._releaseBranch, branch: branchName) ?? Extract(prefix: this._hotfixBranch, branch: branchName);
 
-        return version != null;
+        return version is not null;
     }
 
     public bool IsPullRequest(string currentBranch, out long pullRequestId)
