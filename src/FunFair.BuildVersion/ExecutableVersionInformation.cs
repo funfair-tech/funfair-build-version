@@ -57,11 +57,8 @@ internal static class ExecutableVersionInformation
         Version? assemblyVersion = assembly.GetName()
                                            .Version;
 
-        if (assemblyVersion is null)
-        {
-            throw new VersionNotFoundException();
-        }
-
-        return assemblyVersion.ToString();
+        return assemblyVersion is null
+            ? throw new VersionNotFoundException()
+            : assemblyVersion.ToString();
     }
 }

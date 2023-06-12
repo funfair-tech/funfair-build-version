@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using FunFair.BuildVersion.Detection.Extensions;
+using Credfeto.Extensions.Linq;
 using FunFair.BuildVersion.Interfaces;
 using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
