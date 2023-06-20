@@ -16,6 +16,10 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 <!--
 Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
 -->
+## [6.2.2] - 2023-06-20
+### Changed
+- Backed out .net 8 preview
+
 ## [6.2.1] - 2023-06-02
 ### Changed
 - Dependencies - Updated xunit.analyzers to 1.1.0
