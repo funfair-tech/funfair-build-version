@@ -10,17 +10,20 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- Dependencies - Updated Meziantou.Analyzer to 2.0.61
-- Dependencies - Updated SonarAnalyzer.CSharp to 9.4.0.72892
-- Dependencies - Updated Microsoft.Extensions to 7.0.1
-- Dependencies - Updated Microsoft.NET.Test.Sdk to 17.6.2
-- Dependencies - Updated NuGet to 6.6.1
 ### Removed
 ### Deployment Changes
 
 <!--
 Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
 -->
+## [6.2.3] - 2023-06-21
+### Changed
+- Dependencies - Updated Meziantou.Analyzer to 2.0.61
+- Dependencies - Updated SonarAnalyzer.CSharp to 9.4.0.72892
+- Dependencies - Updated Microsoft.Extensions to 7.0.1
+- Dependencies - Updated Microsoft.NET.Test.Sdk to 17.6.2
+- Dependencies - Updated NuGet to 6.6.1
+
 ## [6.2.2] - 2023-06-20
 ### Changed
 - Backed out .net 8 preview
