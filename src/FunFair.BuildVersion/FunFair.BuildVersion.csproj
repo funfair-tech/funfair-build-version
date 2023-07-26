@@ -33,7 +33,8 @@
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <UseSystemResourceKeys>true</UseSystemResourceKeys>
     <ValidateExecutableReferencesMatchSelfContained>true</ValidateExecutableReferencesMatchSelfContained>
-    <WarningsAsErrors />
+    <WarningsAsErrors/>
+    <NuGetAudit>true</NuGetAudit>
   </PropertyGroup>
   <PropertyGroup>
     <Description>Build versioning tool.</Description>

@@ -26,7 +26,8 @@
     <TreatSpecificWarningsAsErrors />
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <UseSystemResourceKeys>true</UseSystemResourceKeys>
-    <WarningsAsErrors />
+    <WarningsAsErrors/>
+    <NuGetAudit>true</NuGetAudit>
   </PropertyGroup>
   <PropertyGroup>
     <AnalysisLevel>latest</AnalysisLevel>

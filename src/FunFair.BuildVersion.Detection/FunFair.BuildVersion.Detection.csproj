@@ -28,7 +28,8 @@
     <TreatSpecificWarningsAsErrors />
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <UseSystemResourceKeys>true</UseSystemResourceKeys>
-    <WarningsAsErrors />
+    <WarningsAsErrors/>
+    <NuGetAudit>true</NuGetAudit>
   </PropertyGroup>
   <PropertyGroup>
     <Authors>$(Company)</Authors>
