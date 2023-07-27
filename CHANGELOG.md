@@ -15,8 +15,8 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit to 2.5.0
 - Dependencies - Updated xunit.runner.visualstudio to 2.5.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.3.87
-- Dependencies - Updated Meziantou.Analyzer to 2.0.71
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.6.0.74858
+- Dependencies - Updated Meziantou.Analyzer to 2.0.74
 ### Removed
 - Packages on MyGet feed as MyGet has disappeared completely
 ### Deployment Changes
