@@ -39,7 +39,7 @@
     <EnforceExtendedAnalyzerRules>false</EnforceExtendedAnalyzerRules>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FunFair.Test.Common" Version="6.1.3.87" />
+    <PackageReference Include="FunFair.Test.Common" Version="6.1.4.103" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
     <PackageReference Include="NSubstitute" Version="5.0.0" />
     <PackageReference Include="TeamCity.VSTest.TestAdapter" Version="1.0.36" />
