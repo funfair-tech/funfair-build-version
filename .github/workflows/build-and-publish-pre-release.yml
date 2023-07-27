@@ -90,3 +90,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           REPO_VISIBILITY: ${{env.REPO_STATUS}}
           CREATE_RELEASE: false
+
+      - name: Build Version
+        run: |
+          echo "Version: ${{env.BUILD_VERSION}}"
