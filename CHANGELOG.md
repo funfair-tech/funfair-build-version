@@ -20,6 +20,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Meziantou.Analyzer to 2.0.81
 - Dependencies - Updated Roslynator.Analyzers to 4.4.0
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.7.0.75501
+- Dependencies - Updated Microsoft.NET.Test.Sdk to 17.7.0
 ### Removed
 - Packages on MyGet feed as MyGet has disappeared completely
 ### Deployment Changes
