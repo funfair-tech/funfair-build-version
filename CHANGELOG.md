@@ -22,6 +22,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.7.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.5.120
 - Dependencies - Updated NuGet to 6.7.0
+- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.7.30
 ### Removed
 - Packages on MyGet feed as MyGet has disappeared completely
 ### Deployment Changes
