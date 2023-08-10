@@ -8,8 +8,17 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 
 ## [Unreleased]
 ### Added
-- Packages on new NuGet feed
 ### Fixed
+### Changed
+### Removed
+### Deployment Changes
+
+<!--
+Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
+-->
+## [6.2.5] - 2023-08-10
+### Added
+- Packages on new NuGet feed
 ### Changed
 - Dependencies - Updated xunit.analyzers to 1.2.0
 - Dependencies - Updated xunit to 2.5.0
@@ -25,11 +34,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Meziantou.Analyzer to 2.0.82
 ### Removed
 - Packages on MyGet feed as MyGet has disappeared completely
-### Deployment Changes
 
-<!--
-Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
--->
 ## [6.2.4] - 2023-06-27
 ### Changed
 - Dependencies - Updated Meziantou.Analyzer to 2.0.62
