@@ -16,13 +16,13 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.runner.visualstudio to 2.5.0
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.1.87
 - SDK - Updated DotNet SDK to 7.0.400
-- Dependencies - Updated Meziantou.Analyzer to 2.0.81
 - Dependencies - Updated Roslynator.Analyzers to 4.4.0
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.7.0.75501
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.7.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.5.120
 - Dependencies - Updated NuGet to 6.7.0
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.7.30
+- Dependencies - Updated Meziantou.Analyzer to 2.0.82
 ### Removed
 - Packages on MyGet feed as MyGet has disappeared completely
 ### Deployment Changes
