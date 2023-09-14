@@ -11,6 +11,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - Dependencies - Updated FunFair.Test.Common to 6.1.10.156
+- SDK - Updated DotNet SDK to 8.0.100-rc.1.23455.8
 ### Removed
 ### Deployment Changes
 
