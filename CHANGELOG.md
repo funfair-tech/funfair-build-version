@@ -10,17 +10,20 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- Dependencies - Updated SonarAnalyzer.CSharp to 9.10.0.77988
-- Dependencies - Updated xunit.analyzers to 1.3.0
-- Dependencies - Updated xunit to 2.5.1
-- Dependencies - Updated xunit.runner.visualstudio to 2.5.1
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.12.90
 ### Removed
 ### Deployment Changes
 
 <!--
 Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
 -->
+## [6.2.10] - 2023-09-21
+### Changed
+- Dependencies - Updated SonarAnalyzer.CSharp to 9.10.0.77988
+- Dependencies - Updated xunit.analyzers to 1.3.0
+- Dependencies - Updated xunit to 2.5.1
+- Dependencies - Updated xunit.runner.visualstudio to 2.5.1
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.12.90
+
 ## [6.2.9] - 2023-09-15
 ### Changed
 - Dependencies - Updated FunFair.Test.Common to 6.1.10.156
