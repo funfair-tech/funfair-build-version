@@ -11,6 +11,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.12.0.78982
+- Dependencies - Updated xunit.analyzers to 1.4.0
 ### Removed
 ### Deployment Changes
 
