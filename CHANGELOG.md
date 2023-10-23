@@ -17,6 +17,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated TeamCity.VSTest.TestAdapter to 1.0.38
 - Dependencies - Updated Roslynator.Analyzers to 4.6.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.14.194
+- Dependencies - Updated Meziantou.Analyzer to 2.0.94
 ### Removed
 ### Deployment Changes
 
