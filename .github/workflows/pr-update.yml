@@ -17,7 +17,7 @@ env:
   BASE_REF: ${{github.base_ref}}
 jobs:
   info:
-    if: ${{endsWith(github.repository , '-template')}}
+    if: endsWith(github.repository , '-template')
     runs-on: [self-hosted, linux]
     steps:
       - name: "Initialise Workspace"
