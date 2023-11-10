@@ -10,15 +10,18 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- Dependencies - Updated Microsoft.NET.Test.Sdk to 17.8.0
-- Dependencies - Updated Meziantou.Analyzer to 2.0.106
-- Dependencies - Updated FunFair.Test.Common to 6.1.16.218
 ### Removed
 ### Deployment Changes
 
 <!--
 Releases that have at least been deployed to staging, BUT NOT necessarily released to live.  Changes should be moved from [Unreleased] into here as they are merged into the appropriate release branch
 -->
+## [6.2.13] - 2023-11-10
+### Changed
+- Dependencies - Updated Microsoft.NET.Test.Sdk to 17.8.0
+- Dependencies - Updated Meziantou.Analyzer to 2.0.106
+- Dependencies - Updated FunFair.Test.Common to 6.1.16.218
+
 ## [6.2.12] - 2023-11-05
 ### Changed
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.12.0.78982
