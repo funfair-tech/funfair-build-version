@@ -14,6 +14,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.analyzers to 1.5.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.17.224
 - Dependencies - Updated Meziantou.Analyzer to 2.0.109
+- Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.4.0
 ### Removed
 ### Deployment Changes
 
