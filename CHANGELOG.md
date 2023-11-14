@@ -15,6 +15,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.Test.Common to 6.1.17.224
 - Dependencies - Updated Meziantou.Analyzer to 2.0.109
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.4.0
+- SDK - Updated DotNet SDK to 8.0.100
 ### Removed
 ### Deployment Changes
 
