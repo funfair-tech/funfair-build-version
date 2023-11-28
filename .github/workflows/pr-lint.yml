@@ -24,7 +24,7 @@ jobs:
         shell: bash
         run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
       - name: "Info"
-        uses: actions/github-script@v6.4.1
+        uses: actions/github-script@v7.0.1
         with:
           script: |
             core.info('Branch: ${{env.HEAD_REF}}');
@@ -110,7 +110,7 @@ jobs:
             8.0.*
             ${{env.DOTNET_VERSION}}
       - name: "Check Runner details"
-        uses: actions/github-script@v6.4.1
+        uses: actions/github-script@v7.0.1
         with:
           script: |
             core.info('Name: ${{runner.name}}');
