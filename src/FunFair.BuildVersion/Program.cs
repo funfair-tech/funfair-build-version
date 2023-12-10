@@ -145,7 +145,7 @@ internal static class Program
             return buildNumberFromCommandLine;
         }
 
-        string? buildNumber = Environment.GetEnvironmentVariable(variable: @"BUILD_NUMBER");
+        string? buildNumber = Environment.GetEnvironmentVariable(variable: "BUILD_NUMBER");
 
         if (!string.IsNullOrWhiteSpace(buildNumber))
         {

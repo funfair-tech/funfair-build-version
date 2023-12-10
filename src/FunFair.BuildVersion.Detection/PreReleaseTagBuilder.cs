@@ -17,7 +17,7 @@ internal static class PreReleaseTagBuilder
     {
         if (branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId))
         {
-            return new(@"pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture));
+            return new("pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture));
         }
 
         return new(currentBranch.ToLowerInvariant());
@@ -81,7 +81,7 @@ internal static class PreReleaseTagBuilder
 
         if (string.IsNullOrWhiteSpace(usedSuffix))
         {
-            return @"prerelease";
+            return "prerelease";
         }
 
         return usedSuffix;
