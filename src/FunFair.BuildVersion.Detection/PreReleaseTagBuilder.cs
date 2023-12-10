@@ -15,12 +15,9 @@ internal static class PreReleaseTagBuilder
 
     public static StringBuilder NormalizeSourceBranchName(this string currentBranch, IBranchClassification branchClassification)
     {
-        if (branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId))
-        {
-            return new(@"pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture));
-        }
-
-        return new(currentBranch.ToLowerInvariant());
+        return new(branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId)
+                       ? "pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture)
+                       : currentBranch.ToLowerInvariant());
     }
 
     public static StringBuilder ReplaceInvalidCharacters(this StringBuilder suffix)
@@ -81,7 +78,7 @@ internal static class PreReleaseTagBuilder
 
         if (string.IsNullOrWhiteSpace(usedSuffix))
         {
-            return @"prerelease";
+            return "prerelease";
         }
 
         return usedSuffix;

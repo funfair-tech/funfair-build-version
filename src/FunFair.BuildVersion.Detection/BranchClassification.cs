@@ -9,16 +9,16 @@ namespace FunFair.BuildVersion.Detection;
 
 public sealed class BranchClassification : IBranchClassification
 {
-    private const string PULL_REQUEST_PREFIX = @"refs/pull/";
-    private const string PULL_REQUEST_SUFFIX = @"/head";
+    private const string PULL_REQUEST_PREFIX = "refs/pull/";
+    private const string PULL_REQUEST_SUFFIX = "/head";
     private readonly string _hotfixBranch;
 
     private readonly string _releaseBranch;
 
     public BranchClassification(IBranchSettings branchSettings)
     {
-        this._releaseBranch = BuildBranch(branchSettings: branchSettings, branch: @"release");
-        this._hotfixBranch = BuildBranch(branchSettings: branchSettings, branch: @"hotfix");
+        this._releaseBranch = BuildBranch(branchSettings: branchSettings, branch: "release");
+        this._hotfixBranch = BuildBranch(branchSettings: branchSettings, branch: "hotfix");
     }
 
     public bool IsRelease(string branchName, [NotNullWhen(true)] out NuGetVersion? version)

@@ -66,7 +66,7 @@ internal static class Program
     {
         try
         {
-            Console.WriteLine($"{typeof(Program).Namespace} {ExecutableVersionInformation.ProgramVersion()}");
+            Console.WriteLine($"{typeof(Program).Namespace} {ExecutableVersionInformation.ProgramVersion}");
 
             return Parser.Default.ParseArguments<Options>(args)
                          .MapResult(parsedFunc: ParsedOk, notParsedFunc: NotParsed);
@@ -145,7 +145,7 @@ internal static class Program
             return buildNumberFromCommandLine;
         }
 
-        string? buildNumber = Environment.GetEnvironmentVariable(variable: @"BUILD_NUMBER");
+        string? buildNumber = Environment.GetEnvironmentVariable(variable: "BUILD_NUMBER");
 
         if (!string.IsNullOrWhiteSpace(buildNumber))
         {
