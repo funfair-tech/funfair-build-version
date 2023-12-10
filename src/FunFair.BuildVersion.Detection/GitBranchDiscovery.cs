@@ -16,10 +16,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
     private readonly ILogger<GitBranchDiscovery> _logger;
     private readonly Repository _repository;
 
-    public GitBranchDiscovery(Repository repository,
-                              IBranchClassification branchClassification,
-                              IEnumerable<IExternalBranchLocator> externalBranchLocators,
-                              ILogger<GitBranchDiscovery> logger)
+    public GitBranchDiscovery(Repository repository, IBranchClassification branchClassification, IEnumerable<IExternalBranchLocator> externalBranchLocators, ILogger<GitBranchDiscovery> logger)
     {
         this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
         this._branchClassification = branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
@@ -42,16 +39,13 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
         foreach (Branch candidateBranch in this._repository.Branches)
         {
-            if (candidateBranch.FriendlyName != branch && candidateBranch.Tip.Sha == sha)
+            if (!StringComparer.Ordinal.Equals(candidateBranch.FriendlyName, branch) && StringComparer.Ordinal.Equals(candidateBranch.Tip.Sha, sha))
             {
                 this._logger.LogInformation($"Found Branch for PR {pullRequestId} : {candidateBranch.FriendlyName}");
 
-                if (this._branchClassification.IsRelease(branchName: candidateBranch.FriendlyName, out NuGetVersion? _))
-                {
-                    return "pre-" + candidateBranch.FriendlyName;
-                }
-
-                return candidateBranch.FriendlyName;
+                return this._branchClassification.IsRelease(branchName: candidateBranch.FriendlyName, out NuGetVersion? _)
+                    ? "pre-" + candidateBranch.FriendlyName
+                    : candidateBranch.FriendlyName;
             }
         }
 

@@ -114,8 +114,7 @@ public sealed class BranchClassification : IBranchClassification
     private static bool IsVersionSameAsBranchName(NuGetVersion baseLine, string version)
     {
         Version revision = new(revision: baseLine.Version.Revision, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
-        bool sameAsBranchName = revision.ToString() == version;
 
-        return sameAsBranchName;
+        return StringComparer.Ordinal.Equals(revision.ToString(), y: version);
     }
 }
