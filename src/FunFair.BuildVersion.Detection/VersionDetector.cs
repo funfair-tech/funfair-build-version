@@ -42,6 +42,14 @@ public sealed class VersionDetector : IVersionDetector
 
     private NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(int buildNumber)
     {
+        IReadOnlyList<string> branches = this._branchDiscovery.FindBranches();
+
+        NuGetVersion? latestVersion = branches.Select(GetReleaseVersion)
+                                              .RemoveNulls()
+                                              .Max();
+
+        return AddBuildNumberToVersion(latestVersion ?? InitialVersion, buildNumber: buildNumber);
+
         NuGetVersion? GetReleaseVersion(string branch)
         {
             this._logger.LogDebug($" * => {branch}");
@@ -50,14 +58,6 @@ public sealed class VersionDetector : IVersionDetector
                 ? version
                 : null;
         }
-
-        IReadOnlyList<string> branches = this._branchDiscovery.FindBranches();
-
-        NuGetVersion? latestVersion = branches.Select(GetReleaseVersion)
-                                              .RemoveNulls()
-                                              .Max();
-
-        return AddBuildNumberToVersion(latestVersion ?? InitialVersion, buildNumber: buildNumber);
     }
 
     private static NuGetVersion AddBuildNumberToVersion(NuGetVersion version, int buildNumber)
