@@ -44,11 +44,16 @@ public sealed class VersionDetector : IVersionDetector
     {
         IReadOnlyList<string> branches = this._branchDiscovery.FindBranches();
 
-        NuGetVersion? latestVersion = branches.Select(GetReleaseVersion)
-                                              .RemoveNulls()
-                                              .Max();
+        NuGetVersion? latestVersion = this.FindLatestReleaseVersion(branches);
 
         return AddBuildNumberToVersion(latestVersion ?? InitialVersion, buildNumber: buildNumber);
+    }
+
+    private NuGetVersion? FindLatestReleaseVersion(IReadOnlyList<string> branches)
+    {
+        return branches.Select(GetReleaseVersion)
+                       .RemoveNulls()
+                       .Max();
 
         NuGetVersion? GetReleaseVersion(string branch)
         {

@@ -27,7 +27,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
     public string FindCurrentBranch()
     {
         string branch = this.FindConfiguredBranch();
-        string? sha = this._repository.Head.Tip.Sha;
+        string sha = this.GetHeadSha();
         this._logger.LogInformation($"Head SHA: {sha}");
 
         if (!this._branchClassification.IsPullRequest(currentBranch: branch, out long pullRequestId))
@@ -58,10 +58,14 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
                    .ToArray();
     }
 
+    private string GetHeadSha()
+    {
+        return this._repository.Head.Tip.Sha;
+    }
+
     private string ExtractBranch(string branch)
     {
-        IReadOnlyList<string> remotes = this._repository.Network.Remotes.Select(r => r.Name + "/")
-                                            .ToArray();
+        IReadOnlyList<string> remotes = this.GetRemotes();
 
         string? remote = remotes.FirstOrDefault(remote => branch.StartsWith(value: remote, comparisonType: StringComparison.OrdinalIgnoreCase));
 
@@ -71,6 +75,12 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
         }
 
         return branch;
+    }
+
+    private IReadOnlyList<string> GetRemotes()
+    {
+        return this._repository.Network.Remotes.Select(r => r.Name + "/")
+                   .ToArray();
     }
 
     private string FindConfiguredBranch()
