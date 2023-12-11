@@ -16,7 +16,10 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
     private readonly ILogger<GitBranchDiscovery> _logger;
     private readonly Repository _repository;
 
-    public GitBranchDiscovery(Repository repository, IBranchClassification branchClassification, IEnumerable<IExternalBranchLocator> externalBranchLocators, ILogger<GitBranchDiscovery> logger)
+    public GitBranchDiscovery(Repository repository,
+                              IBranchClassification branchClassification,
+                              IEnumerable<IExternalBranchLocator> externalBranchLocators,
+                              ILogger<GitBranchDiscovery> logger)
     {
         this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
         this._branchClassification = branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
@@ -39,7 +42,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
         foreach (Branch candidateBranch in this._repository.Branches)
         {
-            if (!StringComparer.Ordinal.Equals(candidateBranch.FriendlyName, branch) && StringComparer.Ordinal.Equals(candidateBranch.Tip.Sha, sha))
+            if (!StringComparer.Ordinal.Equals(x: candidateBranch.FriendlyName, y: branch) && StringComparer.Ordinal.Equals(x: candidateBranch.Tip.Sha, y: sha))
             {
                 this._logger.LogInformation($"Found Branch for PR {pullRequestId} : {candidateBranch.FriendlyName}");
 
