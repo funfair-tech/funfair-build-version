@@ -10,7 +10,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.4.0
 - SDK - Updated DotNet SDK to 8.0.100
 - Dependencies - Updated Microsoft.Extensions to 8.0.0
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.4.198
@@ -28,6 +27,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.9
 - Dependencies - Updated TeamCity.VSTest.TestAdapter to 1.0.39
 - Dependencies - Updated Meziantou.Analyzer to 2.0.125
+- Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.5.0
 ### Removed
 ### Deployment Changes
 
