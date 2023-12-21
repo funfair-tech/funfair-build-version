@@ -91,19 +91,17 @@ internal static class Program
 
     private static IServiceProvider Setup(Options options)
     {
-        IServiceCollection services = new ServiceCollection();
         DiagnosticLogger logger = new(options.WarningsAsErrors);
 
         IBranchSettings branchSettings = new BranchSettings(releaseSuffix: options.ReleaseSuffix, package: options.Package);
 
-        services.AddSingleton<ILogger>(logger)
-                .AddSingleton<IDiagnosticLogger>(logger)
-                .AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>))
-                .AddBuildVersionDetection(branchSettings: branchSettings)
-                .AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>()
-                .AddSingleton<IVersionPublisher, TeamCityVersionPublisher>();
-
-        return services.BuildServiceProvider();
+        return new ServiceCollection().AddSingleton<ILogger>(logger)
+                                      .AddSingleton<IDiagnosticLogger>(logger)
+                                      .AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>))
+                                      .AddBuildVersionDetection(branchSettings: branchSettings)
+                                      .AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>()
+                                      .AddSingleton<IVersionPublisher, TeamCityVersionPublisher>()
+                                      .BuildServiceProvider();
     }
 
     private static void ApplyVersion(NuGetVersion version, IServiceProvider serviceProvider)
