@@ -48,6 +48,7 @@
   </PropertyGroup>
   <Import Project="$(SolutionDir)FunFair.props"/>
   <ItemGroup>
+    <PackageReference Include="LibGit2Sharp" Version="0.29.0"/>
     <PackageReference Include="NuGet.Versioning" Version="6.8.0" />
   </ItemGroup>
   <ItemGroup>

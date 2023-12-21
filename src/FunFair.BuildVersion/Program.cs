@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using CommandLine;
 using FunFair.BuildVersion.Detection;
-using FunFair.BuildVersion.Detection.ExternalBranchLocators;
 using FunFair.BuildVersion.Interfaces;
 using FunFair.BuildVersion.Publishers;
 using FunFair.BuildVersion.Services;
@@ -37,14 +36,14 @@ internal static class Program
 
         string workDir = Environment.CurrentDirectory;
 
-        using (Repository repo = OpenRepository(workDir))
+        using (Repository repository = OpenRepository(workDir))
         {
-            IServiceProvider serviceProvider = Setup(options: options, repo: repo);
+            IServiceProvider serviceProvider = Setup(options: options, repo: repository);
 
             IDiagnosticLogger logging = serviceProvider.GetRequiredService<IDiagnosticLogger>();
             IVersionDetector versionDetector = serviceProvider.GetRequiredService<IVersionDetector>();
 
-            NuGetVersion version = versionDetector.FindVersion(buildNumber);
+            NuGetVersion version = versionDetector.FindVersion(repository: repository, buildNumber: buildNumber);
 
             ApplyVersion(version: version, serviceProvider: serviceProvider);
 
@@ -97,24 +96,14 @@ internal static class Program
 
         IBranchSettings branchSettings = new BranchSettings(releaseSuffix: options.ReleaseSuffix, package: options.Package);
 
-        services.AddSingleton<ILogger>(logger);
-        services.AddSingleton<IDiagnosticLogger>(logger);
-        services.AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>));
+        services.AddSingleton<ILogger>(logger)
+                .AddSingleton<IDiagnosticLogger>(logger)
+                .AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>))
+                .AddBuildVersionDetection(repo: repo, branchSettings: branchSettings)
+                .AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>()
+                .AddSingleton<IVersionPublisher, TeamCityVersionPublisher>();
 
-        services.AddSingleton(branchSettings);
-        services.AddSingleton(repo);
-        services.AddSingleton<IBranchDiscovery, GitBranchDiscovery>();
-        services.AddSingleton<IBranchClassification, BranchClassification>();
-        services.AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>();
-        services.AddSingleton<IVersionPublisher, TeamCityVersionPublisher>();
-        services.AddSingleton<IVersionDetector, VersionDetector>();
-
-        services.AddSingleton<IExternalBranchLocator, GitHubRefEnvironmentVariableBranchLocator>();
-        services.AddSingleton<IExternalBranchLocator, GitBranchEnvironmentVariableBranchLocator>();
-
-        IServiceProviderFactory<IServiceCollection> spf = new DefaultServiceProviderFactory();
-
-        return spf.CreateServiceProvider(services);
+        return services.BuildServiceProvider();
     }
 
     private static void ApplyVersion(NuGetVersion version, IServiceProvider serviceProvider)

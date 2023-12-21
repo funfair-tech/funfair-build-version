@@ -1,28 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FunFair.BuildVersion.Interfaces;
 using FunFair.Test.Common;
+using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 using NuGet.Versioning;
 using Xunit;
+using Xunit.Abstractions;
+using Version = System.Version;
 
 namespace FunFair.BuildVersion.Detection.Tests;
 
-public sealed class VersionDetectorTests : TestBase
+public sealed class VersionDetectorTests : LoggingFolderCleanupTestBase
 {
     private readonly IBranchClassification _branchClassification;
     private readonly IBranchDiscovery _branchDiscovery;
+    private readonly Repository _repository;
     private readonly IVersionDetector _versionDetector;
 
-    public VersionDetectorTests()
+    public VersionDetectorTests(ITestOutputHelper output)
+        : base(output)
     {
         this._branchDiscovery = Substitute.For<IBranchDiscovery>();
         this._branchClassification = Substitute.For<IBranchClassification>();
 
-        this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery,
-                                                    branchClassification: this._branchClassification,
-                                                    Substitute.For<ILogger<VersionDetector>>());
+        Repository.Init(this.TempFolder);
+        this._repository = new(this.TempFolder);
+
+        this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery, branchClassification: this._branchClassification, Substitute.For<ILogger<VersionDetector>>());
     }
 
     [Fact]
@@ -32,7 +37,7 @@ public sealed class VersionDetectorTests : TestBase
         this.MockFindCurrentBranch(branchName);
         this.MockIsRelease(branchName: branchName, version: "1.0.0.0");
 
-        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(27));
+        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(repository: this._repository, buildNumber: 27));
 
         Assert.Equal(expected: "1.0.0.27", version.ToString());
 
@@ -51,7 +56,7 @@ public sealed class VersionDetectorTests : TestBase
         this.MockFindCurrentBranch(branchName);
         this.MockIsRelease(branchName: "release/1.0.0", version: "1.0.0.0");
 
-        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(27));
+        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(repository: this._repository, buildNumber: 27));
 
         Assert.Equal("0.0.1.27-" + expectedPreReleaseSuffix, version.ToString());
 
@@ -82,7 +87,7 @@ public sealed class VersionDetectorTests : TestBase
         this.MockIsRelease(branchName: "release/1.1.0", version: "1.1.0.0");
         this.MockIsRelease(branchName: "release/3.4.5", version: "3.4.5.0");
 
-        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(27));
+        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(repository: this._repository, buildNumber: 27));
 
         Assert.Equal("3.4.6.27-" + expectedPreReleaseSuffix, version.ToString());
 
@@ -104,7 +109,7 @@ public sealed class VersionDetectorTests : TestBase
 
         this.MockIsPullRequest(branchName: branchName, id: pullRequestId);
 
-        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(27));
+        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(repository: this._repository, buildNumber: 27));
 
         Assert.Equal("0.0.1.27-" + expectedPreReleaseSuffix, version.ToString());
 
@@ -133,7 +138,7 @@ public sealed class VersionDetectorTests : TestBase
 
         this.MockIsPullRequest(branchName: branchName, id: pullRequestId);
 
-        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(27));
+        NuGetVersion version = AssertReallyNotNull(this._versionDetector.FindVersion(repository: this._repository, buildNumber: 27));
 
         Assert.Equal("3.4.6.27-" + expectedPreReleaseSuffix, version.ToString());
 
@@ -147,7 +152,7 @@ public sealed class VersionDetectorTests : TestBase
 
     private void MockFindBranches(IReadOnlyList<string> branches)
     {
-        this._branchDiscovery.FindBranches()
+        this._branchDiscovery.FindBranches(Arg.Any<Repository>())
             .Returns(branches);
     }
 
@@ -171,24 +176,24 @@ public sealed class VersionDetectorTests : TestBase
     private void DidNotReceiveFindBranch()
     {
         this._branchDiscovery.DidNotReceive()
-            .FindBranches();
+            .FindBranches(Arg.Any<Repository>());
     }
 
     private void ReceivedFindBranch()
     {
         this._branchDiscovery.Received(1)
-            .FindBranches();
+            .FindBranches(Arg.Any<Repository>());
     }
 
     private void ReceivedFindCurrentBranch()
     {
         this._branchDiscovery.Received(1)
-            .FindCurrentBranch();
+            .FindCurrentBranch(Arg.Any<Repository>());
     }
 
     private void MockFindCurrentBranch(string branchName)
     {
-        this._branchDiscovery.FindCurrentBranch()
+        this._branchDiscovery.FindCurrentBranch(Arg.Any<Repository>())
             .Returns(branchName);
     }
 

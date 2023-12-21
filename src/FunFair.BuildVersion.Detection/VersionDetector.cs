@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Credfeto.Extensions.Linq;
 using FunFair.BuildVersion.Interfaces;
+using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
 using NuGet.Versioning;
+using Version = System.Version;
 
 namespace FunFair.BuildVersion.Detection;
 
@@ -22,9 +24,9 @@ public sealed class VersionDetector : IVersionDetector
         this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
-    public NuGetVersion FindVersion(int buildNumber)
+    public NuGetVersion FindVersion(Repository repository, int buildNumber)
     {
-        string currentBranch = this._branchDiscovery.FindCurrentBranch();
+        string currentBranch = this._branchDiscovery.FindCurrentBranch(repository);
         this._logger.LogInformation($">>>>>> Current branch: {currentBranch}");
         this._logger.LogInformation($">>>>>> Current Build number: {buildNumber}");
 
@@ -33,16 +35,16 @@ public sealed class VersionDetector : IVersionDetector
             return AddBuildNumberToVersion(version: branchVersion, buildNumber: buildNumber);
         }
 
-        NuGetVersion latest = this.DetermineLatestReleaseFromPreviousReleaseBranches(buildNumber: buildNumber);
+        NuGetVersion latest = this.DetermineLatestReleaseFromPreviousReleaseBranches(repository: repository, buildNumber: buildNumber);
 
         this._logger.LogInformation($"Latest Release Version: {latest}");
 
         return this.BuildPreReleaseVersion(latest: latest, currentBranch: currentBranch, buildNumber: buildNumber);
     }
 
-    private NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(int buildNumber)
+    private NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(Repository repository, int buildNumber)
     {
-        IReadOnlyList<string> branches = this._branchDiscovery.FindBranches();
+        IReadOnlyList<string> branches = this._branchDiscovery.FindBranches(repository);
 
         NuGetVersion? latestVersion = this.FindLatestReleaseVersion(branches);
 
