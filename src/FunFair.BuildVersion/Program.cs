@@ -38,7 +38,7 @@ internal static class Program
 
         using (Repository repository = OpenRepository(workDir))
         {
-            IServiceProvider serviceProvider = Setup(options: options, repo: repository);
+            IServiceProvider serviceProvider = Setup(options: options);
 
             IDiagnosticLogger logging = serviceProvider.GetRequiredService<IDiagnosticLogger>();
             IVersionDetector versionDetector = serviceProvider.GetRequiredService<IVersionDetector>();
@@ -89,7 +89,7 @@ internal static class Program
         }
     }
 
-    private static IServiceProvider Setup(Options options, Repository repo)
+    private static IServiceProvider Setup(Options options)
     {
         IServiceCollection services = new ServiceCollection();
         DiagnosticLogger logger = new(options.WarningsAsErrors);
@@ -99,7 +99,7 @@ internal static class Program
         services.AddSingleton<ILogger>(logger)
                 .AddSingleton<IDiagnosticLogger>(logger)
                 .AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>))
-                .AddBuildVersionDetection(repo: repo, branchSettings: branchSettings)
+                .AddBuildVersionDetection(branchSettings: branchSettings)
                 .AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>()
                 .AddSingleton<IVersionPublisher, TeamCityVersionPublisher>();
 
