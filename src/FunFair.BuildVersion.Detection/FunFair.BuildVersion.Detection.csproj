@@ -30,12 +30,15 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <UseSystemResourceKeys>true</UseSystemResourceKeys>
     <WarningsAsErrors />
+    <EnablePackageValidation>true</EnablePackageValidation>
   </PropertyGroup>
   <PropertyGroup>
     <Authors>$(Company)</Authors>
     <Company>FunFair</Company>
     <Description>Build versioning.</Description>
     <NeutralLanguage>en</NeutralLanguage>
+    <PackageTags>FunFair BuildVersion, Version number generator, GitVersion, dotnet tool, tool</PackageTags>
+    <RepositoryUrl>https://github.com/funfair-tech/funfair-build-version</RepositoryUrl>
   </PropertyGroup>
   <PropertyGroup>
     <AnalysisLevel>latest</AnalysisLevel>
