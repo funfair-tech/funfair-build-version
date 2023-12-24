@@ -3,6 +3,7 @@
     <DebuggerSupport>true</DebuggerSupport>
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
     <EnableMicrosoftExtensionsConfigurationBinderSourceGenerator>true</EnableMicrosoftExtensionsConfigurationBinderSourceGenerator>
+    <EnablePackageValidation>true</EnablePackageValidation>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
     <Features>strict;flow-analysis</Features>
     <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
@@ -30,7 +31,6 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <UseSystemResourceKeys>true</UseSystemResourceKeys>
     <WarningsAsErrors />
-    <EnablePackageValidation>true</EnablePackageValidation>
   </PropertyGroup>
   <PropertyGroup>
     <Authors>$(Company)</Authors>
@@ -49,7 +49,7 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <EnforceExtendedAnalyzerRules>false</EnforceExtendedAnalyzerRules>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)FunFair.props"/>
+  <Import Project="$(SolutionDir)FunFair.props" />
   <ItemGroup>
     <ProjectReference Include="..\FunFair.BuildVersion.Interfaces\FunFair.BuildVersion.Interfaces.csproj" />
   </ItemGroup>

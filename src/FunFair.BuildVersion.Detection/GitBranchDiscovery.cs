@@ -52,7 +52,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
     public IReadOnlyList<string> FindBranches(Repository repository)
     {
-        return repository.Branches.Select(selector: b => ExtractBranch(repository, b.FriendlyName))
+        return repository.Branches.Select(selector: b => ExtractBranch(repository: repository, branch: b.FriendlyName))
                          .ToArray();
     }
 

@@ -27,7 +27,9 @@ public sealed class VersionDetectorTests : LoggingFolderCleanupTestBase
         Repository.Init(this.TempFolder);
         this._repository = new(this.TempFolder);
 
-        this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery, branchClassification: this._branchClassification, Substitute.For<ILogger<VersionDetector>>());
+        this._versionDetector = new VersionDetector(branchDiscovery: this._branchDiscovery,
+                                                    branchClassification: this._branchClassification,
+                                                    Substitute.For<ILogger<VersionDetector>>());
     }
 
     [Fact]

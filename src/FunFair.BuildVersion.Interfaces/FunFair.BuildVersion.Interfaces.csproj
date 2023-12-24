@@ -3,6 +3,7 @@
     <DebuggerSupport>true</DebuggerSupport>
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
     <EnableMicrosoftExtensionsConfigurationBinderSourceGenerator>true</EnableMicrosoftExtensionsConfigurationBinderSourceGenerator>
+    <EnablePackageValidation>true</EnablePackageValidation>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
     <Features>strict;flow-analysis</Features>
     <GenerateNeutralResourcesLanguageAttribute>true</GenerateNeutralResourcesLanguageAttribute>
@@ -30,7 +31,6 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <UseSystemResourceKeys>true</UseSystemResourceKeys>
     <WarningsAsErrors />
-    <EnablePackageValidation>true</EnablePackageValidation>
   </PropertyGroup>
   <PropertyGroup>
     <Authors>$(Company)</Authors>
@@ -49,9 +49,9 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <EnforceExtendedAnalyzerRules>false</EnforceExtendedAnalyzerRules>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)FunFair.props"/>
+  <Import Project="$(SolutionDir)FunFair.props" />
   <ItemGroup>
-    <PackageReference Include="LibGit2Sharp" Version="0.29.0"/>
+    <PackageReference Include="LibGit2Sharp" Version="0.29.0" />
     <PackageReference Include="NuGet.Versioning" Version="6.8.0" />
   </ItemGroup>
   <ItemGroup>
