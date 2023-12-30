@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Credfeto.Extensions.Linq;
+using FunFair.BuildVersion.Detection.LoggingExtensions;
 using FunFair.BuildVersion.Interfaces;
 using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
@@ -27,8 +28,8 @@ public sealed class VersionDetector : IVersionDetector
     public NuGetVersion FindVersion(Repository repository, int buildNumber)
     {
         string currentBranch = this._branchDiscovery.FindCurrentBranch(repository);
-        this._logger.LogInformation($">>>>>> Current branch: {currentBranch}");
-        this._logger.LogInformation($">>>>>> Current Build number: {buildNumber}");
+        this._logger.LogCurrentBranch(currentBranch);
+        this._logger.LogCurrentBuildNumber(buildNumber);
 
         if (this._branchClassification.IsRelease(branchName: currentBranch, out NuGetVersion? branchVersion))
         {
@@ -37,7 +38,7 @@ public sealed class VersionDetector : IVersionDetector
 
         NuGetVersion latest = this.DetermineLatestReleaseFromPreviousReleaseBranches(repository: repository, buildNumber: buildNumber);
 
-        this._logger.LogInformation($"Latest Release Version: {latest}");
+        this._logger.LogLatestReleaseVersion(latest);
 
         return this.BuildPreReleaseVersion(latest: latest, currentBranch: currentBranch, buildNumber: buildNumber);
     }
@@ -59,7 +60,7 @@ public sealed class VersionDetector : IVersionDetector
 
         NuGetVersion? GetReleaseVersion(string branch)
         {
-            this._logger.LogDebug($" * => {branch}");
+            this._logger.LogFoundBranch(branch);
 
             return this._branchClassification.IsRelease(branchName: branch, out NuGetVersion? version)
                 ? version
@@ -78,7 +79,7 @@ public sealed class VersionDetector : IVersionDetector
     {
         string usedSuffix = this.BuildPreReleaseSuffix(currentBranch: currentBranch);
 
-        this._logger.LogInformation($"Build Pre-Release Suffix: {usedSuffix}");
+        this._logger.LogPreReleaseSuffix(usedSuffix);
 
         Version version = new(major: latest.Version.Major, minor: latest.Version.Minor, latest.Version.Build + 1, revision: buildNumber);
 

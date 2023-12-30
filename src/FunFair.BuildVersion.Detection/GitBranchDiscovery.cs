@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Credfeto.Extensions.Linq;
+using FunFair.BuildVersion.Detection.LoggingExtensions;
 using FunFair.BuildVersion.Interfaces;
 using LibGit2Sharp;
 using Microsoft.Extensions.Logging;
@@ -26,20 +27,20 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
     {
         string branch = this.FindConfiguredBranch(repository);
         string sha = GetHeadSha(repository);
-        this._logger.LogInformation($"Head SHA: {sha}");
+        this._logger.LogHeadSha(sha);
 
         if (!this._branchClassification.IsPullRequest(currentBranch: branch, out long pullRequestId))
         {
             return branch;
         }
 
-        this._logger.LogInformation($"Pull Request: {pullRequestId}");
+        this._logger.LogPullRequest(pullRequestId);
 
         foreach (Branch candidateBranch in repository.Branches)
         {
             if (!StringComparer.Ordinal.Equals(x: candidateBranch.FriendlyName, y: branch) && StringComparer.Ordinal.Equals(x: candidateBranch.Tip.Sha, y: sha))
             {
-                this._logger.LogInformation($"Found Branch for PR {pullRequestId} : {candidateBranch.FriendlyName}");
+                this._logger.LogFoundBranchForPullRequest(pullRequestId: pullRequestId, branch: candidateBranch.FriendlyName);
 
                 return this._branchClassification.IsRelease(branchName: candidateBranch.FriendlyName, out NuGetVersion? _)
                     ? "pre-" + candidateBranch.FriendlyName

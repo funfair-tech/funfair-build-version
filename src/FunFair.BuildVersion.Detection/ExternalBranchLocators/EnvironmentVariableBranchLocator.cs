@@ -1,4 +1,5 @@
 using System;
+using FunFair.BuildVersion.Detection.ExternalBranchLocators.LoggingExtensions;
 using FunFair.BuildVersion.Interfaces;
 using Microsoft.Extensions.Logging;
 
@@ -22,7 +23,7 @@ public abstract class EnvironmentVariableBranchLocator : IExternalBranchLocator
             return null;
         }
 
-        logger.LogInformation($"Branch from CI: {branch}");
+        logger.LogBranchFromContinuousIntegration(branch);
         string branchRef = branch.Trim();
 
         const string branchRefPrefix = "refs/heads/";
