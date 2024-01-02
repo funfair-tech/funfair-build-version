@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using FunFair.BuildVersion.Interfaces;
 using NuGet.Versioning;
@@ -13,10 +14,18 @@ public sealed class GitHubActionsVersionPublisher : IVersionPublisher
 
         if (!string.IsNullOrEmpty(env))
         {
-            File.AppendAllLines(path: env,
-            [
-                $"BUILD_VERSION={version}"
-            ]);
+            WriteTeamCityParameters(version: version, env: env);
         }
+    }
+
+    [SuppressMessage(category: "Meziantou.Analyzer", checkId: "MA0045", Justification = "IVersionPublisher Method is not async")]
+    private static void WriteTeamCityParameters(NuGetVersion version, string env)
+    {
+        string[] fileContent =
+        [
+            $"BUILD_VERSION={version}"
+        ];
+
+        File.AppendAllLines(path: env, contents: fileContent);
     }
 }

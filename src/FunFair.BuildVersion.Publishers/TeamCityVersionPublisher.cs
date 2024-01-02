@@ -12,8 +12,13 @@ public sealed class TeamCityVersionPublisher : IVersionPublisher
 
         if (!string.IsNullOrWhiteSpace(env))
         {
-            Console.WriteLine($"##teamcity[buildNumber '{version}']");
-            Console.WriteLine($"##teamcity[setParameter name='system.build.version' value='{version}']");
+            WriteTeamCityParameters(version);
         }
+    }
+
+    private static void WriteTeamCityParameters(NuGetVersion version)
+    {
+        Console.WriteLine($"##teamcity[buildNumber '{version}']");
+        Console.WriteLine($"##teamcity[setParameter name='system.build.version' value='{version}']");
     }
 }
