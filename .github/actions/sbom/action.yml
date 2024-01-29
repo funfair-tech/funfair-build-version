@@ -34,10 +34,9 @@ runs:
         sbom: "${{ github.event.repository.name }}-sbom.spdx.json"
         fail-build: false
         output-format: sarif
-#        severity-cutoff: medium
-#        only-fixed: true
-#        add-cpes-if-none: false
-#        by-cve: false
+        only-fixed: true
+        add-cpes-if-none: false
+        by-cve: false
 
     - name: "Copy SBOM to sarif (public Repo)"
       if: |-
@@ -56,7 +55,6 @@ runs:
         sbom: "${{ github.event.repository.name }}-sbom.spdx.json"
         fail-build: false
         output-format: table
-#        severity-cutoff: medium
-#        only-fixed: true
-#        add-cpes-if-none: false
-#        by-cve: false
+        only-fixed: true
+        add-cpes-if-none: false
+        by-cve: false
