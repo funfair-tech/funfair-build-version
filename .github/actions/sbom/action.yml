@@ -50,7 +50,7 @@ runs:
 
     - name: "Scan SBOM (private repo)"
       uses: anchore/scan-action@v3
-      if: inputs.REPO_VISIBILITY == 'private'
+      if: always()
       with:
         sbom: "${{ github.event.repository.name }}-sbom.spdx.json"
         fail-build: false
