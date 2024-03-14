@@ -9,6 +9,7 @@ on:
       - '.github/actions/build-tools/action.yml'
       - '.github/actions/dotnet/action.yml'
       - '.github/actions/dotnet-tool/action.yml'
+      - '.github/actions/build-version/action.yml'
       - '.github/actions/dotnet-publish/action.yml'
       - '.github/actions/npm/action.yml'
       - '.github/actions/nuget/action.yml'
@@ -43,6 +44,7 @@ jobs:
         uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
+          fetch-tags: true
 
       - name: "Check Repo Visibility"
         uses: credfeto/action-repo-visibility@v1.2.0
