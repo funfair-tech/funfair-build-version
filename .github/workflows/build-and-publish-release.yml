@@ -29,6 +29,7 @@ jobs:
         uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
+          fetch-tags: true
 
       - name: "Check Repo Visibility"
         uses: credfeto/action-repo-visibility@v1.2.0
