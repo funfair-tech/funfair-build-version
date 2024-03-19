@@ -16,7 +16,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.9.28
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.17
 - Dependencies - Updated NuGet to 6.9.1
-- Dependencies - Updated Meziantou.Analyzer to 2.0.145
 - Dependencies - Updated Roslynator.Analyzers to 4.11.0
 - Dependencies - Updated xunit.analyzers to 1.11.0
 - Dependencies - Updated xunit.runner.visualstudio to 2.5.7
@@ -30,6 +29,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.17.157
 - Dependencies - Updated Microsoft.Extensions to 8.0.1
 - SDK - Updated DotNet SDK to 8.0.203
+- Dependencies - Updated Meziantou.Analyzer to 2.0.146
 ### Removed
 ### Deployment Changes
 
