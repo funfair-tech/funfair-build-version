@@ -54,7 +54,7 @@
     <ProjectReference Include="..\FunFair.BuildVersion.Interfaces\FunFair.BuildVersion.Interfaces.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Credfeto.Extensions.Linq" Version="1.0.17.157" />
+    <PackageReference Include="Credfeto.Extensions.Linq" Version="1.0.18.174" />
     <PackageReference Include="LibGit2Sharp" Version="0.30.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
   </ItemGroup>
