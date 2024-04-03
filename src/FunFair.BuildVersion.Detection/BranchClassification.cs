@@ -106,14 +106,14 @@ public sealed class BranchClassification : IBranchClassification
 
     private static NuGetVersion ConvertVersion(NuGetVersion baseLine)
     {
-        Version dv = new(revision: 0, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
+        Version dv = new(major: baseLine.Version.Major, minor: baseLine.Version.Minor, build: baseLine.Version.Build, revision: 0);
 
         return new(dv);
     }
 
     private static bool IsVersionSameAsBranchName(NuGetVersion baseLine, string version)
     {
-        Version revision = new(revision: baseLine.Version.Revision, build: baseLine.Version.Build, minor: baseLine.Version.Minor, major: baseLine.Version.Major);
+        Version revision = new(major: baseLine.Version.Major, minor: baseLine.Version.Minor, build: baseLine.Version.Build, revision: baseLine.Version.Revision);
 
         return StringComparer.Ordinal.Equals(revision.ToString(), y: version);
     }

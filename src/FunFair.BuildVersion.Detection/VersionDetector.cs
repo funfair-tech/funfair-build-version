@@ -70,7 +70,7 @@ public sealed class VersionDetector : IVersionDetector
 
     private static NuGetVersion AddBuildNumberToVersion(NuGetVersion version, int buildNumber)
     {
-        Version dv = new(revision: buildNumber, build: version.Version.Build, minor: version.Version.Minor, major: version.Version.Major);
+        Version dv = new(major: version.Version.Major, minor: version.Version.Minor, build: version.Version.Build, revision: buildNumber);
 
         return new(dv);
     }
