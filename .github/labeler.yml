@@ -1,48 +1,46 @@
-"C#":
- - any: [ './**/*.cs', './**/*.csproj' ]
-"C# Project":
- - any: [ './**/*.csproj' ]
-"C# Solution":
- - any: [ './**/*.sln' ]
-"Powershell":
- - any: [ './**/*.ps1', './**/*.psm1' ]
-"SQL":
- - any: [ 'db/**/*', './**/*.sql' ]
-"Solidity":
- - any: [ './**/*.sol' ]
-"unit-tests":
- - any: [ 'src/*.Tests.*/**/*', 'src/*.Tests/**/*', 'src/*.Tests.Integration.*/**/*', 'src/*.Tests.Integration/**/*' ]
 ".NET update":
- - any: [ 'src/global.json' ]
-"Config Change":
- - any: [ 'src/**/*.json', '!src/global.json' ]
-"Static Code Analysis Rules":
- - any: [ 'src/CodeAnalysis.ruleset' ]
-"Migration Script":
- - any: [ 'tools/MigrationScripts/**/*' ]
-"Legal Text":
- - any: [ 'tools/LegalText/**/*' ]
+ - any: [ ''src/global.json'' ]
+"C#":
+ - any: [ ''./**/*.cs', './**/*.csproj'' ]
+"C# Project":
+ - any: [ ''./**/*.csproj'' ]
+"C# Solution":
+ - any: [ ''./**/*.sln'' ]
 "Change Log":
- - any: [ 'CHANGELOG.md' ]
-"Read Me":
- - any: [ 'README.md' ]
-"Setup":
- - any: [ 'SETUP.md' ]
-"Markdown":
- - any: [ './**/*.md' ]
+ - any: [ ''CHANGELOG.md'' ]
+"Config Change":
+ - any: [ ''src/**/*.json', '!src/global.json'' ]
+"funfair-buildversion":
+ - any: [ ''src/$FunFair.BuildVersion/**/*'' ]
+"funfair-buildversion-detection":
+ - any: [ ''src/$FunFair.BuildVersion.Detection/**/*'' ]
+"funfair-buildversion-detection-tests":
+ - any: [ ''src/$FunFair.BuildVersion.Detection.Tests/**/*'' ]
+"funfair-buildversion-interfaces":
+ - any: [ ''src/$FunFair.BuildVersion.Interfaces/**/*'' ]
+"funfair-buildversion-publishers":
+ - any: [ ''src/$FunFair.BuildVersion.Publishers/**/*'' ]
+"funfair-buildversion-publishers-tests":
+ - any: [ ''src/$FunFair.BuildVersion.Publishers.Tests/**/*'' ]
 "github-actions":
- - any: [ '.github/workflows/*.yml' ]
-"FunFair.BuildVersion":
- - any: [ 'src/FunFair.BuildVersion/**/*' ]
-"Detection":
- - any: [ 'src/FunFair.BuildVersion.Detection/**/*' ]
-"Detection.Tests":
- - any: [ 'src/FunFair.BuildVersion.Detection.Tests/**/*' ]
-"Interfaces":
- - any: [ 'src/FunFair.BuildVersion.Interfaces/**/*' ]
-"Publishers":
- - any: [ 'src/FunFair.BuildVersion.Publishers/**/*' ]
-"Publishers.Tests":
- - any: [ 'src/FunFair.BuildVersion.Publishers.Tests/**/*' ]
-"prepublish":
- - any: [ 'src/prepublish/**/*' ]
+ - any: [ ''.github/workflows/*.yml'' ]
+"Legal Text":
+ - any: [ ''tools/LegalText/**/*'' ]
+"Markdown":
+ - any: [ ''./**/*.md'' ]
+"Migration Script":
+ - any: [ ''tools/MigrationScripts/**/*'' ]
+"Powershell":
+ - any: [ ''./**/*.ps1', './**/*.psm1'' ]
+"Read Me":
+ - any: [ ''README.md'' ]
+"Setup":
+ - any: [ ''SETUP.md'' ]
+"Solidity":
+ - any: [ ''./**/*.sol'' ]
+"SQL":
+ - any: [ ''./**/*.sql', 'db/**/*'' ]
+"Static Code Analysis Rules":
+ - any: [ ''src/CodeAnalysis.ruleset'' ]
+"unit-tests":
+ - any: [ ''src/*.Tests.*/**/*', 'src/*.Tests.Integration.*/**/*', 'src/*.Tests.Integration/**/*', 'src/*.Tests/**/*'' ]
