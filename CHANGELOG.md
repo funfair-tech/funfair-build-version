@@ -21,7 +21,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated LibGit2Sharp to 0.30.0
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.1.5.315
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.18.174
-- Dependencies - Updated FunFair.Test.Common to 6.1.49.427
 - SDK - Updated DotNet SDK to 8.0.300
 - Dependencies - Updated Credfeto.Enumeration to 1.1.7.384
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.15.397
@@ -33,6 +32,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.analyzers to 1.13.0
 - Dependencies - Updated xunit.runner.visualstudio to 2.8.0
 - Dependencies - Updated xunit to 2.8.0
+- Dependencies - Updated FunFair.Test.Common to 6.1.55.490
 ### Removed
 ### Deployment Changes
 
