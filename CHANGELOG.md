@@ -13,7 +13,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Nullable.Extended.Analyzer to 1.15.6169
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.4.3
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.9.0
-- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.9.28
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.17
 - Dependencies - Updated NuGet to 6.9.1
 - Dependencies - Updated xunit.analyzers to 1.11.0
@@ -32,6 +31,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Enumeration to 1.1.7.384
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.15.397
 - Dependencies - Updated Meziantou.Analyzer to 2.0.151
+- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.10.48
 ### Removed
 ### Deployment Changes
 
