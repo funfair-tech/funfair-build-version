@@ -22,7 +22,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated coverlet to 6.0.2
 - Dependencies - Updated Microsoft.Extensions to 8.0.1
 - Dependencies - Updated LibGit2Sharp to 0.30.0
-- Dependencies - Updated Roslynator.Analyzers to 4.12.0
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.1.5.315
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.18.174
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.23.1.88495
@@ -32,6 +31,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.15.397
 - Dependencies - Updated Meziantou.Analyzer to 2.0.151
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.10.48
+- Dependencies - Updated Roslynator.Analyzers to 4.12.3
 ### Removed
 ### Deployment Changes
 
