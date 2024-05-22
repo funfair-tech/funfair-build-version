@@ -52,7 +52,7 @@
   <Import Project="$(SolutionDir)FunFair.props" />
   <ItemGroup>
     <PackageReference Include="LibGit2Sharp" Version="0.30.0" />
-    <PackageReference Include="NuGet.Versioning" Version="6.9.1" />
+    <PackageReference Include="NuGet.Versioning" Version="6.10.0" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AsyncFixer" Version="1.6.0" PrivateAssets="All" ExcludeAssets="runtime" />

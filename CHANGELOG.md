@@ -14,7 +14,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.4.3
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.9.0
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.17
-- Dependencies - Updated NuGet to 6.9.1
 - Dependencies - Updated TeamCity.VSTest.TestAdapter to 1.0.40
 - Dependencies - Updated coverlet to 6.0.2
 - Dependencies - Updated Microsoft.Extensions to 8.0.1
@@ -33,6 +32,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit to 2.8.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.55.490
 - Dependencies - Updated Meziantou.Analyzer to 2.0.152
+- Dependencies - Updated NuGet to 6.10.0
 ### Removed
 ### Deployment Changes
 
