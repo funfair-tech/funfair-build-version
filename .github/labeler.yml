@@ -1,46 +1,46 @@
 ".NET update":
- - any: [ ''src/global.json'' ]
+ - any: [ 'src/global.json' ]
 "C#":
- - any: [ ''./**/*.cs', './**/*.csproj'' ]
+ - any: [ './**/*.cs', './**/*.csproj' ]
 "C# Project":
- - any: [ ''./**/*.csproj'' ]
+ - any: [ './**/*.csproj' ]
 "C# Solution":
- - any: [ ''./**/*.sln'' ]
+ - any: [ './**/*.sln' ]
 "Change Log":
- - any: [ ''CHANGELOG.md'' ]
+ - any: [ 'CHANGELOG.md' ]
 "Config Change":
- - any: [ ''src/**/*.json', '!src/global.json'' ]
+ - any: [ 'src/**/*.json', '!src/global.json' ]
 "funfair-buildversion":
- - any: [ ''src/$FunFair.BuildVersion/**/*'' ]
+ - any: [ 'src/$FunFair.BuildVersion/**/*' ]
 "funfair-buildversion-detection":
- - any: [ ''src/$FunFair.BuildVersion.Detection/**/*'' ]
+ - any: [ 'src/$FunFair.BuildVersion.Detection/**/*' ]
 "funfair-buildversion-detection-tests":
- - any: [ ''src/$FunFair.BuildVersion.Detection.Tests/**/*'' ]
+ - any: [ 'src/$FunFair.BuildVersion.Detection.Tests/**/*' ]
 "funfair-buildversion-interfaces":
- - any: [ ''src/$FunFair.BuildVersion.Interfaces/**/*'' ]
+ - any: [ 'src/$FunFair.BuildVersion.Interfaces/**/*' ]
 "funfair-buildversion-publishers":
- - any: [ ''src/$FunFair.BuildVersion.Publishers/**/*'' ]
+ - any: [ 'src/$FunFair.BuildVersion.Publishers/**/*' ]
 "funfair-buildversion-publishers-tests":
- - any: [ ''src/$FunFair.BuildVersion.Publishers.Tests/**/*'' ]
+ - any: [ 'src/$FunFair.BuildVersion.Publishers.Tests/**/*' ]
 "github-actions":
- - any: [ ''.github/workflows/*.yml'' ]
+ - any: [ '.github/workflows/*.yml' ]
 "Legal Text":
- - any: [ ''tools/LegalText/**/*'' ]
+ - any: [ 'tools/LegalText/**/*' ]
 "Markdown":
- - any: [ ''./**/*.md'' ]
+ - any: [ './**/*.md' ]
 "Migration Script":
- - any: [ ''tools/MigrationScripts/**/*'' ]
+ - any: [ 'tools/MigrationScripts/**/*' ]
 "Powershell":
- - any: [ ''./**/*.ps1', './**/*.psm1'' ]
+ - any: [ './**/*.ps1', './**/*.psm1' ]
 "Read Me":
- - any: [ ''README.md'' ]
+ - any: [ 'README.md' ]
 "Setup":
- - any: [ ''SETUP.md'' ]
+ - any: [ 'SETUP.md' ]
 "Solidity":
- - any: [ ''./**/*.sol'' ]
+ - any: [ './**/*.sol' ]
 "SQL":
- - any: [ ''./**/*.sql', 'db/**/*'' ]
+ - any: [ './**/*.sql', 'db/**/*' ]
 "Static Code Analysis Rules":
- - any: [ ''src/CodeAnalysis.ruleset'' ]
+ - any: [ 'src/CodeAnalysis.ruleset' ]
 "unit-tests":
- - any: [ ''src/*.Tests.*/**/*', 'src/*.Tests.Integration.*/**/*', 'src/*.Tests.Integration/**/*', 'src/*.Tests/**/*'' ]
+ - any: [ 'src/*.Tests.*/**/*', 'src/*.Tests.Integration.*/**/*', 'src/*.Tests.Integration/**/*', 'src/*.Tests/**/*' ]
