@@ -32,11 +32,11 @@ public sealed class BranchClassification : IBranchClassification
     {
         if (currentBranch.StartsWith(value: PULL_REQUEST_PREFIX, comparisonType: StringComparison.Ordinal))
         {
-            currentBranch = currentBranch.Substring(PULL_REQUEST_PREFIX.Length);
+            currentBranch = currentBranch[PULL_REQUEST_PREFIX.Length..];
 
             if (currentBranch.EndsWith(value: PULL_REQUEST_SUFFIX, comparisonType: StringComparison.Ordinal))
             {
-                currentBranch = currentBranch.Substring(startIndex: 0, currentBranch.Length - PULL_REQUEST_SUFFIX.Length);
+                currentBranch = currentBranch[..^PULL_REQUEST_SUFFIX.Length];
             }
 
             return long.TryParse(s: currentBranch, style: NumberStyles.Integer, provider: CultureInfo.InvariantCulture, result: out pullRequestId);
@@ -83,7 +83,7 @@ public sealed class BranchClassification : IBranchClassification
             return null;
         }
 
-        string version = branch.Substring(prefix.Length);
+        string version = branch[prefix.Length..];
 
         if (!NuGetVersion.TryParse(value: version, out NuGetVersion? baseLine))
         {

@@ -68,12 +68,9 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
         string? remote = remotes.FirstOrDefault(remote => branch.StartsWith(value: remote, comparisonType: StringComparison.OrdinalIgnoreCase));
 
-        if (remote is not null)
-        {
-            return branch.Substring(remote.Length);
-        }
-
-        return branch;
+        return remote is not null
+            ? branch[remote.Length..]
+            : branch;
     }
 
     private static IReadOnlyList<string> GetRemotes(Repository repository)

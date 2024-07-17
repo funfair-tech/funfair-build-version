@@ -90,7 +90,7 @@ internal static class PreReleaseTagBuilder
 
         if (usedSuffix.Length > maxSuffixLength)
         {
-            usedSuffix = usedSuffix.Substring(startIndex: 0, length: maxSuffixLength);
+            usedSuffix = usedSuffix[..maxSuffixLength];
         }
 
         // Ensure that the name doesn't end with a -

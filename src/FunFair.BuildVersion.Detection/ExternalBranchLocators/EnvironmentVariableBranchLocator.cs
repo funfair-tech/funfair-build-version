@@ -30,7 +30,7 @@ public abstract class EnvironmentVariableBranchLocator : IExternalBranchLocator
 
         if (branchRef.StartsWith(value: branchRefPrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
         {
-            branchRef = branchRef.Substring(branchRefPrefix.Length);
+            branchRef = branchRef[branchRefPrefix.Length..];
         }
 
         return branchRef;
