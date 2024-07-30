@@ -11,7 +11,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - Dependencies - Updated Nullable.Extended.Analyzer to 1.15.6169
-- Dependencies - Updated ThisAssembly.AssemblyInfo to 1.4.3
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.17
 - Dependencies - Updated TeamCity.VSTest.TestAdapter to 1.0.40
 - Dependencies - Updated coverlet to 6.0.2
@@ -34,6 +33,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.Test.Common to 6.1.62.556
 - Dependencies - Updated Meziantou.Analyzer to 2.0.162
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.30.0.95878
+- Dependencies - Updated ThisAssembly.AssemblyInfo to 1.5.0
 ### Removed
 ### Deployment Changes
 
