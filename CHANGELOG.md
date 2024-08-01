@@ -33,7 +33,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.19.278
 - Dependencies - Updated Meziantou.Analyzer to 2.0.163
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.19.498
-- Dependencies - Updated FunFair.Test.Common to 6.1.63.604
+- Dependencies - Updated FunFair.Test.Common to 6.1.64.606
 ### Removed
 ### Deployment Changes
 
