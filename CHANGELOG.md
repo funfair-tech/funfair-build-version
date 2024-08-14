@@ -18,7 +18,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated LibGit2Sharp to 0.30.0
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.1.5.315
 - Dependencies - Updated Credfeto.Enumeration to 1.1.7.384
-- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.10.48
 - Dependencies - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.11
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.10.0
 - Dependencies - Updated Roslynator.Analyzers to 4.12.4
@@ -34,6 +33,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.31.0.96804
 - Dependencies - Updated NuGet to 6.10.2
 - SDK - Updated DotNet SDK to 8.0.400
+- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.11.20
 ### Removed
 ### Deployment Changes
 
