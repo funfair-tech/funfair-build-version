@@ -23,7 +23,7 @@ internal static class PreReleaseTagBuilder
     public static StringBuilder ReplaceInvalidCharacters(this StringBuilder suffix)
     {
         foreach (char ch in suffix.ToString()
-                                  .Where(predicate: c => !char.IsLetterOrDigit(c) && c != INVALID_CHAR_REPLACEMENT)
+                                  .Where(predicate: static c => !char.IsLetterOrDigit(c) && c != INVALID_CHAR_REPLACEMENT)
                                   .Distinct())
         {
             suffix = suffix.Replace(oldChar: ch, newChar: INVALID_CHAR_REPLACEMENT);

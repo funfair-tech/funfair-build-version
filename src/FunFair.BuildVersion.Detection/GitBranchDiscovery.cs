@@ -53,8 +53,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
     public IReadOnlyList<string> FindBranches(Repository repository)
     {
-        return repository.Branches.Select(selector: b => ExtractBranch(repository: repository, branch: b.FriendlyName))
-                         .ToArray();
+        return [..repository.Branches.Select(selector: b => ExtractBranch(repository: repository, branch: b.FriendlyName))];
     }
 
     private static string GetHeadSha(Repository repository)
@@ -75,8 +74,8 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
     private static IReadOnlyList<string> GetRemotes(Repository repository)
     {
-        return repository.Network.Remotes.Select(r => r.Name + "/")
-                         .ToArray();
+        return [..repository.Network.Remotes.Select(static r => r.Name + "/")
+                         ];
     }
 
     private string FindConfiguredBranch(Repository repository)
@@ -86,7 +85,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
     private string? FindConfiguredBranchUsingExternalLocators()
     {
-        return this._externalBranchLocators.Select(locator => locator.CurrentBranch)
+        return this._externalBranchLocators.Select(static locator => locator.CurrentBranch)
                    .RemoveNulls()
                    .FirstOrDefault();
     }
