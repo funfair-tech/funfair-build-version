@@ -30,10 +30,10 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.32.0.97167
 - Dependencies - Updated NuGet to 6.11.0
 - SDK - Updated DotNet SDK to 8.0.401
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.21.300
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.11.0
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.22.521
 - Dependencies - Updated FunFair.Test.Common to 6.1.67.620
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.22.305
 ### Removed
 ### Deployment Changes
 
