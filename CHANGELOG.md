@@ -21,7 +21,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.11
 - Dependencies - Updated Roslynator.Analyzers to 4.12.4
 - Dependencies - Updated CSharpIsNullAnalyzer to 0.1.593
-- Dependencies - Updated xunit.analyzers to 1.15.0
 - Dependencies - Updated xunit.runner.visualstudio to 2.8.2
 - Dependencies - Updated xunit to 2.9.0
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.5.0
@@ -34,6 +33,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.22.521
 - Dependencies - Updated FunFair.Test.Common to 6.1.67.620
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.22.305
+- Dependencies - Updated xunit.analyzers to 1.16.0
 ### Removed
 ### Deployment Changes
 
