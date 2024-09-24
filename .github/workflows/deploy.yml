@@ -36,7 +36,7 @@ on:
 
 # Don't cancel anything in progress
 concurrency:
-  group: ${{github.workflow}}
+  group: ${{github.workflow}}-${{inputs.CLOUD_FORMATION_STACK}}-${{inputs.BUILD_VERSION}}
   cancel-in-progress: false
 
 permissions:
