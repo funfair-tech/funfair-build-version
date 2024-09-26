@@ -44,7 +44,7 @@ jobs:
 #        shell: bash
 #        run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
 #      - name: "Checkout Source"
-#        uses: actions/checkout@v4.1.1
+#        uses: actions/checkout@v4.2.0
 #        with:
 #          fetch-depth: 0
 #          fetch-tags: true
@@ -68,7 +68,7 @@ jobs:
 
       - name: "Checkout Source"
         if: (github.actor != 'dependabot[bot]' && !endsWith(github.repository , '-template'))
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -96,7 +96,7 @@ jobs:
         run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
 
       - name: "Checkout Source"
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -211,7 +211,7 @@ jobs:
         run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
 
       - name: "Checkout Source"
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -237,7 +237,7 @@ jobs:
         run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
 
       - name: "Checkout Source"
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -255,7 +255,7 @@ jobs:
         run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
 
       - name: "Checkout Source"
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -273,7 +273,7 @@ jobs:
         run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
 
       - name: "Checkout Source"
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -302,7 +302,7 @@ jobs:
 
       - name: "Checkout Source"
         if: steps.visibility.outputs.is_public == 'true'
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -322,7 +322,7 @@ jobs:
         run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
 
       - name: "Checkout Source"
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -342,7 +342,7 @@ jobs:
         run: sudo chown -R "$USER:$USER" "$GITHUB_WORKSPACE"
 
       - name: "Checkout Source"
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.0
         with:
           fetch-depth: 0
           fetch-tags: true
