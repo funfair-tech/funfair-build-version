@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   build-matrix:
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
 
     permissions:
       contents: read
@@ -54,7 +54,7 @@ jobs:
 
   check-branch:
     needs: build-matrix
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
 
     permissions:
       contents: write
