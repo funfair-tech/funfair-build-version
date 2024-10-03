@@ -24,7 +24,7 @@ env:
 
 jobs:
   info:
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -41,7 +41,7 @@ jobs:
             core.info('Owner: ${{env.REPO_OWNER}}');
 
   pull-request:
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
 
     env:
       CREATE_DRAFT: true
