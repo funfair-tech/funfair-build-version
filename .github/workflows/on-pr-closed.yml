@@ -7,7 +7,7 @@ on:
 
 jobs:
   cleanup-cache:
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
