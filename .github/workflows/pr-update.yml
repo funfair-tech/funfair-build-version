@@ -18,7 +18,7 @@ env:
 jobs:
   info:
     if: endsWith(github.repository , '-template')
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -42,7 +42,7 @@ jobs:
 
   add-pr-label:
     if: ${{github.actor != 'dependabot[bot]'}}
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -62,7 +62,7 @@ jobs:
       && github.event_name == 'pull_request'
       && ( github.event.action == 'opened' || github.event.action == 'reopened')
       && github.actor != 'dependabot[bot]'}}
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
