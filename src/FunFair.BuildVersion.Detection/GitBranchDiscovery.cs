@@ -74,8 +74,10 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
     private static IReadOnlyList<string> GetRemotes(Repository repository)
     {
-        return [..repository.Network.Remotes.Select(static r => r.Name + "/")
-                         ];
+        return
+        [
+            ..repository.Network.Remotes.Select(static r => r.Name + "/")
+        ];
     }
 
     private string FindConfiguredBranch(Repository repository)
