@@ -19,7 +19,7 @@ env:
 jobs:
   info:
     if: endsWith(github.repository, '-template')
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -37,7 +37,7 @@ jobs:
 
 #  include-JIRA-ticket:
 #    if: github.event.pull_request.draft == false
-#    runs-on: [self-hosted, linux]
+#    runs-on: [self-hosted, linux, build]
 #    steps:
 #      - name: "Initialise Workspace"
 #        if: startsWith(runner.name, 'buildagent-')
@@ -59,7 +59,7 @@ jobs:
 
   include-changelog-entry:
     if: github.event.pull_request.draft == false
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -88,7 +88,7 @@ jobs:
   change-log-entry-is-in-unreleased:
     if: github.event.pull_request.draft == false
     # As LibGit2Sharp doesn't work on 20.04
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -203,7 +203,7 @@ jobs:
 
   does-not-contain-secrets:
     if: github.event.pull_request.draft == false
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -229,7 +229,7 @@ jobs:
 
   has-no-merge-conflicts:
     if: github.event.pull_request.draft == false
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -247,7 +247,7 @@ jobs:
 
   has-no-file-or-folder-case-sensitivity-issues:
     if: github.event.pull_request.draft == false
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -265,7 +265,7 @@ jobs:
 
   no-ignored-files:
     if: github.event.pull_request.draft == false
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -284,7 +284,7 @@ jobs:
   dependency-review:
     # Check that there are no dependencies with security problems in the PR
     if: github.event.pull_request.draft == false
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -314,7 +314,7 @@ jobs:
   no-merge-commits:
     # Check that there are no merge commits in the PR
     if: github.event.pull_request.draft == false
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
@@ -334,7 +334,7 @@ jobs:
     if: |-
       github.event.pull_request.draft == false &&
       ( !startsWith(github.head_ref, 'release/') && !startsWith(github.head_ref, 'hotfix/') )
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
     steps:
       - name: "Initialise Workspace"
         if: startsWith(runner.name, 'buildagent-')
