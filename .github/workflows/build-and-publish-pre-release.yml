@@ -27,7 +27,7 @@ permissions:
 jobs:
   build-pre-release:
 
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, linux, build]
 
     steps:
       - name: "Initialise Workspace"
