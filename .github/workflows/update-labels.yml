@@ -12,10 +12,16 @@ concurrency:
   group: ${{github.workflow}}-${{github.ref}}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   update-labels-config:
 
     runs-on: [self-hosted, linux, build]
+
+    permissions:
+      issues: write  # for crazy-max/ghaction-github-labeler to create, rename, update
 
     steps:
       - name: "Initialise Workspace"
