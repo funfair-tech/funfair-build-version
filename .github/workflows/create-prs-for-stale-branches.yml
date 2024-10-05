@@ -13,12 +13,12 @@ concurrency:
   group: ${{github.workflow}}-${{github.ref}}
   cancel-in-progress: false
 
+permissions:
+  contents: read
+
 jobs:
   build-matrix:
     runs-on: [self-hosted, linux, build]
-
-    permissions:
-      contents: read
 
     steps:
       - name: "Initialise Workspace"
