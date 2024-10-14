@@ -18,6 +18,7 @@
     <IsTrimmable>true</IsTrimmable>
     <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
     <LangVersion>latest</LangVersion>
+    <IsTool>true</IsTool>
     <NoWarn />
     <NuGetAudit>true</NuGetAudit>
     <NuGetAuditLevel>low</NuGetAuditLevel>
