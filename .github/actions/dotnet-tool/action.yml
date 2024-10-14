@@ -66,3 +66,8 @@ runs:
         DOTNET_TieredPGO: "1"
         MSBUILDTERMINALLOGGER: "auto"
         NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+
+    - name: "Restore"
+      shell: bash
+      run: dotnet tool restore
+
