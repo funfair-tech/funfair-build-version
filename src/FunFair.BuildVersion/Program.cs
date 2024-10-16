@@ -65,7 +65,7 @@ internal static class Program
     {
         try
         {
-            Console.WriteLine($"{typeof(Program).Namespace} {ExecutableVersionInformation.ProgramVersion}");
+            Console.WriteLine($"{VersionInformation.Product} {VersionInformation.FileVersion}");
 
             return Parser.Default.ParseArguments<Options>(args)
                          .MapResult(parsedFunc: ParsedOk, notParsedFunc: NotParsed);
