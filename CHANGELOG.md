@@ -14,7 +14,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.17
 - Dependencies - Updated TeamCity.VSTest.TestAdapter to 1.0.40
 - Dependencies - Updated coverlet to 6.0.2
-- Dependencies - Updated Microsoft.Extensions to 8.0.1
 - Dependencies - Updated LibGit2Sharp to 0.30.0
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.1.5.315
 - Dependencies - Updated Credfeto.Enumeration to 1.1.7.384
@@ -35,6 +34,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Roslynator.Analyzers to 4.12.6
 - SDK - Updated Dotnet to 9.0 RC1
 - SDK - Updated DotNet SDK to 9.0.100-rc.2.24474.11
+- Dependencies - Updated Microsoft.Extensions to 8.0.2
 ### Removed
 ### Deployment Changes
 
