@@ -24,7 +24,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.5.0
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.11.20
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.32.0.97167
-- Dependencies - Updated NuGet to 6.11.0
 - Dependencies - Updated xunit.analyzers to 1.16.0
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.11.1
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.23.533
@@ -35,6 +34,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Roslynator.Analyzers to 4.12.6
 - SDK - Updated Dotnet to 9.0 RC1
 - SDK - Updated DotNet SDK to 9.0.100-rc.2.24474.11
+- Dependencies - Updated NuGet to 6.11.1
 ### Removed
 ### Deployment Changes
 
