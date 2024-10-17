@@ -58,7 +58,7 @@
   <ItemGroup>
     <PackageReference Include="Credfeto.Extensions.Linq" Version="1.0.26.395" />
     <PackageReference Include="LibGit2Sharp" Version="0.30.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AsyncFixer" Version="1.6.0" PrivateAssets="All" ExcludeAssets="runtime" />
