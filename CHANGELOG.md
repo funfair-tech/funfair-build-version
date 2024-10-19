@@ -16,7 +16,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated coverlet to 6.0.2
 - Dependencies - Updated LibGit2Sharp to 0.30.0
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.1.5.315
-- Dependencies - Updated Credfeto.Enumeration to 1.1.7.384
 - Dependencies - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.11
 - Dependencies - Updated CSharpIsNullAnalyzer to 0.1.593
 - Dependencies - Updated xunit.runner.visualstudio to 2.8.2
@@ -36,6 +35,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NuGet to 6.11.1
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.2.16
 - Dependencies - Updated FunFair.Test.Common to 6.1.71.731
+- Dependencies - Updated Credfeto.Enumeration to 1.1.14.596
 ### Removed
 ### Deployment Changes
 
