@@ -34,8 +34,8 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.Extensions to 8.0.2
 - Dependencies - Updated NuGet to 6.11.1
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.2.16
-- Dependencies - Updated FunFair.Test.Common to 6.1.71.731
 - Dependencies - Updated Credfeto.Enumeration to 1.1.14.596
+- Dependencies - Updated FunFair.Test.Common to 6.1.72.736
 ### Removed
 ### Deployment Changes
 
