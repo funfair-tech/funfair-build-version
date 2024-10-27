@@ -31,11 +31,11 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NuGet to 6.11.1
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.4.57
 - Dependencies - Updated Meziantou.Analyzer to 2.0.176
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.28.428
 - Dependencies - Updated Roslynator.Analyzers to 4.12.9
 - Dependencies - Updated Credfeto.Enumeration to 1.1.16.631
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.26.665
 - Dependencies - Updated FunFair.Test.Common to 6.1.231.921
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.29.435
 ### Removed
 ### Deployment Changes
 
