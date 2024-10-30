@@ -29,7 +29,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit to 2.9.2
 - Dependencies - Updated Microsoft.Extensions to 8.0.2
 - Dependencies - Updated NuGet to 6.11.1
-- Dependencies - Updated Meziantou.Analyzer to 2.0.176
 - Dependencies - Updated Roslynator.Analyzers to 4.12.9
 - Dependencies - Updated NSubstitute to 5.3.0
 - Dependencies - Updated Credfeto.Enumeration to 1.1.18.647
@@ -37,6 +36,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.31.447
 - Dependencies - Updated FunFair.Test.Common to 6.1.234.940
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.7.77
+- Dependencies - Updated Meziantou.Analyzer to 2.0.177
 ### Removed
 ### Deployment Changes
 
