@@ -26,7 +26,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - SDK - Updated Dotnet to 9.0 RC1
 - SDK - Updated DotNet SDK to 9.0.100-rc.2.24474.11
 - Dependencies - Updated xunit to 2.9.2
-- Dependencies - Updated Microsoft.Extensions to 8.0.2
 - Dependencies - Updated NuGet to 6.11.1
 - Dependencies - Updated Roslynator.Analyzers to 4.12.9
 - Dependencies - Updated NSubstitute to 5.3.0
@@ -37,6 +36,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.32.711
 - Dependencies - Updated FunFair.Test.Common to 6.1.238.970
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.11.111
+- Dependencies - Updated Microsoft.Extensions to 9.0.0
 ### Removed
 ### Deployment Changes
 
