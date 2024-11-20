@@ -21,7 +21,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.runner.visualstudio to 2.8.2
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.5.0
 - Dependencies - Updated SonarAnalyzer.CSharp to 9.32.0.97167
-- Dependencies - Updated Microsoft.NET.Test.Sdk to 17.11.1
 - SDK - Updated Dotnet to 9.0 RC1
 - Dependencies - Updated xunit to 2.9.2
 - Dependencies - Updated Roslynator.Analyzers to 4.12.9
@@ -37,6 +36,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Meziantou.Analyzer to 2.0.180
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.36.497
 - Dependencies - Updated FunFair.Test.Common to 6.1.239.979
+- Dependencies - Updated Microsoft.NET.Test.Sdk to 17.12.0
 ### Removed
 ### Deployment Changes
 
