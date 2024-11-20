@@ -24,7 +24,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.11.1
 - SDK - Updated Dotnet to 9.0 RC1
 - Dependencies - Updated xunit to 2.9.2
-- Dependencies - Updated NuGet to 6.11.1
 - Dependencies - Updated Roslynator.Analyzers to 4.12.9
 - Dependencies - Updated NSubstitute to 5.3.0
 - Dependencies - Updated xunit.analyzers to 1.17.0
@@ -37,6 +36,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - SDK - Updated DotNet SDK to 9.0.100
 - Dependencies - Updated Credfeto.Enumeration to 1.1.23.685
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.12.19
+- Dependencies - Updated NuGet to 6.12.1
 ### Removed
 ### Deployment Changes
 
