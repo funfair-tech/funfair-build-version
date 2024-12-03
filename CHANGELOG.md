@@ -14,7 +14,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.17
 - Dependencies - Updated TeamCity.VSTest.TestAdapter to 1.0.40
 - Dependencies - Updated coverlet to 6.0.2
-- Dependencies - Updated LibGit2Sharp to 0.30.0
 - Dependencies - Updated Credfeto.Enumeration.Source.Generation to 1.1.5.315
 - Dependencies - Updated SmartAnalyzers.CSharpExtensions.Annotations to 4.2.11
 - Dependencies - Updated CSharpIsNullAnalyzer to 0.1.593
@@ -37,6 +36,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.25.170
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.49.542
 - Dependencies - Updated Credfeto.Enumeration to 1.2.39.744
+- Dependencies - Updated LibGit2Sharp to 0.31.0
 ### Removed
 ### Deployment Changes
 
