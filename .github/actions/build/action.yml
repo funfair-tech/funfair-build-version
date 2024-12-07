@@ -354,6 +354,7 @@ runs:
         GITHUB_TOKEN: ${{inputs.GITHUB_TOKEN}}
         REPO_VISIBILITY: ${{inputs.REPO_VISIBILITY}}
         PROJECT_TO_PUBLISH: ${{inputs.PROJECT_TO_PUBLISH}}
+        DOTNET_DOCKER_PLATFORM: ${{inputs.DOTNET_DOCKER_PLATFORM}}
 
     ############################################################################################################
     # NPM BUILD
