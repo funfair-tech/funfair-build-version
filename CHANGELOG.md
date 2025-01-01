@@ -27,7 +27,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.Test.Common to 6.1.239.979
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.12.0
 - Dependencies - Updated LibGit2Sharp to 0.31.0
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.51.546
 - SDK - Updated DotNet SDK to 9.0.101
 - Dependencies - Updated Credfeto.Enumeration to 1.2.43.772
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.32.207
@@ -37,6 +36,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.4.0.108396
 - Dependencies - Updated xunit.analyzers to 1.18.0
 - Dependencies - Updated xunit.runner.visualstudio to 3.0.0
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.54.566
 ### Removed
 ### Deployment Changes
 
