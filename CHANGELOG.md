@@ -20,7 +20,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.5.0
 - SDK - Updated Dotnet to 9.0 RC1
 - Dependencies - Updated xunit to 2.9.2
-- Dependencies - Updated Roslynator.Analyzers to 4.12.9
 - Dependencies - Updated NSubstitute to 5.3.0
 - Dependencies - Updated xunit.analyzers to 1.17.0
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.32.711
@@ -37,6 +36,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.32.207
 - Dependencies - Updated Meziantou.Analyzer to 2.0.184
 - Dependencies - Updated Nullable.Extended.Analyzer to 1.15.6495
+- Dependencies - Updated Roslynator.Analyzers to 4.12.10
 ### Removed
 ### Deployment Changes
 
