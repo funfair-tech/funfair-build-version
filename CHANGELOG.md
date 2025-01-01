@@ -34,9 +34,9 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Meziantou.Analyzer to 2.0.182
 - Dependencies - Updated LibGit2Sharp to 0.31.0
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.51.546
-- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.28.176
 - SDK - Updated DotNet SDK to 9.0.101
 - Dependencies - Updated Credfeto.Enumeration to 1.2.43.772
+- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.32.207
 ### Removed
 ### Deployment Changes
 
