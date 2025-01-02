@@ -33,10 +33,10 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.4.0.108396
 - Dependencies - Updated xunit.analyzers to 1.18.0
 - Dependencies - Updated xunit.runner.visualstudio to 3.0.0
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.54.566
 - Dependencies - Updated FunFair.Test.Common to 6.1.241.1032
 - Dependencies - Updated Credfeto.Enumeration to 1.2.45.800
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.33.225
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.56.593
 ### Removed
 ### Deployment Changes
 
