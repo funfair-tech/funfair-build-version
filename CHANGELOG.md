@@ -34,9 +34,9 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.analyzers to 1.18.0
 - Dependencies - Updated xunit.runner.visualstudio to 3.0.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.242.1044
-- Dependencies - Updated Credfeto.Enumeration to 1.2.47.806
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.35.231
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.58.599
+- Dependencies - Updated Credfeto.Enumeration to 1.2.50.814
 ### Removed
 ### Deployment Changes
 
