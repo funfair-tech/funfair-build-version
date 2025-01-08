@@ -18,7 +18,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated CSharpIsNullAnalyzer to 0.1.593
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.5.0
 - SDK - Updated Dotnet to 9.0 RC1
-- Dependencies - Updated xunit to 2.9.2
 - Dependencies - Updated NSubstitute to 5.3.0
 - Dependencies - Updated Microsoft.Extensions to 9.0.0
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.12.19
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Enumeration to 1.2.52.820
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.40.246
 - Dependencies - Updated Meziantou.Analyzer to 2.0.185
+- Dependencies - Updated xunit to 2.9.3
 ### Removed
 ### Deployment Changes
 
