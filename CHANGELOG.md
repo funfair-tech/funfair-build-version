@@ -33,11 +33,11 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.Test.Common to 6.1.242.1044
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.53.833
 - Dependencies - Updated Microsoft.Sbom.Targets to 3.0.1
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.62.610
 - Dependencies - Updated Credfeto.Enumeration to 1.2.52.820
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.40.246
 - Dependencies - Updated Meziantou.Analyzer to 2.0.185
 - Dependencies - Updated xunit to 2.9.3
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.63.614
 ### Removed
 ### Deployment Changes
 
