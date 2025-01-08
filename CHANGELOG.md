@@ -26,7 +26,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.12.0
 - Dependencies - Updated LibGit2Sharp to 0.31.0
 - SDK - Updated DotNet SDK to 9.0.101
-- Dependencies - Updated Meziantou.Analyzer to 2.0.184
 - Dependencies - Updated Nullable.Extended.Analyzer to 1.15.6495
 - Dependencies - Updated Roslynator.Analyzers to 4.12.10
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.4.0.108396
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.62.610
 - Dependencies - Updated Credfeto.Enumeration to 1.2.52.820
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.40.246
+- Dependencies - Updated Meziantou.Analyzer to 2.0.185
 ### Removed
 ### Deployment Changes
 
