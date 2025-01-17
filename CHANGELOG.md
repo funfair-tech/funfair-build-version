@@ -30,7 +30,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.analyzers to 1.18.0
 - Dependencies - Updated xunit.runner.visualstudio to 3.0.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.242.1044
-- Dependencies - Updated FunFair.CodeAnalysis to 7.0.53.833
 - Dependencies - Updated Microsoft.Sbom.Targets to 3.0.1
 - Dependencies - Updated Meziantou.Analyzer to 2.0.185
 - Dependencies - Updated xunit to 2.9.3
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.64.618
 - SDK - Updated DotNet SDK to 9.0.102
 - Dependencies - Updated Credfeto.Enumeration to 1.2.53.824
+- Dependencies - Updated FunFair.CodeAnalysis to 7.0.55.846
 ### Removed
 ### Deployment Changes
 
