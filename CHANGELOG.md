@@ -27,7 +27,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Roslynator.Analyzers to 4.12.10
 - Dependencies - Updated Microsoft.Sbom.Targets to 3.0.1
 - Dependencies - Updated xunit to 2.9.3
-- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.41.250
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.64.618
 - SDK - Updated DotNet SDK to 9.0.102
 - Dependencies - Updated Meziantou.Analyzer to 2.0.186
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.57.858
 - Dependencies - Updated FunFair.Test.Common to 6.1.247.1082
 - Dependencies - Updated Credfeto.Enumeration to 1.2.55.854
+- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.43.281
 ### Removed
 ### Deployment Changes
 
