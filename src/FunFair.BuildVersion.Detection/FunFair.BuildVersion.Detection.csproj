@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Credfeto.Extensions.Linq" Version="1.0.67.651" />
-    <PackageReference Include="LibGit2Sharp" Version="0.31.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.1" />
   </ItemGroup>
   <ItemGroup>
