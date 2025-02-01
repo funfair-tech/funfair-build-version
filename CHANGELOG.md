@@ -32,12 +32,12 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.runner.visualstudio to 3.0.1
 - Dependencies - Updated Microsoft.Extensions to 9.0.1
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.50.312
-- Dependencies - Updated FunFair.CodeAnalysis to 7.0.64.879
 - Dependencies - Updated Credfeto.Enumeration to 1.2.64.889
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.75.685
 - Dependencies - Updated Roslynator.Analyzers to 4.12.11
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.6.0.109712
 - Dependencies - Updated FunFair.Test.Common to 6.1.254.1118
+- Dependencies - Updated FunFair.CodeAnalysis to 7.0.65.898
 ### Removed
 ### Deployment Changes
 
