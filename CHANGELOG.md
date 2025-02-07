@@ -27,7 +27,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit to 2.9.3
 - SDK - Updated DotNet SDK to 9.0.102
 - Dependencies - Updated Meziantou.Analyzer to 2.0.186
-- Dependencies - Updated xunit.runner.visualstudio to 3.0.1
 - Dependencies - Updated Microsoft.Extensions to 9.0.1
 - Dependencies - Updated Roslynator.Analyzers to 4.12.11
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.6.0.109712
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.Test.Common to 6.1.256.1131
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.53.337
 - Dependencies - Updated xunit.analyzers to 1.20.0
+- Dependencies - Updated xunit.runner.visualstudio to 3.0.2
 ### Removed
 ### Deployment Changes
 
