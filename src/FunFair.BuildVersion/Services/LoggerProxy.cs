@@ -8,8 +8,7 @@ public sealed class LoggerProxy<TLogClass> : ILogger<TLogClass>
 {
     private readonly ILogger _diagnosticLogger;
 
-    public LoggerProxy(
-        [SuppressMessage(category: "FunFair.CodeAnalysis", checkId: "FFS0024: Logger parameters should be ILogger<T>", Justification = "Not created through DI")] ILogger logger)
+    public LoggerProxy([SuppressMessage(category: "FunFair.CodeAnalysis", checkId: "FFS0024: Logger parameters should be ILogger<T>", Justification = "Not created through DI")] ILogger logger)
     {
         this._diagnosticLogger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
