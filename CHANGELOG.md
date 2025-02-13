@@ -25,7 +25,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated LibGit2Sharp to 0.31.0
 - Dependencies - Updated Nullable.Extended.Analyzer to 1.15.6495
 - Dependencies - Updated xunit to 2.9.3
-- Dependencies - Updated Meziantou.Analyzer to 2.0.186
 - Dependencies - Updated Microsoft.Extensions to 9.0.1
 - Dependencies - Updated Roslynator.Analyzers to 4.12.11
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.6.0.109712
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - SDK - Updated DotNet SDK to 9.0.200
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.54.350
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.67.921
+- Dependencies - Updated Meziantou.Analyzer to 2.0.187
 ### Removed
 ### Deployment Changes
 
