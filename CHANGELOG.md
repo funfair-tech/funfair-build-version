@@ -19,7 +19,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.5.0
 - SDK - Updated Dotnet to 9.0 RC1
 - Dependencies - Updated NSubstitute to 5.3.0
-- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.12.19
 - Dependencies - Updated NuGet to 6.12.1
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.12.0
 - Dependencies - Updated LibGit2Sharp to 0.31.0
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.54.350
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.67.921
 - Dependencies - Updated Meziantou.Analyzer to 2.0.187
+- Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.13.2
 ### Removed
 ### Deployment Changes
 
