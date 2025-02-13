@@ -18,7 +18,11 @@ public sealed class GitHubActionsVersionPublisher : IVersionPublisher
         }
     }
 
-    [SuppressMessage(category: "Meziantou.Analyzer", checkId: "MA0045", Justification = "IVersionPublisher Method is not async")]
+    [SuppressMessage(
+        category: "Meziantou.Analyzer",
+        checkId: "MA0045",
+        Justification = "IVersionPublisher Method is not async"
+    )]
     private static void WriteTeamCityParameters(NuGetVersion version, string env)
     {
         string[] fileContent = [$"BUILD_VERSION={version}"];

@@ -24,8 +24,14 @@ public sealed class BranchClassificationTests : TestBase
     {
         IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
 
-        bool isRelease = branchClassification.IsRelease(branchName: branchName, out NuGetVersion? version);
-        Assert.False(condition: isRelease, userMessage: "Branch should not be considered a release branch");
+        bool isRelease = branchClassification.IsRelease(
+            branchName: branchName,
+            out NuGetVersion? version
+        );
+        Assert.False(
+            condition: isRelease,
+            userMessage: "Branch should not be considered a release branch"
+        );
         Assert.Null(version);
     }
 
@@ -59,12 +65,23 @@ public sealed class BranchClassificationTests : TestBase
     [InlineData("test", "banana", "hotfix-test/banana/2", "2.0.0.0")]
     [InlineData("test", "banana", "hotfix-test/banana/3.7", "3.7.0.0")]
     [InlineData("test", "banana", "hotfix-test/banana/4.2.1", "4.2.1.0")]
-    public void ShouldBeConsideredRelease(string suffix, string package, string branchName, string expectedVersionString)
+    public void ShouldBeConsideredRelease(
+        string suffix,
+        string package,
+        string branchName,
+        string expectedVersionString
+    )
     {
         IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
 
-        bool isRelease = branchClassification.IsRelease(branchName: branchName, out NuGetVersion? version);
-        Assert.True(condition: isRelease, userMessage: "Branch should be considered a release branch");
+        bool isRelease = branchClassification.IsRelease(
+            branchName: branchName,
+            out NuGetVersion? version
+        );
+        Assert.True(
+            condition: isRelease,
+            userMessage: "Branch should be considered a release branch"
+        );
         Assert.NotNull(version);
         Assert.Equal(expected: expectedVersionString, version.ToString());
     }
@@ -75,12 +92,23 @@ public sealed class BranchClassificationTests : TestBase
     [InlineData("test", "", "refs/pull/77/head", 77)]
     [InlineData("", "banana", "refs/pull/77/head", 77)]
     [InlineData("test", "banana", "refs/pull/77/head", 77)]
-    public void ShouldBeConsideredAPullRequest(string suffix, string package, string branchName, long expectedPullRequestId)
+    public void ShouldBeConsideredAPullRequest(
+        string suffix,
+        string package,
+        string branchName,
+        long expectedPullRequestId
+    )
     {
         IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
 
-        bool isRelease = branchClassification.IsPullRequest(currentBranch: branchName, out long pullRequestId);
-        Assert.True(condition: isRelease, userMessage: "Branch should not be considered a pull request branch");
+        bool isRelease = branchClassification.IsPullRequest(
+            currentBranch: branchName,
+            out long pullRequestId
+        );
+        Assert.True(
+            condition: isRelease,
+            userMessage: "Branch should not be considered a pull request branch"
+        );
         Assert.Equal(expected: expectedPullRequestId, actual: pullRequestId);
     }
 
@@ -101,8 +129,14 @@ public sealed class BranchClassificationTests : TestBase
     {
         IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
 
-        bool isRelease = branchClassification.IsPullRequest(currentBranch: branchName, out long pullRequestId);
-        Assert.False(condition: isRelease, userMessage: "Branch should not be considered a pull request branch");
+        bool isRelease = branchClassification.IsPullRequest(
+            currentBranch: branchName,
+            out long pullRequestId
+        );
+        Assert.False(
+            condition: isRelease,
+            userMessage: "Branch should not be considered a pull request branch"
+        );
         Assert.Equal(expected: 0, actual: pullRequestId);
     }
 }

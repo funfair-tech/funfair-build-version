@@ -8,14 +8,33 @@ public sealed class LoggerProxy<TLogClass> : ILogger<TLogClass>
 {
     private readonly ILogger _diagnosticLogger;
 
-    public LoggerProxy([SuppressMessage(category: "FunFair.CodeAnalysis", checkId: "FFS0024: Logger parameters should be ILogger<T>", Justification = "Not created through DI")] ILogger logger)
+    public LoggerProxy(
+        [SuppressMessage(
+            category: "FunFair.CodeAnalysis",
+            checkId: "FFS0024: Logger parameters should be ILogger<T>",
+            Justification = "Not created through DI"
+        )]
+            ILogger logger
+    )
     {
         this._diagnosticLogger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
-    public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
+    public void Log<TState>(
+        LogLevel logLevel,
+        EventId eventId,
+        TState state,
+        Exception? exception,
+        Func<TState, Exception?, string> formatter
+    )
     {
-        this._diagnosticLogger.Log(logLevel: logLevel, eventId: eventId, state: state, exception: exception, formatter: formatter);
+        this._diagnosticLogger.Log(
+            logLevel: logLevel,
+            eventId: eventId,
+            state: state,
+            exception: exception,
+            formatter: formatter
+        );
     }
 
     public bool IsEnabled(LogLevel logLevel)

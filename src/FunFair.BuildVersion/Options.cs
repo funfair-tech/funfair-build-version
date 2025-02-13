@@ -5,19 +5,51 @@ using CommandLine;
 namespace FunFair.BuildVersion;
 
 [DebuggerDisplay("Build {BuildNumber}, Release: {ReleaseSuffix} Package: {Package}")]
-[SuppressMessage(category: "ReSharper", checkId: "ClassNeverInstantiated.Global", Justification = "Created internally by command line parser")]
+[SuppressMessage(
+    category: "ReSharper",
+    checkId: "ClassNeverInstantiated.Global",
+    Justification = "Created internally by command line parser"
+)]
 public sealed record Options
 {
-    [Option(shortName: 'x', longName: "WarningsAsErrors", Required = false, HelpText = "Whether warnings should be errors", Default = false)]
-    [SuppressMessage(category: "ReSharper", checkId: "UnusedAutoPropertyAccessor.Global", Justification = "Used by command line parser")]
+    [Option(
+        shortName: 'x',
+        longName: "WarningsAsErrors",
+        Required = false,
+        HelpText = "Whether warnings should be errors",
+        Default = false
+    )]
+    [SuppressMessage(
+        category: "ReSharper",
+        checkId: "UnusedAutoPropertyAccessor.Global",
+        Justification = "Used by command line parser"
+    )]
     public bool WarningsAsErrors { get; init; }
 
-    [Option(shortName: 'b', longName: "BuildNumber", Required = false, HelpText = "The build number", Default = -1)]
+    [Option(
+        shortName: 'b',
+        longName: "BuildNumber",
+        Required = false,
+        HelpText = "The build number",
+        Default = -1
+    )]
     public int BuildNumber { get; init; }
 
-    [Option(shortName: 's', longName: "ReleaseSuffix", Required = false, HelpText = "The release suffix", Default = "")]
+    [Option(
+        shortName: 's',
+        longName: "ReleaseSuffix",
+        Required = false,
+        HelpText = "The release suffix",
+        Default = ""
+    )]
     public string? ReleaseSuffix { get; init; }
 
-    [Option(shortName: 'p', longName: "Package", Required = false, HelpText = "The package being released", Default = "")]
+    [Option(
+        shortName: 'p',
+        longName: "Package",
+        Required = false,
+        HelpText = "The package being released",
+        Default = ""
+    )]
     public string? Package { get; init; }
 }

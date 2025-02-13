@@ -41,18 +41,24 @@ internal static class Program
             IServiceProvider serviceProvider = Setup(options: options);
 
             IDiagnosticLogger logging = serviceProvider.GetRequiredService<IDiagnosticLogger>();
-            IVersionDetector versionDetector = serviceProvider.GetRequiredService<IVersionDetector>();
+            IVersionDetector versionDetector =
+                serviceProvider.GetRequiredService<IVersionDetector>();
 
-            NuGetVersion version = versionDetector.FindVersion(repository: repository, buildNumber: buildNumber);
+            NuGetVersion version = versionDetector.FindVersion(
+                repository: repository,
+                buildNumber: buildNumber
+            );
 
             ApplyVersion(version: version, serviceProvider: serviceProvider);
 
             if (logging.IsErrored)
             {
                 Console.WriteLine();
-                Console.WriteLine(logging.Errors > 1
-                                      ? $"Found {logging.Errors} Errors"
-                                      : $"Found {logging.Errors} Error");
+                Console.WriteLine(
+                    logging.Errors > 1
+                        ? $"Found {logging.Errors} Errors"
+                        : $"Found {logging.Errors} Error"
+                );
 
                 return ERROR;
             }
@@ -67,8 +73,9 @@ internal static class Program
         {
             Console.WriteLine($"{VersionInformation.Product} {VersionInformation.Version}");
 
-            return Parser.Default.ParseArguments<Options>(args)
-                         .MapResult(parsedFunc: ParsedOk, notParsedFunc: NotParsed);
+            return Parser
+                .Default.ParseArguments<Options>(args)
+                .MapResult(parsedFunc: ParsedOk, notParsedFunc: NotParsed);
         }
         catch (Exception exception)
         {
@@ -93,22 +100,27 @@ internal static class Program
     {
         DiagnosticLogger logger = new(options.WarningsAsErrors);
 
-        IBranchSettings branchSettings = new BranchSettings(releaseSuffix: options.ReleaseSuffix, package: options.Package);
+        IBranchSettings branchSettings = new BranchSettings(
+            releaseSuffix: options.ReleaseSuffix,
+            package: options.Package
+        );
 
-        return new ServiceCollection().AddSingleton<ILogger>(logger)
-                                      .AddSingleton<IDiagnosticLogger>(logger)
-                                      .AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>))
-                                      .AddBuildVersionDetection(branchSettings: branchSettings)
-                                      .AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>()
-                                      .AddSingleton<IVersionPublisher, TeamCityVersionPublisher>()
-                                      .BuildServiceProvider();
+        return new ServiceCollection()
+            .AddSingleton<ILogger>(logger)
+            .AddSingleton<IDiagnosticLogger>(logger)
+            .AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>))
+            .AddBuildVersionDetection(branchSettings: branchSettings)
+            .AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>()
+            .AddSingleton<IVersionPublisher, TeamCityVersionPublisher>()
+            .BuildServiceProvider();
     }
 
     private static void ApplyVersion(NuGetVersion version, IServiceProvider serviceProvider)
     {
         Console.WriteLine($"Version: {version}");
 
-        IEnumerable<IVersionPublisher> publishers = serviceProvider.GetServices<IVersionPublisher>();
+        IEnumerable<IVersionPublisher> publishers =
+            serviceProvider.GetServices<IVersionPublisher>();
 
         foreach (IVersionPublisher publisher in publishers)
         {
@@ -138,7 +150,15 @@ internal static class Program
         {
             Console.WriteLine($"Build number from TeamCity: {buildNumber}");
 
-            if (int.TryParse(s: buildNumber, style: NumberStyles.Integer, provider: CultureInfo.InvariantCulture, out int build) && build >= 0)
+            if (
+                int.TryParse(
+                    s: buildNumber,
+                    style: NumberStyles.Integer,
+                    provider: CultureInfo.InvariantCulture,
+                    out int build
+                )
+                && build >= 0
+            )
             {
                 return build;
             }

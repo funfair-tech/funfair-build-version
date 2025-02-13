@@ -19,6 +19,8 @@ public sealed class TeamCityVersionPublisher : IVersionPublisher
     private static void WriteTeamCityParameters(NuGetVersion version)
     {
         Console.WriteLine($"##teamcity[buildNumber '{version}']");
-        Console.WriteLine($"##teamcity[setParameter name='system.build.version' value='{version}']");
+        Console.WriteLine(
+            $"##teamcity[setParameter name='system.build.version' value='{version}']"
+        );
     }
 }

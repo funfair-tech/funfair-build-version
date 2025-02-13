@@ -4,6 +4,13 @@ namespace FunFair.BuildVersion.Detection.ExternalBranchLocators.LoggingExtension
 
 internal static partial class EnvironmentVariableBranchLocatorLoggingExtensions
 {
-    [LoggerMessage(EventId = 1, Level = LogLevel.Information, Message = "Branch from continuous integration server: {branch}")]
-    public static partial void LogBranchFromContinuousIntegration(this ILogger logger, string branch);
+    [LoggerMessage(
+        EventId = 1,
+        Level = LogLevel.Information,
+        Message = "Branch from continuous integration server: {branch}"
+    )]
+    public static partial void LogBranchFromContinuousIntegration(
+        this ILogger logger,
+        string branch
+    );
 }

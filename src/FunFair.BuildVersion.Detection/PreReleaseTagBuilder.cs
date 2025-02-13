@@ -11,20 +11,31 @@ internal static class PreReleaseTagBuilder
     private const string INVALID_CHAR_STRING_REPLACEMENT = "-";
     private const char INVALID_CHAR_REPLACEMENT = '-';
 
-    private const string DOUBLE_INVALID_REPLACEMENT_CHAR = INVALID_CHAR_STRING_REPLACEMENT + INVALID_CHAR_STRING_REPLACEMENT;
+    private const string DOUBLE_INVALID_REPLACEMENT_CHAR =
+        INVALID_CHAR_STRING_REPLACEMENT + INVALID_CHAR_STRING_REPLACEMENT;
 
-    public static StringBuilder NormalizeSourceBranchName(this string currentBranch, IBranchClassification branchClassification)
+    public static StringBuilder NormalizeSourceBranchName(
+        this string currentBranch,
+        IBranchClassification branchClassification
+    )
     {
-        return new(branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId)
-                       ? "pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture)
-                       : currentBranch.ToLowerInvariant());
+        return new(
+            branchClassification.IsPullRequest(currentBranch: currentBranch, out long pullRequestId)
+                ? "pr-" + pullRequestId.ToString(CultureInfo.InvariantCulture)
+                : currentBranch.ToLowerInvariant()
+        );
     }
 
     public static StringBuilder ReplaceInvalidCharacters(this StringBuilder suffix)
     {
-        foreach (char ch in suffix.ToString()
-                                  .Where(predicate: static c => !char.IsLetterOrDigit(c) && c != INVALID_CHAR_REPLACEMENT)
-                                  .Distinct())
+        foreach (
+            char ch in suffix
+                .ToString()
+                .Where(predicate: static c =>
+                    !char.IsLetterOrDigit(c) && c != INVALID_CHAR_REPLACEMENT
+                )
+                .Distinct()
+        )
         {
             suffix = suffix.Replace(oldChar: ch, newChar: INVALID_CHAR_REPLACEMENT);
         }
@@ -34,8 +45,7 @@ internal static class PreReleaseTagBuilder
 
     public static StringBuilder RemoveFirstFolderInBranchName(this StringBuilder suffix)
     {
-        int pos = suffix.ToString()
-                        .IndexOf(value: '/', comparisonType: StringComparison.Ordinal);
+        int pos = suffix.ToString().IndexOf(value: '/', comparisonType: StringComparison.Ordinal);
 
         if (pos != -1)
         {
@@ -47,10 +57,19 @@ internal static class PreReleaseTagBuilder
 
     public static StringBuilder RemoveDoubleHyphens(this StringBuilder suffix)
     {
-        while (suffix.ToString()
-                     .Contains(value: DOUBLE_INVALID_REPLACEMENT_CHAR, comparisonType: StringComparison.Ordinal))
+        while (
+            suffix
+                .ToString()
+                .Contains(
+                    value: DOUBLE_INVALID_REPLACEMENT_CHAR,
+                    comparisonType: StringComparison.Ordinal
+                )
+        )
         {
-            suffix = suffix.Replace(oldValue: DOUBLE_INVALID_REPLACEMENT_CHAR, newValue: INVALID_CHAR_STRING_REPLACEMENT);
+            suffix = suffix.Replace(
+                oldValue: DOUBLE_INVALID_REPLACEMENT_CHAR,
+                newValue: INVALID_CHAR_STRING_REPLACEMENT
+            );
         }
 
         return suffix;
@@ -73,8 +92,7 @@ internal static class PreReleaseTagBuilder
 
     public static string EnsureNotBlank(this StringBuilder suffix)
     {
-        string usedSuffix = suffix.ToString()
-                                  .TrimStart(INVALID_CHAR_REPLACEMENT);
+        string usedSuffix = suffix.ToString().TrimStart(INVALID_CHAR_REPLACEMENT);
 
         if (string.IsNullOrWhiteSpace(usedSuffix))
         {

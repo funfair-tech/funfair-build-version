@@ -23,23 +23,40 @@ public sealed class BranchClassification : IBranchClassification
 
     public bool IsRelease(string branchName, [NotNullWhen(true)] out NuGetVersion? version)
     {
-        version = Extract(prefix: this._releaseBranch, branch: branchName) ?? Extract(prefix: this._hotfixBranch, branch: branchName);
+        version =
+            Extract(prefix: this._releaseBranch, branch: branchName)
+            ?? Extract(prefix: this._hotfixBranch, branch: branchName);
 
         return version is not null;
     }
 
     public bool IsPullRequest(string currentBranch, out long pullRequestId)
     {
-        if (currentBranch.StartsWith(value: PULL_REQUEST_PREFIX, comparisonType: StringComparison.Ordinal))
+        if (
+            currentBranch.StartsWith(
+                value: PULL_REQUEST_PREFIX,
+                comparisonType: StringComparison.Ordinal
+            )
+        )
         {
             currentBranch = currentBranch[PULL_REQUEST_PREFIX.Length..];
 
-            if (currentBranch.EndsWith(value: PULL_REQUEST_SUFFIX, comparisonType: StringComparison.Ordinal))
+            if (
+                currentBranch.EndsWith(
+                    value: PULL_REQUEST_SUFFIX,
+                    comparisonType: StringComparison.Ordinal
+                )
+            )
             {
                 currentBranch = currentBranch[..^PULL_REQUEST_SUFFIX.Length];
             }
 
-            return long.TryParse(s: currentBranch, style: NumberStyles.Integer, provider: CultureInfo.InvariantCulture, result: out pullRequestId);
+            return long.TryParse(
+                s: currentBranch,
+                style: NumberStyles.Integer,
+                provider: CultureInfo.InvariantCulture,
+                result: out pullRequestId
+            );
         }
 
         pullRequestId = default;
@@ -49,8 +66,11 @@ public sealed class BranchClassification : IBranchClassification
 
     private static string BuildBranch(IBranchSettings branchSettings, string branch)
     {
-        return string.Join(separator: '/', BuildFragments(branchSettings: branchSettings, branch: branch))
-                     .ToLowerInvariant();
+        return string.Join(
+                separator: '/',
+                BuildFragments(branchSettings: branchSettings, branch: branch)
+            )
+            .ToLowerInvariant();
     }
 
     private static IEnumerable<string> BuildFragments(IBranchSettings branchSettings, string branch)
@@ -66,7 +86,10 @@ public sealed class BranchClassification : IBranchClassification
         yield return string.Empty;
     }
 
-    private static string BuildReleaseBranchWithSuffix(IBranchSettings branchSettings, string branch)
+    private static string BuildReleaseBranchWithSuffix(
+        IBranchSettings branchSettings,
+        string branch
+    )
     {
         if (string.IsNullOrWhiteSpace(branchSettings.ReleaseSuffix))
         {
@@ -106,14 +129,24 @@ public sealed class BranchClassification : IBranchClassification
 
     private static NuGetVersion ConvertVersion(NuGetVersion baseLine)
     {
-        Version dv = new(major: baseLine.Version.Major, minor: baseLine.Version.Minor, build: baseLine.Version.Build, revision: 0);
+        Version dv = new(
+            major: baseLine.Version.Major,
+            minor: baseLine.Version.Minor,
+            build: baseLine.Version.Build,
+            revision: 0
+        );
 
         return new(dv);
     }
 
     private static bool IsVersionSameAsBranchName(NuGetVersion baseLine, string version)
     {
-        Version revision = new(major: baseLine.Version.Major, minor: baseLine.Version.Minor, build: baseLine.Version.Build, revision: baseLine.Version.Revision);
+        Version revision = new(
+            major: baseLine.Version.Major,
+            minor: baseLine.Version.Minor,
+            build: baseLine.Version.Build,
+            revision: baseLine.Version.Revision
+        );
 
         return StringComparer.Ordinal.Equals(revision.ToString(), y: version);
     }

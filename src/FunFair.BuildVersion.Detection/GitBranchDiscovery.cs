@@ -16,10 +16,17 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
     private readonly IEnumerable<IExternalBranchLocator> _externalBranchLocators;
     private readonly ILogger<GitBranchDiscovery> _logger;
 
-    public GitBranchDiscovery(IBranchClassification branchClassification, IEnumerable<IExternalBranchLocator> externalBranchLocators, ILogger<GitBranchDiscovery> logger)
+    public GitBranchDiscovery(
+        IBranchClassification branchClassification,
+        IEnumerable<IExternalBranchLocator> externalBranchLocators,
+        ILogger<GitBranchDiscovery> logger
+    )
     {
-        this._branchClassification = branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
-        this._externalBranchLocators = externalBranchLocators ?? throw new ArgumentNullException(nameof(externalBranchLocators));
+        this._branchClassification =
+            branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
+        this._externalBranchLocators =
+            externalBranchLocators
+            ?? throw new ArgumentNullException(nameof(externalBranchLocators));
         this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
@@ -29,7 +36,9 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
         string sha = GetHeadSha(repository);
         this._logger.LogHeadSha(sha);
 
-        if (!this._branchClassification.IsPullRequest(currentBranch: branch, out long pullRequestId))
+        if (
+            !this._branchClassification.IsPullRequest(currentBranch: branch, out long pullRequestId)
+        )
         {
             return branch;
         }
@@ -38,11 +47,20 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
         foreach (Branch candidateBranch in repository.Branches)
         {
-            if (!StringComparer.Ordinal.Equals(x: candidateBranch.FriendlyName, y: branch) && StringComparer.Ordinal.Equals(x: candidateBranch.Tip.Sha, y: sha))
+            if (
+                !StringComparer.Ordinal.Equals(x: candidateBranch.FriendlyName, y: branch)
+                && StringComparer.Ordinal.Equals(x: candidateBranch.Tip.Sha, y: sha)
+            )
             {
-                this._logger.LogFoundBranchForPullRequest(pullRequestId: pullRequestId, branch: candidateBranch.FriendlyName);
+                this._logger.LogFoundBranchForPullRequest(
+                    pullRequestId: pullRequestId,
+                    branch: candidateBranch.FriendlyName
+                );
 
-                return this._branchClassification.IsRelease(branchName: candidateBranch.FriendlyName, out NuGetVersion? _)
+                return this._branchClassification.IsRelease(
+                    branchName: candidateBranch.FriendlyName,
+                    out NuGetVersion? _
+                )
                     ? "pre-" + candidateBranch.FriendlyName
                     : candidateBranch.FriendlyName;
             }
@@ -53,7 +71,12 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
     public IReadOnlyList<string> FindBranches(Repository repository)
     {
-        return [.. repository.Branches.Select(selector: b => ExtractBranch(repository: repository, branch: b.FriendlyName))];
+        return
+        [
+            .. repository.Branches.Select(selector: b =>
+                ExtractBranch(repository: repository, branch: b.FriendlyName)
+            ),
+        ];
     }
 
     private static string GetHeadSha(Repository repository)
@@ -65,11 +88,11 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
     {
         IReadOnlyList<string> remotes = GetRemotes(repository);
 
-        string? remote = remotes.FirstOrDefault(remote => branch.StartsWith(value: remote, comparisonType: StringComparison.OrdinalIgnoreCase));
+        string? remote = remotes.FirstOrDefault(remote =>
+            branch.StartsWith(value: remote, comparisonType: StringComparison.OrdinalIgnoreCase)
+        );
 
-        return remote is not null
-            ? branch[remote.Length..]
-            : branch;
+        return remote is not null ? branch[remote.Length..] : branch;
     }
 
     private static IReadOnlyList<string> GetRemotes(Repository repository)
@@ -79,14 +102,16 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
     private string FindConfiguredBranch(Repository repository)
     {
-        return this.FindConfiguredBranchUsingExternalLocators() ?? ExtractBranchFromGitHead(repository);
+        return this.FindConfiguredBranchUsingExternalLocators()
+            ?? ExtractBranchFromGitHead(repository);
     }
 
     private string? FindConfiguredBranchUsingExternalLocators()
     {
-        return this._externalBranchLocators.Select(static locator => locator.CurrentBranch)
-                   .RemoveNulls()
-                   .FirstOrDefault();
+        return this
+            ._externalBranchLocators.Select(static locator => locator.CurrentBranch)
+            .RemoveNulls()
+            .FirstOrDefault();
     }
 
     private static string ExtractBranchFromGitHead(Repository repository)
