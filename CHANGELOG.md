@@ -19,7 +19,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated ThisAssembly.AssemblyInfo to 1.5.0
 - SDK - Updated Dotnet to 9.0 RC1
 - Dependencies - Updated NSubstitute to 5.3.0
-- Dependencies - Updated NuGet to 6.12.1
 - Dependencies - Updated LibGit2Sharp to 0.31.0
 - Dependencies - Updated Nullable.Extended.Analyzer to 1.15.6495
 - Dependencies - Updated xunit to 2.9.3
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Roslynator.Analyzers to 4.13.0
 - Dependencies - Updated Microsoft.Extensions to 9.0.2
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.13.0
+- Dependencies - Updated NuGet to 6.13.1
 ### Removed
 ### Deployment Changes
 
