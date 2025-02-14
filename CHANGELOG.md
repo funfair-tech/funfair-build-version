@@ -30,7 +30,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.Test.Common to 6.1.257.1137
 - SDK - Updated DotNet SDK to 9.0.200
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.54.350
-- Dependencies - Updated FunFair.CodeAnalysis to 7.0.67.921
 - Dependencies - Updated Meziantou.Analyzer to 2.0.187
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.13.2
 - Dependencies - Updated Roslynator.Analyzers to 4.13.0
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.NET.Test.Sdk to 17.13.0
 - Dependencies - Updated NuGet to 6.13.1
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.77.730
+- Dependencies - Updated FunFair.CodeAnalysis to 7.0.68.928
 ### Removed
 ### Deployment Changes
 
