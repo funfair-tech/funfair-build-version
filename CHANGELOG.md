@@ -29,7 +29,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.runner.visualstudio to 3.0.2
 - SDK - Updated DotNet SDK to 9.0.200
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.54.350
-- Dependencies - Updated Meziantou.Analyzer to 2.0.187
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.13.2
 - Dependencies - Updated Roslynator.Analyzers to 4.13.0
 - Dependencies - Updated Microsoft.Extensions to 9.0.2
@@ -38,6 +37,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.77.730
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.68.928
 - Dependencies - Updated FunFair.Test.Common to 6.1.258.1152
+- Dependencies - Updated Meziantou.Analyzer to 2.0.188
 ### Removed
 ### Deployment Changes
 
