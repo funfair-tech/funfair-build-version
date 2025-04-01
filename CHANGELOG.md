@@ -34,10 +34,10 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.Extensions to 9.0.3
 - SDK - Updated DotNet SDK to 9.0.202
 - Dependencies - Updated Meziantou.Analyzer to 2.0.189
-- Dependencies - Updated FunFair.CodeAnalysis to 7.0.73.978
 - Dependencies - Updated FunFair.Test.Common to 6.1.264.1201
 - Dependencies - Updated Credfeto.Enumeration to 1.2.71.984
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.57.416
+- Dependencies - Updated FunFair.CodeAnalysis to 7.0.74.984
 ### Removed
 ### Deployment Changes
 
