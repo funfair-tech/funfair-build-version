@@ -52,4 +52,22 @@ public sealed record Options
         Default = ""
     )]
     public string? Package { get; init; }
+
+    [Option(
+        shortName: 't',
+        longName: "GithubToken",
+        Required = false,
+        HelpText = "Github access token",
+        Default = ""
+    )]
+    public string? GithubToken { get; init; }
+
+    [Option(
+        shortName: 'f',
+        longName: "TagPrefix",
+        Required = false,
+        HelpText = "Git tag preifx",
+        Default = ""
+    )]
+    public string? GitTagPrefix { get; init; }
 }

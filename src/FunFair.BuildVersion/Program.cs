@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
+using System.Threading.Tasks;
 using CommandLine;
 using FunFair.BuildVersion.Detection;
+using FunFair.BuildVersion.Github;
 using FunFair.BuildVersion.Interfaces;
 using FunFair.BuildVersion.Publishers;
 using FunFair.BuildVersion.Services;
@@ -18,7 +21,7 @@ internal static class Program
     private const int SUCCESS = 0;
     private const int ERROR = 1;
 
-    private static int NotParsed(IEnumerable<Error> errors)
+    private static Task<int> NotParsedAsync(IEnumerable<Error> errors)
     {
         Console.WriteLine("Errors:");
 
@@ -27,17 +30,21 @@ internal static class Program
             Console.WriteLine($" * {error.Tag.GetName()}");
         }
 
-        return ERROR;
+        return Task.FromResult(ERROR);
     }
 
-    private static int ParsedOk(Options options)
+    private static async Task<int> ParsedOkAsync(Options options)
     {
-        int buildNumber = FindBuildNumber(options.BuildNumber);
-
         string workDir = Environment.CurrentDirectory;
 
         using (Repository repository = OpenRepository(workDir))
         {
+            int buildNumber = await GetBuildNumberAsync(
+                repository: repository,
+                options: options,
+                cancellationToken: CancellationToken.None
+            );
+
             IServiceProvider serviceProvider = Setup(options: options);
 
             IDiagnosticLogger logging = serviceProvider.GetRequiredService<IDiagnosticLogger>();
@@ -67,15 +74,59 @@ internal static class Program
         }
     }
 
-    public static int Main(params string[] args)
+    private static async ValueTask<int> GetBuildNumberAsync(
+        Repository repository,
+        Options options,
+        CancellationToken cancellationToken
+    )
+    {
+        if (!string.IsNullOrWhiteSpace(options.GithubToken))
+        {
+            Remote? remote = repository.Network.Remotes["origin"];
+
+            if (remote is not null)
+            {
+                if (
+                    RepoUrlParser.TryParse(
+                        path: remote.Url,
+                        out GitUrlProtocol _,
+                        out string? host,
+                        out string? repo
+                    ) && StringComparer.InvariantCultureIgnoreCase.Equals(x: host, y: "github.com")
+                )
+                {
+                    string prefix = string.IsNullOrWhiteSpace(options.GitTagPrefix)
+                        ? ""
+                        : options.GitTagPrefix.Trim().TrimEnd('-') + "-";
+                    GitHubContext context = new(
+                        Token: options.GithubToken,
+                        Repository: repo,
+                        Sha: repository.Head.Tip.Sha,
+                        Prefix: prefix
+                    );
+
+                    int buildNumber = await BuildTagNumber.UpdateBuildNumberTagAsync(
+                        context: context,
+                        cancellationToken: cancellationToken
+                    );
+
+                    return buildNumber;
+                }
+            }
+        }
+
+        return FindBuildNumber(options.BuildNumber);
+    }
+
+    public static async Task<int> Main(params string[] args)
     {
         try
         {
             Console.WriteLine($"{VersionInformation.Product} {VersionInformation.Version}");
 
-            return Parser
+            return await Parser
                 .Default.ParseArguments<Options>(args)
-                .MapResult(parsedFunc: ParsedOk, notParsedFunc: NotParsed);
+                .MapResult(parsedFunc: ParsedOkAsync, notParsedFunc: NotParsedAsync);
         }
         catch (Exception exception)
         {

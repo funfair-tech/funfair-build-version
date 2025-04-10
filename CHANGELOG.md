@@ -8,6 +8,8 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 
 ## [Unreleased]
 ### Added
+
+- Ability to get and increment the next build number
 ### Fixed
 ### Changed
 - Dependencies - Updated NSubstitute.Analyzers.CSharp to 1.0.17
