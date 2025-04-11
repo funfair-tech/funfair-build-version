@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Text.Json.Serialization;
 
-namespace FunFair.BuildVersion.Github.Models;
+namespace FunFair.BuildVersion.GitTagBuildNumber.Github.Models;
 
 [DebuggerDisplay("Type: {ObjectType} Sha: {Sha}")]
 internal sealed class GithubTagObject

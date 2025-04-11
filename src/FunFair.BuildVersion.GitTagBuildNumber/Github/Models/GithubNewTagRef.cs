@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Text.Json.Serialization;
 
-namespace FunFair.BuildVersion.Github.Models;
+namespace FunFair.BuildVersion.GitTagBuildNumber.Github.Models;
 
 [DebuggerDisplay("Ref: {Reference} Sha: {Sha}")]
 internal sealed class GithubNewTagRef

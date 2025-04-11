@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FunFair.BuildVersion.Detection\FunFair.BuildVersion.Detection.csproj" />
+    <ProjectReference Include="..\FunFair.BuildVersion.GitTagBuildNumber\FunFair.BuildVersion.GitTagBuildNumber.csproj"/>
     <ProjectReference Include="..\FunFair.BuildVersion.Publishers\FunFair.BuildVersion.Publishers.csproj" />
   </ItemGroup>
   <ItemGroup>

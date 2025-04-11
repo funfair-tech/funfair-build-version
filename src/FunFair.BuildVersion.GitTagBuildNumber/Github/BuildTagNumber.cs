@@ -10,10 +10,10 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using FunFair.BuildVersion.Github.Models;
-using FunFair.BuildVersion.Helpers;
+using FunFair.BuildVersion.GitTagBuildNumber.Github.Models;
+using FunFair.BuildVersion.GitTagBuildNumber.Helpers;
 
-namespace FunFair.BuildVersion.Github;
+namespace FunFair.BuildVersion.GitTagBuildNumber.Github;
 
 public static class BuildTagNumber
 {
@@ -71,7 +71,9 @@ public static class BuildTagNumber
 
             await using (Stream stream = await result.Content.ReadAsStreamAsync(cancellationToken))
             {
-                IReadOnlyList<GithubTagReference>? items = await JsonSerializer.DeserializeAsync(
+                IReadOnlyList<GithubTagReference>? items = await JsonSerializer.DeserializeAsync<
+                    IReadOnlyList<GithubTagReference>
+                >(
                     utf8Json: stream,
                     jsonTypeInfo: GithubApiJsonSerializerContext
                         .Default
@@ -124,7 +126,7 @@ public static class BuildTagNumber
                 sha: context.Sha
             );
 
-            string content = JsonSerializer.Serialize(
+            string content = JsonSerializer.Serialize<GithubNewTagRef>(
                 value: newTagRef,
                 jsonTypeInfo: GithubApiJsonSerializerContext.Default.GithubNewTagRef
             );

@@ -1,11 +1,11 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
-using FunFair.BuildVersion.Helpers;
+using FunFair.BuildVersion.GitTagBuildNumber.Helpers;
 
-namespace FunFair.BuildVersion.Github;
+namespace FunFair.BuildVersion.GitTagBuildNumber.Github;
 
-internal static class RepoUrlParser
+public static class RepoUrlParser
 {
     public static bool TryParse(
         string path,

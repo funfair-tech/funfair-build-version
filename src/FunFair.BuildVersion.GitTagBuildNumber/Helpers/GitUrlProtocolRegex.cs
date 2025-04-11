@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace FunFair.BuildVersion.Helpers;
+namespace FunFair.BuildVersion.GitTagBuildNumber.Helpers;
 
 internal static partial class GitUrlProtocolRegex
 {

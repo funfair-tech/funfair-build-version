@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace FunFair.BuildVersion.Github;
+namespace FunFair.BuildVersion.GitTagBuildNumber.Github;
 
 [DebuggerDisplay("Repository: {Repository} Sha: {Sha}")]
 public readonly record struct GitHubContext(
