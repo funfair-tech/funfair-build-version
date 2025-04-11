@@ -105,7 +105,7 @@ internal static class Program
                         Prefix: prefix
                     );
 
-                    int buildNumber = await BuildTagNumber.UpdateBuildNumberTagAsync(
+                    int buildNumber = await BuildTagNumber.GetNextBuildNumberAsync(
                         context: context,
                         cancellationToken: cancellationToken
                     );
