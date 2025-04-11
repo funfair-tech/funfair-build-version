@@ -70,6 +70,10 @@
    color: "0e8a16"
    description: "Changes in $FunFair.BuildVersion.Detection.Tests project"
 
+ - name: "funfair-buildversion-gittagbuildnumber"
+   color: "96f7d2"
+   description: "Changes in $FunFair.BuildVersion.GitTagBuildNumber project"
+
  - name: "funfair-buildversion-interfaces"
    color: "96f7d2"
    description: "Changes in $FunFair.BuildVersion.Interfaces project"
