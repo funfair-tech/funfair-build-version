@@ -18,6 +18,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.v3 to 2.0.1
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.81.829
 - Dependencies - Updated FunFair.Test.Common to 6.1.266.1250
+- Dependencies - Updated Microsoft.Extensions to 9.0.4
 ### Removed
 ### Deployment Changes
 
