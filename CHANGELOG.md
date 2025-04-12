@@ -15,12 +15,12 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.8.0.113526
 - Dependencies - Updated xunit.analyzers to 1.21.0
 - Dependencies - Updated xunit.v3 to 2.0.1
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.81.829
 - Dependencies - Updated Microsoft.Extensions to 9.0.4
 - Dependencies - Updated Credfeto.Enumeration to 1.2.72.1035
 - Dependencies - Updated Meziantou.Analyzer to 2.0.196
 - Dependencies - Updated FunFair.Test.Common to 6.1.267.1259
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.59.468
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.82.838
 ### Removed
 ### Deployment Changes
 
