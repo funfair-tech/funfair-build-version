@@ -11,7 +11,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 - Tag version update where rate limited
 ### Changed
-- Dependencies - Updated FunFair.CodeAnalysis to 7.0.76.1027
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.8.0.113526
 - Dependencies - Updated xunit.analyzers to 1.21.0
 - Dependencies - Updated xunit.v3 to 2.0.1
@@ -21,6 +20,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.Test.Common to 6.1.267.1259
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.59.468
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.82.838
+- Dependencies - Updated FunFair.CodeAnalysis to 7.0.77.1037
 ### Removed
 ### Deployment Changes
 
