@@ -16,11 +16,11 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.v3 to 2.0.1
 - Dependencies - Updated Microsoft.Extensions to 9.0.4
 - Dependencies - Updated Meziantou.Analyzer to 2.0.196
-- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.60.472
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.79.1041
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.83.845
 - Dependencies - Updated FunFair.Test.Common to 6.1.268.1269
 - Dependencies - Updated Credfeto.Enumeration to 1.2.75.1045
+- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.61.476
 ### Removed
 ### Deployment Changes
 
