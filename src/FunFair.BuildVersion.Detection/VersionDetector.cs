@@ -26,8 +26,7 @@ public sealed class VersionDetector : IVersionDetector
         ILogger<VersionDetector> logger
     )
     {
-        this._branchDiscovery =
-            branchDiscovery ?? throw new ArgumentNullException(nameof(branchDiscovery));
+        this._branchDiscovery = branchDiscovery ?? throw new ArgumentNullException(nameof(branchDiscovery));
         this._branchClassification =
             branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
         this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -39,12 +38,7 @@ public sealed class VersionDetector : IVersionDetector
         this._logger.LogCurrentBranch(currentBranch);
         this._logger.LogCurrentBuildNumber(buildNumber);
 
-        if (
-            this._branchClassification.IsRelease(
-                branchName: currentBranch,
-                out NuGetVersion? branchVersion
-            )
-        )
+        if (this._branchClassification.IsRelease(branchName: currentBranch, out NuGetVersion? branchVersion))
         {
             return AddBuildNumberToVersion(version: branchVersion, buildNumber: buildNumber);
         }
@@ -56,17 +50,10 @@ public sealed class VersionDetector : IVersionDetector
 
         this._logger.LogLatestReleaseVersion(latest);
 
-        return this.BuildPreReleaseVersion(
-            latest: latest,
-            currentBranch: currentBranch,
-            buildNumber: buildNumber
-        );
+        return this.BuildPreReleaseVersion(latest: latest, currentBranch: currentBranch, buildNumber: buildNumber);
     }
 
-    private NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(
-        Repository repository,
-        int buildNumber
-    )
+    private NuGetVersion DetermineLatestReleaseFromPreviousReleaseBranches(Repository repository, int buildNumber)
     {
         IReadOnlyList<string> branches = this._branchDiscovery.FindBranches(repository);
 
@@ -83,12 +70,7 @@ public sealed class VersionDetector : IVersionDetector
         {
             this._logger.LogFoundBranch(branch);
 
-            return this._branchClassification.IsRelease(
-                branchName: branch,
-                out NuGetVersion? version
-            )
-                ? version
-                : null;
+            return this._branchClassification.IsRelease(branchName: branch, out NuGetVersion? version) ? version : null;
         }
     }
 
@@ -104,11 +86,7 @@ public sealed class VersionDetector : IVersionDetector
         return new(dv);
     }
 
-    private NuGetVersion BuildPreReleaseVersion(
-        NuGetVersion latest,
-        string currentBranch,
-        int buildNumber
-    )
+    private NuGetVersion BuildPreReleaseVersion(NuGetVersion latest, string currentBranch, int buildNumber)
     {
         string usedSuffix = this.BuildPreReleaseSuffix(currentBranch: currentBranch);
 
