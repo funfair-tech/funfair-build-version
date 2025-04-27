@@ -49,9 +49,7 @@ public static class BuildTagNumber
         CancellationToken cancellationToken
     )
     {
-        Uri uri = new(
-            $"https://api.github.com/repos/{context.Repository}/git/refs/tags/{context.Prefix}build-number-"
-        );
+        Uri uri = new($"https://api.github.com/repos/{context.Repository}/git/refs/tags/{context.Prefix}build-number-");
 
         using (
             HttpResponseMessage result = await httpClient.GetAsync(
@@ -76,9 +74,7 @@ public static class BuildTagNumber
             {
                 IReadOnlyList<GithubTagReference>? items = await JsonSerializer.DeserializeAsync(
                     utf8Json: stream,
-                    jsonTypeInfo: GithubApiJsonSerializerContext
-                        .Default
-                        .IReadOnlyListGithubTagReference,
+                    jsonTypeInfo: GithubApiJsonSerializerContext.Default.IReadOnlyListGithubTagReference,
                     cancellationToken: cancellationToken
                 );
 
@@ -90,9 +86,7 @@ public static class BuildTagNumber
     [DoesNotReturn]
     private static int CouldNotRetrieveExistingBuildTags(HttpStatusCode statusCode)
     {
-        throw new BuildTagNumberException(
-            $"Failed to get build tags - invalid http code: {(int)statusCode}"
-        );
+        throw new BuildTagNumberException($"Failed to get build tags - invalid http code: {(int)statusCode}");
     }
 
     private static int ExtractVersionFromTags(IReadOnlyList<GithubTagReference> items)
@@ -131,12 +125,7 @@ public static class BuildTagNumber
 
         do
         {
-            using (
-                StringContent stringContent = BuildAddTagModel(
-                    context: context,
-                    nextBuildNumber: nextBuildNumber
-                )
-            )
+            using (StringContent stringContent = BuildAddTagModel(context: context, nextBuildNumber: nextBuildNumber))
             {
                 using (
                     HttpResponseMessage result = await httpClient.PostAsync(
@@ -174,18 +163,12 @@ public static class BuildTagNumber
             }
         } while (attempts < MAX_ATTEMPTS);
 
-        return CouldNotUpdateBuildNumberRetriesExceeded(
-            nextBuildNumber: nextBuildNumber,
-            maxAttempts: MAX_ATTEMPTS
-        );
+        return CouldNotUpdateBuildNumberRetriesExceeded(nextBuildNumber: nextBuildNumber, maxAttempts: MAX_ATTEMPTS);
     }
 
     private static StringContent BuildAddTagModel(in GitHubContext context, int nextBuildNumber)
     {
-        GithubNewTagRef newTagRef = new(
-            $"refs/tags/{context.Prefix}build-number-{nextBuildNumber}",
-            sha: context.Sha
-        );
+        GithubNewTagRef newTagRef = new($"refs/tags/{context.Prefix}build-number-{nextBuildNumber}", sha: context.Sha);
 
         string content = JsonSerializer.Serialize(
             value: newTagRef,
@@ -195,10 +178,7 @@ public static class BuildTagNumber
     }
 
     [DoesNotReturn]
-    private static int CouldNotUpdateBuildNumberRetriesExceeded(
-        int nextBuildNumber,
-        int maxAttempts
-    )
+    private static int CouldNotUpdateBuildNumberRetriesExceeded(int nextBuildNumber, int maxAttempts)
     {
         throw new BuildTagNumberException(
             $"Failed to update build number {nextBuildNumber} - Too many attempts: {maxAttempts}"
@@ -206,10 +186,7 @@ public static class BuildTagNumber
     }
 
     [DoesNotReturn]
-    private static int CouldNotUpdateBuildNumberHttpError(
-        int nextBuildNumber,
-        HttpStatusCode statusCode
-    )
+    private static int CouldNotUpdateBuildNumberHttpError(int nextBuildNumber, HttpStatusCode statusCode)
     {
         throw new BuildTagNumberException(
             $"Failed to update build number {nextBuildNumber} - http error: {(int)statusCode}."
