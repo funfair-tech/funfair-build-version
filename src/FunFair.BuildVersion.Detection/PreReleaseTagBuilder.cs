@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -31,9 +31,7 @@ internal static class PreReleaseTagBuilder
         foreach (
             char ch in suffix
                 .ToString()
-                .Where(predicate: static c =>
-                    !char.IsLetterOrDigit(c) && c != INVALID_CHAR_REPLACEMENT
-                )
+                .Where(predicate: static c => !char.IsLetterOrDigit(c) && c != INVALID_CHAR_REPLACEMENT)
                 .Distinct()
         )
         {
@@ -58,12 +56,7 @@ internal static class PreReleaseTagBuilder
     public static StringBuilder RemoveDoubleHyphens(this StringBuilder suffix)
     {
         while (
-            suffix
-                .ToString()
-                .Contains(
-                    value: DOUBLE_INVALID_REPLACEMENT_CHAR,
-                    comparisonType: StringComparison.Ordinal
-                )
+            suffix.ToString().Contains(value: DOUBLE_INVALID_REPLACEMENT_CHAR, comparisonType: StringComparison.Ordinal)
         )
         {
             suffix = suffix.Replace(
