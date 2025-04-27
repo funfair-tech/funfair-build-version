@@ -32,21 +32,11 @@ public sealed class BranchClassification : IBranchClassification
 
     public bool IsPullRequest(string currentBranch, out long pullRequestId)
     {
-        if (
-            currentBranch.StartsWith(
-                value: PULL_REQUEST_PREFIX,
-                comparisonType: StringComparison.Ordinal
-            )
-        )
+        if (currentBranch.StartsWith(value: PULL_REQUEST_PREFIX, comparisonType: StringComparison.Ordinal))
         {
             currentBranch = currentBranch[PULL_REQUEST_PREFIX.Length..];
 
-            if (
-                currentBranch.EndsWith(
-                    value: PULL_REQUEST_SUFFIX,
-                    comparisonType: StringComparison.Ordinal
-                )
-            )
+            if (currentBranch.EndsWith(value: PULL_REQUEST_SUFFIX, comparisonType: StringComparison.Ordinal))
             {
                 currentBranch = currentBranch[..^PULL_REQUEST_SUFFIX.Length];
             }
@@ -66,10 +56,7 @@ public sealed class BranchClassification : IBranchClassification
 
     private static string BuildBranch(IBranchSettings branchSettings, string branch)
     {
-        return string.Join(
-                separator: '/',
-                BuildFragments(branchSettings: branchSettings, branch: branch)
-            )
+        return string.Join(separator: '/', BuildFragments(branchSettings: branchSettings, branch: branch))
             .ToLowerInvariant();
     }
 
@@ -86,10 +73,7 @@ public sealed class BranchClassification : IBranchClassification
         yield return string.Empty;
     }
 
-    private static string BuildReleaseBranchWithSuffix(
-        IBranchSettings branchSettings,
-        string branch
-    )
+    private static string BuildReleaseBranchWithSuffix(IBranchSettings branchSettings, string branch)
     {
         if (string.IsNullOrWhiteSpace(branchSettings.ReleaseSuffix))
         {
