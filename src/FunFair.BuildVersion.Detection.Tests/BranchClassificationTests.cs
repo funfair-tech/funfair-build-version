@@ -1,4 +1,4 @@
-﻿using FunFair.BuildVersion.Interfaces;
+using FunFair.BuildVersion.Interfaces;
 using FunFair.Test.Common;
 using NuGet.Versioning;
 using Xunit;
@@ -24,14 +24,8 @@ public sealed class BranchClassificationTests : TestBase
     {
         IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
 
-        bool isRelease = branchClassification.IsRelease(
-            branchName: branchName,
-            out NuGetVersion? version
-        );
-        Assert.False(
-            condition: isRelease,
-            userMessage: "Branch should not be considered a release branch"
-        );
+        bool isRelease = branchClassification.IsRelease(branchName: branchName, out NuGetVersion? version);
+        Assert.False(condition: isRelease, userMessage: "Branch should not be considered a release branch");
         Assert.Null(version);
     }
 
@@ -74,14 +68,8 @@ public sealed class BranchClassificationTests : TestBase
     {
         IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
 
-        bool isRelease = branchClassification.IsRelease(
-            branchName: branchName,
-            out NuGetVersion? version
-        );
-        Assert.True(
-            condition: isRelease,
-            userMessage: "Branch should be considered a release branch"
-        );
+        bool isRelease = branchClassification.IsRelease(branchName: branchName, out NuGetVersion? version);
+        Assert.True(condition: isRelease, userMessage: "Branch should be considered a release branch");
         Assert.NotNull(version);
         Assert.Equal(expected: expectedVersionString, version.ToString());
     }
@@ -101,14 +89,8 @@ public sealed class BranchClassificationTests : TestBase
     {
         IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
 
-        bool isRelease = branchClassification.IsPullRequest(
-            currentBranch: branchName,
-            out long pullRequestId
-        );
-        Assert.True(
-            condition: isRelease,
-            userMessage: "Branch should not be considered a pull request branch"
-        );
+        bool isRelease = branchClassification.IsPullRequest(currentBranch: branchName, out long pullRequestId);
+        Assert.True(condition: isRelease, userMessage: "Branch should not be considered a pull request branch");
         Assert.Equal(expected: expectedPullRequestId, actual: pullRequestId);
     }
 
@@ -129,14 +111,8 @@ public sealed class BranchClassificationTests : TestBase
     {
         IBranchClassification branchClassification = Configure(suffix: suffix, package: package);
 
-        bool isRelease = branchClassification.IsPullRequest(
-            currentBranch: branchName,
-            out long pullRequestId
-        );
-        Assert.False(
-            condition: isRelease,
-            userMessage: "Branch should not be considered a pull request branch"
-        );
+        bool isRelease = branchClassification.IsPullRequest(currentBranch: branchName, out long pullRequestId);
+        Assert.False(condition: isRelease, userMessage: "Branch should not be considered a pull request branch");
         Assert.Equal(expected: 0, actual: pullRequestId);
     }
 }
