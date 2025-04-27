@@ -9,10 +9,7 @@ public abstract class EnvironmentVariableBranchLocator : IExternalBranchLocator
 {
     protected EnvironmentVariableBranchLocator(string environmentVariable, ILogger logger)
     {
-        this.CurrentBranch = ExtractBranch(
-            environmentVariableName: environmentVariable,
-            logger: logger
-        );
+        this.CurrentBranch = ExtractBranch(environmentVariableName: environmentVariable, logger: logger);
     }
 
     public string? CurrentBranch { get; }
@@ -31,12 +28,7 @@ public abstract class EnvironmentVariableBranchLocator : IExternalBranchLocator
 
         const string branchRefPrefix = "refs/heads/";
 
-        if (
-            branchRef.StartsWith(
-                value: branchRefPrefix,
-                comparisonType: StringComparison.OrdinalIgnoreCase
-            )
-        )
+        if (branchRef.StartsWith(value: branchRefPrefix, comparisonType: StringComparison.OrdinalIgnoreCase))
         {
             branchRef = branchRef[branchRefPrefix.Length..];
         }
