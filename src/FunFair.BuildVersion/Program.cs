@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
@@ -48,13 +48,9 @@ internal static class Program
             IServiceProvider serviceProvider = Setup(options: options);
 
             IDiagnosticLogger logging = serviceProvider.GetRequiredService<IDiagnosticLogger>();
-            IVersionDetector versionDetector =
-                serviceProvider.GetRequiredService<IVersionDetector>();
+            IVersionDetector versionDetector = serviceProvider.GetRequiredService<IVersionDetector>();
 
-            NuGetVersion version = versionDetector.FindVersion(
-                repository: repository,
-                buildNumber: buildNumber
-            );
+            NuGetVersion version = versionDetector.FindVersion(repository: repository, buildNumber: buildNumber);
 
             ApplyVersion(version: version, serviceProvider: serviceProvider);
 
@@ -62,9 +58,7 @@ internal static class Program
             {
                 Console.WriteLine();
                 Console.WriteLine(
-                    logging.Errors > 1
-                        ? $"Found {logging.Errors} Errors"
-                        : $"Found {logging.Errors} Error"
+                    logging.Errors > 1 ? $"Found {logging.Errors} Errors" : $"Found {logging.Errors} Error"
                 );
 
                 return ERROR;
@@ -87,12 +81,8 @@ internal static class Program
             if (remote is not null)
             {
                 if (
-                    RepoUrlParser.TryParse(
-                        path: remote.Url,
-                        out GitUrlProtocol _,
-                        out string? host,
-                        out string? repo
-                    ) && StringComparer.InvariantCultureIgnoreCase.Equals(x: host, y: "github.com")
+                    RepoUrlParser.TryParse(path: remote.Url, out GitUrlProtocol _, out string? host, out string? repo)
+                    && StringComparer.InvariantCultureIgnoreCase.Equals(x: host, y: "github.com")
                 )
                 {
                     string prefix = string.IsNullOrWhiteSpace(options.GitTagPrefix)
@@ -170,8 +160,7 @@ internal static class Program
     {
         Console.WriteLine($"Version: {version}");
 
-        IEnumerable<IVersionPublisher> publishers =
-            serviceProvider.GetServices<IVersionPublisher>();
+        IEnumerable<IVersionPublisher> publishers = serviceProvider.GetServices<IVersionPublisher>();
 
         foreach (IVersionPublisher publisher in publishers)
         {
