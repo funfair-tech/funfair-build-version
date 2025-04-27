@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using FunFair.BuildVersion.Interfaces;
 using FunFair.Test.Common;
 using LibGit2Sharp;
@@ -81,14 +81,8 @@ public sealed class VersionDetectorTests : LoggingFolderCleanupTestBase
     [InlineData("feature/test/_/_/_/_/test", "test-test")]
     [InlineData("feature/_/_/_/_", "prerelease")]
     [InlineData("feature/27-things", "things")]
-    [InlineData(
-        "broken/5d2041d62c09b6ff0d0f3f95b7f939b32bb20252/cleanup/ff-2244/FunFair.Test.sln",
-        "d2041d62c09b6ff"
-    )]
-    public void WhenCurrentlyOnAPreReleaseWithReleaseBranchesBranch(
-        string branchName,
-        string expectedPreReleaseSuffix
-    )
+    [InlineData("broken/5d2041d62c09b6ff0d0f3f95b7f939b32bb20252/cleanup/ff-2244/FunFair.Test.sln", "d2041d62c09b6ff")]
+    public void WhenCurrentlyOnAPreReleaseWithReleaseBranchesBranch(string branchName, string expectedPreReleaseSuffix)
     {
         this.MockFindCurrentBranch(branchName);
 
@@ -177,8 +171,7 @@ public sealed class VersionDetectorTests : LoggingFolderCleanupTestBase
 
     private void ReceivedIsRelease(string branchName)
     {
-        this._branchClassification.Received(1)
-            .IsRelease(branchName: branchName, out Arg.Any<NuGetVersion?>());
+        this._branchClassification.Received(1).IsRelease(branchName: branchName, out Arg.Any<NuGetVersion?>());
     }
 
     private void MockIsRelease(string branchName, string version)
