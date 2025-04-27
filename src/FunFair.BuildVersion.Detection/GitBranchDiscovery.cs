@@ -25,8 +25,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
         this._branchClassification =
             branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
         this._externalBranchLocators =
-            externalBranchLocators
-            ?? throw new ArgumentNullException(nameof(externalBranchLocators));
+            externalBranchLocators ?? throw new ArgumentNullException(nameof(externalBranchLocators));
         this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
@@ -36,9 +35,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
         string sha = GetHeadSha(repository);
         this._logger.LogHeadSha(sha);
 
-        if (
-            !this._branchClassification.IsPullRequest(currentBranch: branch, out long pullRequestId)
-        )
+        if (!this._branchClassification.IsPullRequest(currentBranch: branch, out long pullRequestId))
         {
             return branch;
         }
@@ -73,9 +70,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
     {
         return
         [
-            .. repository.Branches.Select(selector: b =>
-                ExtractBranch(repository: repository, branch: b.FriendlyName)
-            ),
+            .. repository.Branches.Select(selector: b => ExtractBranch(repository: repository, branch: b.FriendlyName)),
         ];
     }
 
@@ -102,8 +97,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
     private string FindConfiguredBranch(Repository repository)
     {
-        return this.FindConfiguredBranchUsingExternalLocators()
-            ?? ExtractBranchFromGitHead(repository);
+        return this.FindConfiguredBranchUsingExternalLocators() ?? ExtractBranchFromGitHead(repository);
     }
 
     private string? FindConfiguredBranchUsingExternalLocators()
