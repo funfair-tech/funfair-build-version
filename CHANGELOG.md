@@ -11,7 +11,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 - Tag version update where rate limited
 ### Changed
-- Dependencies - Updated SonarAnalyzer.CSharp to 10.8.0.113526
 - Dependencies - Updated xunit.analyzers to 1.21.0
 - Dependencies - Updated xunit.v3 to 2.0.1
 - Dependencies - Updated Microsoft.Extensions to 9.0.4
@@ -23,6 +22,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.89.879
 - Dependencies - Updated Credfeto.Enumeration to 1.2.81.1087
 - Dependencies - Updated Nullable.Extended.Analyzer to 1.15.6581
+- Dependencies - Updated SonarAnalyzer.CSharp to 10.9.0.115408
 ### Removed
 ### Deployment Changes
 
