@@ -17,12 +17,12 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.0.79.1041
 - Dependencies - Updated FunFair.Test.Common to 6.1.268.1269
 - Dependencies - Updated CSharpier.MSBuild to 1.0.0
-- Dependencies - Updated Meziantou.Analyzer to 2.0.199
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.68.513
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.89.879
 - Dependencies - Updated Credfeto.Enumeration to 1.2.81.1087
 - Dependencies - Updated Nullable.Extended.Analyzer to 1.15.6581
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.9.0.115408
+- Dependencies - Updated Meziantou.Analyzer to 2.0.200
 ### Removed
 ### Deployment Changes
 
