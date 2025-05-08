@@ -39,11 +39,7 @@ internal static class Program
 
         using (Repository repository = OpenRepository(workDir))
         {
-            int buildNumber = await GetBuildNumberAsync(
-                repository: repository,
-                options: options,
-                cancellationToken: CancellationToken.None
-            );
+            int buildNumber = await GetBuildNumberAsync(repository: repository, options: options, cancellationToken: CancellationToken.None);
 
             IServiceProvider serviceProvider = Setup(options: options);
 
@@ -57,9 +53,9 @@ internal static class Program
             if (logging.IsErrored)
             {
                 Console.WriteLine();
-                Console.WriteLine(
-                    logging.Errors > 1 ? $"Found {logging.Errors} Errors" : $"Found {logging.Errors} Error"
-                );
+                Console.WriteLine(logging.Errors > 1
+                                      ? $"Found {logging.Errors} Errors"
+                                      : $"Found {logging.Errors} Error");
 
                 return ERROR;
             }
@@ -68,11 +64,7 @@ internal static class Program
         }
     }
 
-    private static async ValueTask<int> GetBuildNumberAsync(
-        Repository repository,
-        Options options,
-        CancellationToken cancellationToken
-    )
+    private static async ValueTask<int> GetBuildNumberAsync(Repository repository, Options options, CancellationToken cancellationToken)
     {
         if (!string.IsNullOrWhiteSpace(options.GithubToken))
         {
@@ -80,25 +72,15 @@ internal static class Program
 
             if (remote is not null)
             {
-                if (
-                    RepoUrlParser.TryParse(path: remote.Url, out GitUrlProtocol _, out string? host, out string? repo)
-                    && StringComparer.InvariantCultureIgnoreCase.Equals(x: host, y: "github.com")
-                )
+                if (RepoUrlParser.TryParse(path: remote.Url, out GitUrlProtocol _, out string? host, out string? repo) && StringComparer.OrdinalIgnoreCase.Equals(x: host, y: "github.com"))
                 {
                     string prefix = string.IsNullOrWhiteSpace(options.GitTagPrefix)
                         ? ""
-                        : options.GitTagPrefix.Trim().TrimEnd('-') + "-";
-                    GitHubContext context = new(
-                        Token: options.GithubToken,
-                        Repository: repo,
-                        Sha: repository.Head.Tip.Sha,
-                        Prefix: prefix
-                    );
+                        : options.GitTagPrefix.Trim()
+                                 .TrimEnd('-') + "-";
+                    GitHubContext context = new(Token: options.GithubToken, Repository: repo, Sha: repository.Head.Tip.Sha, Prefix: prefix);
 
-                    int buildNumber = await BuildTagNumber.GetNextBuildNumberAsync(
-                        context: context,
-                        cancellationToken: cancellationToken
-                    );
+                    int buildNumber = await BuildTagNumber.GetNextBuildNumberAsync(context: context, cancellationToken: cancellationToken);
 
                     return buildNumber;
                 }
@@ -114,9 +96,8 @@ internal static class Program
         {
             Console.WriteLine($"{VersionInformation.Product} {VersionInformation.Version}");
 
-            return await Parser
-                .Default.ParseArguments<Options>(args)
-                .MapResult(parsedFunc: ParsedOkAsync, notParsedFunc: NotParsedAsync);
+            return await Parser.Default.ParseArguments<Options>(args)
+                               .MapResult(parsedFunc: ParsedOkAsync, notParsedFunc: NotParsedAsync);
         }
         catch (Exception exception)
         {
@@ -141,19 +122,15 @@ internal static class Program
     {
         DiagnosticLogger logger = new(options.WarningsAsErrors);
 
-        IBranchSettings branchSettings = new BranchSettings(
-            releaseSuffix: options.ReleaseSuffix,
-            package: options.Package
-        );
+        IBranchSettings branchSettings = new BranchSettings(releaseSuffix: options.ReleaseSuffix, package: options.Package);
 
-        return new ServiceCollection()
-            .AddSingleton<ILogger>(logger)
-            .AddSingleton<IDiagnosticLogger>(logger)
-            .AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>))
-            .AddBuildVersionDetection(branchSettings: branchSettings)
-            .AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>()
-            .AddSingleton<IVersionPublisher, TeamCityVersionPublisher>()
-            .BuildServiceProvider();
+        return new ServiceCollection().AddSingleton<ILogger>(logger)
+                                      .AddSingleton<IDiagnosticLogger>(logger)
+                                      .AddSingleton(typeof(ILogger<>), typeof(LoggerProxy<>))
+                                      .AddBuildVersionDetection(branchSettings: branchSettings)
+                                      .AddSingleton<IVersionPublisher, GitHubActionsVersionPublisher>()
+                                      .AddSingleton<IVersionPublisher, TeamCityVersionPublisher>()
+                                      .BuildServiceProvider();
     }
 
     private static void ApplyVersion(NuGetVersion version, IServiceProvider serviceProvider)
@@ -190,15 +167,7 @@ internal static class Program
         {
             Console.WriteLine($"Build number from TeamCity: {buildNumber}");
 
-            if (
-                int.TryParse(
-                    s: buildNumber,
-                    style: NumberStyles.Integer,
-                    provider: CultureInfo.InvariantCulture,
-                    out int build
-                )
-                && build >= 0
-            )
+            if (int.TryParse(s: buildNumber, style: NumberStyles.Integer, provider: CultureInfo.InvariantCulture, out int build) && build >= 0)
             {
                 return build;
             }
