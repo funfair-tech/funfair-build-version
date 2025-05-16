@@ -24,9 +24,9 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NuGet to 6.14.0
 - SDK - Updated DotNet SDK to 9.0.300
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.14.15
-- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.70.545
 - Dependencies - Updated Credfeto.Enumeration to 1.2.83.1123
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.92.914
+- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.71.550
 ### Removed
 ### Deployment Changes
 
