@@ -167,6 +167,7 @@ updates:
   - dependency-name: "xunit.analyzers"
   - dependency-name: "xunit.runner.visualstudio"
   - dependency-name: "xunit.v3.*"
+  - dependency-name: "ZLinq.*"
 
 - package-ecosystem: github-actions
   directory: "/"
