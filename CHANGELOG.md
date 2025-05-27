@@ -24,9 +24,9 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 17.14.15
 - Dependencies - Updated Microsoft.Sbom.Targets to 4.0.3
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.10.0.116381
-- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.81.585
 - Dependencies - Updated Credfeto.Enumeration to 1.2.94.1165
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.103.956
+- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.82.588
 ### Removed
 ### Deployment Changes
 
