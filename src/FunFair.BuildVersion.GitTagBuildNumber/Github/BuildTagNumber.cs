@@ -118,7 +118,7 @@ public static class BuildTagNumber
                         return CouldNotUpdateBuildNumberHttpError(nextBuildNumber: nextBuildNumber, statusCode: result.StatusCode);
                     }
 
-                    Console.WriteLine($"Attempting next build number {nextBuildNumber}.");
+                    Console.WriteLine($"Attempting next build number {nextBuildNumber} - current build number in use.");
 
                     ++attempts;
                     ++nextBuildNumber;
