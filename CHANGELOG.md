@@ -10,10 +10,10 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- Dependencies - Updated Credfeto.Enumeration to 1.2.104.1195
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.113.985
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.92.617
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.11.0.117924
+- Dependencies - Updated Credfeto.Enumeration to 1.2.105.1202
 ### Removed
 ### Deployment Changes
 
