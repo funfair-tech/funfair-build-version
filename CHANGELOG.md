@@ -11,11 +11,11 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.11.0.117924
-- Dependencies - Updated Credfeto.Enumeration to 1.2.105.1202
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.93.624
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.114.992
 - Dependencies - Updated xunit.analyzers to 1.22.0
 - Dependencies - Updated xunit.v3 to 2.0.3
+- Dependencies - Updated Credfeto.Enumeration to 1.2.106.1206
 ### Removed
 ### Deployment Changes
 
