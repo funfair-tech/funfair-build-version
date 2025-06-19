@@ -17,9 +17,9 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - SDK - Updated DotNet SDK to 9.0.301
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.123.1022
 - Dependencies - Updated Meziantou.Analyzer to 2.0.202
-- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.102.657
 - Dependencies - Updated Credfeto.Enumeration to 1.2.115.1242
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.2.1228
+- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.103.663
 ### Removed
 ### Deployment Changes
 
