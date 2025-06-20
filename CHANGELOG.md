@@ -17,10 +17,10 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Meziantou.Analyzer to 2.0.202
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.103.663
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.12.0.118525
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.125.1033
 - Dependencies - Updated Credfeto.Enumeration to 1.2.116.1247
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.3.1234
 - Dependencies - Updated FunFair.Test.Common to 6.1.271.1475
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.126.1044
 ### Removed
 ### Deployment Changes
 
