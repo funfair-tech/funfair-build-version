@@ -26,8 +26,6 @@
  - any: [ 'src/$FunFair.BuildVersion.Publishers.Tests/**/*' ]
 "github-actions":
  - any: [ '.github/workflows/*.yml' ]
-"Legal Text":
- - any: [ 'tools/LegalText/**/*' ]
 "Markdown":
  - any: [ './**/*.md' ]
 "Migration Script":
@@ -44,5 +42,5 @@
  - any: [ './**/*.sql', 'db/**/*' ]
 "Static Code Analysis Rules":
  - any: [ 'src/CodeAnalysis.ruleset' ]
-"unit-tests":
+"Unit Tests":
  - any: [ 'src/*.Tests.*/**/*', 'src/*.Tests.Integration.*/**/*', 'src/*.Tests.Integration/**/*', 'src/*.Tests/**/*' ]
