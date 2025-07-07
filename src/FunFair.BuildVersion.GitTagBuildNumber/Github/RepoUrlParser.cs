@@ -8,7 +8,12 @@ namespace FunFair.BuildVersion.GitTagBuildNumber.Github;
 
 public static class RepoUrlParser
 {
-    public static bool TryParse(string path, out GitUrlProtocol protocol, [NotNullWhen(true)] out string? host, [NotNullWhen(true)] out string? repo)
+    public static bool TryParse(
+        string path,
+        out GitUrlProtocol protocol,
+        [NotNullWhen(true)] out string? host,
+        [NotNullWhen(true)] out string? repo
+    )
     {
         if (Uri.TryCreate(uriString: path, uriKind: UriKind.Absolute, out Uri? uri))
         {
@@ -28,8 +33,7 @@ public static class RepoUrlParser
             return false;
         }
 
-        Match m = GitUrlProtocolRegex.SshHostAndRepo()
-                                     .Match(path);
+        Match m = GitUrlProtocolRegex.SshHostAndRepo().Match(path);
 
         if (m.Success)
         {
