@@ -1,4 +1,4 @@
-﻿namespace FunFair.BuildVersion.GitTagBuildNumber.Extensions;
+namespace FunFair.BuildVersion.GitTagBuildNumber.Extensions;
 
 public static partial class UriExtensions
 {
