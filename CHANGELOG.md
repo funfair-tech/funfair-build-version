@@ -13,7 +13,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated xunit.analyzers to 1.22.0
 - Dependencies - Updated xunit.v3 to 2.0.3
 - SDK - Updated DotNet SDK to 9.0.301
-- Dependencies - Updated SonarAnalyzer.CSharp to 10.12.0.118525
 - Dependencies - Updated Credfeto.Enumeration to 1.2.119.1263
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.129.1055
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.107.685
@@ -22,6 +21,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.6.3
 - Dependencies - Updated Microsoft.Extensions to 9.0.7
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.7.1279
+- Dependencies - Updated SonarAnalyzer.CSharp to 10.13.0.120203
 ### Removed
 ### Deployment Changes
 
