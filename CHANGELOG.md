@@ -10,7 +10,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- Dependencies - Updated xunit.analyzers to 1.22.0
 - Dependencies - Updated xunit.v3 to 2.0.3
 - Dependencies - Updated Credfeto.Enumeration to 1.2.119.1263
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.129.1055
@@ -22,6 +21,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - SDK - Updated DotNet SDK to 9.0.302
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.8.1282
 - Dependencies - Updated FunFair.Test.Common to 6.1.276.1531
+- Dependencies - Updated xunit.analyzers to 1.23.0
 ### Removed
 ### Deployment Changes
 
