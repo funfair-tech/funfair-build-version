@@ -52,7 +52,7 @@
     <ProjectReference Include="..\FunFair.BuildVersion.Detection\FunFair.BuildVersion.Detection.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FunFair.Test.Common" Version="6.1.277.1540" />
+    <PackageReference Include="FunFair.Test.Common" Version="6.1.278.1553" />
     <PackageReference Include="NSubstitute" Version="5.3.0" />
     <PackageReference Include="xunit.v3" Version="3.0.0" />
   </ItemGroup>
