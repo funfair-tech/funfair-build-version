@@ -16,13 +16,13 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Meziantou.Analyzer to 2.0.205
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.6.3
 - Dependencies - Updated Microsoft.Extensions to 9.0.7
-- SDK - Updated DotNet SDK to 9.0.302
 - Dependencies - Updated xunit.analyzers to 1.23.0
 - Dependencies - Updated xunit.v3 to 3.0.0
 - Dependencies - Updated FunFair.Test.Common to 6.1.277.1540
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.10.1300
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.15.0.120848
 - Dependencies - Updated FunFair.Test.Common to 6.1.278.1553
+- SDK - Updated DotNet SDK to 9.0.303
 ### Removed
 ### Deployment Changes
 
