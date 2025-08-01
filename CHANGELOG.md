@@ -13,7 +13,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Enumeration to 1.2.119.1263
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.129.1055
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.107.685
-- Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.6.3
 - Dependencies - Updated Microsoft.Extensions to 9.0.7
 - Dependencies - Updated xunit.analyzers to 1.23.0
 - Dependencies - Updated xunit.v3 to 3.0.0
@@ -25,6 +24,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Meziantou.Analyzer to 2.0.210
 - Dependencies - Updated Microsoft.Sbom.Targets to 4.1.0
 - Dependencies - Updated Philips.CodeAnalysis.DuplicateCodeAnalyzer to 1.6.4
+- Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.6.4
 ### Removed
 ### Deployment Changes
 
