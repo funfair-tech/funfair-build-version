@@ -10,7 +10,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Added
 ### Fixed
 ### Changed
-- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.129.1055
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.107.685
 - Dependencies - Updated xunit.analyzers to 1.23.0
 - Dependencies - Updated xunit.v3 to 3.0.0
@@ -25,6 +24,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.13.1330
 - Dependencies - Updated Microsoft.Extensions to 9.0.8
 - Dependencies - Updated Credfeto.Enumeration to 1.2.121.1337
+- Dependencies - Updated Credfeto.Extensions.Linq to 1.0.130.1126
 ### Removed
 ### Deployment Changes
 
