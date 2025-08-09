@@ -51,7 +51,7 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
 
         this._logger.LogFoundBranchForPullRequest(pullRequestId: pullRequestId, branch: candidateBranch.FriendlyName);
 
-        return this._branchClassification.IsRelease(branchName: candidateBranch.FriendlyName, out NuGetVersion? _)
+        return this._branchClassification.IsRelease(branchName: candidateBranch.FriendlyName, out _)
             ? "pre-" + candidateBranch.FriendlyName
             : candidateBranch.FriendlyName;
 

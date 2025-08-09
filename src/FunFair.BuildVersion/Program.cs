@@ -81,7 +81,7 @@ internal static class Program
             if (remote is not null)
             {
                 if (
-                    RepoUrlParser.TryParse(path: remote.Url, out GitUrlProtocol _, out string? host, out string? repo)
+                    RepoUrlParser.TryParse(path: remote.Url, out _, out string? host, out string? repo)
                     && StringComparer.OrdinalIgnoreCase.Equals(x: host, y: "github.com")
                 )
                 {
