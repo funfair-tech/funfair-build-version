@@ -17,7 +17,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Philips.CodeAnalysis.DuplicateCodeAnalyzer to 1.6.4
 - Dependencies - Updated Roslynator.Analyzers to 4.14.0
 - Dependencies - Updated Microsoft.Extensions to 9.0.8
-- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.110.765
 - Dependencies - Updated Meziantou.Analyzer to 2.0.212
 - SDK - Updated DotNet SDK to 9.0.304
 - Dependencies - Updated FunFair.Test.Common to 6.1.282.1603
@@ -25,6 +24,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.18.1350
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.134.1145
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.7.0
+- Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.111.775
 ### Removed
 ### Deployment Changes
 
