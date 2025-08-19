@@ -95,7 +95,7 @@ runs:
         GITHUB_TOKEN: ${{inputs.GITHUB_TOKEN}}
 
     - name: "Dotnet: Run build check (Pre-Release)"
-      if: !endsWith(github.repository, '-template')
+      if: ${{ !endsWith(github.repository, '-template') }}
       uses: ./.github/actions/dotnet-code-analysis-override
       with:
         GITHUB_TOKEN: ${{inputs.GITHUB_TOKEN}}
