@@ -11,7 +11,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 ### Changed
 - Dependencies - Updated xunit.analyzers to 1.23.0
-- Dependencies - Updated xunit.v3 to 3.0.0
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.15.0.120848
 - Dependencies - Updated Microsoft.Sbom.Targets to 4.1.0
 - Dependencies - Updated Philips.CodeAnalysis.DuplicateCodeAnalyzer to 1.6.4
@@ -25,6 +24,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.22.1366
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.114.790
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.8.0
+- Dependencies - Updated xunit.v3 to 3.0.1
 ### Removed
 ### Deployment Changes
 

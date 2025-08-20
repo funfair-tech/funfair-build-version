@@ -51,7 +51,7 @@
   <ItemGroup>
     <PackageReference Include="FunFair.Test.Common" Version="6.1.285.1620" />
     <PackageReference Include="NSubstitute" Version="5.3.0" />
-    <PackageReference Include="xunit.v3" Version="3.0.0" />
+    <PackageReference Include="xunit.v3" Version="3.0.1" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AsyncFixer" Version="1.6.0" PrivateAssets="All" ExcludeAssets="runtime" />
@@ -71,6 +71,6 @@
     <PackageReference Include="SonarAnalyzer.CSharp" Version="10.15.0.120848" PrivateAssets="All" ExcludeAssets="runtime" />
     <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" ExcludeAssets="runtime" />
     <PackageReference Include="ToStringWithoutOverrideAnalyzer" Version="0.6.0" PrivateAssets="All" ExcludeAssets="runtime" />
-    <PackageReference Include="xunit.analyzers" Version="1.23.0" PrivateAssets="All" ExcludeAssets="runtime" />
+    <PackageReference Include="xunit.analyzers" Version="1.24.0" PrivateAssets="All" ExcludeAssets="runtime" />
   </ItemGroup>
 </Project>
