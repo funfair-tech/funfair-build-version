@@ -12,7 +12,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Changed
 - Dependencies - Updated xunit.analyzers to 1.23.0
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.15.0.120848
-- Dependencies - Updated Microsoft.Sbom.Targets to 4.1.0
 - Dependencies - Updated Philips.CodeAnalysis.DuplicateCodeAnalyzer to 1.6.4
 - Dependencies - Updated Roslynator.Analyzers to 4.14.0
 - Dependencies - Updated Microsoft.Extensions to 9.0.8
@@ -25,6 +24,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.114.790
 - Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.8.0
 - Dependencies - Updated xunit.v3 to 3.0.1
+- Dependencies - Updated Microsoft.Sbom.Targets to 4.1.1
 ### Removed
 ### Deployment Changes
 
