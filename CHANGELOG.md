@@ -20,11 +20,11 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.Test.Common to 6.1.285.1620
 - Dependencies - Updated FunFair.CodeAnalysis to 7.1.22.1366
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.114.790
-- Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.8.0
 - Dependencies - Updated xunit.v3 to 3.0.1
 - Dependencies - Updated Microsoft.Sbom.Targets to 4.1.1
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.136.1160
 - Dependencies - Updated Meziantou.Analyzer to 2.0.213
+- Dependencies - Updated Philips.CodeAnalysis.MaintainabilityAnalyzers to 1.9.1
 ### Removed
 ### Deployment Changes
 
