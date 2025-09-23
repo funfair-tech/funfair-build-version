@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Config/">
+    <File Path="../CHANGELOG.md" />
+    <File Path="../README.md" />
+    <File Path="CodeAnalysis.ruleset" />
+    <File Path="global.json" />
+  </Folder>
+  <Project Path="FunFair.BuildVersion.Detection.Tests/FunFair.BuildVersion.Detection.Tests.csproj" />
+  <Project Path="FunFair.BuildVersion.Detection/FunFair.BuildVersion.Detection.csproj" />
+  <Project Path="FunFair.BuildVersion.GitTagBuildNumber/FunFair.BuildVersion.GitTagBuildNumber.csproj" />
+  <Project Path="FunFair.BuildVersion.Interfaces/FunFair.BuildVersion.Interfaces.csproj" />
+  <Project Path="FunFair.BuildVersion.Publishers.Tests/FunFair.BuildVersion.Publishers.Tests.csproj" />
+  <Project Path="FunFair.BuildVersion.Publishers/FunFair.BuildVersion.Publishers.csproj" />
+  <Project Path="FunFair.BuildVersion/FunFair.BuildVersion.csproj" />
+</Solution>
