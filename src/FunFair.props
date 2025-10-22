@@ -59,4 +59,18 @@
         <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904</WarningsNotAsErrors>
     </PropertyGroup>
 
+    <!-- Enable SBOM generation in production builds -->
+    <PropertyGroup Condition="$(FFPacking) == 'True' AND $(IsProduction) == 'True">
+        <EnableSbom>true</EnableSbom>
+    </PropertyGroup>
+
+    <!-- Sarif -->
+    <PropertyGroup Condition="$(EnableSarif)=='True' And !$(MSBuildProjectName.EndsWith('.Tests'))">
+        <ErrorLog>$(SolutionDir)\..\results\$(MSBuildProjectName).sarif,version=2.1</ErrorLog>
+    </PropertyGroup>
+
+    <!-- Code analysis analyzer - report timings -->
+    <PropertyGroup Condition="$(EnableSarif)=='True' And !$(MSBuildProjectName.EndsWith('.Tests'))">
+        <ReportAnalyzer>true</ReportAnalyzer>
+    </PropertyGroup>
 </Project>
