@@ -60,7 +60,7 @@
     </PropertyGroup>
 
     <!-- Enable SBOM generation in production builds -->
-    <PropertyGroup Condition="$(FFPacking) == 'True' AND $(IsProduction) == 'True">
+    <PropertyGroup Condition="$(FFPacking) == 'True' AND $(IsProduction) == 'True'">
         <EnableSbom>true</EnableSbom>
     </PropertyGroup>
 
