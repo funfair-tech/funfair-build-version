@@ -98,6 +98,11 @@ dotnet_style_qualification_for_method=true:error
 dotnet_style_qualification_for_property=true:error
 dotnet_style_require_accessibility_modifiers=for_non_interface_members:suggestion
 
+# Remove Unnecessary suppressons
+dotnet_remove_unnecessary_suppression_exclusions=none
+dotnet_diagnostic.IDE0079.severity = error
+
+
 # Code Quality Settings
 dotnet_code_quality.PH2092.max_operators=10
 
