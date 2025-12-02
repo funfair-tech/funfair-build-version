@@ -29,29 +29,29 @@
     </PropertyGroup>
 
     <!-- Package Icon -->
-    <PropertyGroup Condition="$(FFPacking) == 'True' AND Exists('$(SolutionDir)packageicon.png')">
+    <PropertyGroup Condition="$(FFPacking) == 'True' AND Exists('$(MSBuildThisFileDirectory)packageicon.png')">
         <PackageIcon>packageicon.png</PackageIcon>
         <PackageIconUrl>https://avatars.githubusercontent.com/u/29401895</PackageIconUrl>
     </PropertyGroup>
-    <ItemGroup Condition="$(FFPacking) == 'True' AND Exists('$(SolutionDir)packageicon.png')">
-        <None Include="$(SolutionDir)packageicon.png" Pack="true" PackagePath="\" />
+    <ItemGroup Condition="$(FFPacking) == 'True' AND Exists('$(MSBuildThisFileDirectory)packageicon.png')">
+        <None Include="$(MSBuildThisFileDirectory)packageicon.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <!-- License -->
-    <PropertyGroup Condition="$(FFPacking) == 'True' AND Exists('$(SolutionDir)..\LICENSE')">
+    <PropertyGroup Condition="$(FFPacking) == 'True' AND Exists('$(MSBuildThisFileDirectory)..\LICENSE')">
         <PackageLicense>LICENSE</PackageLicense>
         <PackageLicenseUrl>$(RepositoryUrl)/blob/master/LICENSE.md</PackageLicenseUrl>
     </PropertyGroup>
-    <ItemGroup Condition="$(FFPacking) == 'True' AND Exists('$(SolutionDir)..\LICENSE')">
-        <None Include="$(SolutionDir)..\LICENSE" Pack="true" PackagePath="\" />
+    <ItemGroup Condition="$(FFPacking) == 'True' AND Exists('$(MSBuildThisFileDirectory)..\LICENSE')">
+        <None Include="$(MSBuildThisFileDirectory)..\LICENSE" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <!-- Readme -->
-    <PropertyGroup Condition="$(FFPacking) == 'True' AND Exists('$(SolutionDir)..\README.md')">
+    <PropertyGroup Condition="$(FFPacking) == 'True' AND Exists('$(MSBuildThisFileDirectory)..\README.md')">
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
-    <ItemGroup Condition="$(FFPacking) == 'True' AND Exists('$(SolutionDir)..\README.md')">
-        <None Include="$(SolutionDir)..\README.md" Pack="true" PackagePath="\" />
+    <ItemGroup Condition="$(FFPacking) == 'True' AND Exists('$(MSBuildThisFileDirectory)..\README.md')">
+        <None Include="$(MSBuildThisFileDirectory)..\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <!-- Disable Nuget errors on publishing -->
@@ -66,11 +66,15 @@
 
     <!-- Sarif -->
     <PropertyGroup Condition="$(EnableSarif)=='True' And !$(MSBuildProjectName.EndsWith('.Tests'))">
-        <ErrorLog>$(SolutionDir)\..\results\$(MSBuildProjectName).sarif,version=2.1</ErrorLog>
+        <ErrorLog>$(MSBuildThisFileDirectory)\..\results\$(MSBuildProjectName).sarif,version=2.1</ErrorLog>
     </PropertyGroup>
 
     <!-- Code analysis analyzer - report timings -->
     <PropertyGroup Condition="$(EnableSarif)=='True' And !$(MSBuildProjectName.EndsWith('.Tests'))">
         <ReportAnalyzer>true</ReportAnalyzer>
     </PropertyGroup>
+
+    <ItemGroup>
+      <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)..\.globalconfig" />
+    </ItemGroup>
 </Project>
