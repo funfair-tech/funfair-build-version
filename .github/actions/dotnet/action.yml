@@ -182,7 +182,8 @@ runs:
                   "-p:NoWarn=MSB4241" \
                   "-p:Optimize=true" \
                   "-p:SuppressNETCoreSdkPreviewMessage=true" \
-                  "-p:Version=${{inputs.BUILD_VERSION}}"
+                  "-p:Version=${{inputs.BUILD_VERSION}}" \
+                  --report-github
       env:
         ReleaseNotes: ${{inputs.RELEASE_NOTES}}
         DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
