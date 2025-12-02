@@ -74,7 +74,7 @@
         <ReportAnalyzer>true</ReportAnalyzer>
     </PropertyGroup>
 
-    <ItemGroup>
-      <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)..\.globalconfig" />
-    </ItemGroup>
+<!--     <ItemGroup> -->
+<!--       <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)..\.globalconfig" /> -->
+<!--     </ItemGroup> -->
 </Project>
