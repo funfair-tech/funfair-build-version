@@ -42,6 +42,10 @@
    color: "db6baa"
    description: "Dotnet package updates"
 
+ - name: "Editorconfig"
+   color: "00dead"
+   description: "Editor config file change"
+
  - name: "funfair-buildversion"
    color: "96f7d2"
    description: "Changes in FunFair.BuildVersion project"
