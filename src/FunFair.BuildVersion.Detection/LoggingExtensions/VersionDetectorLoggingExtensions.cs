@@ -17,7 +17,10 @@ internal static partial class VersionDetectorLoggingExtensions
 
     public static void LogLatestReleaseVersion(this ILogger<VersionDetector> logger, NuGetVersion latest)
     {
-        logger.LogLatestReleaseVersion(latest: latest.ToString());
+        if (logger.IsEnabled(LogLevel.Information))
+        {
+            logger.LogLatestReleaseVersion(latest: latest.ToString());
+        }
     }
 
     [LoggerMessage(EventId = 4, Level = LogLevel.Debug, Message = "* {branch}")]
