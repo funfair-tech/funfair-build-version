@@ -94,10 +94,6 @@ runs:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
     with:
       cache: false
-      dotnet-version: |
-          8.0.*
-          9.0.*
-          10.0.*
       global-json-file: "${{ github.workspace }}/src/global.json"
 
   - if: ${{steps.check_dotnet.outputs.GLOBAL_JSON_EXIST == 'false'}}
@@ -120,8 +116,6 @@ runs:
     with:
       cache: false
       dotnet-version: |
-        8.0.*
-        9.0.*
         10.0.*
 
   - name: "Configure nuget feeds"
