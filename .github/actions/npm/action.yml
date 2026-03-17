@@ -216,7 +216,7 @@ runs:
     shell: bash
     working-directory: ${{ github.workspace }}
     run: |
-      dotnet tool run signcontentpackage sign \
+      dotnet tool run --allow-roll-forward signcontentpackage sign \
           --package "$PACKAGE_FILENAME" \
           --package "$PACKAGE_FILENAME" \
           --wallet "$WALLET_FILE" \
