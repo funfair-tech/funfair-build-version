@@ -19,7 +19,7 @@ runs:
         SOLUTION="$(find . -type f -iname "*.sln" | head -1)"
         [ -z "$SOLUTION" ] && SOLUTION="$(find . -type f -iname "*.slnx" | head -1)"
         echo "Found: $SOLUTION"
-        dotnet tool run buildcheck -Solution "$SOLUTION" -WarningAsErrors true -PreReleaseBuild false
+        dotnet tool run --allow-roll-forward buildcheck -Solution "$SOLUTION" -WarningAsErrors true -PreReleaseBuild false
       env:
         DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
         DOTNET_INSTALL_DIR: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
@@ -43,7 +43,7 @@ runs:
         SOLUTION="$(find . -type f -iname "*.sln" | head -1)"
         [ -z "$SOLUTION" ] && SOLUTION="$(find . -type f -iname "*.slnx" | head -1)"
         echo "Found: $SOLUTION"
-        dotnet tool run buildcheck -Solution "$SOLUTION" -WarningAsErrors true -PreReleaseBuild false
+        dotnet tool run --allow-roll-forward buildcheck -Solution "$SOLUTION" -WarningAsErrors true -PreReleaseBuild false
       env:
         DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
         DOTNET_INSTALL_DIR: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
