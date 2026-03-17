@@ -16,7 +16,7 @@ runs:
       with:
         WORKING-DIRECTORY: ${{github.workspace}}/src
         TOOL_NAME: code-analysis
-        TOOL_ARGUMENTS: globalconfig --ruleset "${{github.workspace}}/.globalconfig" --changes "${{github.workspace}}/src/pre-release.rule-settings.json"
+        TOOL_ARGUMENTS: "globalconfig --ruleset \"${{github.workspace}}/.globalconfig\" --changes \"${{github.workspace}}/src/pre-release.rule-settings.json\""
 
     - name: "Dotnet: Override code analysis settings (Release)"
       if: inputs.RELEASE == 'true'
@@ -24,4 +24,4 @@ runs:
       with:
         WORKING-DIRECTORY: ${{github.workspace}}/src
         TOOL_NAME: code-analysis
-        TOOL_ARGUMENTS: globalconfig --ruleset "${{github.workspace}}/.globalconfig" --changes "${{github.workspace}}/src/release.rule-settings.json"
+        TOOL_ARGUMENTS: "globalconfig --ruleset \"${{github.workspace}}/.globalconfig\" --changes \"${{github.workspace}}/src/release.rule-settings.json\""
