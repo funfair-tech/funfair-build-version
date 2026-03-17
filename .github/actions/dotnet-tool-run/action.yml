@@ -2,6 +2,10 @@
 name: 'Run dotnet tool'
 description: 'Run dotnet tool'
 inputs:
+  WORKING_DIRECTORY:
+    description: 'Working directory'
+    required: true
+    default: 'latest'
   TOOL_NAME:
     description: 'Tool to run'
     required: true
@@ -16,7 +20,7 @@ runs:
 
     - name: "Run dotnet tool (Latest)"
       shell: bash
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ inputs.WORKING_DIRECTORY }}
       run: dotnet tool run --allow-roll-forward \
               ${{inputs.TOOL_NAME}} \
               ${{inputs.TOOL_ARGUMENTS}}
