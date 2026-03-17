@@ -322,7 +322,7 @@ runs:
       with:
         WORKING_DIRECTORY: ${{github.workspace}}
         TOOL_NAME: changelog
-        TOOL_ARGUMENTS: "${{github.workspace}}/CHANGELOG.md" --extract RELEASE_NOTES.md --version "${{env.BUILD_VERSION}}"
+        TOOL_ARGUMENTS: "\"${{github.workspace}}/CHANGELOG.md\" --extract RELEASE_NOTES.md --version \"${{env.BUILD_VERSION}}\""
 
     - name: "Read Release Notes"
       if: steps.build_tools.outputs.BUILD_ENV == 'true'
