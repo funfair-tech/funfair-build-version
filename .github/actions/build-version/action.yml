@@ -15,7 +15,7 @@ runs:
       with:
         WORKING_DIRECTORY: ${{github.workspace}}
         TOOL_NAME: buildversion
-        TOOL_ARGUMENTS: --GithubToken "${{inputs.GITHUB_TOKEN}}" --TagPrefix "github"
+        TOOL_ARGUMENTS: "--GithubToken \"${{inputs.GITHUB_TOKEN}}\" --TagPrefix \"github\""
 
     - name: "Log build version"
       shell: bash
