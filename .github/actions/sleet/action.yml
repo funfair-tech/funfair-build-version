@@ -19,7 +19,7 @@ runs:
       run: |
         echo "$VALUE" > "${FILE}"
       env:
-        FILE: "sleet.json"
+        FILE: "${{github.workspace}}/sleet.json"
         VALUE: "${{ inputs.SLEET_CONFIG }}"
 
     - name: "Sleet: Publish Packages to Nuget (Using Sleet)"
@@ -28,4 +28,4 @@ runs:
       with:
         WORKING-DIRECTORY: ${{github.workspace}}
         TOOL_NAME: sleet
-        TOOL_ARGUMENTS: push "${{github.workspace}}/dist" --config sleet.json --source ${{inputs.SLEET_FEED}}
+        TOOL_ARGUMENTS: "push \"${{github.workspace}}/dist\" --config \"${{github.workspace}}/sleet.json\" --source \"${{inputs.SLEET_FEED}}\""
