@@ -26,6 +26,6 @@ runs:
       if: always()
       uses: ./.github/actions/dotnet-tool-run
       with:
-        WORKING-DIRECTORY: ${{github.workspace}}
-        TOOL_NAME: sleet
+        WORKING_DIRECTORY: "${{github.workspace}}"
+        TOOL_NAME: "sleet"
         TOOL_ARGUMENTS: "push \"${{github.workspace}}/dist\" --config \"${{github.workspace}}/sleet.json\" --source \"${{inputs.SLEET_FEED}}\""
