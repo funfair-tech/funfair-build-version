@@ -13,7 +13,7 @@ runs:
     - name: "Define Build Version"
       shell: bash
       working-directory: ${{ github.workspace }}
-      run: dotnet tool run buildversion --GithubToken "${{inputs.GITHUB_TOKEN}}" --TagPrefix "github"
+      run: dotnet tool run --allow-roll-forward buildversion --GithubToken "${{inputs.GITHUB_TOKEN}}" --TagPrefix "github"
       env:
         DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
         DOTNET_INSTALL_DIR: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
