@@ -31,7 +31,7 @@ runs:
       shell: bash
       run: |
         echo "Looking for dacpac"
-        DACPAC="$(find . -type f -iname "*.dacpac" | head -1)"
+        DACPAC="$(find "${{github.workspace}}/src" -type f -iname "*.dacpac" | head -1)"
         echo "Found: $DACPAC"
         echo "DACPAC=$DACPAC" >> "$GITHUB_OUTPUT"
 
