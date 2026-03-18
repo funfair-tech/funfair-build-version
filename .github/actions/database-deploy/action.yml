@@ -38,8 +38,9 @@ runs:
     - name: "DB: Deploy..."
       uses: azure/sql-action@v2.3
       with:
-        connection-string: "Server=${{inputs.SQL_SERVER}};Database=${{inputs.SQL_DB}};User Id=${{inputs.SQL_USER}};Password=${{inputs.SQL_PASSWORD}};Connection Timeout=60;TrustServerCertificate=true;Application Name=Connection Test"
+        connection-string: "Server=${{inputs.SQL_SERVER}};Database=${{inputs.SQL_DB}};User Id=${{inputs.SQL_USER}};Password=${{inputs.SQL_PASSWORD}};Connection Timeout=720;TrustServerCertificate=true;Application Name=Deploy Database"
         path: "${{steps.find_solution.outputs.DACPAC}}"
+        action: 'publish'
         arguments: '/p:DoNotDropObjectTypes=Aggregates;ApplicationRoles;Assemblies;AssemblyFiles;AsymmetricKeys;BrokerPriorities;Certificates;ColumnEncryptionKeys;ColumnMasterKeys;Contracts;DatabaseOptions;DatabaseRoles;Filegroups;Files;FileTables;RoleMembership;Rules;Users;Credentials;CryptographicProviders;DatabaseAuditSpecifications;DatabaseEncryptionKeys;DatabaseScopedCredentials;Endpoints;LinkedServerLogins;LinkedServers;Logins;MasterKeys;Routes;ServerAuditSpecifications;ServerRoleMembership;ServerRoles;ServerTriggers'
 
 #    - name: "Install SQLPackage tool"
