@@ -33,7 +33,10 @@ runs:
         echo "Looking for dacpac"
         DACPAC="$(find "${{github.workspace}}/src" -type f -iname "*.dacpac" | head -1)"
         echo "Found: $DACPAC"
-        [ -z "$DACPAC" ] || exit 1
+        if [ -z "$DACPAC" ] then;
+          echo "Error: DACPAC not found!"
+          exit 1
+        fi
         echo "DACPAC=$DACPAC" >> "$GITHUB_OUTPUT"
 
     - name: "Install SQLPackage tool"
