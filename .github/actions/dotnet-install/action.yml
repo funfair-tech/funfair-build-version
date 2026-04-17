@@ -30,6 +30,26 @@ runs:
   using: "composite"
   steps:
 
+    - name: "Set dotnet environment"
+      shell: bash
+      run: |
+        DOTNET_DIR="${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
+        NUGET_PKGS="${{github.workspace}}/.nuget/packages"
+        {
+          echo "DOTNET_ROOT=$DOTNET_DIR"
+          echo "DOTNET_INSTALL_DIR=$DOTNET_DIR"
+          echo "NUGET_PACKAGES=$NUGET_PKGS"
+          echo "DOTNET_MULTILEVEL_LOOKUP=false"
+          echo "DOTNET_NOLOGO=true"
+          echo "DOTNET_PRINT_TELEMETRY_MESSAGE=false"
+          echo "DOTNET_JitCollect64BitCounts=1"
+          echo "DOTNET_ReadyToRun=0"
+          echo "DOTNET_TC_QuickJitForLoops=1"
+          echo "DOTNET_TC_CallCountingDelayMs=0"
+          echo "DOTNET_TieredPGO=1"
+          echo "MSBUILDTERMINALLOGGER=auto"
+        } >> "$GITHUB_ENV"
+
     # Workaround for https://github.com/dotnet/sdk/issues/11432
     - name: "Explicitly kill any existing dotnet"
       shell: bash
@@ -53,8 +73,6 @@ runs:
         ln -sf "${{env.NUGET_PACKAGES}}" "$HOME/.nuget/packages"
         echo "Check ~/.nuget/packages"
         ls -la "$HOME/.nuget/packages"
-      env:
-        NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
 
     - name: "Determine dotnet version"
       uses: credfeto/action-dotnet-version-detect@v1.3.0
@@ -79,18 +97,6 @@ runs:
       uses: actions/setup-dotnet@v5.2.0
       env:
         GITHUB_TOKEN: ${{inputs.GITHUB_TOKEN}}
-        DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
-        DOTNET_INSTALL_DIR: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
-        DOTNET_MULTILEVEL_LOOKUP: "false"
-        DOTNET_NOLOGO: "true"
-        DOTNET_PRINT_TELEMETRY_MESSAGE: "false"
-        DOTNET_JitCollect64BitCounts: "1"
-        DOTNET_ReadyToRun: "0"
-        DOTNET_TC_QuickJitForLoops: "1"
-        DOTNET_TC_CallCountingDelayMs: "0"
-        DOTNET_TieredPGO: "1"
-        MSBUILDTERMINALLOGGER: "auto"
-        NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
       with:
         cache: false
         global-json-file: "${{ github.workspace }}/src/global.json"
@@ -102,18 +108,6 @@ runs:
       uses: actions/setup-dotnet@v5.2.0
       env:
         GITHUB_TOKEN: ${{inputs.GITHUB_TOKEN}}
-        DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
-        DOTNET_INSTALL_DIR: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
-        DOTNET_MULTILEVEL_LOOKUP: "false"
-        DOTNET_NOLOGO: "true"
-        DOTNET_PRINT_TELEMETRY_MESSAGE: "false"
-        DOTNET_JitCollect64BitCounts: "1"
-        DOTNET_ReadyToRun: "0"
-        DOTNET_TC_QuickJitForLoops: "1"
-        DOTNET_TC_CallCountingDelayMs: "0"
-        DOTNET_TieredPGO: "1"
-        MSBUILDTERMINALLOGGER: "auto"
-        NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
       with:
         cache: false
         dotnet-version: |
@@ -137,16 +131,3 @@ runs:
         rm -f dotnet-tools.json
         rm -f .config/dotnet-tools.json
         dotnet new tool-manifest
-      env:
-        DOTNET_ROOT: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
-        DOTNET_INSTALL_DIR: "${{github.workspace}}/.dotnet/${{github.sha}}-${{github.run_id}}-${{github.run_number}}-${{github.run_attempt}}"
-        DOTNET_MULTILEVEL_LOOKUP: "false"
-        DOTNET_NOLOGO: "true"
-        DOTNET_PRINT_TELEMETRY_MESSAGE: "false"
-        DOTNET_JitCollect64BitCounts: "1"
-        DOTNET_ReadyToRun: "0"
-        DOTNET_TC_QuickJitForLoops: "1"
-        DOTNET_TC_CallCountingDelayMs: "0"
-        DOTNET_TieredPGO: "1"
-        MSBUILDTERMINALLOGGER: "auto"
-        NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
