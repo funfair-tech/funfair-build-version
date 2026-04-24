@@ -208,7 +208,13 @@ jobs:
           fetch-depth: 1
 
       - name: "Check for merge conflicts"
-        uses: olivernybroe/action-conflict-finder@v4.1
+        shell: bash
+        run: |
+          if git grep -rl '^<<<<<<< ' -- 2>/dev/null; then
+            echo "::error::Merge conflict markers found. Please resolve them before merging."
+            exit 1
+          fi
+          echo "No merge conflict markers found."
 
   has-no-file-or-folder-case-sensitivity-issues:
     if: github.event.pull_request.draft == false
@@ -235,7 +241,15 @@ jobs:
           fetch-depth: 1
 
       - name: "Check for case conflicts"
-        uses: credfeto/action-case-checker@v1.3.0
+        shell: bash
+        run: |
+          conflicts=$(git ls-files | sort -f | awk 'BEGIN{prev=""} tolower($0)==tolower(prev){print prev; print $0} {prev=$0}' | sort -u)
+          if [ -n "$conflicts" ]; then
+            echo "::error::Case sensitivity conflicts found:"
+            echo "$conflicts"
+            exit 1
+          fi
+          echo "No case sensitivity conflicts found."
 
   no-ignored-files:
     if: github.event.pull_request.draft == false
@@ -262,7 +276,15 @@ jobs:
           fetch-depth: 1
 
       - name: "Check for ignored files"
-        uses: credfeto/action-no-ignored-files@v1.2.0
+        shell: bash
+        run: |
+          ignored=$(git ls-files -i --exclude-standard 2>/dev/null)
+          if [ -n "$ignored" ]; then
+            echo "::error::The following tracked files are listed in .gitignore:"
+            echo "$ignored"
+            exit 1
+          fi
+          echo "No tracked files found in .gitignore."
 
   dependency-review:
     # Check that there are no dependencies with security problems in the PR
