@@ -97,7 +97,7 @@ jobs:
       - name: "Read PR Template"
         if: steps.findPr.outputs.number == ''
         id: pr-template
-        uses: juliangruber/read-file-action@v1.1.8
+        uses: ./.github/actions/read-file
         with:
           path: ./.github/PULL_REQUEST_TEMPLATE.md
 
