@@ -44,13 +44,6 @@ runs:
         echo "USE_NUGET_CACHE=${use_cache}" >> "$GITHUB_ENV"
         echo "use-nuget-cache=${use_cache}" >> "$GITHUB_OUTPUT"
 
-    - if: inputs.repo-status == ''
-      name: "Check Repo Visibility"
-      uses: credfeto/action-repo-visibility@v1.2.0
-      with:
-        repository: ${{github.repository}}
-        token: ${{inputs.github-token}}
-
     - name: "Check Runner details"
       uses: actions/github-script@v9.0.0
       with:
