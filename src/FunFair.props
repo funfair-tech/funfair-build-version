@@ -20,7 +20,7 @@
         <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
     </PropertyGroup>
 
-    <!-- Only add these properties in if the project is publishable or packable.  
+    <!-- Only add these properties in if the project is publishable or packable.
          TODO: Find a better piece of metadata that gets defined _only_ during publish or pack
     -->
     <PropertyGroup>
@@ -67,10 +67,6 @@
     <!-- Sarif -->
     <PropertyGroup Condition="$(EnableSarif)=='True' And !$(MSBuildProjectName.EndsWith('.Tests'))">
         <ErrorLog>$(MSBuildThisFileDirectory)\..\results\$(MSBuildProjectName).sarif,version=2.1</ErrorLog>
-    </PropertyGroup>
-
-    <!-- Code analysis analyzer - report timings -->
-    <PropertyGroup Condition="$(EnableSarif)=='True' And !$(MSBuildProjectName.EndsWith('.Tests'))">
         <ReportAnalyzer>true</ReportAnalyzer>
     </PropertyGroup>
 
