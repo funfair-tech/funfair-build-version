@@ -9,6 +9,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ## [Unreleased]
 ### Security
 ### Added
+- Added unit tests for FunFair.BuildVersion to increase code coverage to 100%
 ### Fixed
 ### Changed
 - SDK - Updated DotNet SDK to 10.0.300
