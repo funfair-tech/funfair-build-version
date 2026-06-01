@@ -175,7 +175,7 @@ internal static class Program
         return new(found);
     }
 
-    private static int FindBuildNumber(int buildNumberFromCommandLine)
+    internal static int FindBuildNumber(int buildNumberFromCommandLine)
     {
         if (buildNumberFromCommandLine > 0)
         {

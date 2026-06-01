@@ -7,6 +7,7 @@
     <File Path="global.json" />
   </Folder>
   <Project Path="FunFair.BuildVersion.Detection.Tests/FunFair.BuildVersion.Detection.Tests.csproj" />
+  <Project Path="FunFair.BuildVersion.Tests/FunFair.BuildVersion.Tests.csproj" />
   <Project Path="FunFair.BuildVersion.Detection/FunFair.BuildVersion.Detection.csproj" />
   <Project Path="FunFair.BuildVersion.GitTagBuildNumber/FunFair.BuildVersion.GitTagBuildNumber.csproj" />
   <Project Path="FunFair.BuildVersion.Interfaces/FunFair.BuildVersion.Interfaces.csproj" />
