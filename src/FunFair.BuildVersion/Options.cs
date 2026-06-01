@@ -27,10 +27,10 @@ public sealed record Options
     public bool WarningsAsErrors { get; init; }
 
     [Option(shortName: 'b', longName: "BuildNumber", Required = false, HelpText = "The build number", Default = -1)]
-    public int BuildNumber { get; init; }
+    public int BuildNumber { get; init; } = -1;
 
     [Option(shortName: 's', longName: "ReleaseSuffix", Required = false, HelpText = "The release suffix", Default = "")]
-    public string? ReleaseSuffix { get; init; }
+    public string? ReleaseSuffix { get; init; } = string.Empty;
 
     [Option(
         shortName: 'p',
@@ -39,11 +39,11 @@ public sealed record Options
         HelpText = "The package being released",
         Default = ""
     )]
-    public string? Package { get; init; }
+    public string? Package { get; init; } = string.Empty;
 
     [Option(shortName: 't', longName: "GithubToken", Required = false, HelpText = "Github access token", Default = "")]
-    public string? GithubToken { get; init; }
+    public string? GithubToken { get; init; } = string.Empty;
 
     [Option(shortName: 'f', longName: "TagPrefix", Required = false, HelpText = "Git tag preifx", Default = "")]
-    public string? GitTagPrefix { get; init; }
+    public string? GitTagPrefix { get; init; } = string.Empty;
 }
