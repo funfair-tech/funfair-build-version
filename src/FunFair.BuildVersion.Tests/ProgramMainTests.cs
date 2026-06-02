@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using FunFair.BuildVersion.Tests.Helpers;
 using FunFair.Test.Common;
+using FunFair.Test.Common.Mocks;
 using LibGit2Sharp;
 using Xunit;
 
@@ -13,15 +14,6 @@ public sealed class ProgramMainTests : TestBase
 {
     private static readonly string[] UnrecognisedArgs = ["--definitely-not-a-valid-flag"];
     private static readonly string[] ValidBuildNumberArgs = ["--BuildNumber", "1"];
-    private static readonly DateTimeOffset FixedCommitTime = new(
-        year: 2024,
-        month: 1,
-        day: 1,
-        hour: 0,
-        minute: 0,
-        second: 0,
-        offset: TimeSpan.Zero
-    );
 
     [Fact]
     public async ValueTask MainWithUnrecognisedArgs_ReturnsError()
@@ -135,7 +127,7 @@ public sealed class ProgramMainTests : TestBase
                 );
                 tempRepo.Index.Add("README.md");
                 tempRepo.Index.Write();
-                Signature sig = new(name: "test", email: "test@test.com", when: FixedCommitTime);
+                Signature sig = new(name: "test", email: "test@test.com", when: MockDateTimeSources.Past.Start);
                 tempRepo.Commit(message: "Initial commit", author: sig, committer: sig);
             }
 
@@ -187,7 +179,7 @@ public sealed class ProgramMainTests : TestBase
                 );
                 tempRepo.Index.Add("README.md");
                 tempRepo.Index.Write();
-                Signature sig = new(name: "test", email: "test@test.com", when: FixedCommitTime);
+                Signature sig = new(name: "test", email: "test@test.com", when: MockDateTimeSources.Past.Start);
                 tempRepo.Commit(message: "Initial commit", author: sig, committer: sig);
                 _ = tempRepo.Network.Remotes.Add(name: "origin", url: "https://example.com/user/repo");
             }
