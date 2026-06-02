@@ -4,6 +4,7 @@ using Xunit;
 
 namespace FunFair.BuildVersion.Tests;
 
+[Collection("ProgramMainTests")]
 public sealed class ProgramFindBuildNumberTests : TestBase
 {
     private const string BuildNumberEnvVar = "BUILD_NUMBER";
