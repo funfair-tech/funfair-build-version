@@ -9,7 +9,9 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ## [Unreleased]
 ### Security
 ### Added
+- Added unit tests for FunFair.BuildVersion to increase code coverage to 100%
 ### Fixed
+- Fixed CommandLine Parser not being disposed after argument parsing
 ### Changed
 - SDK - Updated DotNet SDK to 10.0.300
 ### Deprecated
