@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FunFair.Test.Common;
 using Xunit;
 
@@ -22,129 +22,64 @@ public sealed class ProgramFindBuildNumberTests : TestBase
     [Fact]
     public void ZeroCommandLineFallsBackToEnvironmentVariableWhenSet()
     {
-        string? previousValue = Environment.GetEnvironmentVariable(BuildNumberEnvVar);
+        int result = RunWithBuildNumberEnvVar(value: "55", act: () => FunFair.BuildVersion.Program.FindBuildNumber(0));
 
-        try
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: "55");
-
-            int result = FunFair.BuildVersion.Program.FindBuildNumber(0);
-
-            Assert.Equal(expected: 55, actual: result);
-        }
-        finally
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: previousValue);
-        }
+        Assert.Equal(expected: 55, actual: result);
     }
 
     [Fact]
     public void NegativeCommandLineFallsBackToEnvironmentVariableWhenSet()
     {
-        string? previousValue = Environment.GetEnvironmentVariable(BuildNumberEnvVar);
+        int result = RunWithBuildNumberEnvVar(value: "77", act: () => FunFair.BuildVersion.Program.FindBuildNumber(-1));
 
-        try
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: "77");
-
-            int result = FunFair.BuildVersion.Program.FindBuildNumber(-1);
-
-            Assert.Equal(expected: 77, actual: result);
-        }
-        finally
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: previousValue);
-        }
+        Assert.Equal(expected: 77, actual: result);
     }
 
-    [Fact]
-    public void ZeroCommandLineReturnsZeroWhenEnvironmentVariableNotSet()
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    [InlineData(-5)]
+    [InlineData(int.MinValue)]
+    public void NonPositiveCommandLineReturnsZeroWhenEnvironmentVariableNotSet(int buildNumber)
     {
-        string? previousValue = Environment.GetEnvironmentVariable(BuildNumberEnvVar);
+        int result = RunWithBuildNumberEnvVar(
+            value: null,
+            act: () => FunFair.BuildVersion.Program.FindBuildNumber(buildNumber)
+        );
 
-        try
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: null);
-
-            int result = FunFair.BuildVersion.Program.FindBuildNumber(0);
-
-            Assert.Equal(expected: 0, actual: result);
-        }
-        finally
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: previousValue);
-        }
+        Assert.Equal(expected: 0, actual: result);
     }
 
-    [Fact]
-    public void NegativeCommandLineReturnsZeroWhenEnvironmentVariableNotSet()
+    [Theory]
+    [InlineData("not-a-number")]
+    [InlineData("   ")]
+    public void UnparseableEnvironmentVariableReturnsZero(string envVarValue)
     {
-        string? previousValue = Environment.GetEnvironmentVariable(BuildNumberEnvVar);
+        int result = RunWithBuildNumberEnvVar(
+            value: envVarValue,
+            act: () => FunFair.BuildVersion.Program.FindBuildNumber(0)
+        );
 
-        try
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: null);
-
-            int result = FunFair.BuildVersion.Program.FindBuildNumber(-5);
-
-            Assert.Equal(expected: 0, actual: result);
-        }
-        finally
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: previousValue);
-        }
-    }
-
-    [Fact]
-    public void InvalidEnvironmentVariableReturnsZero()
-    {
-        string? previousValue = Environment.GetEnvironmentVariable(BuildNumberEnvVar);
-
-        try
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: "not-a-number");
-
-            int result = FunFair.BuildVersion.Program.FindBuildNumber(0);
-
-            Assert.Equal(expected: 0, actual: result);
-        }
-        finally
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: previousValue);
-        }
-    }
-
-    [Fact]
-    public void WhitespaceOnlyEnvironmentVariableReturnsZero()
-    {
-        string? previousValue = Environment.GetEnvironmentVariable(BuildNumberEnvVar);
-
-        try
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: "   ");
-
-            int result = FunFair.BuildVersion.Program.FindBuildNumber(0);
-
-            Assert.Equal(expected: 0, actual: result);
-        }
-        finally
-        {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: previousValue);
-        }
+        Assert.Equal(expected: 0, actual: result);
     }
 
     [Fact]
     public void EnvironmentVariableSetToZeroReturnsZero()
     {
+        int result = RunWithBuildNumberEnvVar(value: "0", act: () => FunFair.BuildVersion.Program.FindBuildNumber(0));
+
+        Assert.Equal(expected: 0, actual: result);
+    }
+
+    private static int RunWithBuildNumberEnvVar(string? value, Func<int> act)
+    {
         string? previousValue = Environment.GetEnvironmentVariable(BuildNumberEnvVar);
 
         try
         {
-            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: "0");
+            Environment.SetEnvironmentVariable(variable: BuildNumberEnvVar, value: value);
 
-            int result = FunFair.BuildVersion.Program.FindBuildNumber(0);
-
-            Assert.Equal(expected: 0, actual: result);
+            return act();
         }
         finally
         {
