@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using FunFair.BuildVersion.Services;
 using FunFair.Test.Common;
@@ -73,11 +73,6 @@ public sealed class LoggerProxyTests : TestBase
     }
 
     [Fact]
-    [SuppressMessage(
-        category: "codecracker.CSharp",
-        checkId: "CSE007:DisposableVariableShouldBeDisposed",
-        Justification = "NSubstitute Received verification returns the mock scope; disposal is handled via the fakeScope variable"
-    )]
     public void BeginScopeDelegatesToUnderlyingLogger()
     {
         ILogger underlying = TestBase.GetSubstitute<ILogger>();
@@ -89,7 +84,8 @@ public sealed class LoggerProxyTests : TestBase
         using IDisposable? result = proxy.BeginScope("state");
 
         Assert.Equal(expected: fakeScope, actual: result);
-        underlying.Received(1).BeginScope("state");
+
+        using IDisposable? verifyScope = underlying.Received(1).BeginScope("state");
     }
 
     [Fact]
