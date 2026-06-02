@@ -70,6 +70,52 @@ public sealed class ProgramMainTests : TestBase
     }
 
     [Fact]
+    public async ValueTask MainWithCorruptGitRepo_CatchesAndReturnsError()
+    {
+        string tempDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+        Directory.CreateDirectory(tempDir);
+
+        try
+        {
+            // Create a .git directory with only the HEAD file pointing nowhere,
+            // causing LibGit2Sharp to throw when trying to open the repository.
+            string gitDir = Path.Combine(tempDir, ".git");
+            Directory.CreateDirectory(gitDir);
+            await File.WriteAllTextAsync(
+                path: Path.Combine(gitDir, "HEAD"),
+                contents: "ref: refs/heads/main\n",
+                cancellationToken: TestContext.Current.CancellationToken
+            );
+
+            string originalDirectory = Environment.CurrentDirectory;
+
+            try
+            {
+                Environment.CurrentDirectory = tempDir;
+
+                using ConsoleCapture capture = new();
+
+                int result = await FunFair.BuildVersion.Program.Main(ValidBuildNumberArgs);
+
+                Assert.Equal(expected: 1, actual: result);
+                Assert.Contains(
+                    expectedSubstring: "ERROR:",
+                    actualString: capture.StdOut,
+                    comparisonType: StringComparison.Ordinal
+                );
+            }
+            finally
+            {
+                Environment.CurrentDirectory = originalDirectory;
+            }
+        }
+        finally
+        {
+            Directory.Delete(path: tempDir, recursive: true);
+        }
+    }
+
+    [Fact]
     public async ValueTask MainWithGithubTokenAndNoOriginRemote_ReturnsSuccess()
     {
         string tempDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());

@@ -114,8 +114,10 @@ internal static class Program
         {
             Console.WriteLine($"{VersionInformation.Product} {VersionInformation.Version}");
 
-            return await Parser
-                .Default.ParseArguments<Options>(args)
+            using Parser parser = new(settings => settings.HelpWriter = Console.Out);
+
+            return await parser
+                .ParseArguments<Options>(args)
                 .MapResult(parsedFunc: ParsedOkAsync, notParsedFunc: NotParsedAsync);
         }
         catch (Exception exception)
