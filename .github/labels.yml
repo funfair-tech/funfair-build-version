@@ -86,6 +86,10 @@
    color: "0e8a16"
    description: "Changes in FunFair.BuildVersion.Publishers.Tests project"
 
+ - name: "funfair-buildversion-tests"
+   color: "0e8a16"
+   description: "Changes in FunFair.BuildVersion.Tests project"
+
  - name: "github-actions"
    color: "e09cf4"
    description: "Github actions workflow files"

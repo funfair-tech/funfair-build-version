@@ -28,6 +28,8 @@
  - any: [ 'src/$FunFair.BuildVersion.Publishers/**/*' ]
 "funfair-buildversion-publishers-tests":
  - any: [ 'src/$FunFair.BuildVersion.Publishers.Tests/**/*' ]
+"funfair-buildversion-tests":
+ - any: [ 'src/$FunFair.BuildVersion.Tests/**/*' ]
 "github-actions":
  - any: [ '.github/actions/*.yml', '.github/workflows/*.yml' ]
 "Markdown":
