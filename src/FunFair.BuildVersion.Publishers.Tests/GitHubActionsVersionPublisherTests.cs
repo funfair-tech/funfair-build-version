@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using FunFair.BuildVersion.Publishers.Tests.Helpers;
 using FunFair.Test.Common;
 using NuGet.Versioning;
 using Xunit;
@@ -8,62 +9,32 @@ namespace FunFair.BuildVersion.Publishers.Tests;
 
 public sealed class GitHubActionsVersionPublisherTests : TestBase
 {
-    private const string EnvVarName = "GITHUB_ENV";
+    private const string ENV_VAR_NAME = "GITHUB_ENV";
 
-    [Fact]
-    public void PublishWhenGithubEnvNotSet_ShouldNotWriteToFile()
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public void PublishWhenGithubEnvNotPresent_ShouldNotWriteToFile(string? envValue)
     {
-        string? originalValue = Environment.GetEnvironmentVariable(EnvVarName);
+        using EnvironmentVariableScope scope = new(variableName: ENV_VAR_NAME, value: envValue);
 
-        try
-        {
-            Environment.SetEnvironmentVariable(variable: EnvVarName, value: null);
+        GitHubActionsVersionPublisher publisher = new();
+        NuGetVersion version = new(major: 1, minor: 2, patch: 3);
 
-            GitHubActionsVersionPublisher publisher = new();
-            NuGetVersion version = new(major: 1, minor: 2, patch: 3);
+        publisher.Publish(version: version);
 
-            publisher.Publish(version: version);
-
-            // No exception and no file created - nothing to assert beyond no crash
-        }
-        finally
-        {
-            Environment.SetEnvironmentVariable(variable: EnvVarName, value: originalValue);
-        }
-    }
-
-    [Fact]
-    public void PublishWhenGithubEnvSetToEmptyString_ShouldNotWriteToFile()
-    {
-        string? originalValue = Environment.GetEnvironmentVariable(EnvVarName);
-
-        try
-        {
-            Environment.SetEnvironmentVariable(variable: EnvVarName, value: string.Empty);
-
-            GitHubActionsVersionPublisher publisher = new();
-            NuGetVersion version = new(major: 1, minor: 2, patch: 3);
-
-            publisher.Publish(version: version);
-
-            // No exception and no file created - nothing to assert beyond no crash
-        }
-        finally
-        {
-            Environment.SetEnvironmentVariable(variable: EnvVarName, value: originalValue);
-        }
+        // No exception and no file created - nothing to assert beyond no crash
     }
 
     [Fact]
     public void PublishWhenGithubEnvSet_ShouldAppendVersionToFile()
     {
-        string? originalValue = Environment.GetEnvironmentVariable(EnvVarName);
         string tempFile = Path.GetTempFileName();
+
+        using EnvironmentVariableScope scope = new(variableName: ENV_VAR_NAME, value: tempFile);
 
         try
         {
-            Environment.SetEnvironmentVariable(variable: EnvVarName, value: tempFile);
-
             GitHubActionsVersionPublisher publisher = new();
             NuGetVersion version = new(major: 1, minor: 2, patch: 3);
 
@@ -78,8 +49,6 @@ public sealed class GitHubActionsVersionPublisherTests : TestBase
         }
         finally
         {
-            Environment.SetEnvironmentVariable(variable: EnvVarName, value: originalValue);
-
             if (File.Exists(tempFile))
             {
                 File.Delete(tempFile);
