@@ -22,6 +22,8 @@
  - any: [ 'src/$FunFair.BuildVersion.Detection.Tests/**/*' ]
 "funfair-buildversion-gittagbuildnumber":
  - any: [ 'src/$FunFair.BuildVersion.GitTagBuildNumber/**/*' ]
+"funfair-buildversion-gittagbuildnumber-tests":
+ - any: [ 'src/$FunFair.BuildVersion.GitTagBuildNumber.Tests/**/*' ]
 "funfair-buildversion-interfaces":
  - any: [ 'src/$FunFair.BuildVersion.Interfaces/**/*' ]
 "funfair-buildversion-publishers":
