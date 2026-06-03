@@ -28,21 +28,35 @@ public static class BuildTagNumber
         CancellationToken cancellationToken
     )
     {
-        using (HttpClient httpClient = CreateClient(context))
-        {
-            int currentVersion = await GetCurrentAsync(
-                context: context,
-                httpClient: httpClient,
-                cancellationToken: cancellationToken
-            );
+        using SocketsHttpHandler messageHandler = new();
 
-            return await SetCurrentVersionAsync(
-                context: context,
-                nextBuildNumber: ++currentVersion,
-                httpClient: httpClient,
-                cancellationToken: cancellationToken
-            );
-        }
+        return await GetNextBuildNumberAsync(
+            context: context,
+            messageHandler: messageHandler,
+            cancellationToken: cancellationToken
+        );
+    }
+
+    internal static async ValueTask<int> GetNextBuildNumberAsync(
+        GitHubContext context,
+        HttpMessageHandler messageHandler,
+        CancellationToken cancellationToken
+    )
+    {
+        using HttpClient httpClient = CreateClient(context: context, messageHandler: messageHandler);
+
+        int currentVersion = await GetCurrentAsync(
+            context: context,
+            httpClient: httpClient,
+            cancellationToken: cancellationToken
+        );
+
+        return await SetCurrentVersionAsync(
+            context: context,
+            nextBuildNumber: ++currentVersion,
+            httpClient: httpClient,
+            cancellationToken: cancellationToken
+        );
     }
 
     private static async ValueTask<int> GetCurrentAsync(
@@ -200,9 +214,9 @@ public static class BuildTagNumber
         );
     }
 
-    private static HttpClient CreateClient(in GitHubContext context)
+    private static HttpClient CreateClient(in GitHubContext context, HttpMessageHandler messageHandler)
     {
-        HttpClient client = new()
+        HttpClient client = new(messageHandler, disposeHandler: false)
         {
             BaseAddress = new("https://api.github.com/"),
             DefaultRequestVersion = new(major: 2, minor: 0),
