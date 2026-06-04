@@ -12,6 +12,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Added unit tests for FunFair.BuildVersion to increase code coverage to 100%
 - Added unit tests for FunFair.BuildVersion.GitTagBuildNumber to increase code coverage to 100%
 - Added unit tests for FunFair.BuildVersion.Publishers to increase code coverage to 100%
+- Increased code coverage for FunFair.BuildVersion.Detection to 100%
 ### Fixed
 - Fixed CommandLine Parser not being disposed after argument parsing
 ### Changed
