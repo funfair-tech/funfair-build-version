@@ -22,11 +22,13 @@ public sealed class GitBranchDiscovery : IBranchDiscovery
         ILogger<GitBranchDiscovery> logger
     )
     {
-        this._branchClassification =
-            branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
-        this._externalBranchLocators =
-            externalBranchLocators ?? throw new ArgumentNullException(nameof(externalBranchLocators));
-        this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        ArgumentNullException.ThrowIfNull(branchClassification);
+        ArgumentNullException.ThrowIfNull(externalBranchLocators);
+        ArgumentNullException.ThrowIfNull(logger);
+
+        this._branchClassification = branchClassification;
+        this._externalBranchLocators = externalBranchLocators;
+        this._logger = logger;
     }
 
     public string FindCurrentBranch(Repository repository)

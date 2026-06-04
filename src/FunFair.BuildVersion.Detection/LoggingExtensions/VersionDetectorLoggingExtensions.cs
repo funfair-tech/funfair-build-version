@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Microsoft.Extensions.Logging;
 using NuGet.Versioning;
 
@@ -24,7 +23,6 @@ internal static partial class VersionDetectorLoggingExtensions
     }
 
     [LoggerMessage(EventId = 4, Level = LogLevel.Debug, Message = "* {branch}")]
-    [Conditional("DEBUG")]
     public static partial void LogFoundBranch(this ILogger<VersionDetector> logger, string branch);
 
     [LoggerMessage(EventId = 3, Level = LogLevel.Information, Message = "Build Pre-Release Suffix: {suffix}")]

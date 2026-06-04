@@ -26,10 +26,13 @@ public sealed class VersionDetector : IVersionDetector
         ILogger<VersionDetector> logger
     )
     {
-        this._branchDiscovery = branchDiscovery ?? throw new ArgumentNullException(nameof(branchDiscovery));
-        this._branchClassification =
-            branchClassification ?? throw new ArgumentNullException(nameof(branchClassification));
-        this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        ArgumentNullException.ThrowIfNull(branchDiscovery);
+        ArgumentNullException.ThrowIfNull(branchClassification);
+        ArgumentNullException.ThrowIfNull(logger);
+
+        this._branchDiscovery = branchDiscovery;
+        this._branchClassification = branchClassification;
+        this._logger = logger;
     }
 
     public NuGetVersion FindVersion(Repository repository, int buildNumber)
