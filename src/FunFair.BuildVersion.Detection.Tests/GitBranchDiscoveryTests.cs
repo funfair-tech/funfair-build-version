@@ -71,14 +71,11 @@ public sealed class GitBranchDiscoveryTests : LoggingFolderCleanupTestBase
         // External locator returns same name as the actual HEAD branch,
         // so IsMatchingPullRequestBranch will not find a candidate with a different name
         externalLocator.CurrentBranch.Returns(headBranchName);
-        branchClassification
-            .IsPullRequest(currentBranch: headBranchName, out Arg.Any<long>())
-            .Returns(x =>
-            {
-                x[1] = 42L;
-
-                return true;
-            });
+        MockBranchClassificationIsPullRequest(
+            branchClassification: branchClassification,
+            currentBranch: headBranchName,
+            pullRequestId: 42L
+        );
 
         GitBranchDiscovery discovery = new(
             branchClassification: branchClassification,
@@ -103,14 +100,11 @@ public sealed class GitBranchDiscoveryTests : LoggingFolderCleanupTestBase
         // External locator returns a name different from the actual HEAD branch,
         // so the HEAD branch will be found as a matching candidate (same SHA, different name)
         externalLocator.CurrentBranch.Returns("pr-42");
-        branchClassification
-            .IsPullRequest(currentBranch: "pr-42", out Arg.Any<long>())
-            .Returns(x =>
-            {
-                x[1] = 42L;
-
-                return true;
-            });
+        MockBranchClassificationIsPullRequest(
+            branchClassification: branchClassification,
+            currentBranch: "pr-42",
+            pullRequestId: 42L
+        );
         branchClassification.IsRelease(branchName: headBranchName, out Arg.Any<NuGetVersion?>()).Returns(false);
 
         GitBranchDiscovery discovery = new(
@@ -134,14 +128,11 @@ public sealed class GitBranchDiscoveryTests : LoggingFolderCleanupTestBase
         IExternalBranchLocator externalLocator = GetSubstitute<IExternalBranchLocator>();
 
         externalLocator.CurrentBranch.Returns("pr-42");
-        branchClassification
-            .IsPullRequest(currentBranch: "pr-42", out Arg.Any<long>())
-            .Returns(x =>
-            {
-                x[1] = 42L;
-
-                return true;
-            });
+        MockBranchClassificationIsPullRequest(
+            branchClassification: branchClassification,
+            currentBranch: "pr-42",
+            pullRequestId: 42L
+        );
         branchClassification
             .IsRelease(branchName: headBranchName, out Arg.Any<NuGetVersion?>())
             .Returns(x =>
@@ -227,6 +218,22 @@ public sealed class GitBranchDiscoveryTests : LoggingFolderCleanupTestBase
             collection: branches,
             filter: static b => b.StartsWith(value: "origin/", comparisonType: StringComparison.OrdinalIgnoreCase)
         );
+    }
+
+    private static void MockBranchClassificationIsPullRequest(
+        IBranchClassification branchClassification,
+        string currentBranch,
+        long pullRequestId
+    )
+    {
+        branchClassification
+            .IsPullRequest(currentBranch: currentBranch, out Arg.Any<long>())
+            .Returns(x =>
+            {
+                x[1] = pullRequestId;
+
+                return true;
+            });
     }
 
     private static async Task<Repository> CreateRepoWithCommitAsync(string path)
