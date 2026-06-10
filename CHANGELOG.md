@@ -16,8 +16,8 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Fixed
 - Fixed CommandLine Parser not being disposed after argument parsing
 ### Changed
-- SDK - Updated DotNet SDK to 10.0.300
 - Updated FunFair.Test.Common to 6.2.25.2243 in all test projects
+- SDK - Updated DotNet SDK to 10.0.301
 ### Deprecated
 ### Removed
 ### Deployment Changes
