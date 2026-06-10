@@ -4,4 +4,6 @@
         <!-- Acts as a fallback or primary source for SolutionDir -->
         <SolutionDir Condition="'$(SolutionDir)' == ''">$(MSBuildThisFileDirectory)</SolutionDir>
     </PropertyGroup>
+
+    <Import Project="$(SolutionDir)Packaging.props" Condition="Exists('$(SolutionDir)Packaging.props')" />
 </Project>
