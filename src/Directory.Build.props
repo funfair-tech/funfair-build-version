@@ -1,13 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <Project>
-    <!-- Sarif -->
-    <PropertyGroup Condition="$(EnableSarif)=='True' And !$(MSBuildProjectName.EndsWith('.Tests'))">
-        <ErrorLog>$(SolutionDir)\..\results\$(MSBuildProjectName).sarif,version=2.1</ErrorLog>
-    </PropertyGroup>
-    
-    <!-- Code analysis analyzer - report timings -->
-    <PropertyGroup Condition="$(EnableSarif)=='True' And !$(MSBuildProjectName.EndsWith('.Tests'))">
-        <ReportAnalyzer>true</ReportAnalyzer>
+    <!-- Ensure that SolutionDir is defined, as some build environments (e.g. dotnet watch) do not set it by default -->
+    <PropertyGroup>
+        <!-- Acts as a fallback or primary source for SolutionDir -->
+        <SolutionDir Condition="'$(SolutionDir)' == ''">$(MSBuildThisFileDirectory)</SolutionDir>
     </PropertyGroup>
 </Project>
