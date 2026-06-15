@@ -4,7 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using FunFair.BuildVersion.Interfaces;
 using FunFair.Test.Common;
-using FunFair.Test.Common.Mocks;
+using FunFair.Test.Infrastructure.Mocks;
 using LibGit2Sharp;
 using NSubstitute;
 using NuGet.Versioning;
