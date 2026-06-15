@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using FunFair.BuildVersion.Interfaces;
 using FunFair.Test.Common;
-using FunFair.Test.Common.Mocks;
 using LibGit2Sharp;
 using NSubstitute;
 using NuGet.Versioning;

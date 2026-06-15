@@ -19,6 +19,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 ### Changed
 - Updated FunFair.Test.Common to 6.2.25.2243 in all test projects
 - SDK - Updated DotNet SDK to 10.0.301
+- Replace local EnvironmentVariableScope with shared version from FunFair.Test.Common
 ### Deprecated
 ### Removed
 ### Deployment Changes

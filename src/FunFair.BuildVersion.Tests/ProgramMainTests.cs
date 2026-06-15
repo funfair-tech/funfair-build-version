@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using FunFair.BuildVersion.Tests.Helpers;
 using FunFair.Test.Common;
-using FunFair.Test.Common.Mocks;
+using FunFair.Test.Infrastructure.Mocks;
 using LibGit2Sharp;
 using Xunit;
 
