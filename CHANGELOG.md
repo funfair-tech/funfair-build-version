@@ -8,6 +8,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 
 ## [Unreleased]
 ### Security
+- Updated Microsoft.Extensions packages to 10.0.9 and dropped .NET 9 support to resolve CVE-2026-32175, CVE-2026-32178, and CVE-2026-42899
 ### Added
 - Added unit tests for FunFair.BuildVersion to increase code coverage to 100%
 - Added unit tests for FunFair.BuildVersion.GitTagBuildNumber to increase code coverage to 100%
