@@ -14,12 +14,14 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Added unit tests for FunFair.BuildVersion.GitTagBuildNumber to increase code coverage to 100%
 - Added unit tests for FunFair.BuildVersion.Publishers to increase code coverage to 100%
 - Increased code coverage for FunFair.BuildVersion.Detection to 100%
+- Added FunFair.Test.Infrastructure 6.3.1.2342 to test projects using MockDateTimeSources
 ### Fixed
 - Fixed CommandLine Parser not being disposed after argument parsing
 ### Changed
-- Updated FunFair.Test.Common to 6.2.25.2243 in all test projects
 - SDK - Updated DotNet SDK to 10.0.301
 - Replace local EnvironmentVariableScope with shared version from FunFair.Test.Common
+- Updated FunFair.Test.Common to 6.3.1.2342 in all test projects
+- Updated FunFair.Test.Source.Generator to 6.3.1.2342 in all test projects
 ### Deprecated
 ### Removed
 ### Deployment Changes
