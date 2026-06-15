@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using FunFair.BuildVersion.Services;
-using FunFair.BuildVersion.Tests.Helpers;
 using FunFair.Test.Common;
+using FunFair.Test.Infrastructure.Helpers;
 using Microsoft.Extensions.Logging;
 using Xunit;
 

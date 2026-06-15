@@ -22,6 +22,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Replace local EnvironmentVariableScope with shared version from FunFair.Test.Common
 - Updated FunFair.Test.Common to 6.3.1.2342 in all test projects
 - Updated FunFair.Test.Source.Generator to 6.3.1.2342 in all test projects
+- Replace local ConsoleCapture test helpers with FunFair.Test.Infrastructure.Helpers.ConsoleCapture
 ### Deprecated
 ### Removed
 ### Deployment Changes

@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading.Tasks;
-using FunFair.BuildVersion.Tests.Helpers;
 using FunFair.Test.Common;
+using FunFair.Test.Infrastructure.Helpers;
 using FunFair.Test.Infrastructure.Mocks;
 using LibGit2Sharp;
 using Xunit;
