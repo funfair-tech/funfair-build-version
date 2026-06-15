@@ -1,7 +1,7 @@
 using System;
-using FunFair.BuildVersion.Publishers.Tests.Helpers;
 using FunFair.Test.Common;
 using FunFair.Test.Common.Helpers;
+using FunFair.Test.Infrastructure.Helpers;
 using NuGet.Versioning;
 using Xunit;
 
