@@ -1,6 +1,6 @@
 ﻿using FunFair.BuildVersion.Detection.ExternalBranchLocators;
-using FunFair.BuildVersion.Detection.Tests.Helpers;
 using FunFair.Test.Common;
+using FunFair.Test.Common.Helpers;
 using Xunit;
 
 namespace FunFair.BuildVersion.Detection.Tests;

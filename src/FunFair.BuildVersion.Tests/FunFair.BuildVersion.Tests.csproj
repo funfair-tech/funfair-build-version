@@ -52,7 +52,8 @@
     <ProjectReference Include="..\FunFair.BuildVersion\FunFair.BuildVersion.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FunFair.Test.Common" Version="6.2.25.2243" />
+    <PackageReference Include="FunFair.Test.Common" Version="6.3.1.2342" />
+    <PackageReference Include="FunFair.Test.Infrastructure" Version="6.3.1.2342" />
     <PackageReference Include="NSubstitute" Version="5.3.0" />
     <PackageReference Include="xunit.v3.mtp-v2" Version="3.2.2" />
   </ItemGroup>
@@ -62,7 +63,7 @@
     <PackageReference Include="Credfeto.Enumeration.Source.Generation" Version="1.2.127.1366" PrivateAssets="All" ExcludeAssets="runtime" />
     <PackageReference Include="CSharpIsNullAnalyzer" Version="0.1.593" PrivateAssets="all" ExcludeAssets="runtime" />
     <PackageReference Include="FunFair.CodeAnalysis" Version="7.1.23.1420" PrivateAssets="All" ExcludeAssets="runtime" />
-    <PackageReference Include="FunFair.Test.Source.Generator" Version="6.2.25.2243" PrivateAssets="All" ExcludeAssets="runtime" />
+    <PackageReference Include="FunFair.Test.Source.Generator" Version="6.3.1.2342" PrivateAssets="All" ExcludeAssets="runtime" />
     <PackageReference Include="Meziantou.Analyzer" Version="2.0.215" PrivateAssets="All" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" PrivateAssets="All" ExcludeAssets="runtime" />
     <PackageReference Include="NSubstitute.Analyzers.CSharp" Version="1.0.17" PrivateAssets="All" ExcludeAssets="runtime" />
