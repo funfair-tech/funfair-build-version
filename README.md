@@ -13,16 +13,16 @@ Simpler/faster git specific version builder
 
 View [changelog](CHANGELOG.md)
 
-[CHANGELOG]: ./CHANGELOG.md
-
 ## Installation
 
 ### Install as a global tool
+
 ```shell
 dotnet tool install FunFair.BuildVersion
 ```
 
 To update to latest released version
+
 ```shell
 dotnet tool update FunFair.BuildVersion
 ```
@@ -35,6 +35,7 @@ dotnet tool install FunFair.BuildVersion --local
 ```
 
 To update to latest released version
+
 ```shell
 dotnet tool update FunFair.BuildVersion --local
 ```
@@ -60,11 +61,11 @@ Supports release and hotfix branches in the following formats
 
 ### Output Release Formats
 
-* Release branches: 1.2.3.4; 
-  - where 4 is a build number passed to the tool
+* Release branches: 1.2.3.4;
+  * where 4 is a build number passed to the tool
 * Pre-Release branches 1.2.3.4-tag
-  - where `4` is a build number passed to the tool
-  - where ``tag`` is generated from the branch name (or matching branch for a pull request if it can be located)
+  * where `4` is a build number passed to the tool
+  * where ``tag`` is generated from the branch name (or matching branch for a pull request if it can be located)
 
 Tag restrictions
 
@@ -77,7 +78,7 @@ Tag restrictions
 
 ### Command line arguments
 
-```
+```text
   -x, --WarningsAsErrors    (Default: false) Whether warnings should be errors
   -b, --BuildNumber         (Default: -1) The build number (use BUILD_NUMBER envrionment variable)
   -s, --ReleaseSuffix       (Default: ) The release suffix
@@ -85,8 +86,6 @@ Tag restrictions
   --help                    Display this help screen.
   --version                 Display version information.
 ```
-
-
 
 #### Running without arguments
 
