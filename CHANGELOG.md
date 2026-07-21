@@ -38,6 +38,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Microsoft.Extensions to 10.0.10
 - Dependencies - Updated NSubstitute to 6.0.0
 - Dependencies - Updated NuGet to 7.6.0
+- Dependencies - Updated FunFair.CodeAnalysis to 7.2.11.2216
 ### Deprecated
 ### Removed
 ### Deployment Changes
