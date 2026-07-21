@@ -43,6 +43,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated FunFair.CodeAnalysis to 7.2.11.2216
 - Removed InternalsVisibleTo usage from FunFair.BuildVersion and FunFair.BuildVersion.GitTagBuildNumber, widening the public surface of Program, GitUrlProtocolRegex and the BuildTagNumber HTTP test seam so tests no longer rely on cross-assembly internals access
 - Dependencies - Updated Meziantou.Analyzer to 3.0.124
+- Dependencies - Updated FunFair.Test to 6.3.6.2484
 ### Deprecated
 ### Removed
 ### Deployment Changes
