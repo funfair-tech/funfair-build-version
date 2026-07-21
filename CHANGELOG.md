@@ -34,6 +34,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated Roslynator.Analyzers to 4.15.0
 - Dependencies - Updated SonarAnalyzer.CSharp to 10.29.0.143774
 - Dependencies - Updated Credfeto.Extensions.Linq to 1.0.158.1892
+- Dependencies - Updated FunFair.Test.Source.Generator to 6.3.6.2484
 ### Deprecated
 ### Removed
 ### Deployment Changes
