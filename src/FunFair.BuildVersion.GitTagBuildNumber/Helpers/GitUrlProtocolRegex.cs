@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace FunFair.BuildVersion.GitTagBuildNumber.Helpers;
 
-internal static partial class GitUrlProtocolRegex
+public static partial class GitUrlProtocolRegex
 {
     private const RegexOptions REGEX_OPTIONS =
         RegexOptions.Compiled

@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
 <!--
 Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 -->
@@ -39,6 +42,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NSubstitute to 6.0.0
 - Dependencies - Updated NuGet to 7.6.0
 - Dependencies - Updated FunFair.CodeAnalysis to 7.2.11.2216
+- Removed InternalsVisibleTo usage from FunFair.BuildVersion and FunFair.BuildVersion.GitTagBuildNumber, widening the public surface of Program, GitUrlProtocolRegex and the BuildTagNumber HTTP test seam so tests no longer rely on cross-assembly internals access
 ### Deprecated
 ### Removed
 ### Deployment Changes
@@ -401,7 +405,7 @@ Releases that have at least been deployed to staging, BUT NOT necessarily releas
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.18.0.27296
 - FF-1429 - Updated FunFair.CodeAnalysis to 5.1.0.658
 
-## [2.0.0] 2020-11-20
+## [2.0.0] - 2020-11-20
 ### Changed
 - FF-1429 - Updated Microsoft.Extensions to 5.0.0
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 16.8.55
@@ -410,16 +414,16 @@ Releases that have at least been deployed to staging, BUT NOT necessarily releas
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 16.8.51
 - Converted to .NET 5.0
 
-## [1.16.0] 2020-10-25
+## [1.16.0] - 2020-10-25
 ### Changed
 - FF-1429 - Updated Microsoft.VisualStudio.Threading.Analyzers to 16.8.50
 - FF-1429 - Updated FunFair.CodeAnalysis to 1.15.0.518
 
-## [1.15.0] 2020-10-12
+## [1.15.0] - 2020-10-12
 ### Changed
 - FF-2930 - Updated to .net core 3.1.403
 
-## [1.14.0] 2020-10-12
+## [1.14.0] - 2020-10-12
 ### Fixed
 - PR's on a release or hotfix branch should not be labeled as a release.
 ### Changed
@@ -430,7 +434,7 @@ Releases that have at least been deployed to staging, BUT NOT necessarily releas
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.13.1.21947
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.13.0.21683
 
-## [1.13.0] 2020-09-09
+## [1.13.0] - 2020-09-09
 ### Changed
 - FF-2830 - Update all the .NET components to .NET Core 3.1.402
 - FF-1429 - Updated FunFair.CodeAnalysis to 1.11.0.424
@@ -439,7 +443,7 @@ Releases that have at least been deployed to staging, BUT NOT necessarily releas
 - FF-1429 - Updated FunFair.CodeAnalysis to 1.10.0.414
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.12.0.21095
 
-## [1.12.0] 2020-08-12
+## [1.12.0] - 2020-08-12
 ### Changed
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.11.0.20529
 - FF-1429 - Updated Microsoft.CodeAnalysis.FxCopAnalyzers to 3.3.0
@@ -447,9 +451,7 @@ Releases that have at least been deployed to staging, BUT NOT necessarily releas
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.10.0.19839
 - FF-2759 - Updated to .net core 3.1.401
 
-## [1.11.0] 2020-07-21
-### Added
-### Fixed
+## [1.11.0] - 2020-07-21
 ### Changed
 - FF-1429 - Updated FunFair.CodeAnalysis to 1.8.0.375
 - FF-1429 - Updated FunFair.CodeAnalysis to 1.7.2.364
@@ -461,61 +463,59 @@ Releases that have at least been deployed to staging, BUT NOT necessarily releas
 - FF-1429 - Updated FunFair.CodeAnalysis to 1.5.0.314
 - FF-2652 - Update all the .NET components to .NET Core 3.1.302
 
-## [1.10.0] 2020-06-18
+## [1.10.0] - 2020-06-18
 ### Changed
 - FF-2488 - Updated packages and global.json to net core 3.1.301
 - FF-1429 - Updated SonarAnalyzer.CSharp to 8.8.0.18411
 - FF-1429 - Updated AsyncFixer to 1.3.0
 - FF-1429 - Updated AsyncFixer to 1.1.8
 
-## [1.9.2] 2020-05-20
+## [1.9.2] - 2020-05-20
 ### Changed
 - Removed '-feature' prefix from feature branches so can get more content in the name.
 
-## [1.9.1] 2020-05-19
+## [1.9.1] - 2020-05-19
 ### Changed
 - FF-2386 - Update all the .NET components to .NET Core 3.1.202
 
-## [1.9.0] 2020-05-06
+## [1.9.0] - 2020-05-06
 ### Changed
 - Replaced PR number in pre-release with Branch name where it can be found.
 
-## [1.8.0] 2020-04-26
+## [1.8.0] - 2020-04-26
 ### Changed
 - Switched from being a nuget tool to being a dotnet tool
 
-## [1.7.0] 2020-03-30
+## [1.7.0] - 2020-03-30
 ### Changed
 - FF-2127 - dotnet core upgraded to 3.1.201
 
-## [1.6.0] 2020-02-24
+## [1.6.0] - 2020-02-24
 ### Changed
 - Switch to use LibGit2Sharp rather than shelling out to git.exe
 
-## [1.5.0] 2019-12-12
+## [1.5.0] - 2019-12-12
 ### Changed
 - FF-1260 - Updated to .net core SDK 3.1.100
 
-## [1.4.0] 2019-09-18
+## [1.4.0] - 2019-09-18
 ### Changed
 - FF-864 - Update to VS2019 and .net core SDK 2.2.6 SDK 2.2.301
 - FF-950 - Updated to .net core 2.2.402
 
-
-## [1.3.0] 2019-07-12
+## [1.3.0] - 2019-07-12
 ### Changed
 - FF-864 - Update to VS2019 and .net core SDK 2.2.6 SDK 2.2.301
 
-## [1.2.0] 2019-05-15
+## [1.2.0] - 2019-05-15
 ### Changed
 - Updated to .net core 2.2.
 
-
-## [1.1.0] 2019-02-15
+## [1.1.0] - 2019-02-15
 ### Changed
 - Updated to .net core 2.2.
 
-## [1.0.0] 2018-11-26
+## [1.0.0] - 2018-11-26
 ### Changed
 - Updated FxCop version to 2.6.2
 - Updated .net core 2.1 to latest LTS version

@@ -37,7 +37,7 @@ public static class BuildTagNumber
         );
     }
 
-    internal static async ValueTask<int> GetNextBuildNumberAsync(
+    public static async ValueTask<int> GetNextBuildNumberAsync(
         GitHubContext context,
         HttpMessageHandler messageHandler,
         CancellationToken cancellationToken
