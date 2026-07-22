@@ -16,7 +16,7 @@ using NuGet.Versioning;
 
 namespace FunFair.BuildVersion;
 
-internal static class Program
+public static class Program
 {
     private const int SUCCESS = 0;
     private const int ERROR = 1;
@@ -177,7 +177,7 @@ internal static class Program
         return new(found);
     }
 
-    internal static int FindBuildNumber(int buildNumberFromCommandLine)
+    public static int FindBuildNumber(int buildNumberFromCommandLine)
     {
         if (buildNumberFromCommandLine > 0)
         {
