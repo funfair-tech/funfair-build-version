@@ -29,7 +29,6 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated AsyncFixer to 2.1.0
 - Dependencies - Updated Credfeto.Enumeration to 1.2.151.2192
 - Dependencies - Updated Credfeto.Version.Information.Generator to 1.0.135.1491
-- Dependencies - Updated Meziantou.Analyzer to 3.0.123
 - Dependencies - Updated Microsoft.Sbom.Targets to 4.1.5
 - Dependencies - Updated Microsoft.VisualStudio.Threading.Analyzers to 18.7.23
 - Dependencies - Updated Philips.CodeAnalysis.DuplicateCodeAnalyzer to 2.0.0
@@ -43,6 +42,7 @@ Please ADD ALL Changes to the UNRELEASED SECTION and not a specific release
 - Dependencies - Updated NuGet to 7.6.0
 - Dependencies - Updated FunFair.CodeAnalysis to 7.2.11.2216
 - Removed InternalsVisibleTo usage from FunFair.BuildVersion and FunFair.BuildVersion.GitTagBuildNumber, widening the public surface of Program, GitUrlProtocolRegex and the BuildTagNumber HTTP test seam so tests no longer rely on cross-assembly internals access
+- Dependencies - Updated Meziantou.Analyzer to 3.0.124
 ### Deprecated
 ### Removed
 ### Deployment Changes
